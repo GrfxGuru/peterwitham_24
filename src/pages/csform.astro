@@ -1,0 +1,63 @@
+---
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import ContactUs from "../components/widgets/Contact.astro";
+
+const metadata = {
+title: 'Compile Swift Podcast Guest Form',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+  <Hero tagline="">
+    <Fragment slot="title">
+      Compile Swift <br/> Podcast Guest
+    </Fragment>
+  </Hero>
+  <div class="text-center">
+  <p class="font-bold text-xl text-green-500">Would you like to appear on the Compile Swift Podcast?</p><br/>
+  <p>I always look for exciting people and topics. Please fill in the form below.</p>
+  </div>
+  <ContactUs
+    title=""
+    subtitle=""
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Name',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+      },
+      {
+        type: 'text',
+        name: 'shortbio',
+        label: 'Short bio',
+      },
+      {
+        type: 'text',
+        name: 'website',
+        label: 'Web site',
+      },
+      {
+        type: 'text',
+        name: 'socials',
+        label: 'Social media',
+      },
+    ]}
+    textarea={{
+      label: 'Proposed topics to discuss',
+    }}
+    disclaimer={{
+      label:
+        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+    }}
+    description="I try to respond within 48 hours."
+  />
+</Layout>
+

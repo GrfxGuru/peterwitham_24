@@ -1,0 +1,123 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import Button from '~/components/ui/Button.astro';
+import Image from '~/components/common/Image.astro';
+import appStoreImg from '~/assets/images/app-store.png';
+
+const appStoreDownloadLink = 'https://apps.apple.com/us/app/job-finder-tracker/id6446909069';
+
+const metadata = {
+  title: 'Job Tracker Finder',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero2 Widget ******************* -->
+  <Hero2
+    tagline=""
+    image={{
+      src: '/images/projects/jft/screen1.png',
+      alt: 'Job Finder Tracker Hero Image',
+    }}
+  >
+    <Fragment slot="title">
+      <span class="text-accent dark:text-white highlight">Job Finder Tracker</span>: <br /> track job applications <span
+      class="hidden xl:inline">made easy</span
+    >
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Get ahead of the competition and increase your chances of landing your dream job! Download our app today and take control of your job search tracking like never before.
+      </span>
+    </Fragment>
+
+    <div slot="actions" class="flex max-w-sm gap-4">
+      <Button variant="link" href={appStoreDownloadLink}>
+        <Image src={appStoreImg} alt="App Store Image" width={200} />
+      </Button>
+    </div>
+  </Hero2>
+  <!-- Features3 Widget ************** -->
+  <Features3
+    id="features"
+    title="How to use the app?"
+    subtitle=""
+    tagline="Step-by-step guide"
+    columns={2}
+    items={[
+      {
+        title: 'Download and install the app',
+        description: `Download the app from the Apple AppStore. Swipe through the on-boarding screens.`,
+        icon: 'tabler:square-number-1',
+      },
+      {
+        title: 'Add job listings to the app from the home screen.',
+        description:
+          'Use the \'Add\' button and enter the job description details and click save.',
+        icon: 'tabler:square-number-2',
+      },
+      {
+        title: 'Update job listings',
+        description: 'You can update the job description and status at any time to keep track of progress.',
+        icon: 'tabler:square-number-3',
+      },
+      {
+        title: 'Remove job listings with a swipe or delete',
+        description: `When you no longer need to track a job listing, you can delete from the list with swipe.`,
+        icon: 'tabler:square-number-4',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'User-friendly interface',
+        description:
+          'An intuitive and easy-to-navigate interface letting users do what they need to and get back to job searching.',
+        icon: 'tabler:wand',
+      },
+      {
+        title: 'Data backed up to iCloud',
+        description:
+          'Data is stored in your personal iCloud account.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Cross-device sync',
+        description:
+          'If the application is installed on more than one device, the data will sync across all devices.',
+        icon: 'tabler:template',
+      },
+    ]}
+    image={{
+      src: '/images/projects/jft/screen2.png',
+      alt: 'Job Finder Tracker edit job screen',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
+    </Fragment>
+  </Content>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    id="download"
+    title="Download the app now!"
+    subtitle=""
+  >
+    <div slot="actions" class="flex max-w-sm gap-4">
+      <Button variant="link" href={appStoreDownloadLink}>
+        <Image src={appStoreImg} alt="App Store Image" width={200} />
+      </Button>
+    </div>
+  </CallToAction>
+</Layout>

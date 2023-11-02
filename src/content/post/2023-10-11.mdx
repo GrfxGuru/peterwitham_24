@@ -1,0 +1,115 @@
+---
+publishDate: 2023-10-11T00:00:00Z
+title: My Godot game engine experiences
+excerpt: My experiences getting started with the Godot game engine have been excellent and very rewarding. Some observations in this episode.
+image: /images/blog-fi/2023-10-11.jpg
+tags:
+  - godot
+  - game development
+  - podcast
+  - uibuzz
+metadata:
+  canonical: https://peterwitham.com/podcasts/my-godot-game-engine-experiences/
+---
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless src="https://share.transistor.fm/e/3bb96dc6/dark"></iframe>
+
+### Edited Transcription
+
+In this episode, I talk about my experience with the Godot game engine.
+
+So, I have been working with this now, and I want to start by saying I started knowing nothing other than this was a game engine. I think I've used it for about seven or eight hours. And I want to give some thoughts.
+
+First of all, why am I doing this? As I said before, trying out multiple tools to keep options open is always good. The Godot engine is one of those game engines that I was always curious about because so many people use it and like it. Of course, it's essentially licensed-free as it's open source.
+
+As I've said, I urge folks to support your toolmakers. But one of the things I wanted to do with this was like I've done with the other engines as I did with Unreal Engine and Unity, which is to rebuild my Sprite kit-based game that I have on iOS now.
+
+The exciting thing is that just like Unreal and Unity, I can publish to multiple platforms, and there is an immediate payoff. As I've expressed in other episodes and on my Compile Swift, SpriteKit gets very frustrating to work with, and it's not a game engine as much as it is a framework.
+
+My plan of attack for learning Godot game engine
+
+The best way to experience this engine is to come at it from knowing nothing. What I mean by that is using the built-in tools and features and everything else and discovering their benefits, limitations, and all of that stuff.
+
+So, for example, I went with GDScript as my programming language of choice. You can use C++ and, of course, others via plugins.
+
+For me, something I will look at is the Swift binding option. This is very interesting to me as Swift is my primary daily driver. And if I can write Swift, maybe with a bit of inconvenience, but if I can write Swift in Godot, that's perfect for me.
+
+But for now, I went with GDScript so I can understand it. So, let's go through this. I'm rebuilding my endless hurdles game. It's a very simple, straightforward, 2D infinite scroller. The player has simple options for controls. You only really need to jump over things. That kept the control side of something simple. As far as input. Being 2D means I have fewer concerns about dealing with the global space within the game. Also, I'm just coping with 2D sprites, textures, materials, etc.
+
+I used the assets I'd already created for the SpriteKit version. To keep life simple. I Didn't need to rebuild those. The resolution and everything else was good enough.
+
+## Things I like in Godot
+
+The first thing I like about the Godot engine. You just put everything in a bunch of folders as far as assets. You lay them out in a bunch of folders on your file system. Windows, Linux, Mac, whatever.
+
+I went with Mac. You can organize everything in these folders, and Godot keeps itself updated regarding indexing and where things appear. So that's nice. The next thing that struck me was. I had to adapt my brain to the idea that everything is a node.
+
+In other languages and engines, for example, Swift and SpriteKit, you have this idea of a node and attach a bunch of things to it or manipulate a bunch of stuff on that node—same with Unity and Unreal Engine.
+
+You apply and attach it to that node, but it is still part of it. It took me a while to wrap my head around the idea that everything's a node in Godot. So, you have a node within a node. For example, if you've got, let's say, a button, you can put a graphic in there, and there are multiple ways to do this. But you can add a 2D Sprite node and an image to that node. Then that is now part of the button.
+
+So you can end up with these very long. Visually complex trees. Once, it snapped in my brain to think of the root node, and in there is something, say a player. In that player, the node is another node for the animated sprite graphic. There may be a collision area, a hitbox, those kinds of things. So I think you get the idea. They're all nodes within the player node. Once that registered in my brain. It's good to go. Fantastic.
+
+I can drag or add new nodes to something and keep working.
+
+Scripts are different. This was interesting because you add a script in another way to a node via an icon in the inspector.
+
+Once I got that, now I've got this mostly blank script. It took me a little while to remember, to think about it that way. Yes. I'm sure there are other ways, but I'm embracing the ways built into the Godot engine.
+
+Then, it opened up the script.
+
+I guess GDScript is very much like Python, which is the best way for me to describe it.
+
+Spaces or tabs are critical. The exciting thing about that. I like the built-in editor. If you have a mixture of spaces and tabs, it solves that holy war problem for you. You can't have both; you can do it, but it will keep reminding you. Hey, you've got a mixture; pick one. I went with tabs.
+
+And that's interesting because anytime you get code from somewhere, say stack overflow, and you paste the code in, the editor will go, Hey, these are spaces. That's a friendly little reminder. This is forcing me to adopt a good practice of going with one. Stick with it. So I like that.
+
+A lot of Godot is about the little things.
+
+The other thing is it has a lot of built-in functions within the script for sensible helpers. Now, I mean that I did this on live streams every time I tried to solve a problem. The folks in the chat room were constructive. Shout out to you all for helping me adapt.
+
+I was trying to look at it and say, okay, I know I need to achieve this thing I need to have. Suppose this object collides with this object or stuff like that. Godot has this beautiful way of having very sensibly named functions within the language. And these are great.
+
+There is no cryptic name you must research in the documentation for hours and hours to understand what they mean. They're very sensibly named. I loved this. This helped me move along quickly.
+
+I'm seven or eight hours into this and have rebuilt most of the primary game. Fantastic. Absolutely fantastic.
+
+## My advice for transitioning
+
+I'm blown away by how sensible Godot it is to work with. It does require some adaptation if you are used to other game engines or programming languages. All I can give you is my advice to embrace how it wants you to do things. That's just my suggestion.
+
+I think you'll have a quicker transition, like I have.
+
+I'm continuing to move forward with this as my 2D engine of choice for rebuilding my games because I wanted better options for expanding as they go on.
+
+SpriteKit, like I say, is just an exercise in frustration, even though I'm very familiar with Apple's platforms for development. I don't want to build an engine to build my game. I want to develop my game.
+
+The weird bits of Godot game engine
+
+There are some quirks right now. I understand that publishing to the iOS platform is not quite ready in the 4.x versions. I'm using Godot 4.1.1 or something like that.
+
+Whatever the current production version is. And as I understand it, there are some limitations right now. You can't use C++ to publish to mobile platforms. It's just not part of it yet. They're working on it. So there are some gotchas there.
+
+Hundreds of people are working on this engine, and I have found it to be super stable super reliable, and I'm just really impressed with it.
+
+## Final thoughts on Godot game engine
+
+So, in this episode, I just wanted to put this out there to say if you've thought about it and are unsure. Take a deep dive. Go for it. It's a lot easier to work with than it might seem initially if you are already used to programming.
+
+I also think it's good because there are many fantastic resources. If you're making a 2D game, you don't have to deal with issues like 2D in a 3D engine like Unity or Unreal Engine.
+
+I think it's a good option for folks just starting with development.
+
+Building UI systems in Godot is much simpler than other engines from the perspective of building and incorporating; it's just there, and you bring it in.
+
+## Endless Hurdles 1.1 release
+
+I also want to mention that I've just pushed the new version of the Endless Hurdles game on iOS to the store. This SpriteKit version has a brand new Halloween event, which I spent a lot of time working on. Also, I spent a lot of time on the marketing side of things. I went to town on it a bit more. I want to push things further every time I release a new patch. And so that's out there.
+
+The event will automatically activate and deactivate itself. So if you play the free in-game event between October 12th and November 15th, you unlock the Halloween event free forever.
+
+Simple as that. It doesn't cost you anything. It'll just register as being played and stay unlocked after the event.
+
+If you don't play it during the event, the button will disappear after November 15th. So, I advise downloading the gameplay the event at least once.
+
+If you have any thoughts on this, or if you want to talk to me about the Godot game engine. I am very invested in this subject. You can reach out via the contact form or @UIBuzz on Twitter.
