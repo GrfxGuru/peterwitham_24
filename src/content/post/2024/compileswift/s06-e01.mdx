@@ -1,0 +1,77 @@
+---
+publishDate: 2024-01-06T00:00:00Z
+title: First steps with SwiftData
+excerpt: I decided to wait until I had a real need before learning about SwiftData. That time is now.
+image: /images/blog-fi/2024/01-06.jpg
+tags:
+  - podcast
+  - compileswift
+  - swiftdata
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s06-e01
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/46802671"></iframe>
+
+<Player/>
+
+<details>
+  <summary
+      style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Edited Transcription
+ What's up everybody. Welcome to another episode of the composite podcast. I am your host as always Peter Witham. You can find myself and this podcast at [CompileSwift.Com](https://compileswift.com).  Here we are folks. It's 2024 and you know what that means? It's the year of the apple headset. A month or so couple of months away now, depending on the rumors, but we'll see.
+
+ But either way it's coming this year is what they tell us. And it's going to be interesting and I'm going to keep an eye on it. I'm still have not made any apps yet. Although I'm still on a challenge from a friend of mine, friendly developer, shout out to you CocoType. Who has challenged me with an app, which I think is a really good idea. And I'm going to work on that, but I'm not going to give away any details yet. However, I do want to talk about what I did over the Christmas period, which was interesting. I decided to finally sit down and take a look at swift data.
+
+ I felt the time was appropriate. There was no pressure on and I could just play with it now, first of all, Let me give a shout out. I watched a video from Paul Hudson hacking with SwiftUI. And I want to say as always his stuff is fantastic.
+
+ So thank you, Paul, for always putting out. Fantastic content always appreciate that you are such a driving force in the swift community. I watched a live stream that he recorded actually, and I didn't go through it all. I went through enough for what I needed. I just needed to know a few things.  And here's my take on this.
+
+ I want to start by saying that I'm impressed. Okay. Now, Let's clear this up for those of you who don't know, SwiftData currently sits on top of core data. If you know some core data or you are at least familiar with some of the syntax or some of the Phrasing and the way to do things. It's going to seem very similar.
+
+ That's a good thing, right? Because I was able to take what I knew about core data. And the terminology. And move into swift data. Knowing  what some of those things meant. They weren't alien concepts to me. And I was impressed. Now, swift data naturally uses. Macros for just about everything.
+
+ Okay. But what you can do is you can just like with any other macro, you can go into X code and say, Hey, show me the code behind that. So you can learn from it that way. And what you're going to find is a whole bunch of very interesting code. But you will realize, oh, it's acting as an intermediary. And Creating a bunch of core data code for me in the background is basically what happens.
+
+ And again  this is a good thing, folks right now. I'm not going to dive into too many details here, but I want to give you some of the basics to get the concepts across, because I think. If you haven't looked at it yet.  It's worth your time. I will say this. I'm not sure that I would want to go into production with it just yet. But I think you should just like the early days of swift and SwiftUI, Y you should definitely start to get used to this, a lot of the usual things are there.
+
+ Creating entities like you did in core data. Forget that. Okay. You know that the good thing is you don't have to do that. Thank goodness. You can basically build out your model. A very simple model example here.  You create a class. With swift, you give it some properties. And you mark it as a model at model and you import swift data. That's all you got to do.
+
+ Swift data now knows to take that and convert that to entities. And that is our model. It is beautifully simple. Now. Yes, I get it again. I'm going the very simple example here. But the point is don't be afraid of it, if you've ever built a class and swift, and I'm pretty sure that's everybody. There you go.
+
+ You now know how to make your basic models in swift. With core data. Now, the beauty of this too, is if you have say references like a one to many or something like that swift data is going to take care of all of the complexity for you in the background with that. That's another beautiful thing.
+
+ I was very pleasantly surprised how little I had to do to get all the, everything working. And swift data has got my back and  kept track of everything for me. Now, once you've got your models, you go into your SwiftUI based app, like you normally would  in this case of SwiftUI UI app, And you can just start working with that.  You will have a context of course. And what'll happen is you will use that.  You'll reference your models and you will get your data and do whatever you need with your data.
+
+ And in the background. Swift data is going to keep track of all of that for you just like core data. Did. And automatically update everything. Based from your context and it works folks. It really works. I tried to trick it. What I did was I had two entities basically, two models. In my case, I was, I'm working on an app for myself. I've got a model a, which is just a, like I say, a bunch of properties. For our record. And then model B, which is another. Model for another record. But I have multiple copies of B.
+
+ So in this case my model B was payment types, credit card, apple card, cash, PayPal, that kind of thing. Again, very simple list. It had two properties, a name, which was just a string. And an ID to reference it by that's all it's got. So naturally I can have if you think of. Terms of model a. I can have multiple records. Would have one reference, sorry to my payment type.
+
+ So each record would have, like I paid with PayPal. I paid with the apple card and so on. But on the flip side, my model B I could have multiple entries, right? There could be multiple records that you see, like the apple card or the credit card or whatever. And it just works. Swift data knows how to handle all of this in the background. And I thought I would try and catch it out.
+
+ Cause I thought to myself, what happens if I delete one of those records? So if I delete say PayPal what would happen to those records? That reference PayPal? Amazingly. I sweat data. Just take care of it. It just handled it and went back to the default of basically nothing. In this case.  If you think about it in terms of a dropdown, right? My dropdown first value, you said select a card. Second and then all the options, apple, PayPal, and so on.  It just went, it just automatically changed those records that said PayPal. Instead of just erroring out, it, set them back to select a card.
+
+ It just did it for me.  I've got a live stream out there. I'll put a link in the show notes.  It's actually up on YouTube now where you can follow along where I did all of this and you can go into the code and everything else. You'll see it all happen. But it just works folks.  It's amazing to me now. I've spoken with people who know a lot more about swift data than I do.
+
+ Very smart folks. And there are some problems. Okay. And we'll talk about those in the future. And once they bring out their courses and their books and everything else   I'll try to get them on the podcast and. We can talk about them. But there are some gotchas. Now the one that got me was I started by using an enum.  For my payment types, again, apple card. PayPal credit card and so on. Very quickly not so quickly, but realized about 30 minutes later.  All these weird errors. That X code was giving me. Which did nothing to help me understand the problem.
+
+ Let me start by saying that. But again, it's early days. I realized after looking into it and doing some Googling and documents and everything else. Basically at this point, swift data and enums are not friends. So let me warn you right now. Do not use  With sort of data at this point, you're going to get into a world of hurt that's number one, Once I got over that life was great and that's why I created this separate model that had basically some strings and some IDs. Try to make it work with the numbs, but none of the areas actually told me the numb was a problem.
+
+ That was the weird part.  It wasn't until I dived into the macro code that I started to understand. Where things were going wrong and it all started to make sense, unfortunately, and as soon as I stripped out the numbs life was good. But I wanted to just go into it in this episode here, just a very quick coverage of what I've been up to. With swift data and to say to folks, look, Hey, I think it's worth your time, right? Yes. It's very early days. Again, I don't know that I'd use it in production at this stage personally. I certainly wouldn't migrate my apps and user's data and things like that. But I think it's worth playing with and it's worth trying out.
+
+ If you have any thoughts on this. Please reach out to me again Compile Swift on any of the networks, compile Swift dot com. And love to hear from you folks on this. And we will be definitely diving into this more in the future. But I just wanted to kick off the new year with a short episode here talking about what I did over the Christmas period.
+
+ For those of you that celebrate the holidays. I hope you had a wonderful time. I know I did. feel very relaxed. And energized, ready to dive into the new year with that folks. I will speak to you in the next episode.
+ </details>

@@ -1,0 +1,141 @@
+---
+publishDate: 2024-02-04T00:00:00Z
+title: VisionPro Ships, first impressions, AppStore changes for the EU and US
+excerpt: Live streaming is popular among developers for many reasons. I discuss this and more with FullQueueDeveloper (Daniel) in this episode.
+image: /images/blog-fi/2024/02-04.jpg
+tags:
+  - podcast
+  - compileswift
+  - swift
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s06-e04
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/e0070907"></iframe>
+
+<Player/>
+
+In this episode, we'll discuss two main topics: the new Apple Vision Pro hardware and the changes coming to the App Store.
+
+ We start by diving into the new EU Court rulings regarding Apple's monopoly and the requirement for allowing third-party app stores on iOS devices. [Apple](https://www.apple.com) has intentionally made this confusing, and there are new terms and conditions that developers have to agree to, which involve giving Apple money for doing nothing. This move has raised concerns about security and privacy issues.
+
+Moving on to the US side, changes are coming to the App Store. Apple now allows linking outside the App Store to other payment methods, but developers must still agree to new rules and conditions and pay Apple for this privilege. The complexity of these changes is causing confusion and frustration among developers.
+
+Next, we shift our focus to the Apple Vision Pro hardware. The device has finally shipped, and initial impressions.
+
+<details>
+  <summary
+      style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Edited Transcription
+ Welcome to another episode of the compulsory podcast. I'm your host, Peter Witham. You can find myself and this podcast at CompileSwift.com. Going to be talking about a few things. In this episode, the new apple vision hardware vision pro has shipped. We're going to talk about that.  Rules are going to talk a lot about the changes coming to the app store. 
+
+Both. Uh, in America and the EU and how confusing it all is. So grab a pen and paper and let's dive into this. 
+
+New EU Court Rulings
+
+Let's start with the EU. And first of all, let me say, I'm not a lawyer. I'm not an expert. This is just my understanding, listening to all the folks who have looked into this, reading the documentation and trying to interpret this the best I can. And I will say, I think that, you know, apple in some ways has made this very confusing intentionally. We'll get into that. So. You may or may not know about this. 
+
+And honestly you should, if you don't know about this, you should look into this. The EU has this thing called the digital markets act, I think is the actual name. And it's, it's a system designed to, you know, as always try and make things fair for everybody never works. Right. But the idea here is that, you know, they're saying.  Hey apple. 
+
+You've got a monopoly here. We don't like this. . Again, as we've been saying a lot. Microsoft of the nineties, . Google and so on. , and what they're saying is you have to allow. , people to have third party app stores.  Which means installing apps on iOS devices, outside of Apple's app store. And we're going to get into some details on that shortly, but basically apple has turned around and said, okay, we are going to try our hardest. To, comply with this, but compliant away and make it very difficult. I guess I should say. To correct myself, that people just won't do this right. , what they're saying is,  
+
+the new terms and conditions that you have to agree to basically says you have to give apple. Some money. For doing nothing.  It's really what it comes down to and yes, I've greatly simplified it, but basically. What you have to do is you can have your apps outside of the app store. Epic is a big driver for this, . 
+
+I'm sure if you're a developer, you're very familiar with how that's going.  And that there's pour some of this on.  But what it means is,  firstly, there's probably going to be hundreds of new API APIs, . For developers to, to integrate all this stuff and. And add to the fun. But you will be able to side load apps onto your iOS devices, but only in the EU. 
+
+
+
+However, we all know how this goes. 
+
+Other countries are going to jump on board with this. So the good news is it'll probably be universal around the world eventually. But the bad news is right now. If you do this, you're agreeing to give apple a bunch of money to allow you to do that. Here's what it comes down to. Again, I'm not a lawyer read the documents on this. But this is, this is a terrible plan, but this is apple being an apple,  and, not going to get into it too much here, but this is what apple does, the way that they lock you in is to make it so unbearably painful to try and step outside of that system that you just don't do it. 
+
+And I feel like that's what's going on here, but by way of complying to the court order, And saying, yeah, we'll make it dreadfully bad for developers and users and everybody alike. Because nobody wins except apple. At the end of the day. And then that's always how it is. And again, that's always heritage with all of these companies. 
+
+I'm not just picking on apple, we're talking about this one here, but that's the goal here from all of them, right? All these app stores. Now. The other problem with this site loading is obviously it opens up. Some potential problems with security holes, things like malware, privacy, abuse, and all these kinds of things is what Apple's saying. 
+
+And on that score, I do agree with them. Now they're going to try and mitigate that a little bit. Because apps will need to be notarized, to have them put on devices. And you know that again, as developers, that's something we're familiar with. But. I don't think that's really going to stop it so much. 
+
+Okay, you got to notarize your app, but that doesn't stop all these third party, bad actors trying to do all these things that I'm sure they will. So I do agree with apple here, because this is one of the things I hate about the Android platform.  It's a free fall. It is a nightmare from a security perspective and everything else. 
+
+And I do agree there. With app. 
+
+ US AppStore Changes
+
+Now, moving onto the us side. There is there's other complications, You can now.  Linked outside of the app store to other payment methods. But again, There is all sorts of other problems here. That'll come into play and I'm sure there'll be a bunch of API APIs. But again, at the end of the day, apple wants you to give them some money to do this. 
+
+So think about that for a second. Apple's saying, yeah. We're now going to allow you to link outside of our app store. Our ecosystem so that we don't get our percentage. But to do that, you got to agree to these new rules. And these new conditions. And also we want you to pay you, pay us for that. 
+
+So they're still getting their money anyway. The advantage to them at this point is they have to do even less work. To take that money because they're not handling the payment systems for you. You're just going to give them the money instead of them taking their percentage and using their systems. Which, again,  Yeah, take that for what it's worth. 
+
+Not a great idea, in my opinion. But all these things are so insanely complicated. It's ridiculous. So again, look into all of this stuff. One of the names being bandied around on a lot of this stuff, especially, even apple calls it, this. Is the core technology fee, which is just a fancy way of saying. Pay us some money to put it on their hardware. 
+
+Now. I don't disagree that, Hey, Apple's hardware. If it's not enough that the user pays for it to begin with. The developer now will be paying this fee. To have.  Links outside of the  app to some other payment method and still getting apple the money, Again, this is all I'm sure that a lot of this stuff is going to change, especially with the EU where the general opinion seems to be that Apple's doing this in a really bad faith kind of way. But it's all very complicated, but I wanted to cover that first in this episode. Because it's an ongoing discussion, but it does matter to us. 
+
+There, there's no way this doesn't affect you because even with free apps, like I say, you run the risk of having to pay some money if you go this alternative methods. So do your homework on it is my opinion. It is a mess. 
+
+ VisionPro Has Shipped
+
+Now, moving on the apple vision pro it finally shipped . 
+
+I was fortunate not to sitting with some folks and watching on boxing and a first install setup. That was a very interesting, I'm not going to go into too many details there. I'm sure they are all over the web by now. But I have watched a lot of folks doing these, watched a lot of videos. 
+
+Are those a fantastic video? Out there from, already. Someone wearing it 24 hours, somewhere in the six hours and so on and going out in public. And of course,  Everybody's a. Watching them. As they're walking past people's faces and expressions of exactly what I expected them to be. But let's talk about this vision pro hardware. 
+
+First of all right now, you get this device, you're going to want to get apple calf right. More than ever, I think, because. You're putting a device on your head that not only is expensive, but also has a very high chance that you may bang it into something, because guess what? It's blocking your vision depending on how you're using it. 
+
+Let me give you a couple of numbers here.  Apple care is $500 a year or 24 99 a month. Yeah. Okay. For that kind of device, that doesn't seem so bad, if you're gonna afford the device, you can afford the care. It's just if you can afford the expensive sports car, you're gonna afford the premium guest to put it in there. However, let's say that you, as you don't have the apple care. And you bang into something, which I'm sure you're going to do at some point. And you damage that glass, that beautiful glass on the front of the headset. 
+
+It's going to cost you 790 $9. To have it repaired. Ouch, I think is what you're saying there. Now with apple care, it's still gonna cost you 200 and $900.  If you didn't already. Baby your apple devices. 
+
+You're going to want to be super careful at this headset is what I'm saying. Now,  And my advice to you, take it for what it's worth is. Again, if you do, if you can afford to get one of these headsets. They get the AppleCare to go with. It is what I'm telling you.  Now moving on from there, there is interesting pictures of this.  I don't know what you want to call it. 
+
+Super. Version of the lightning connector. It's a 12 pin connector, lightening connector between the battery pack and the device, which is funny because it keeps the lightning connector alive, in a hidden. And I don't mean subversively hidden, but you don't see it, but it's there and it keeps it alive. But I also wonder if that's Apple's way of saying, okay, we're going to stop a lot of these. Third party accessories.  We want to make the money, not them.  Kind of thing. I don't know. 
+
+I don't know what else goes through that connector. I know it's the power, but that, that may be old. Now, moving on from there, like I say, I've been watching a lot of people using this thing. And it's interesting because. I'll just say it. Sure enough. A lot of people look really silly waiving their friends or even their hands around pinching their fingers in front of nothing. This is what it comes down to. 
+
+And it's hilarious to watch people doing it. But, we'll get used to it just like everything else. I'm sure. Just like the watch and everything else. We'll get used to it. But it's just funny, especially when these people go at and public Casey Neistat has a video out there, which I just think is absolutely fantastic. And pretty much sums up the whole experience right there, especially not only from the user, but from people being around people using it. 
+
+It's all very weird. And very funny, I will say, but generally people seem to be very impressed and favorable with this new hardware. There's a lot of questions about the software, but Hey, it's software it's essentially, as far as I'm concerned, it's a version, one of the, a, of a new device and an O S right. 
+
+So it's going to be rough, right? People are saying about how, I read the. Icons on the home screen. I'm going to have sabbatical order. And it's not much you can do about that. I don't know if it's true, but okay. Hey, it's a B one. So being one O S I think it's going to be very interesting this year, dub DC to see. Where this goes, because I'm sure they're going to be talking all about this. 
+
+So we'll see you there. But, again, favorable impressions of everybody, people are saying that those, the special lenses for folks that wear glasses or.  Very easily to take in and take out. And they all feel very secure and work very well now. I don't plan to get one of these, but I know plenty of people that have got him. And it's all very interesting and I'm thankful to the folks that have been sharing their experience with me. Both in private discussions and publicly. And.  It's going to come down to the apps and we're seeing the amps come out now. And this moves to me. 
+
+Interesting ones and most of the apps. Frankly local, exactly how I expected. Just,  Hey, here's the app, but in a window, in a virtual space. Okay. That's what I expected. But I  expect more and I'm sure as we move on with this and time goes on. That's what exactly what's going to happen. I think  my opinion is still the same. 
+
+This is a device ahead of its time. But,  We're going to see terrible clones of this. I'm sure. But this is device ahead of its time. The hardware phenomenal, right? The tear downs and everything else. The software, Hey, it'll get better over time as far as the IRS. So you know that's the early takes on this. 
+
+A lot of people saying that they're surprised how good it is as far as tracking hands and that the. The tapping of the fingers and those kinds of things. And, I think a lot of the criticisms that people have right now, as far as interacting with things, as far as tracking their eyes and that kind of stuff. A lot of that, I'm putting down to folks just need to get used to it.  And we will, and apple will refine it over time. By far the biggest amount of complaints I've seen or criticism bless, you'd say is over the virtual keyboard and how terrible that is. 
+
+But I think we all knew that. From the very early days when this was announced and developers got their hands on simulators and stuff like that.  This keyboard was never great. And that's where it's at,. 
+
+So I don't think it's a huge deal, but I think it's going to surprise a lot of people that experience. I've also noticed that. There's going to be work for a lot of us. My, my game endless hurdles. A friend of mine was trying it out. And we found some things that it worked is the great news. 
+
+So I guess I could say I was there from day one. Even badly, but it was there, but they there'll be some things that need to be tweaked in SpriteKit and things like that. But Hey it, like I say, early days experience. So that's it folks. I wanted to share all of this week and it's been very difficult. 
+
+I'll I wanted to get this episode out earlier. It's been very difficult to figure out how to put this all together in one episode. And to also understand a lot of these new rulings, and I'm still not sure that I gave you a hundred percent accurate information. So doing your homework because it's all very confusing. 
+
+And I don't think that's a good thing. I think life is getting very complicated for us as developers. And, app and game producers on the, these platforms. And I hope that this all settles down because. Deeply vested in these apple ecosystem and these platforms, but it just seems right now, apple is making life hard for everybody because they feel they can. 
+
+And I feel like we have a bit of a reality bump coming up, I guess I would say. But anyway, wanting to put all that out there this week, if you are working on anything on the apple vision pro and want to come on the podcast and talk about it. I would love that I'm very interested in developers experiences with this and what they think and, sharing your apps and how you're finding the experience and things that you're having to adapt to work with. 
+
+This new platform is fascinating to me. Because there's no doubt this is the future. And whether we like it or not. And we're all going to have to learn how to work with it. So reach out to me. Compile Swift on, on the social networks, right? Compile Swift dot com for slash contact. And let's have some conversations. 
+
+Come on the podcast. Hey, I talk about your apps on here. Promote them. It's all great. Now also, I do want to point out to folks if you want to help. This podcast stay alive  and all the other projects and Compile Swift that I'm doing. There is a Patreon. I'm refreshing it. 
+
+You get advert free versions. And a shout out in the podcast if you want at the basic level. So go to patreon.com/compileswift. Because boy, it's getting expensive for all of these things out there to make all this content for you all. Greatly appreciate the folks that do that. 
+
+Thank you so much. And thank you so much for your support with that. I will speak to you in the next episode.
+</details>

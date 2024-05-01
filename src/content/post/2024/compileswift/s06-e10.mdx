@@ -1,0 +1,129 @@
+---
+publishDate: 2024-03-30T00:00:00Z
+title: WWDC 24, EU Trader or Not? Xcode 15 Bugs?
+excerpt: News on WWDC 24, I talk about the EU Apple trader or not situation and Xcode 15 bugs.
+image: /images/blog-fi/2024/03-30.jpg
+tags:
+  - podcast
+  - compileswift
+  - swift
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s06-e10
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/d5f148ac"></iframe>
+
+<Player/>
+
+In this episode of the Compile Swift podcast, I dive into the latest news and updates from Apple Dev World.
+From discussing the upcoming WWDC event to the challenges developers face in the EU. Additionally, I touch on the issues with the latest Xcode version and express my hopes for a more stable release in the future.
+
+Stay tuned for upcoming interviews, and don't forget to spread the word about the podcast.
+
+<details>
+  <summary
+      style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Transcription
+ <cite>Peter:</cite>
+<time>00:02</time>
+<p>What's up, everybody? Welcome to another episode of the CompileSwift podcast. I'm your host, Peter Widom. You can find this podcast at compileswift.com. Bit of a newsy one this week.</p>
+<cite>Peter:</cite>
+<time>00:11</time>
+<p>I hope you enjoyed last week's episode when I interviewed Mark and Abe from Skip Tools. It's proven to be very popular just like their previous visits, so thank you to Mark and Abe for that. Just to recap, if you are at all interested in publishing Android applications, they have some tools for you that enable you to use Swift. Yes. Swift to publish to the Android platform.</p>
+<cite>Peter:</cite>
+<time>00:37</time>
+<p>So check that out. It was very cool, and thank you to them again for taking the time to sit with me. So let's go ahead and dive into some of the news here. Well, first of all, you probably have noticed if you're an Apple developer, I seriously doubt you could have missed it. June 10th to 14th this year.</p>
+<cite>Peter:</cite>
+<time>00:56</time>
+<p>Yes. Dub dubdc 24. And, of course, everyone's trying to figure out what the logo and the graphic and everything else means. To me, the joined w w kind of looks like a waveform in some way indicating maybe some kind of audio thing. I don't know that's just my guess but I'm sure there are folks out there trying to decipher it all.</p>
+<cite>Peter:</cite>
+<time>01:21</time>
+<p>Are you gonna be applying for it this year? I'm not. I know some folks that are. Funny enough, I was joking with some friends that I know if I apply, I'm just unlucky enough or lucky enough that somehow I'll be chosen and then I'll have to figure out what to do. I know that I've taken the somewhat unsensible approach and I have not applied this year.</p>
+<cite>Peter:</cite>
+<time>01:41</time>
+<p>I haven't applied previously. Just in case because I'm just way too busy with work and life and everything else, but it did get me to thinking that wouldn't it be interesting if they offered some kind of virtual experience via the Vision Pro headset. So I don't know Apple if you're gonna be doing that, but just a suggestion would be a great way to ship some of those headsets. But I was also joking with some folks that I'll be looking at the keynote to see if there's anyone in the audience wearing the headset because why would you go to the keynote and then wear a headset? But there's gonna be 1 or 2, I'm sure.</p>
+<cite>Peter:</cite>
+<time>02:17</time>
+<p>Anyway, June to 10th to 14th this year, I'm sure there's gonna be a lot of cool stuff. I really do enjoy. For all the criticism I have of some of the Apple things, I really do enjoy dub dub DC. I think it's a wonderful experience virtually and it's always great to see like this and, of course, Google does one, Microsoft, all the big players. Right?</p>
+<cite>Peter:</cite>
+<time>02:38</time>
+<p>But it is great to see that they put some time aside for developers because we are critical a lot of the time that we don't feel that we're recognized quite as much as we should be for the amount of money that we make these companies, especially Apple. And it's nice to have these conferences where we can all get together, hang out with friends. Of course, there's always a lot of stuff going on outside the conference and especially since they went virtual and and they have this keynote, but a lot of people like to get together and have just collections in the area and things like that. And I think that's fantastic. And and it's always great to see that taking place.</p>
+<cite>Peter:</cite>
+<time>03:15</time>
+<p>And I love to see all the stuff that everybody posts in all the platforms. This year, I don't know what it's gonna be about. I think it's clearly obvious there's gonna be a lot of vision OS. That's a given. But I don't know what else will be there.</p>
+<cite>Peter:</cite>
+<time>03:28</time>
+<p>I think it's gonna be very interesting. I'm sure, of course, there'll be updates to swift data and all of those things, but maybe, I don't know, maybe VisionOS will be the primary focus this year, pardon the pun, on the conference, but I almost hope it isn't because there's a lot of other stuff that needs addressing. Right? And I'm not even talking code here. Right?</p>
+<cite>Peter:</cite>
+<time>03:50</time>
+<p>I'm sure you all know what I'm talking about. There's a lot of things in the developer field at the moment. I'm especially centered around Apple that has a lot of consequences for us, but we will get to that in the next news item. So next up, yes, let let's talk about some of these problems that us developers are now facing and maybe it's not a problem for you, but it's certainly something we're all having to deal with. And I don't think over the past few weeks, I've had a conversation with anybody related to any kind of development on the Apple ecosystem or the App Store that, of course, at some point has not come up about those changes from the EU, thank you EU, we greatly don't appreciate them, where we now have to disclose information that will be publicly available on the App Store pages in the European Union.</p>
+<cite>Peter:</cite>
+<time>04:42</time>
+<p>Interestingly, I don't know too much about this, but apparently there is something similar for China as well, but I'm I'm not that familiar with it, but I've heard some folks mention it. But, yes, in the EU, what you've gotta do now, we've all had these emails. Right? We have to figure out, are we a trader? Are we not a trader?</p>
+<cite>Peter:</cite>
+<time>05:00</time>
+<p>What does that mean? I don't know. I'm a developer. And I'm not a legal expert. I'm not even gonna give you any opinions on this other than this is something we all have to deal with and figure out.</p>
+<cite>Peter:</cite>
+<time>05:13</time>
+<p>But interestingly, I think for a lot of folks, it is stopping and causing us to ask a question, which is how seriously are we going to take or do we take our development on the Apple App Store as far as treating it like a business or just something we do for fun? Because this in many ways forces you to make that decision because you there it's there's consequences. Right? At the very least the consequences will be, regardless of whether you're a business or not, the consequences will be that you will have to provide data that will go out in the public space, phone number, an email address, and a physical address. Now this causes all sorts of problems and and I'm not gonna get into it too deeply, but I do wanna touch on it a little bit because there are concerns here.</p>
+<cite>Peter:</cite>
+<time>06:09</time>
+<p>Right? I think that there's the potential for some very serious problems for certain groups of people because you're gonna put that data out there and then we all know this. There are some strange people out in this world and if they don't like your app or whatever, you're giving them information to come and find you. And if you're a business, okay, it's slightly easier, slightly less personal in that it's a probably some kind of business address, but I'm willing to bet an awful lot of folks are now realizing that they're gonna have to give their home addresses and there are all sorts of problems that can bring up and that I think is a concern and I think that that's driving a lot of the conversations and it should. And I don't know what the answer is here for everybody.</p>
+<cite>Peter:</cite>
+<time>06:57</time>
+<p>We've all got to figure it out. That's the problem. We have no choice. The other choice is, as far as I understand it, okay. Well, I just won't put my stuff in the store for the European Union.</p>
+<cite>Peter:</cite>
+<time>07:07</time>
+<p>Well, that's a lot of people. Right? That is a large audience that you're cutting off. Maybe you're okay with that, but at some point I am sure this thing is going to expand And we are gonna have to seriously think about how we deal with this. The approach that we take at some point, it may end up costing you money one way or another depending on that decision that you make.</p>
+<cite>Peter:</cite>
+<time>07:30</time>
+<p>And and that's why I'm saying about how seriously do we take what we do with the App Store. Interestingly enough, and and I guess in a dark humor kind of way, this is one we cannot blame Apple for. Right? For all the bad decisions that Apple makes on things for us developers, this one is enforced on them by a government. And, hey, there's a lot of other things going on right now, but this is not Apple's fault, but they had to comply with it.</p>
+<cite>Peter:</cite>
+<time>07:59</time>
+<p>And it is interesting that in some ways Apple is saying to us as developers, hey, you gotta go deal with this, and I think they could do more to help us out. I'll just leave it at that. I think that they have an opportunity here to earn a lot of goodwill and a lot of good PR with developers and lord knows they need it right now if they were to somehow help us out figure out what to do here. Just say an apple, if you're listening, hey, it's an easy opportunity for an easy win for you here and lord knows you've got enough lawyers to understand this. We all don't.</p>
+<cite>Peter:</cite>
+<time>08:34</time>
+<p>Okay? Leave it at that.</p>
+<cite>Breaker:</cite>
+<time>08:36</time>
+<p>Time for a break.</p>
+<cite>Peter:</cite>
+<time>08:38</time>
+<p>What's up, folks? If you wanna help support the future of this podcast, I would greatly appreciate it. You can go over to patreon.com/compileswift and help support this podcast and at the same time get ad free versions along with the exclusive content. Thank you to all of you that help support what I'm doing here. I really appreciate it.</p>
+<cite>Breaker:</cite>
+<time>08:58</time>
+<p>Break time over.</p>
+<cite>Peter:</cite>
+<time>09:00</time>
+<p>Something else I wanna cover here this week as well. It's very interesting that I've seen a lot of folks, myself included, having a lot of problems with the latest Xcode. Xcode 15 dot x has not been the greatest experience for a lot of folks. It's gonna be interesting. I almost am looking forward to dub dubdc24 to just please give me a beta, an early whatever version of Xcode 16 so that I can try and move on because a lot of folks having a lot of problems.</p>
+<cite>Peter:</cite>
+<time>09:29</time>
+<p>And it's weird to me, again, I I say this a lot, but it's always weird to me how a a company can provide such excellent tools. But along the way, somehow, I got a question they're testing or something because they always just seems to be a whole bunch of issues, and it's just bizarre to me. And I think, again, I'd love this year to be another one of those, hey. We didn't come up with some crazy useless features that you don't really need. We decided to absolutely lock down and fix a whole ton of bugs in the development tools.</p>
+<cite>Peter:</cite>
+<time>10:03</time>
+<p>I bet you that would get a massive round of applause from developers at dub dubdc. Just saying. Just my 2¢, but I'd love to see that. Again, with the OSes as well, but in particular with the development tools, they really need to fix a lot of stuff and stop putting in features that whilst they're great, we don't really need them. What's the point in having a a whole bunch of new fantastic features if you've got nothing but problems all the time with development tools?</p>
+<cite>Peter:</cite>
+<time>10:33</time>
+<p>Again, just my opinion, but I know a lot of people have the same thoughts on that. So, anyway, that's just a few things this week I wanted to mention and just cover. I've got another interview in the editing bay at the moment, so I'm probably gonna be releasing that, next week. So hopefully, you'll be looking forward to that. I've got some more on the way as well.</p>
+<cite>Peter:</cite>
+<time>10:53</time>
+<p>It seems like these are really popular with folks and I love sitting down with the folks that we have on the shows. It's always fantastic to be in a room full of smart people and have conversations with them. So that's what I got for you folks. If this has been helpful, you you know what to do. Go tell someone about it.</p>
+<cite>Peter:</cite>
+<time>11:08</time>
+<p>If you have any questions or comments or anything at all, you can reach out to me. If you wanna come on the show as well, reach out to me. Just go over to compileswift.com. There's a contact form there. Hey.</p>
+<cite>Peter:</cite>
+<time>11:18</time>
+<p>Fill it in. Let's get a conversation going, and let's see where it takes us. That's it, folks. I will speak to you in the next episode.</p>
+</details>

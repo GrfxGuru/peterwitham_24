@@ -1,0 +1,445 @@
+---
+publishDate: 2024-01-26T00:00:00Z
+title: Live streaming as a developer
+excerpt: Live streaming is popular among developers for many reasons. I discuss this and more with FullQueueDeveloper (Daniel) in this episode.
+image: /images/blog-fi/2024/01-26.jpg
+tags:
+  - podcast
+  - compileswift
+  - swift
+  - streaming
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s06-e03
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+import CSLinks from '../../../../components/podcasts/cs-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/56ebce29"></iframe>
+
+<Player/>
+
+<CSLinks
+  link1="https://fullqueuedeveloper.com/"
+  link1label="FullQueueDeveloper.com"
+  link2="https://www.amazon.com/Creative-Act-Way-Being/dp/0593652886"
+  link2label="The Creative Act by Rick Rubin"
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Edited Transcription
+What's up everybody welcome to the [Compile Swift podcast](https://compileswift.com/podcast) or video if you are watching this on YouTube
+Whichever one you're doing we will put links in the show notes. This is another special episode here We have a guest today and we're gonna talk about something that I think a lot of developers do and and we're both passionate about this.
+
+I've got full queue developer or Daniel and he is live streaming this on his stream hello stream and We're gonna be talking about streaming as part of our developer process and kind of our developer life here So without further ado let's jump in Daniel.
+
+Please go ahead and introduce yourself.
+
+Hey everybody thanks so much for having me on Peter. My name is full queue developer because well full stack just doesn't encompass enough of what I do not only do I do the back end and the front end but of course the iOS and the Android and the DevOps and the marketing and and promotion on tick-tock etc.
+
+You need you need a new name for that.
+
+Yeah, that's right, and as I have as I've grown I feel like there's there's so much more that that name encompasses. But yes, I've consulted and freelanced and employed as an iOS developer as well as all the other kinds of developers, too.
+
+I think that's enough for an introduction. Oh and I started streaming about 20 months ago.
+
+But it seems like a lifetime, right?
+
+Yeah, I've been reborn so many times
+
+well, you know, it's funny you mentioned that because I recently renamed my stream
+That then becomes complicated because like you say so many people know you buy it by so many other names We were talking about this before we started recording, you know, let's dive in here.
+
+What made you decide to start streaming to begin with so many things?
+
+Of course, if there was only one reason I would probably ignore it, but I guess the the primary reason is to meet new people and I can say we got a stamp of success on that new people right here I guess in the we have a pandemic in the world and people are reacting in all kinds of different ways and The internet is a beautiful way to meet people that you would never have met walking along the street or something like that.
+
+So yeah meeting new people was was number one, I'm a developer. I'm actually pretty bad at the video games that I like like Starcraft or Heroes of the Storm. No one's gonna watch me If I stream those games, they're they're going to mock me and Perhaps perhaps even rightfully.
+
+So you know what I'm good at I'm good at writing code and I saw other people kind of streaming some code and I'm like, hey, I think I think I can do this and the third reason was to try to make people happy.
+
+I feel like the the best way to make yourself happy is to create your own happiness and I wanted to show how I'm creating my apps how I'm creating my little beaver colonies and in timber born and you know also talking about creativity directly by we do some readings from this book every now and again every every stream not now and again.
+
+Yeah, that's interesting. Yeah, we have very similar goals as to how some of this came about because you know, it's kind of the same thing. I was like, well I could stream games, right? I've been a gamer all my life.
+
+But everybody does that right and and and like you said I'm not particularly fan like like stunningly fantastic at any one particular game and I didn't want to do just a hey, here's me playing a game thing. And and so I thought about some of my other goals.
+
+The reason that I started doing mot only the streaming but the podcast the blog
+all of that stuff was because I realized through some jobs that I'd had in the path where I couldn't really I talk about the work that I did there. And so I needed a way to show the world Look, I can do these things.
+
+I also have big gaps in my resume where it's like yeah, I did some stuff for a few years and you're just gonna take my word for it so I thought doing a stream and all these other things is a way not only for me to record my own knowledge but to to put it out in the world and show people and another one.
+
+Especially with the stream was to really show people Look, you know anyone can do this, right?
+
+Anyone can make things whether it's a program a nice picture a painting, you know whatever the level of creativity is I believe everyone can do it and absolutely this was my way of showing look look if I can do it this badly You can do better, right?
+
+That's chapter one of this book everyone creates. There you go. Yeah, and I think like creation inspires creation greatness inspires greatness
+I was watching a whole lot of project runway a few years back when I started my subway app underway
+And it would just get me fired up and I'd go program. I just go program some Swift like dresses and
+programming nothing to do with each other except except it was so inspirational just seeing people just really go for it and really get that
+Dress looking just right and and I think it's important for folks
+Who who are watching your stream right now or listening to this podcast or watching replays of this video to understand that?
+There's this often there's this misconception. I think that
+When you do these things like like programming for example that there has to be some end
+goal some end product the ships and
+That's not necessarily the case. I don't know about you, but I know for me
+I
+I create
+Way more than I ever ship because a lot of it is about that personal discovery and about that learning, right?
+I don't if I go to learn something I spin up a project
+I'm sure you do the same thing
+Right and we may do that on our streams certainly a lot of the streamers we know shout out to the folks we know out
+there
+that's a lot of it right we get together on these streams and
+We have the chat rooms like your chat room going right now that I can see well done chat room
+You know all of these things where we just get together and like you said with the pandemic and everything else
+It's just like a little virtual space
+Will we get together and we have a club we have fun with it
+Which is always the most important thing to me even when I'm doing my day job
+And I have my team to developers the number one thing I always say to them is
+Make sure you're enjoying what you do right because number one if you're not enjoying it. It's not the thing for you
+And number two if you are enjoying it
+You're gonna take away from that way more than if it just feels like work and you're gonna exactly you're gonna go that extra
+Step without even realizing it and you're pushing those boundaries all the time, right?
+I don't know about you, but certainly the folks who watch my stream
+For example, they used to be screwing up all the time and I don't mind it. I'll make fun of myself
+They can make fun of me because again part of that is having everybody understand
+Not every single line of code we write is perfect and work, right?
+You know exactly it's it's the screwing up part that you learn from so
+You know, how do you handle that on your streams if you're doing something and it all goes completely astray. Oh, man
+Well, I guess for code
+I guess I guess I had a vision for like oh I would screw up and write a long write
+long wrong line of code and like you just said and I'd go on Stack Overflow and figure it out together and
+That'd be great and that I'll be a great learning moment to see hey
+Look, even me with over 20 years professional experience coding since I was in grade school
+Even I write bad code
+it's the things that fall outside of that that really throw me for a loop like
+yeah, like audio problems or
+Something in some technical issue
+Or or like sensitive stuff like like passwords. Yeah
+Yeah, I showed my IP address once on stream and oh man. I'm good. Yeah. No, yeah
+Little tip there for folks on that one
+What I do is
+Very early on I knew it's like okay. This is gonna be a problem
+If I I just sort of trained myself like now never do anything sensitive on the stream
+But if you do like for example when I'm working on my game or something like that, it has to limit redec in there
+Right, but let's be honest, you know, it's pretty harmless
+so if I accidentally show my ID for my
+Telemetry deck reference to that app and so on and someone takes it the worst they're gonna do is send me
+Some telemetry, right? You know
+So it's like okay try not to but it's not the end of the world. It's it's a it's a read-only thing
+that is definitely something is you do have to remember that
+You're streaming because the more you do this like even as we're doing this right now, you know
+You become very comfortable with it and you forget that
+There's people watching you forget that there's a thing recording people can watch it later
+You forget the oh they can freeze every single frame later on
+So even if you only show it for a fraction of a second
+They could go get it right and yeah, and now everybody in the chat rooms like oh, I didn't think of that right, you know
+So it does happen but you it's like everything the more you do it the more you get used to it, right?
+Time for a break. Hey everybody. It's Peter Whittam here from the compulsive podcast
+I want to tell you about set up set app is a service that provides a
+subscription fee of just $10 a month and you get access to over
+200 Mac applications and it's also available now on iOS as part of that deal
+I use the service because it just has a ton of really good first-rate apps that I use all the time and
+For me, it's invaluable as a developer to have access to tools for things like API's
+for planning projects and writing emails writing documentation and you get all of these things including
+Database apps all of that kind of stuff right there on the set app service for just $10 a month
+You can use as many or as few applications as you need if you're interested in checking this out go to Peter Whittam dot-com
+pete er w it
+am
+dot-com forward slash set app set a
+PPP and you can see the details there and it's got a link that you can go over and
+Start using the service and see how it works out for you. I strongly recommend this to every Mac user
+break time over
+Exactly. Yeah, I've made like a hiding the screen. I'm doing some something sensitive, but then it's like if I'm like deploying
+To like if I'm deploying my code to a server like I'm just sure I'm just showing the hide screen screen
+I'll stream and that was just that was just not fun
+Yes. Yeah that that does become a problem right there are times when we do things where
+you can't show them and you know, it's gonna take a while and I don't know about you and I'm curious about your answer on this because
+Sometimes I'll be like, oh I want to stream right now, you know
+It's like I want to do a stream tonight and then I remember well the stuff that I'm doing I can't really show
+Is there any point in doing a stream? No, I guess there's not and then there are folks who do this for fun
+And this is their career as well, right a lot like ourselves, you know
+And so I never streamed for example, you know day job work talk about you know
+I don't think we ever become completely comfortable with this
+But what was your approach and were there times where you're like this was a bad idea?
+I should never have done this and and how do you deal with those moments or maybe you were just a natural
+Definitely not a natural but I would like to start off with a success story. Go for it into the other stuff
+I guess the the the best time for
+Doing something sensitive on stream was with I was working on FQ off the signing with Apple
+Open-source server and I we deployed it to digital ocean on a trial account
+So after the stream was over I just deleted everything that's small everything
+There's no no trace but that was so freeing about that as I could just show everything
+I like that like here's all the IP addresses of the server. Here's
+There's just all those passwords. I'm using here's everything but that's probably not something you're gonna do every day
+It's like launch like demonstrate an open-source server deploying
+I guess what I do now is I I work on my app two days a week one on stream
+On Sunday and another time during the week
+So my plan is any infrastructure stuff is gonna be on my private session
+And those are those are early in the morning before work at the moment
+That's a good idea. So so for you you have this clear like line in the sand that says alright
+This is where I hate to use this phrase, but for one of a better phrase
+This is where the real heavy-duty stuff takes place. This is where the lighter
+More fun, you know stuff takes place that's safe to stream. Is that kind of how you break them down that way?
+Yeah, so far. I haven't done any heavy-duty stuff on the private session, but I know it's there for for when I do need it
+Yeah
+Yeah, yeah, that's exactly that's exactly the plan going forward
+So has this happened to you where you it doesn't work out for you because you're doing something and you're not doing it on a stream
+And you're like, oh dang it worked. I really wish I'd streamed this now, right?
+You know
+You had something like that because that happens to me all the time. I'm like, wow. I so did not expect this to work
+Has that happened I'm sure it probably has I feel like I just I'm just in two different head spaces when I'm coding alone versus
+Coding as a show. I'm narrating what I'm doing. I'm saying hey, hey, welcome back stack overflow
+I'm
+I'm saying oh, oh, there you go Xcode crashing again
+Yeah, whereas in my private session, it's just a little bit more heady I'm not exactly narrating as much yeah
+There's a really mean it's usually like a smaller thing to that. The worst is when I think I have a full stream of
+Tasks planned and then I get them done in five minutes. Oh, yeah. Yeah
+And you're like look this was supposed to take all night, right? Yeah, exactly. Yeah, that's what happened to me the other day
+I was doing a doing a thing and we were integrating
+Game Center into my app and and I I wasn't doing it on screen because I'm like, okay, this is gonna be a disaster
+so I I just did it, you know without a stream and then
+Ten minutes later was like oh
+It's working and this was a surprise
+So I sort of on my next stream ended up having to do a recap to say look this is how you set it up
+You know and then other times there'll be a simple little thing like I don't know whatever it's like
+I'm gonna hit this screen and it's gonna go there and the next thing you know, it's like and apparently I've completely
+Forgotten how to do navigation and Swift, you know
+Exactly, and you're like wow, you know, cuz that's the time you're like, well, I'm probably looking a bit stupid right now
+But I've learned to accept that it's like look this happy, you know, and again part of the reason for streaming this
+Is that it's important for folks to see the failures as much as the success because like you say I mean I've been doing this
+for I
+Don't know what over 20 into the 30 maybe years
+yeah, and there's an awful lot of failure in that time and
+It's important for people who are getting into this stuff to understand you're gonna foul of things and you're gonna hate life
+And you're just gonna be like I should never do this
+What was I thinking and and I want to give up and walk away? Well, you know news for you folks here
+We are 20 30 years later. I can't speak for Daniel or anyone else, but I still get that now
+There are those days where you're like exactly what the hell am I doing?
+I you know, I I didn't ever want to do this again. So it still happens
+You just it it's part of the process. You've got to get used to it
+Exactly. And yeah, I feel like demonstrating that it's supposed to be power should I hope is powerful
+I haven't actually heard any feedback positive or negative on this thing that we're both talking about
+Mmm, like showing Xcode crashing and showing me not remembering the architecture of my app or like you say how does Swift do?
+Navigation again. Yes. Yeah, and and if you kind positive feedback or negative I have and I'll tell a story
+But but quickly for folks if you've never had Xcode crash on you
+Make sure you're using Xcode because I don't know anyone Xcode hasn't crashed on right
+You know the chances are if it's never crashed you're not using Xcode. That's your problem
+So so let's put that out there, but I do want to give us a story because I you know again
+I want to inspire people to understand that anybody can do this some folks that come to my stream
+to in particular
+You know firstly I want to give a shout out to to mono NZ who's one of them and this guy NZ they are not related
+They'll be the first to point that out in particular, you know one of them
+One had never done iOS development and and came along and was like hey
+this is cool and the other wanted to make a game and you
+Know had never done any of this to quote them on it
+You know, they they were inspired to start doing it because they watched my stream which hopefully means how nice they realized
+Well, he's doing such a terrible job. I can do better than that fantastic in work, you know
+So so that so I have had people give me that feedback
+I've also had folks contacted me via
+from from listening to the podcast and and similar things saying
+and some of the reviews which is I I break things down in a way that made it understandable for them to
+to work with it and and
+You know feel inspired to dive in and get working with that
+So there's you know, there's that aspect to it as well. Thankfully. I've had the feedback admittedly
+I always ask hey, I want more feedback the more feedback you give me the more I can tailor the content to what you want it
+To be but I'm lucky that I've had those folks
+Give me the feedback because you know again folks for us as streamers or whatever
+It may be just having that one person say thank you. You helped me in some way
+That goes a hell of a long way to motivating us to keep us going right exactly
+Shout out to all all you in chat right now who do keep me going. It's it's truly appreciated
+I literally would not be here without you
+You know, I love it when of course I've seen your streams before of course
+But I love it when I'm watching people's streams on on any subject and you see active chat rooms because to me
+that tells me that
+you know, whatever the streamer is doing you're making contact with those people right and
+You know it that's when it becomes a community
+I think you know again for me me sitting in front of a camera talking
+It's just a live video without the chat for me
+It's I know when I do my stream
+Yeah
+the chat room is what makes it worth doing right on a day when I've had a terrible day and you know
+You're like, oh screw this if I do a live stream
+I know the chat rooms gonna pick me up and by the end of the stream
+I'll be fully pumped and motivated ready for the next one and
+It's massively about the folks in the chat room, right?
+Absolutely. Yeah. Yeah, I've had days where I'm like, I don't I don't want to stream today
+I know it's a half hour to stream time. I'm not ready and spouse B says, you know
+You know, you really like doing this right so I get out there and do it
+And just like you say by the end hopefully I pump up chat cuz chat pumps me up too. Yeah the
+the chat room
+Blessing, you know keeps me going and anytime I'm watching somebody else's chat
+I try to be as interactive as I can, you know, sometimes I think we all do this and
+You know
+We should talk about one of the styles of streaming that you do as well where you sort of have it on
+Intentionally in the background so I'm not quite as interactive with the chat as I would be
+But it's serving as community space that says I feel like I'm working with someone remotely
+Because we got that going on right because you have your streams you do
+Sort of the scenic streams. I guess I don't know how you would describe them talk about that. Oh, yeah for sure
+Yeah, so to sort of describe the scenic streams for the folks who haven't heard of them yet on work days from 10 a.m
+to 4 p.m. I
+I play some some music and share my my scenery videos
+I live here in beautiful New York City and there's a lot of really cool
+Scenic spots which I think are a little surprising. I think when people think of the city they think of big buildings and smog but
+We have we have grass too and and beautiful rivers
+So so yeah, I guess I forget exactly what the seed was that that sparked this but I like I I have a bunch of these
+these videos now that I've taken as a background for my podcast and I could I could just play these because I
+Just started a new client and I can't show a client code on stream
+I'm just I'm not doing that but I still want to still want to be alive and
+That turned out to be such such a fun stream because folks will show up and say hi. I say hi back
+We're all working together on our respective code Xcode crashes. I read people type in chat
+Yeah, it turned out to be like like who's gonna who's gonna want to watch watch this
+It's the same thing every time I put it on random though
+Yeah, but I think they're actually pretty good videos. Yeah, it's been a it's been a blast
+And we'll get into this but a nice psychological factor for those folks who are stuck in a cube somewhere or an office with four
+walls, right
+Exactly who don't have anything but literally that to stare at all day
+Even just having that on a screen somewhere reminds you that life is going on outside
+Right. Oh well said
+Yeah, and and so that's an important part of it
+And on that note, you know, this is something else that I know we both care about as well
+For me and I'd be curious to see what you have to say about this
+Streaming is or any interaction like this, you know discord or whatever. It may be
+Is an important part of the developer life cycle, I guess you would call it, right and
+so mental health becomes
+As many of us unfortunately have probably seen in in the news and things like that in our industry
+There's a lot of layoffs and things like that, but it's very stressful. It's stressful even when everything is going girl
+And yeah, you know, I'm curious if you have any thoughts you want to share on that
+I guess the short answer is I do see a therapist once a week. Okay, and I've been seeing him for over
+11 years or so at this point
+once a week and
+It's been it's been massively helpful for for me personally
+I feel like people get a trainer when they go to the gym and no one bats and I I think I think
+Therapy is getting some traction as far as I think like
+20 years ago. It was like what do you like? There's nothing wrong with you? Yeah. Yeah, but yeah
+But it's it's really helpful to to talk things through with someone to discover
+How I actually feel and once I can see how I actually feel what to do becomes a little bit more obvious
+yes, whereas when I'm
+when I'm sort of clouded by all these negative messages from
+Externally or internally or wherever just sorting those out alone
+Can be daunting especially when you're just starting out not to not to top my shoulder too much
+But I'm I'm leading my my sessions with the with the therapist now and he's just kind of there as as training wheels
+Great is great. It's just pretty cool. You know a lot of the time we go to the
+The doctor we go to the dentist and that so that not because we're having a problem
+But because we don't want to have a problem, right?
+And and and I view it that said yeah, that's exactly the same way, right?
+It's like you don't wait for the car to break down before you fix it
+You know you you keep the car in good shape and hope that you never have to
+this is my day job as much as it is my fun time and
+Sometimes it gets too much right sometimes. Yeah, you know at the end of the day you're like, you know, gosh
+the day was just so
+draining that
+You don't want to do any of it in the evening and you know, I know for me
+Sometimes when it gets towards the latter part of the week and I'm thinking you know, I haven't done a stream
+I haven't recorded the podcast to put out at the weekend and things like that. Haven't written a blog post whatever it may be
+It starts to add this
+Self-inflicted artificial pressure and you know that you're the one doing it to yourself, but still, you know, it's there and
+There were times when you're like, you know
+I I just can't do this and I think it's okay to say
+You know gonna take a break right? Can I take a break from the streams gonna take a break from the whatever creative content?
+You're making yeah
+I organize my my content into seasons
+When I feel like like as Mary Poppins says when the wind changes when I feel a break coming on
+Like I'll just take that two-week break and then start a new season
+Yeah, usually some sort of transformation happens internally while I reflect during that so
+Yeah, the new season really does feel to me like a new season a new a new breath a new a new something happening
+You know for me like at the moment where I'm going through working on some games and I'm recording a Godot
+game engine video
+series
+Those are my way of stepping back from some of the other content that I make
+Doing this for a while
+chasing down that interest being constructive and learning with it and coming out at the other end with something for everybody else and
+Then I'll cycle back to like this week where I was working on the sprite kit game back in Swift
+things like that
+And I think maybe it's worth mentioning to to the folks listening and watching if you find that you're getting frustrated
+Bored or whatever it may be with something that you're working on think about trying something completely different again
+It doesn't have to be something you ever intend to ship it
+reignites that flame for the original thing that you were doing and I have a I have another failure story to
+Share there. Okay, go for I
+guess at the beginning of Stephen season 5 this season I wanted to make the
+the reading portion of the
+Livestream into more of a podcast more of a pre-edited thing. Mm-hmm. So I worked all day Saturday
+Recording content editing. I thought it looks fantastic
+Played it on stream. I thought it went okay, and it did the same thing the next Saturday
+Recorded all day Saturday and then streamed Sunday using that as sort of
+As part of the stream sort of pre-recorded segments. Yeah, but man
+I just it was so awesome to do it to see that I could edit that together
+but I can't I
+Can't work Saturday and Sunday and Monday and Tuesday and Wednesday and you get the drifts like I need a day off
+Yes. Yeah. No, you're right
+It's all too easy to become
+unhealthily obsessed
+With yeah, and and you feel like oh I gotta get this done now as opposed to hey take your time
+Have fun with it right anything else we should talk about here
+Yeah for folks wondering about the book
+It's it's coming back as kind of just the original version of just reading about it and talking about it on stream
+the it's it's not going away, but the
+The podcast YouTube dream perhaps needs a needs to come back at another time
+I know that I can do it. Just I don't I don't have the bandwidth right now
+You know the the only rules you should set in place and the only
+Markers in the sand that you should judge yourself by is you
+Alright, and and what I do for that just for folks is I ask myself, you know
+Have I done better this time than I did last time?
+That's all I'm looking for here
+right because as soon as I start the have I done better than I'm gonna fail every time because
+inherently built into you is that criticism that says no you did not and
+And now you're in the negative space and that's not gonna work for you. Right and that's that's like the message of this book
+It's like yeah, he's saying like you have to discover yourself
+Like you're you're you're the peace of God that's in you
+If if God is everywhere God is in all of us then
+Then that's yours to share to to bring out that expression and share that and no one else has that same expression
+It's it's gonna look
+different somehow
+Something I learned
+Many this was gosh so many years ago
+back in
+in a previous life before before this I was a professional photographer and
+No, sweet when I was
+Learning photography back at school the advice one of my art teachers gave me which was just one of the best things ever
+You know that that thing that comes up this like and and and it applies today
+We're like to do apps right and they said hundreds of people have taken this photograph, you know
+Hundreds of people have written a to-do app. I mean all these things but nobody has done it the way you're gonna do it
+Until you've done it, right?
+Yeah, exactly Bruno Mars doesn't have a monopoly on love songs
+There's still new love songs to write exactly and so that has sat with me forever
+That is one of my guiding rules is until I've done it
+I've not seen my version and and I've still got bandwidth to make one exactly beautifully said
+Yeah, there are already subway apps when I made underway, but there wasn't one
+Like underway yet anything else here?
+I think you know, I mean, I'm hoping that at least that was my goal with this conversation was
+If we can make one other person say, you know what you're right and they start doing it. Hey
+Succeeded, you know, that's the mission of my stream. There you go. Exactly
+So with that then Daniel, thank you so much for joining me today. And and also thank you for letting me invade your stream
+I greatly appreciate that and thank you to the chat room your chat room for the patience and
+All the support that I see going by in the chat room. You're all awesome. You are blessed sir to have such a wonderful chat room
+So I am I do feel exceptionally lucky but to your audience
+thank you for let me barge in on them and full queue developer comm has the links to all of my apps and open source projects and
+GitHub's and discords and all that all that
+Yeah, and we folks we will put all of that in the show notes as well for you
+But please if you were not a follower of the live stream
+Or any of those links go do that. I
+Promise you will be rewarded. So thank you so much for that
+All right, and for my part, hey folks, you know, you know where to find me
+It's compiled dev on twitch and it is compiled Swift
+Everywhere else. I know it's confusing. I'm so sorry. Go go go to compile Swift comm and you you are home free
+</details>

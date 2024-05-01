@@ -1,0 +1,71 @@
+---
+publishDate: 2023-12-11T00:00:00Z
+title: Indie game Project Hack - Convergence
+excerpt: After I completed the early proof of concept beta version of Project Hack, I knew I wanted to take time and step back to learn from everything I had done and the feedback I received. Plus, plan the multiplayer aspect.
+image: /images/blog-fi/2023/fi-projecthack-conv.png
+tags:
+  - project hack
+  - game development
+metadata:
+  canonical: https://peterwitham.com/indie-game-project-hack
+---
+
+After I completed the early proof of concept and the single-player beta version of my indie game [Project Hack](https://www.projecthack.net), I knew I wanted to take time and step back to learn from everything I had done and the feedback I received. Thanks for that, everyone, by the way.
+
+Admittedly, it took longer than I planned to return to this project. I ended up releasing a whole other game first.
+
+Say hello to [Endless Hurdles for iOS](https://peterwitham.com/eh). Two other events have been added to the game as well.
+
+Now that I have taken care of that game and hopefully, folks are enjoying both the game and the Christmas event, I can return to Project Hack.
+
+## What has happened since the last public beta
+
+Some major decisions have been made with the game based on the single-player beta. Here’s a quick list.
+
+There are more deep-dive discussions in future posts on the list, so if you are interested in game-making and the process of decisions, you’ll love those.
+
+I switched from Unity to Unreal Engine 5 after trying several different engines (and it was during all the Unity licensing nonsense).
+
+It was determined that a player needs to create a login to be part of the online multiplayer experience.
+
+I Learned what worked and what didn’t from a player's perspective.
+
+I tried several solutions for cross-platform multiplayer experience before settling on one.
+
+I also realized there is an opportunity for a more extensive game experience than I originally planned, which is excellent. I love games that grow over time as much as anyone else.
+
+## What is happening now?
+
+Great question. A lot is going on. I have built the player account creation and login/management screens to test how I want it to work.
+
+It sounds simple, but in reality, it isn’t straightforward.
+
+I had to find a way for different platforms to support the same player on multiple machines and allow for simultaneous cross-play.
+
+After trying the services offered by many game engines and finding reasons they did not work or seemed expensive (assuming the game becomes popular), I decided to go with Firebase.
+
+This game concerns numbers and simple data types rather than complicated 3D environment tracking. At least, that’s the theory.
+
+As with many new things, I start by making a prototype independent of my main project's code base.
+
+So now I need to merge the user system into the game I had already started building in my engine of choice for this project.
+
+These things never go as easy as you think they will, so I’m expecting trouble.
+
+So, folks might wonder why I did not go with Godot since I have started learning and using that engine for other projects.
+
+Well, the simple answer is I had already started building the multiplayer version of Project Hack a long time ago during the initial single-player beta, and at that time, I had not tried Godot.
+
+## Indie Game development takes time
+
+The simple answer is that I’m one person, and I work on this project when I’m not trying to earn a living to pay the bills.
+
+But I have always been committed to making this game, and it has to take a back seat sometimes.
+
+Paying the bills has to come first.
+
+I plan to share the development process in blog posts and other media as before so you can keep up and also help guide the game's development.
+
+I also plan to release beta versions for folks to try and provide valuable feedback during the process so you can participate. I’ll set up a new sign-up system when the first alpha/beta comes.
+
+You'll automatically migrate to the new system if you already signed up as a beta tester.

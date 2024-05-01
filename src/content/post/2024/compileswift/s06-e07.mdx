@@ -1,0 +1,76 @@
+---
+publishDate: 2024-02-25T00:00:00Z
+title: Make that app design better for users
+excerpt: A developer log this week. I'm not happy with the design of one of my apps, and I'm sharing some thoughts on why and what I intend to do about it. This might help those feeling the same way.
+image: /images/blog-fi/2024/02-25.jpg
+tags:
+  - podcast
+  - compileswift
+  - swift
+  - app design
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s06-e07
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/5abfe104"></iframe>
+
+<Player/>
+
+A developer log this week. I'm not happy with the design of one of my apps, and I'm sharing some thoughts on why and what I intend to do about it. This might help those feeling the same way.
+
+<details>
+  <summary
+      style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Transcription
+  Welcome to another episode of the Compile Swift podcast. I'm your host, Peter Witham. You can find myself and this podcast to CompileSwift.com. This one's a developer journal update this week. A few things bothering me that I've been working on this week and I thought I'd share with you all. one of them is a topic that we have touched on before, but I think it's always worth talking about again. And that is. Knowing when to pivot on your app now, I don't mean just completely go in a new direction. But I think that becomes a point where you feel like either the design of your app or the functionality. Or something else? 
+
+There's just something about your app. That's not right. It's not really resonating with the users. And. It just feels uncomfortable. And I think that  once you put an app out there and it's been a V1 or it's been a. A dot release for a while. And you see somewhere along the way, it's just not working right now. 
+
+That may be just a gut feeling or it may be metrics that you follow and. Tell you that. Either nobody's using it or just the same people from the previous version. And there's no growth  or anything along those lines, but it all comes down to that thing of just knowing something's wrong. 
+
+Or something just doesn't feel. The way you intended it to be, or your users want it to be, if you're lucky enough that your users give you feedback. And that's what I want to talk about here. I have an app. That's a job. finder tracker. You'll find it in the. App store. It's a paid app. Very minimal. One of those 99 cent things. And. I was undecided when I bought it out at first. 
+
+And I'll put a link in the show notes. I think I have an episode out there on this. About whether to charge for it or to do it for free. And some folks have purchased the app, but not many. There's something about it. That's just bothering me. And I think what it is. I think the functionality is there for what is intended, but the design is not quite right. And when I came up with the original designs. I wanted to do something different, make it stand out a little bit. 
+
+You can see that from the screenshots in the app store. On the app store page, but there's something about, I think it's the color palette that's bothering me now. It's one of those classic things, we've all been there,  seemed like a good idea at the time. And then  you've lived with it for awhile. 
+
+And now you're thinking. Gosh, I really hate those colors.  I think we've all been there. And I think that's where I'm at. And so what I'm actually thinking of doing is doing an experiment. But an experiment that won't hurt the users and what I'm going to do is. I'm going to tweak. The look of it. 
+
+I'm probably going to strip it back to a lot of.  Conventional. I don't want to say matching the HIG, the human interface guidelines because it does. But more case of bringing it back to conventional color palettes. And removing some of the custom colors and backgrounds that I have in there. 
+
+I liked the backgrounds because they help. The content pop out in the app where you want it to. And so I'll probably keep it, but might change it a little bit. But I may change the UI controls.  Of course it has a light and dark interface, just like most apps do these days.  And certainly something you should be thinking about and certainly doing, but I think I'm going to go revisit it. 
+
+I've been playing around with a few things and I just think it's something I need to do. Now, originally I was going to transition the app over to SwiftData. Is currently using CoreData and CloudKit. For sync and across apps, that's all working fine. But I think. I'm going to hold off on, moving it over to SwiftData. Not because I think SwiftData is not ready for it it's not a particularly complicated model in the app or anything like that. But because I think I need to address this. Essentially usability. Features first, and those will determine pretty much the future of the app as far as. Whether it keeps going and where it goes from there. 
+
+But I think that I need to address that first because ultimately it's that thing of. Users don't care how the data is stored or manipulated or worked under the hood. Only us as developers do. And so if you think that you've got a user facing problem, like an interface issue, That's what you've got to deal with first. If everything under the hood is doing what it should and how it should. That should not be your priority if you've got other problems, because that's just stuff that bothers us as developers and. That kind of feels like where it's at. I have a feature that I wanted to release next, which was the notifications. Where you could say, Hey, remind me in one day, seven days, 30 days to follow up on this job application. And I'm not sure if I'm going to include that in this next. Update. Because  again, this is a new feature. 
+
+I think it's valuable to users. But I feel like this problem with. 
+
+The look of the app is more important. And so I'm going to do that first. And I also feel. I don't want to say it's an easy win. But it's a lot easier to change things like color palettes and layouts than it is to  dive under the hood and touch things that you know, are not broken and create new things that could become broken.
+
+And that's another thing right. There is you should really stage. In a priority order, that, that seems right for the situation. And what the, what you think is correct is the developer and the owner of the app. To look at it and go, okay, what's the priorities, what's the things I need to do first. 
+
+And it should always be things that you think of bothering the user. Not the internals under the hood, unless there's a very good reason. Like I say, something broken, something like that. So that's what I think I'm going to do. I'm not sure how long it's going to take me because. By all reasoning, it shouldn't take long, but obviously just like everybody else, I have other projects that I'm working on as well. I feel like this one is overdue. 
+
+I wanted to get a new update out for the app. Way before now and haven't, and that's on me. And I take the responsibility for that. And certain amount of procrastination on my part. I admit that too. And  I've had a lot of game related stuff that I wanted to do with endless hurdles and that's all out the way in a shipped now, including the game center stuff that I shipped last week. And so it's only right that I turned my attention to this that I think is my next priority especially since this is a paying app as well, like I say, it's not that it's providing any functional problems. I just think it's not resonating with potential users. And that is a bigger commitment, I think, than any. Free project that you put out for folks. You have to respect those that are willing to hand over some money to you. First. Those have to be the priority. It's as simple as that's the way I look at it. Hey, you may think that's different. Totally respect that, but that's the way I look at it.  And with that if you want to talk about these kinds of things  or you were in a similar situation or you feel like you've got a similar problem. Hey, I'd love for you to come on the podcast and talk about it. 
+
+I think that it's important that we discuss these things as a developer community and app makers. And I welcome you to come and talk about it. Right? CompileSwift.com/contact. And  let's have those conversations because I'm sure I'm not the only one with these kinds of problems and decisions to make. 
+
+And I think it's important. And also worth noting that these are things that we talk about all the time in things like our indie business channel on our dev club discord, there'll be a link in the show notes for it.  If you feel like you need or want to be part of a community that talks and works with these things  please join the discord. 
+
+There's a lot of fantastically, knowledgeable, good folks in there only too willing to help. That's what I've got this week for the developer update. It's just a short one.  I like to do these every so often. Just to remind folks that, Hey  it's not all about the tech, right? Primarily it's about the people. Who are using these things, that's us developers and our users and our clients and everything else. 
+
+And I like to put these out as developer logs or audio logs, whatever you want to call them. Because I think it's important to remind folks that there were people behind these things that we do. That's it folks take care. I will speak to in the next one.
+</details>

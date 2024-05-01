@@ -1,0 +1,161 @@
+---
+publishDate: 2024-02-18T00:00:00Z
+title: Adding Game Center to your apps and games
+excerpt: Learn why you should consider using GameCenter to attract new users and keep the existing ones coming back. 
+image: /images/blog-fi/2024/02-18.jpg
+tags:
+  - podcast
+  - compileswift
+  - swift
+  - GameCenter
+  - Game Development
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s06-e06
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/1135ee5a"></iframe>
+
+<Player/>
+
+Patreon members get a video version showing all the code -> https://patreon.com/compileswift
+
+Game Center is a great way to add features and interest to your apps and games. In this episode, I explain everything you need to do to get started; you may be surprised just how little effort it takes, thanks to Apple services.
+
+Not only do Patreon members get a video version showing all the details, but they also get ad-free episodes and access to the back catalog of episodes and help support the future of this Podcast, thank you.
+
+<details>
+  <summary
+      style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Transcription
+   What's up everybody. Welcome to the Compile Swift podcast. I'm your host as always Peter William, you can find myself and this   If you are a Patreon member, you will be getting a special bonus video version of this where you'll get to see my screens. And if you're not, you can go ahead to Patreon.com/compileswift and support the podcast there. 
+
+But either way, this information is going to work for you. We are going to be talking about game center integration in your apps and games and why I think it's a good idea and how you do that. Now, first of all, let's talk about why I think it's a good idea. 
+
+Anything that makes the users feel more connected to the experience with your games or your apps, but in particular games on this is a bonus. Now the good thing here is as well with the game center. Not only is it easy to integrate if you're doing something like seeing kit or Sprite kit. For the demonstration of this one here, I'm going to be talking about SpriteKit and how I integrated it into my endless hurdles game. 
+
+But also why it's a good way to spread the word. Among your users and invites friendly competition at the same time, because game center takes care of a lot of the problems for you. And it makes it very simple to integrate. Like I say, with just a few lines of code. And next thing, you know, people using game center, they're going to see their friends are playing.  This game and they may be curious, or they may, say, Hey, I'm playing this game. 
+
+You should play this too. And we can compete in things like, you know, leaderboards.  Achievements all very good techniques for getting people to feel. Like they want to play your game. For longer and over a period of time, you know, things like special events and all those kinds of things. You can integrate those in here as well. So going ahead with this, let's start, there's two parts here. 
+
+Now, first of all, you need to set something up on the backend in the Apple portal. And like I say, if you are a Patreon member, you will be seeing the video version of this, but I'm going to walk through this here and explain it as well. For those of you who are just listening to the audio version. But if you go to the apple portal and you look at your app, And like I say, in my case, I'm using my Endless Hurdles game here. 
+
+So I've got one set up ready. And you go to the services tab and then on the services tab, there is this game center link. That's going to come up and if you click on there and you bring it up, 
+
+in there, you can set things like challenges and leaderboards and achievements, which is,  Like I say.  Very attractive to me with this game,  this game that I'd got. So I've set one up here, but I'll walk through it. Now, first of all, let's talk about leaderboards. So we've all seen them, right? 
+
+The high school boards. And why would you want to do that? Well, like I say, friendly competition, right? Which is a good way to have more folks playing your games more often. And competing with each other. And there's a lot of options you can set in here. And it's very simple to set up. You just answer a few questions. 
+
+So what you would do. Is if you're just starting out on this, you will see as something that says click to add a leaderboard. And then once you do that, you get a few options. Since I've already got one set up, I'm going to click on it. But it brings up a window  you've you fill in these details? Now, the first thing is I have set up what is called a recurring leaderboard. 
+
+Now, what that means is this gives me the options that I want from my game here. Now. That means I get the ability to rehab this automatically reset whenever. I decided I want that to happen. Now you, the other option is that you have a persistent one that just goes on. The reason I've chose the recurring one is, we've all seen those games where you have this problem that someone gets to the top of the leaderboard and they're there forever. 
+
+And I didn't want to have this problem. So by doing a recurring one, I can have it reset on my schedule that I set up, and that gives everybody an opportunity to get on the leaderboard. Now, as you go through this, there are very simple options. The first thing is going on. You're going to want to do is called a leaderboard reference name, and that is giving it a name. That is going to be easy for you to reference basically. And look up, you may have multiple boards, leader boards in the portal. 
+
+So it's just a name for you to recognize it by here. Now the leaderboard ID that you put in. Is important. That is the one you're going to reference in code. So I would say choose wisely. Okay. Now the school, you also get this opportunity to have different format types for the scores.  And, there's different options, decimals and times and everything else. 
+
+I've gone with indigent on my one, because I think it's the easiest one. You score points the one with the highest points, your top of the board and an integer of course is perfect for that. But you may want to choose different options. They're all there to play with the score submission type. 
+
+You get two options. You can have a best score. And this is per player. So as I'm playing, my best score gets reported on the leaderboard. Or you can say, okay, go with the leaders, go with the players, most recent score. So every time you score. And the game is over and or whenever you submit the score, that's the one that goes up for a leaderboard. 
+
+Honestly, it makes the most sense to have the best score. Right. And then you can enter a range, so you can essentially try to prevent some cheating is what's going on there.  So you could say go from zero and you know that it's actually impossible for anyone to score over. 
+
+Say 200 points. You could put like, you know, 205 points in there. And then anything outside of that range will be ignored by the leaderboard. So that's a way if someone's trying to hack your game or something, And try and, you know, send a full score. That is a way to cap that. That's a nice feature. 
+
+I don't, I don't feel like I needed here, but it is a nice feature. Now, because this is a recurring leaderboard, like I say, you have the option to go in and say, okay, Tell me about this recurring period, right? So in the portal, it'll ask you for a start date and time.  You cannot set a time and date in the past. 
+
+If you try to do that, it's the portal will say, look, Hey, can't do that. That's in the past. Which if you're a developer. Causes a little bit of a complication at first, right? Because you're going to want to start working with this right away. So, you know, you're going to have to start with the current date and time and said it, say one minute in the future, something like that. 
+
+And then the clock is ticking.  Now as you're doing this as a developer and.  You have never put one out before. That's fine because there's no leaderboard in the public space. Right? So you can mess with these start date and times as much as you need to, as a developer, without hurting your players. Once one has been published, that's a little different, we'll talk about that. A little later here. But you set a start date and time that works for you. 
+
+Like I say, if you're a developer actively writing code, Set it for like one minute in the future or two minutes or something like that. So that the portals happy. Right.  Then you have this option to set a duration. So how long will this leaderboard last? Now, this is entirely up to you. You consent putting a number of days and minutes, hours and choose a different one. But I went with seven days. 
+
+So this is a one week leaderboard. Okay. And then along with that restarts, every is another option you have to fill in. Uh, again, I've kept it simple seven days. So. The duration is seven days. It'll restart every seven days. Okay. So in my case, for example, every Sunday night, At midnight. You could argue Monday morning, depending on which way you want to look at it. The board resets and that happens automatically for me every seven days. 
+
+I never need to do anything after that now.  The only other thing you need to put in here is languages. Language support. By default, you've got to put one in, right? So in my case, by default, I just put English.  Again, the format integer. And then you hit save. And that is it. 
+
+Once you've done that it is up in the portal. And if you want to go back and edit that in the future, there are certain parts that you can edit.
+
+And then there are some that you can't because you know, it's now cast in stone, but at least you can go back and like I say, work with these. So that is how you set up a leaderboard on the portal side. Now, once it's in there, You will notice it's not live right by default. It will not be live. Until you publish, 
+
+once you now publish your game, you send it off to apple. Uh, for review. Along with that, you have to answer some questions. It'll you know, when you send for review it'll. It'll say, Hey, I noticed you're using a leaderboard in your code. And some game center services. Just like all other permissions you're going to go through and you answer the question. 
+
+It'll ask you which leader boards do you need to be published with that? Once you do that and you say which ones. You pass review, and you send that out there at that point, the status becomes live for that leaderboard. Now, hopefully that makes sense.
+
+Moving on from that. Achievements are very similar. Now you can, again, you click the plus. Like it tells you to add achievements. Kind of a similar process, right? You're going to set the language, a name, and then you're going to also create this list of achievements. 
+
+So I won't go into too many details there, but basically. That's how that works. Right. And then once all that's all set up, that is all you need on the portal side. Like I said the important part to remember. Are going to be the achievements and the leaderboard ID. That is how you're going to reference it back in your swift code.
+
+Moving on to the app side of things. Now, are you going to be surprised? Held it'll code is involved. I was very pleasantly surprised on this.  
+
+So the first thing you need to do in your app is import gameplay kit. Now in my case, I decided that the game view controller. Since I'm using a SpriteKit based application here, I just went with the game view controller and imported gameplay kit there. Left it at that. Right.  And then wherever you want to use it in your application or your game. Is where you will want to put the rest of the code. 
+
+Now, of course you can architect this any way you want. I'm just going with a simple approach here. So  on my game, on the menu screen of the game. I put a button where you can see view the leaderboard, right? And so I decided that's really where the bulk of the code is going to be here. 
+
+So in my case, like I say, this is a SpriteKit based game. So bear that in mind, right?
+
+I created a variable where I'm going to create my instance of my game center services. And you just say, Hey, you know, set that to a new instance of game center services. Very straightforward. So in my case, I just called it game center services, simple as that right. Name of the variable. Then on my.  Did move. 
+
+And for those of you who don't know the deed move function, In a SpriteKit based game is basically saying when you load up this scene and it is on the screen. I want you to do some things right. As he's preparing. And all I do is I call it and I say, game center services. Authenticate local player. It's as simple as that. That is going to do an awful lot of things for us. 
+
+First of all, if a player is not. Logged into game center. It's going to ask them, Hey. You want to log into game center? This game has the ability to use that. If they say no. That's it. End of story. They're not going to be bothered after that, with it. Okay. So it's as simple as that, but bear that in mind. As you all building out your UI for these things, right? Now, if they say yes, apple has done a beautiful job at taking care of these things for us. It is going to use the game center. Authentication system. 
+
+So it's going to bring up the screen. We don't have to build it. They log into game center and that's either going to be successful or not. Right. It's as simple as that, but apple has taken care of everything for us. So we don't have to worry about anything else that once that's done.  At this point, we assume they're logged in. 
+
+Right. And like I say, when I say, assume I don't mean right. Write the code because Hey, that'll probably be okay. Apple's taking care of everything for us.  Other than that. That is all you need to do. Now, in my case, like I say, I've got a button. And when they click the button. We want to, again, take advantage of the game center services here and display the leaderboard. Again, this leaderboard is built by apple. 
+
+We don't really have to do anything here unless we just want to make our lives complicated, but why make your life complicated?
+
+So all I've done is created a variable when they click the button. It says, let VC equal game center services.show weekly highest score board, which is a function.  That's it. 
+
+I'm just going to call that function.
+
+And then after that, I'm going to put a, this is a long one folks. So, so hang in there. This is definitely one way it's advantage to see the video. I'm basically going to present that view controller, right? Now in a SpriteKit game, like I say, you got to do a little bit of digging here, so I just do self dot view, dark window dot roof view controller. Doc present and is going to say, Hey, what you control or do you want to show. Well, I want to show the VC that I just created. 
+
+Right. Set animation to true completion to nil. That is it. That is all you've got to do to display. The school board.  Game center's going to take care of this. Apple has done a beautiful job. It's going to bring up the game center, leaderboard and show any data on there. And. All the, the things that a user would be used to seeing in game center is takes care of everything for us.
+
+
+
+If they want to dismiss it, they can just dismiss it. 
+
+Like they normally do. And again, it's going to take care of everything for us and bring us back to our game. So that is the all you need to do to display. A leaderboard. But how does the user get on the leaderboard? Well, let's talk about that.
+
+So in my case, what I did. Is. When the game is over when the player.  Levels completed or whatever appropriate moment feels right for you. To send this new high score to the school board. That's what you want to do. So in my case, like I say, at the end of the level, 
+
+ I've got,  I set up a variable game center services, set it to a new instance of game center services. 
+
+That is all I need to do. In there. And then when the time comes.
+
+I'm going to submit the score now, how do you do that while it's actually very straightforward? In my case game center services dot submit high school. It's going to expect an integer because that's the way we set up the scoreboard. So I just send it an integer.  And game center will take care of everything else for us. Remember those rules that we set up where we said, Hey, only record and display their highest score. 
+
+So whatever value I send to game center, it's going to determine for me, Is this a news value that I need to record and if it is, it's going to do that  
+
+And if it's not, it's just basically going to ignore it. And that is it folks. That is all you need to do to display. a leader board and. Have it.
+
+Receive new schools. That's all you need to do. Unless you want to, like I say, highly customize it or go crazy with it for some reason. 
+
+So that is all you need to do to display a leaderboard using game center and submit scores. In your game or your app?
+
+This has been helpful to you, and I really hope it has. You should definitely try this out. Like I say there's lots of good reasons to use games and during your games, Especially for getting. Essentially free promotion of your game, right? From your players and having other players be interested in it as well. 
+
+Plus it's a nice feature to list. In the app store. You never know someone might see it and go, Hey, that's cool. Let's try that out. Or, Hey, anything that gets possibly gets apples attention to have your game. Potentially.
+
+Promoted by apple as well. Right. So go with that. Hope this episode has been helpful. Like I say, if you're Patrion member, head on over there, you're going to get the video version, but you get to see all of this and all of the code. If you're not a Patreon member. Hey, Patreon.com/compileswift help.
+
+
+
+Keep this podcast alive. 
+
+Greatly. Appreciate it. Thank you for that. Reach out to me, CompileSwift  on any of the networks. And,  Hey, I'd love to discuss this with you if you're using it, or if you have questions. Other than that folks, I will see you in the next episode.
+</details>

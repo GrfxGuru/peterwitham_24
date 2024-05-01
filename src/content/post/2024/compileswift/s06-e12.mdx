@@ -1,0 +1,670 @@
+---
+publishDate: 2024-04-15T00:00:00Z
+title: Serverside Swift, Structured Concurrency and more with Joannis Orlandos
+excerpt: In this episode, I talk with Joannis Orlandos about Serverside Swift, Structured Concurrency, maintaining good, clean code, Swift Server Workgroup.
+image: /images/blog-fi/2024/04-15.jpg
+tags:
+  - podcast
+  - compileswift
+  - swift
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s06-e12
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+import CSLinks from '../../../../components/podcasts/cs-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/b03077a7"></iframe>
+
+<Player/>
+
+In this episode, I talk with Joannis Orlandos about Serverside Swift, Structured Concurrency, maintaining good, clean code, Swift Server Workgroup and meetup, and more. I recommend checking out the links below.
+
+<CSLinks
+  link1="https://x.com/joannisorlandos?s=11&t=rqMlWafiMaDuoPOUPiPpEg"
+  link1label="Joannis Orlandos"
+  link2="https://www.swift.org/sswg/"
+  link2label="Swift Server Group"
+  link3="https://github.com/hummingbird-project"
+  link3label="Hummingbird"
+  link4="https://swiftonserver.com/getting-started-with-structured-concurrency-in-swift/"
+  link4label="Structured Concurrency with Swift"
+  link5="https://unbeatable.software/"
+  link5label="Unbeatable Software"
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+  style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+">Click to show transcription</summary>
+
+ #### Transcription
+ <cite>Peter:</cite>
+<time>00:02</time>
+<p>What's up, folks? Welcome to another episode of the Compile Swift Podcast.</p>
+<cite>Peter:</cite>
+<time>00:06</time>
+<p>I have a very special guest with me today. We've been trying to work this one for a while and I'm pretty excited about this. We're gonna talk about a few multiple subjects here but I'm not gonna leave you guessing any longer. My my special guest here, please go ahead and introduce yourself.</p>
+<cite>Joannis:</cite>
+<time>00:23</time>
+<p>Hey. I'm Joannis Orlandos I'm a swift member of the swift server work group, which means I've been involved in server side swift. I'm also doing iOS development. I've been a member of the Swift, paper core team.</p>
+<cite>Joannis:</cite>
+<time>00:38</time>
+<p>I'm known for mongokitten, some work on the SSH, client server, and recently Hummingbird too.</p>
+<cite>Peter:</cite>
+<time>00:47</time>
+<p>Great. Yeah. So many so many wonderful subjects to talk about here. Swift Server Workgroup. Talk to us about that because I think that this is, you know, this is something that that that I'm aware of.</p>
+<cite>Peter:</cite>
+<time>00:58</time>
+<p>I know many other folks are aware of. Of. But, you know, a lot of developers coming to swift still think of it as, you know, oh, that language you make Ios apps with. And that's true, but it doesn't end there. Swift actually reaches out a lot further and does some great stuff on the server.</p>
+<cite>Peter:</cite>
+<time>01:18</time>
+<p>So talk about the the Swift server work group.</p>
+<cite>Joannis:</cite>
+<time>01:21</time>
+<p>So Swift as a language is very ergonomic as most of you will know. And ergonomics is really, I I think, one of, like, one of the key features about Swift. But Swift is in a very niche, unique position where it's used for systems programming on on macOS and iOS. You can make apps with it. But it it's a compiled language.</p>
+<cite>Joannis:</cite>
+<time>01:46</time>
+<p>It has predictable performance. It's ergonomic. It's always good quality to have ergonomics in your language. Right? It's very easy to write with them, get to learn it.</p>
+<cite>Joannis:</cite>
+<time>01:56</time>
+<p>And it has this, interesting feature called in incremental disclosure, where you start out with the language as as a beginner using just your normal types everyone uses, like structs, classes, and and that's it. But as you dive deeper into specific needs with that you have within the language, it it it expands your horizon. So if you need to do low level operations, you're talking to a c library or you're talking to even embedded stuff, you can grab for unsafe pointers, which allow you to use, write pointers the way you would in c and c plus plus Likewise, there are c plus plus interoperability in case you need to interface with those system libraries. And the these are all really helpful features that exist beyond Swift for iOS and macOS. They're really helpful for, networking applications, writing cloud systems, databases, like Foundation database on the HNDB.</p>
+<cite>Joannis:</cite>
+<time>03:03</time>
+<p>Apple is writing distributed systems using Swift, which is just a back end thing for the most part. We're using it to write Lambdas on AWS cloud, regular Docker containers that run on the cloud, and even Raspberry Pis are are being programmed with Swift nowadays.</p>
+<cite>Peter:</cite>
+<time>03:22</time>
+<p>Honey, I was reading an article the other day. Someone was was talking about putting, you know, on a Raspberry Pi, and that one had never even occurred to me. You know, and, of course, I was pretty excited about this. I've I've never worked with raspberry pies outside of, you know, sort of, you know, quote day job work. And it got me to thinking of all the projects that I was like,</p>
+<cite>Peter:</cite>
+<time>03:46</time>
+<p>yeah.</p>
+<cite>Peter:</cite>
+<time>03:46</time>
+<p>You know, I could just you do this around the house, put Swift on the Raspberry Pi, solve the problem. You know. And also as well, I've got all these old I'm sure we all do. These old machines laying around and I'm thinking to myself, I could put Swift on there and have my own little stack in in in the house here and, work with that as well because we have so many options, You know? And, Swift on the server, very popular for those folks who, have used it.</p>
+<cite>Peter:</cite>
+<time>04:20</time>
+<p>You know, you hear nothing but good news. I I know some folks who do everything with it. And you can even, you know, put out websites. You know, there's many frameworks out there now for for blogs, and things like that as well. And, you know, I know you mentioned working on Vapour, part of part of the Vapour Group</p>
+<cite>Joannis:</cite>
+<time>04:39</time>
+<p>Yes.</p>
+<cite>Peter:</cite>
+<time>04:40</time>
+<p>As well, which, of course, is a, you know, a very well known one, and and you often hear that mentioned. I'm I myself have played with, vapor and liked it. Now you reached out to me gosh. I can't even remember how long ago it was we started talking. And you mentioned hummingbird though, which I had not heard of.</p>
+<cite>Peter:</cite>
+<time>05:01</time>
+<p>And and this caught my eye and I've I've I've sort of been quietly sitting in the background keeping an eye on it. And it's growing very, very nicely. And and it's also got a catchy name. That always helps, right, having a catchy name.</p>
+<cite>Joannis:</cite>
+<time>05:15</time>
+<p>And it's a bird.</p>
+<cite>Peter:</cite>
+<time>05:17</time>
+<p>Yeah. And it's a bird. Yeah. Exactly. We we're keeping it in the family here.</p>
+<cite>Peter:</cite>
+<time>05:20</time>
+<p>Right? But, you know, tell us some more about, you know, the the pros of using Hummingbird too because, this project is is definitely something that's like, okay. I'm trying to find myself, something to to build to to play with it. And I and I think I've got a couple of personal projects I wanna do. But talk to us about Hummingbird for the, you know, for those who don't know what it is.</p>
+<cite>Joannis:</cite>
+<time>05:46</time>
+<p>So Hummingbird is, another web framework for Swift. Initially, it started out as, sort of a fork of vapor 4 at the time. Vapor for Vapor, if you're not familiar with it, is is is is a very big framework. It has a lot of features. The downside of those features is that all of those need to be compiled.</p>
+<cite>Joannis:</cite>
+<time>06:08</time>
+<p>So if you're not using HTTP 2, if you're not using TLS, if you're not using, decrypt for password retesting. Like, all of those features that you don't need, they're still being compiled. They still take up binary size, which matters sometimes in the cloud. They still take up compile time. Your your development time is influenced by that and their dependencies.</p>
+<cite>Joannis:</cite>
+<time>06:31</time>
+<p>Hummingbird 1 is just a split up of those modules from papers, from from what was around the paper time. So, essentially, that's really nice. Right? So it's just an incremental improvement, a slight one that's a breaking change on top of paper. With Hummingbird 2, I'll actually reach out to the creator of Hummingbird, Adam Fowler, and I we talked a lot about where certain sites were designed now and where it needs to go.</p>
+<cite>Joannis:</cite>
+<time>06:59</time>
+<p>And we had these partially the same some conflicting ideas and some aligned ideas where we thought, okay, this is kind of what we think it's where we think server side is currently lacking. And and a couple of those, whether we identified, we try to tackle them as best as possible. I think Adam has been tackling some of them already really well. So Vapor has a lot of content out there already on, like, code deco and some books that people wrote. And and it it's just amazing, but it's not very accessible.</p>
+<cite>Joannis:</cite>
+<time>07:30</time>
+<p>It's not centralized. The main documentation on vapor dot codes has always been been our weakness since I worked there. It covers the basics, but it doesn't go very well beyond that. So Adam Fowler has been document has been making a really good effort putting time and effort into documentation for Hummingbird, and it shows. There are there are great examples.</p>
+<cite>Joannis:</cite>
+<time>07:52</time>
+<p>There is a large variety of examples. You can use it as a Lambda. You can use it with open API generator, etcetera. And and we continue the story into paper, sorry, Hummingbird 2 as well. Where things take an interesting fur turn is if you look at the history of Vapor, Vapor started out Vapor 0.3 is when I got involved.</p>
+<cite>Joannis:</cite>
+<time>08:14</time>
+<p>Basically, l the first Elphas. It was a very basic web framework where they implemented their own HTTP parser. And then when they got a sponsor, Adam and Tanner, sorry, not Adam. Tanner and Logan at that time worked on building that framework out with fluent as an ORM. Then in Vapor 2, it was just an incremental improvement on top of lessons learned from building your first web framework.</p>
+<cite>Joannis:</cite>
+<time>08:44</time>
+<p>But Vapor 2 was not the fastest. It was more comparable to PHP at the time, and PHP at the time was way worse than it is now in terms of performance. So this is kind of where I come into the picture. I was already I've already been building, older libraries like mongokitten for years at the time, and I had experience optimizing database drivers. So I collaborated with them to build one paper tree, which was using asynchronous networking, and and and we've just tweaked the hell out of every out of everything until it's at the base of at least Node.</p>
+<cite>Joannis:</cite>
+<time>09:19</time>
+<p>Js, and faster. And that worked, but FaberTree was received really well. And this sounds like a this sounds like a dream. Right? Your web framework has received, like, like, everyone wants to use it.</p>
+<cite>Joannis:</cite>
+<time>09:32</time>
+<p>The problem there is that FaberTree needed to be released very early. Everyone was using the breaking changes. The alpha builds that were breaking every week, they were using it in production because they couldn't wait. So we had to cut cut breaking changes short, and we moved into the beta phases early and then also had to move into release early. So we weren't on polish one nearly.</p>
+<cite>Joannis:</cite>
+<time>09:54</time>
+<p>So that's where Tanner continued polishing it for vapor 4, and that's released. Now vapor 3 and 4 were created at the time when was brand new. And, actually, during Swift Paper 3, Swift Neo didn't even exist. Swift was a I mean, Swift has been every year year on year a very different language. Things have been evolving very quickly.</p>
+<cite>Joannis:</cite>
+<time>10:15</time>
+<p>But one thing you'll note if you look at the timelines is that async a async async away structured concurrency wasn't around yet. So the comforts of writing concurrent code weren't in the language yet. So we were using futures and promises to work around that or kind of. Now today is a completely different story, but vapor 4 very much still has a quarter that's written based on, the lack of structured concurrency. So it doesn't have it completely relies on the end of futures and promises and has raised conditions all over the place that the compiler simply didn't know about back in the day.</p>
+<cite>Joannis:</cite>
+<time>10:56</time>
+<p>Now with Swift six coming up, we do get a lot more diagnostics about what is what potential rates conditions are. And, I mean, everyone has just been finding issues to fix left, right, and center, but that's not for the better of performance. And it complicates the system, so it makes it very hard to maintain. So with Hummingbird 2, Adam and I decided that structured concurrency needed to be adopted fully or not at all, and the only way within Swift is to adopt it fully. So, we reroute the engine, based on structured concurrency.</p>
+<cite>Joannis:</cite>
+<time>11:31</time>
+<p>We use modern Swift Neo standards that are based on structured concurrency, and the performance is just, if you compare it to an apples to apples comparison, it's 2.5 times faster. The code is much more maintainable because it supports concurrency. You have task locals available. They're they propagate just like you expect them to. Yeah.</p>
+<cite>Joannis:</cite>
+<time>11:56</time>
+<p>There there are very few downside at the moment. Although paper 5 will be a response to this as well coming somewhere later this year. But coming back to is now out there. It is in beta formally. We we do expect we might need a breaking change here or there, but over the last 4 months or so, that has been very minimal.</p>
+<cite>Peter:</cite>
+<time>12:17</time>
+<p>It's an interesting challenge, right, because, like you say, you know, the I think pretty much the the the as you say, the the history of Swift in in any form has always been, a moving target that we have been chasing. Right? I'm sure anybody that's been around with Swift for a while immediately goes back to their Swift to version 2 to version 3 years and how much fun that was. And and, you know, we all sort of, you know, joke about it a bit, but it is a growing language. Right?</p>
+<cite>Peter:</cite>
+<time>12:51</time>
+<p>At that time, it was very early. And and I think, you know, we all knew going in that it's like, this this is gonna be a little bit painful at first, but, you know, it's kind of hang in there</p>
+<cite>Joannis:</cite>
+<time>13:02</time>
+<p>It's worse.</p>
+<cite>Peter:</cite>
+<time>13:03</time>
+<p>And we'll get there. Yeah. It's absolutely. Yeah. And and it's interesting because I was gonna ask you, you know, from the perspective of, you know, vapor and and Hummingbird and and that how you plan or try to plan to catch some of those moving targets along the path.</p>
+<cite>Peter:</cite>
+<time>13:21</time>
+<p>Now interestingly, one of the topics we are gonna talk about here in a little bit, sweet swift with the concurrency, you know, definitely plays into something I'm I'm sure you are like, great. We we finally have what we need. Right? Yeah. And with that becomes, okay.</p>
+<cite>Peter:</cite>
+<time>13:37</time>
+<p>Do we do a you know, do do you start from scratch and say, okay. We're gonna target this specifically and take advantage of this and let the legacy go, or whether you try to embrace it along the way and sort of move along the path together with the language as it progresses. Right? And like you say, you know, Swiss 6 around the corner. Rumour is, it's gonna be some very different things.</p>
+<cite>Peter:</cite>
+<time>14:02</time>
+<p>And then we're gonna have to adapt our code again, all for good reasons. But, you know, it is that next level of, okay. Here we go. So how do you how do you try to plan for that? And, you know, do you sort of play safe sometimes and say, okay.</p>
+<cite>Peter:</cite>
+<time>14:19</time>
+<p>These parts, you know, the language are very mature. We're gonna we're gonna go with these and take some of this. I don't wanna use the word experimental, but early release, changes. Or do you just plan and go all in and say, okay. By the time we wanna release this version, Swift should be at version x, and therefore, we're safe to use these particular parts of the technology.</p>
+<cite>Joannis:</cite>
+<time>14:43</time>
+<p>It's actually interestingly a combination of all of the above. So whenever, someone at the app at Apple proposes a new feature that they plan to release into Swift, we I usually download the toolchain immediately and try to see how it benefits the the tools and libraries that I'm working on. I'll try to see how it can benefit my clients even, like, all of the I post all of my projects. And I do give them valuable feedback whenever I I have it so that we can improve their feature design, but also make sure that it fits our use cases. And sometimes, some like, sometimes my feedback doesn't fit the scope of a of a feature, but they did they'll add a new feature to accommodate the the request.</p>
+<cite>Joannis:</cite>
+<time>15:32</time>
+<p>So whenever it whenever a feature comes out, yes, I I will I will switch the the the switch to see if I can adopt it as soon possible. But if I have a current stable release, I'm not gonna break for it. But I'll see if I can accommodate that feature. I can accommodate room in my design so that that feature can be fitted later. For example, there's task executor preference.</p>
+<cite>Joannis:</cite>
+<time>15:54</time>
+<p>So Hummingbird 2 right now runs, when it uses the task groups and disc discardable task groups to to queue work using structured concurrency mechanism. But spawning a task happens on the global concurrent executor, whereas we know, as framework offers, that this is a TCP connection we're listening to, which belongs to Swift Neo. And Swift Neo has an event loop. So we'd like to use that to offload or, like, to to minimize the performance effect of jumping between threads. Now this is an optimization that we can do within the framework, but we need to do be careful about how we design it.</p>
+<cite>Joannis:</cite>
+<time>16:33</time>
+<p>So in our case, we are preparing for the figure task executor preference are gonna be there, and we can get, like, a 5 or 10% performance bonus there by adopting that. So, yeah, we're very conscious about that. So we're taking that into account right now, and we have a PR ready for whenever the feature lands. But we're not publishing it yet because the feature needs to be in swift first and finalized.</p>
+<cite>Peter:</cite>
+<time>16:56</time>
+<p>Nice. So so this is a case of, you're waiting for everybody to catch up with you. Right? It's like, okay. Great.</p>
+<cite>Joannis:</cite>
+<time>17:01</time>
+<p>Now we can give you the right? Yes.</p>
+<cite>Peter:</cite>
+<time>17:04</time>
+<p>This is good though. I mean and I I mean that in a good way because it's nice to be always as developers, you know, a lot of the time we feel like we're either struggling to stay on the curve or behind the curve. So anytime you can get a bit of a jump and you're like, okay, we can plan for this. We're gonna let it sit. We'll wait for it to bake in the language and then great.</p>
+<cite>Peter:</cite>
+<time>17:24</time>
+<p>You know, our our work here is done and we can we're already on to the next thing. That that's a huge win right there, especially for something like this. Like you say, the those early adopters, right, who who put things in production is like, look. We we said this wasn't quite ready, but, you know, they they put it out in production and the and then they hit an issue. And it's it's that nice way of of sort of pointing out, did you read the documentation where it said, look.</p>
+<cite>Peter:</cite>
+<time>17:51</time>
+<p>Don't don't don't put this on the server yet. Right? You know? And we should point out to folks, there'll be links in the show notes here to GitHub with all the the Hummingbird repos, because I you have them nicely broken down as well. I I got the list here in front of me.</p>
+<cite>Peter:</cite>
+<time>18:06</time>
+<p>You know, you've got, different repos for different parts. Right? You've got the core and the authentication and the WebSockets, and and ports like that. So folks can follow along with this and and dive into the repo. And, presumably as well, I'm guessing you're always happy to take, contributions, pull requests as well.</p>
+<cite>Peter:</cite>
+<time>18:26</time>
+<p>Right?</p>
+<cite>Joannis:</cite>
+<time>18:27</time>
+<p>Yeah. Totally. Feedback as well. I've I think not everyone realized it, but they realizes it. But a a good way to help a project, an open source project is, not always true contributing fixes or or or code.</p>
+<cite>Joannis:</cite>
+<time>18:42</time>
+<p>It it can also be feedback. It can be Yeah. Hey, do you know about this missing documentation or maybe even providing some documentation? But there are so many more ways to help a framework than just than than just contributing fixes to it or or features. Another good way to pro to help a community and an ecosystem is by making tutorials or by writing a blog post about how you're using hummingbird.</p>
+<cite>Joannis:</cite>
+<time>19:08</time>
+<p>So there are definitely other ways to help an ecosystem like this as well.</p>
+<cite>Peter:</cite>
+<time>19:12</time>
+<p>Oh, absolutely. I'm glad you mentioned that because, you know, a lot of people as soon as you say, like, contributing to open source, they immediately think coding. And then, you know, if if you're like me and you immediately think people don't wanna see my code. It's embarrassingly bad. But there are so many ways to contribute, you know.</p>
+<cite>Peter:</cite>
+<time>19:31</time>
+<p>I would imagine, you know, and to bring your special skills. Right? Because there are folks out there who love all sorts of things. Like you say, writing documentation. Yes.</p>
+<cite>Peter:</cite>
+<time>19:41</time>
+<p>Okay. Traditionally, as developers, we're we're not big on, oh, I'm gonna write documentation today, but there are folks out there who love to do this kind of thing. Like you say, tutorials, I think, is</p>
+<cite>Joannis:</cite>
+<time>19:53</time>
+<p>a huge important one. Is I know your name is on the tutorial.</p>
+<cite>Peter:</cite>
+<time>19:57</time>
+<p>Yes. Exactly. Yeah. Because, you know, anytime I come to a new new product, new framework, immediately, I'm looking for, like, okay. Great.</p>
+<cite>Peter:</cite>
+<time>20:08</time>
+<p>I have a wealth of technical information, but sometimes it's just nice to pull down a tutorial or an example, run it, and almost learn it, you know, through reverse engineering so that you can map that that technical side to to an implementation and and come up to speed that way. So that yeah. Folks, there are so many ways you can contribute to these products. You you don't necessarily have to write code if you're not comfortable with that. There there are so many other ways.</p>
+<cite>Peter:</cite>
+<time>20:36</time>
+<p>And and like you say, reporting features, bugs, even just promotion, you know, like we're doing here in in many ways. Promotion of of these repos and products as well. Getting it out there to the folks who don't know about these things.</p>
+<cite>Joannis:</cite>
+<time>20:53</time>
+<p>Time for a break.</p>
+<cite>Peter:</cite>
+<time>20:54</time>
+<p>Hey, everybody. It's Peter Whittam here from the Compulsory podcast. I wanna tell you about setup. Setup is a service that provides a subscription fee of just $10 a month and you get access to over 200 Mac applications. And it's also available now on iOS as part of that deal.</p>
+<cite>Peter:</cite>
+<time>21:14</time>
+<p>I use the service because it just has a ton of really good first rate apps that I use all the time. And for me, it's invaluable as a developer to have access to tools for things like APIs, for planning projects, writing emails, writing documentation, and you get all of these things including database apps, all of that kind of stuff right there on the set up service for just $10 a month. You can use as many or as few applications as you need. If you're interested in checking this out, go to peterwhitham.competerwhitham</p>
+<cite>Peter:</cite>
+<time>21:50</time>
+<p>dotcomforward/setapp,</p>
+<cite>Peter:</cite>
+<time>21:52</time>
+<p>s e t a p p. And you can see the details there, and it's got a link that you can go over and start using the service and see how it works out for you. I strongly recommend this to every Mac user.</p>
+<cite>Joannis:</cite>
+<time>22:06</time>
+<p>Break time over.</p>
+<cite>Peter:</cite>
+<time>22:07</time>
+<p>So I do wanna ask, you know, we've we've mentioned it a couple of times and a lot of people are talking about it. So, you know, if you were like me, at first you, you know, you you heard the words structured concurrency and, you know, you're like, what? You know? And, since then, of course, it's it's it's rapidly growing in popularity, in Swift now that other languages have had it. So, talk to us about that because you we'll put a link in the show notes.</p>
+<cite>Peter:</cite>
+<time>22:39</time>
+<p>You did a great blog post that I I actually read a couple of times to make sure it sort of sunk into my head. So so tell us about, you know, structured concurrency in Swift and, you know, why it's good that it's it's here now officially and, the benefits that it can bring for us.</p>
+<cite>Joannis:</cite>
+<time>22:57</time>
+<p>So structural concurrency has been around since since with 5.5, but it only gonna be magnified in significance with Swift six. So for those unfamiliar, Swift six is gonna be the I I I would probably call it the structured concurrency release. Not because it's just where it's introduced, but this is where it's kind of in its its final form, in Goh Super Saiyan. So, I mean, structured concurrency was already around in in in in many ways since we're 5.5. You have async away.</p>
+<cite>Joannis:</cite>
+<time>23:28</time>
+<p>You have async streams, async sequences. Like, many of the basic building blocks that you as a user will be using, like, you as a programmer will be using your applications, we're already there. But for mainly for framework developers, library developers, and people like Apple themselves, a lot of nuances were not growing yet. And and there there is one particular area that wasn't completed yet. So like I said, the task executive preferences, these optimizations that we can make, these these little bits of control that we can, have over how structured concurrency operates and performs.</p>
+<cite>Joannis:</cite>
+<time>24:06</time>
+<p>These are not, these weren't fleshed out yet. These weren't available. So with Swift takes all of them will change. But there is one major topic that wasn't just wasn't ready yet. Even if the language features were there, the language compile time wants to guarantee just like just like it guarantees that your string is not an integer.</p>
+<cite>Joannis:</cite>
+<time>24:29</time>
+<p>I know you can't compare them, I know you can't override the variable just like that. Like, under that same concept, trusted concurrency aims to ensure there are no race conviction. That that's the basic premise. When you when you call when you call it the structured concurrent code structured concurrency code, and and Swift is able to check it with Sendible and stuff, it will try to guarantee for you that your code will not have race conditions. It will not have, like, crashes because your access state from 2 different threads, And and and a large variety of bugs that fall under race conditions aren't gonna be resolved.</p>
+<cite>Joannis:</cite>
+<time>25:10</time>
+<p>So, but interestingly enough, I think structured concurrency is another type of race condition that's on the typical crash. The but that is also that that is not resolved by structured concurrency, but that structured concurrency really helps. And that's kind of like, just a mindset that you need to get into. So, with Swift six, they're gonna be activating all of the sendability checks. Like, all the alarms and whistle and bells are gonna be enabled.</p>
+<cite>Joannis:</cite>
+<time>25:39</time>
+<p>Whenever you have one race condition in your code, a structured structured concurrency with swift 6 is properly applied, you'll have no error you'll have no errors. But one one's trace condition will trigger the compiler to to not compile your code. And it's great. Right? You're gonna be I I mean, compared to Android apps, you're gonna be having a great, crash free user ratio.</p>
+<cite>Joannis:</cite>
+<time>26:00</time>
+<p>But then there is the second cause of crash conditions that I think is underappreciated. So, of course, Freshfree users are great, but bug free code is greater. Right?</p>
+<cite>Peter:</cite>
+<time>26:10</time>
+<p>Yeah.</p>
+<cite>Joannis:</cite>
+<time>26:11</time>
+<p>And, a lot of race conditions, they originate not necessarily because you, what you know, because you access state at the same time. I mean, structured concurrency and X rays do provide a really great solution about fixing that. But I think more more interestingly is also that there are a lot of patterns that people that teach structured concurrency in blog posts and articles get they they focus on the pressure bit. They don't focus on the on the logic side of things. Because Mhmm.</p>
+<cite>Joannis:</cite>
+<time>26:40</time>
+<p>When you look at concurrency, we're we're really talking about basically, running something in the background most of the time like, your, foundation URL session where you try to do an HTTP request and get a response back. Yep. But the structured bit of structured concurrency is that you read go top to bottom just like your if statements would. So in structured programming, your you write constructs, within a function, and these constructs are done by the time your function ends. So, like, a return statement could be an early exit still.</p>
+<cite>Joannis:</cite>
+<time>27:17</time>
+<p>And and just like in structured programming, when you throw an error or a turn, it affects the flow of your application in an expected manner. So you can literally record code top to bottom. If you don't write structured code by spawning tasks, like the task type that everyone tries to grab for, you lose the benefit of the the structured part of constructed concurrency. And I think it's just really unfortunate that that that, that that that detail, which is really important, is being overlooked.</p>
+<cite>Peter:</cite>
+<time>27:50</time>
+<p>You know, I I know that I'm guilty. I'm sure many other folks, I'll admit it on on their behalf. In the real world scenario, you find you have these race conditions, and you're you're sitting there looking at it thinking, yes, it makes sense on the screen. When I read the code, it makes sense but the code doesn't necessarily execute that way depending on the various situations, especially if you, are doing things like, you know, some heavy lifting on on mobile apps. And well, you know, at that point, you are heavily reliant on network connection.</p>
+<cite>Peter:</cite>
+<time>28:26</time>
+<p>Right? And and and the reliability and the speed of that in a logical, sensible order that you think you should. Right? You know, yes. On on on the screen, it looks great.</p>
+<cite>Peter:</cite>
+<time>28:47</time>
+<p>But in the real world, you know, calling out to those servers may not go in the order that you expect. And, a bit of defensive programming technique in there, You know, having these in the Swift language is only gonna make that even better. And and, you know, anytime you can reduce your crash rate even because some folks look at it and and they'll say, you know, a race condition is is is not a crash. Well</p>
+<cite>Joannis:</cite>
+<time>29:13</time>
+<p>it could it doesn't have to be a crash. But, like, if you look at the, what the reason I named Android is because I I think the interesting bit here is Apple is really pushing for native apps, and there is a reason for that. Because the native language for building native iOS apps is Swift, and Swift is in Apple's control. And it doesn't mean that Apple wants you to write Swift's code because they think Swift is in their control, But it is in Apple's best interest that they that you use the tools and techniques that you provide them because Apple wants to improve the quality of those tools in order to create bet and better app ecosystem.</p>
+<cite>Peter:</cite>
+<time>29:49</time>
+<p>Yep. So</p>
+<cite>Joannis:</cite>
+<time>29:49</time>
+<p>Yep. The better Apple makes Swift, the and the more they ensure race conditions are out of your apps, the better the quality your apps will be, which means that Apple has a better offering in terms of apps. I mean, that's the way I I look at it. Right? But, when when I mean what you said was really interesting where you said that net if you call make free network calls, you don't have the guarantee that they complete in a certain order.</p>
+<cite>Joannis:</cite>
+<time>30:17</time>
+<p>And sometimes that matters, and sometimes it does not. So, for example, when you when it doesn't matter which completes first, which response arrives first, or which request is sent first. So if you can if you need 3 images for profile pictures and you want all of them to complete before you render it, you can do an asynclet before the HTTP column. All 3 of them, all 3 of the asynclets will run-in parallel, and then you await all 3 of them when you're ready to process the result. I think that's just brilliant.</p>
+<cite>Joannis:</cite>
+<time>30:46</time>
+<p>It's a super simple pattern. It reads top to bottom. You await the acingulate whenever you need it, and that's it. That that that that that's the structured code, and it's concurrent, and it's performant. But, one I really want to go into detail about this one if you want if you don't mind.</p>
+<cite>Peter:</cite>
+<time>31:05</time>
+<p>Oh, please take it. Yeah.</p>
+<cite>Joannis:</cite>
+<time>31:08</time>
+<p>It's very difficult, and you've seen this in my guide. It's very difficult to explain structured concurrency as a topic in in in segments. So my tutorial is pretty lengthy. I managed to cut it up in 2 parts, at least I'm happy about that. But I was initially planning to make it a 4 or 6 part just to keep it concise and manageable, but I found that the more I try to separate the article into multiple pieces, the more, I would have to resort to, to plug holes basically that were incorrect.</p>
+<cite>Joannis:</cite>
+<time>31:43</time>
+<p>So, if you want to spawn the concurrent work without an asynclet because you didn't expect explain asynclet And what is your solution? It's gonna be an unstructured task. So you create a task with the task type. You'd write your code in the task block, But I my my tutorial was very explicitly designed to avoid those at all costs. And if you read my article, then you'll know a bit more about why.</p>
+<cite>Joannis:</cite>
+<time>32:05</time>
+<p>I'll still explain it because when you have an unstructured task, which is the task type with a capital t, these bounds will not work in the background. If you don't capture the the the task and you manually need to then you you can manually observe the value, but there is no need for you to throw catch the error. So you lose the error throwing bit of Swift, which I think is dangerous. Right? You want to the error propagation is a part of the language for a reason.</p>
+<cite>Joannis:</cite>
+<time>32:35</time>
+<p>And I think just like people whenever the compiler complains that you can't throw in a function that is not throwing, it tells you to put the exclamation mark or at least it used to do that. Right? So it says, hey. Did you know you can crash your application if you if you put this exclamation mark there? It's a super quick fix.</p>
+<cite>Joannis:</cite>
+<time>32:55</time>
+<p>And back in the day when when the default behavior of Xcode was to to provide this, fix it, a lot of apps were crashing because of it, like, in really only, in really old scenarios because nobody was able to catch the errors and handle them correctly. So I think that I'm really happy that this has been properly communicated in the community that as by crashing your application is not the desired behavior, and that's what it does. It's not a quick fix. And I think, likewise, spanning unstructured task is not a quick fix. Because, yes, in a way I mean, it is a quick fix, but it's not a fix.</p>
+<cite>Joannis:</cite>
+<time>33:32</time>
+<p>In a way, yes, it allows you to spawn unstructured code, like unstructured async code from within a SwiftUI button. But you lose one important detail, which is knowing when this function starts and ends, when the order of execution of your functions. So I I actually had an an app for a client that I work with. There are an Apple Design Award winner called Audio, and their app is is pretty interesting. It's spatial audio where you can move audio notes to, like, specific location and hear them around you.</p>
+<cite>Joannis:</cite>
+<time>34:05</time>
+<p>Like, I want a waterfall there in the room. And we redesigned their entire audio engine based around structured concurrency. And we had we managed to cut down, and we did this on purpose. We managed to cut down our, based on like, the unstructured tasks in that app to a total of 3. 1 was mandatory because we needed to spawn unstructured we needed to spawn structured concurrency code.</p>
+<cite>Joannis:</cite>
+<time>34:31</time>
+<p>But the other 2 unstructured tasks were not necessary. Just pass code review because we didn't pay attention. And I think it was pretty soon that we found out that there was a bug in our code. And I didn't even need to I mean, it was really weird because things were being done out of order where, functions were being called to add something like add a waterfall in the back of your room and then remove it because you didn't want it anymore. And for some reason, creating the node in the back of my room took longer than like a couple seconds.</p>
+<cite>Joannis:</cite>
+<time>35:07</time>
+<p>Maybe disc the disc IO was busy. And then you remove the node within those couple of seconds. So it tried to remove the node before it added, was done adding the node. That that was a classical race condition, but it didn't crash. So we didn't have any logs to go on.</p>
+<cite>Joannis:</cite>
+<time>35:23</time>
+<p>And then when I looked at the state, the the function that spawns these nodes and removes the nodes, hey. That was an unstructured task that was calling that function because we were observing events from Combine. Your your your gesture that was dragging the items on and off the screen was a Combine publisher. So we needed to map that to structured concurrency, and we used sync. But sync is not an async function, so it was, needed a task to to emit that event.</p>
+<cite>Joannis:</cite>
+<time>35:53</time>
+<p>So we redesigned that entirely so that we could observe those events using structured concurrency, which is, by the way, super simple. You just observe the values. There's a property on publisher called values, which allows you to for loop over them. It's amazing. Like, combine already works really well with source of concurrency.</p>
+<cite>Joannis:</cite>
+<time>36:09</time>
+<p>But just fixing that issue, just just removing the unstructured task grew was was the the was making sure all our issues were gone. And, yes, Swift takes fixes structured like, fixes race conditions in your crashes, but there are still so many more. So, yeah, I hope that people, will be able to get the hang of how to build apps without unstructured tasks. Because I think all of the blog posts that I've seen complaining about structured concurrency, we're using unstructured tasks all over their code base.</p>
+<cite>Peter:</cite>
+<time>36:43</time>
+<p>A lot of the times when I hit problems, I've I've not paid attention and and essentially backed myself into a corner where I then realized, oh, it's a race condition. Now I gotta figure out how to get out of this. And, it's interesting that you mentioned, you know, how a lot of the times it is, folks not looking at it and and recognizing and realizing that, yeah, if you structure your code</p>
+<cite>Peter:</cite>
+<time>37:09</time>
+<p>Hey, folks. If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter. You can go to patreon.comforward/compileswift, where you will get ad free versions of the podcast along with other content.</p>
+<cite>Peter:</cite>
+<time>37:30</time>
+<p>Accordingly, you're preventing this problem further down the line.</p>
+<cite>Joannis:</cite>
+<time>37:35</time>
+<p>I think maintainability of your code base is crucial. Like, like, I think every developer is guilty of this. And since I started Swift, I think by now almost 9 years no. 9 years ago, I started Swift, like 2015. Yeah.</p>
+<cite>Joannis:</cite>
+<time>37:54</time>
+<p>So when I started Swift, it took me a long time to become, disciplined enough to to stop cutting corners, and and I see myself do this everywhere. But, I mean, I've got a cofounder now, and we together advise a couple of businesses like, one that will be speaking at this at the meetup that we're organizing as well. And there there are very very very bunch of the businesses, but the only common denominators that they use with. And and we try to, we have this review process internally where we have me, my cofounder, and a junior developer. And I think all of us are critical in the process of ensuring our code is clean.</p>
+<cite>Joannis:</cite>
+<time>38:37</time>
+<p>Because when I create code, I read it myself first, and I try I try to envision what the other 2 will think about my code. And then when Robert, my cofounder, sees my code, he's very, very critical. He try we Robert and I always ensure that the author does not do any quick fixes or at least document them extremely explicitly, adds in each issue in our issue board to resolve it, as a warning in Swift because, you know, with the compiler, you can make a compiler directive put a warning there. Because we have a zero warning policy when we have a release and build to a client usually. So</p>
+<cite>Peter:</cite>
+<time>39:15</time>
+<p>Oh, nice.</p>
+<cite>Joannis:</cite>
+<time>39:16</time>
+<p>We know that this needs to be fixed. We need we know this needs to be addressed. The only reason we're merging it now is if we need to move forward because, you know, the client wants to see results. And then finally, after moving and or documenting all quick fixes or or or workarounds, we go to the junior developer and ask them to read it. And the junior developer has two reasons to read this.</p>
+<cite>Joannis:</cite>
+<time>39:42</time>
+<p>The first one is they learn a lot from it. They will be able to ask questions. They will be able to dissect what what I did and how I did it. So it's very educative for them, but that's not their main reason. I'm not well, I mean, it's a really big reason for me as a business owner to evolve.</p>
+<cite>Joannis:</cite>
+<time>39:57</time>
+<p>But even as a senior developer, the main reason I want him to read my code is because he's gonna ask questions, not the questions that I need to answer. No. The questions that show me that my code is too complicated. So if if my junior developer is not able to understand the code that I write, then that's a really bad sign of the quality of code that I'm delivering. It might be super, super functional.</p>
+<cite>Joannis:</cite>
+<time>40:19</time>
+<p>It might be super performant. Everything objectively might be great, but if he doesn't catch on, then it's not maintainable.</p>
+<cite>Peter:</cite>
+<time>40:27</time>
+<p>That that's a really, really important point right there, folks, because, it's important that we check other folks understand what we're doing because, you know, something that I try to to sort of mentor into folks is always, always, always assume someone else is gonna be looking at your code, and it might be someone who can just read it, fully understand what you've done, your you know, especially if you super optimize that code. Right? You know? And and it may be completely readable to them, but somebody else may look and have questions because their experience level is not quite at the point that they can put all of this together. And one of the ways that I express this to folks is, you know, in order to prevent you being the one that gets the phone call 3 o'clock in the morning when something's gone wrong in your production, if you make it that other people can understand it, there's less chance of you being called.</p>
+<cite>Joannis:</cite>
+<time>41:30</time>
+<p>And then also when you leave your job, when someone in the news gets a new team member gets hired, or when you get promoted, which means that you get to spend more time on extremely exciting new challenges, and the other people are staying by to maintain what you created. I mean, there are so many scenarios where you need this. The only reason you wouldn't want to do this Yeah. Is because you're a solo developer, and then even still.</p>
+<cite>Peter:</cite>
+<time>41:55</time>
+<p>And and I think, you know, that that is something I've been speaking about recently and, because I I do have opinions on that. Because I I have working on a project, personal project maybe, and then it goes to the wayside for a while, couple of months, something like that, maybe longer. And then you come back to it, and you spend an enormous amount of time trying to reeducate yourself on your own code base that you wrote and why you did these things. Maybe you didn't document them. I I hear that happens sometimes.</p>
+<cite>Peter:</cite>
+<time>42:30</time>
+<p>But, you know, that so being a solo developer, I think you should definitely treat it the same as when you're working on a team. It's just, you know, as some folks say and I think it's a wonderful phrase, it's helping the future you that's gonna be coming back to this. Right? But it's also important because I wanna touch on this because you mentioned this, in the last interview I did with Matt from from, Siemens Software. And he was saying, you know, the the how critically important it is, developer retention so that that knowledge remains in a product, in a company, in a team, because of this problem.</p>
+<cite>Peter:</cite>
+<time>43:11</time>
+<p>Right? Once once that developer moves on for whatever reason, you're hoping there's enough knowledge in the project that other folks can pick it up and and work with it as well. Right? So I'm glad that you mentioned that. Yeah.</p>
+<cite>Joannis:</cite>
+<time>43:27</time>
+<p>I think there are 2 more bits about that. So first of all, when you even when you work for a boss and and and you create a product, I think most developers have a sense of pride where they're happy that they created something. But if the next developer is is not happy with your code, you're gonna rewrite it. It. And you your legacy will not exist anymore.</p>
+<cite>Joannis:</cite>
+<time>43:46</time>
+<p>That's just painful. Isn't it?</p>
+<cite>Peter:</cite>
+<time>43:48</time>
+<p>Yeah.</p>
+<cite>Joannis:</cite>
+<time>43:48</time>
+<p>That you worked for a company for 3 years, and whenever you leave, it's all gone.</p>
+<cite>Peter:</cite>
+<time>43:52</time>
+<p>Yep.</p>
+<cite>Joannis:</cite>
+<time>43:53</time>
+<p>It's just the the the customer doesn't even use your code anymore because your your code wasn't maintainable enough. But, also, as a freelancer and and and and now a business owner, it doesn't make sense for me to accept the shortcut. So I sometimes have fixed price projects for clients and I quote them, let's say, let let's let's go for a round number like a 100. I quote them a 100 hours for a feature. And then but, roughly, by the end of it, I discovered this major flaw that I I like, the design flaw I did, and it's gonna put me over budget.</p>
+<cite>Joannis:</cite>
+<time>44:28</time>
+<p>I could do 2 I could do a couple things here. I could accept the flaw and continue with my life, and and I'm over budget. Sorry. But I I did my best. Right?</p>
+<cite>Joannis:</cite>
+<time>44:38</time>
+<p>The second option is, I I could fix the bug at my own cost or I could fix it at their cost. So I think this for me, the first option is not an option until unless I want to lose my client. And I'm gonna say this very clearly because if my client decides to decides to stop with me because I made a bug, understandable. If my client continues working with me, who's gonna who I'm still gonna eat the cost. Right?</p>
+<cite>Joannis:</cite>
+<time>45:05</time>
+<p>Because I'm I'm gonna have to work with my own flaws. Like, all the the the the design flaws that I implemented in their product, they're gonna come back to bite me. I'm gonna have to fix them. So option 1 is not an option unless I plan to lose the client. Option 2 is, I'm gonna eat the cost, and I honestly, most of the time, we it's not the best way for a business owner, but we do this quite a lot, and and not for a lot of hours most of the time.</p>
+<cite>Joannis:</cite>
+<time>45:33</time>
+<p>But sometimes, we do lose a lot of of money fixing these bugs. But it's also kind of in our price. We we're not we're not the cheapest, but we want to make sure that when our clients leave, they leave happy. So if this is what it takes to to be make a really happy client, then we do this. And it's actually I think you're just building up karma, and and and this karma has always come back to me just like, clients that we have helped to disagree in the past, we make sure that they know that we introduced a flaw, and we also make sure that they know we fixed it.</p>
+<cite>Joannis:</cite>
+<time>46:04</time>
+<p>But, and and they're really happy because we're reliable. But, like, sometimes we go for option 3 where we say, okay. This was not so maybe our entirely our fault, or we went way over budget. Maybe we could compensate a little bit. But then at that point, I have already fixed it or I'm planning to fix it.</p>
+<cite>Joannis:</cite>
+<time>46:24</time>
+<p>Just a matter of fact, I can recoup some of the cost. But I think it's just Yeah. It always comes back to bite you when you when you cut corners, but especially when you're under budget.</p>
+<cite>Peter:</cite>
+<time>46:35</time>
+<p>Well, I I think too, it's, you know, I'm I'm glad to hear you say that, and I hear a lot of folks saying it. And it always, you know, makes me feel a whole lot better about, our industry and and what we do because it it is that discipline. Right? You know, if you could find this bug, at this point, nobody else knows about it except you. But because of your self imposed discipline and desire to deliver the right solution and, you know, a maintainable solution and a good product, you say to yourself, doesn't matter, you know, whether this is covered by the cost or not.</p>
+<cite>Peter:</cite>
+<time>47:16</time>
+<p>I have to fix this just if nothing else so that I know that I fixed it and and it's not there for whether it's for me, for the next person, or whoever. There is I always think it's nothing worse than you let a product go, you ship it, knowing there's a possible situation. And I and I get this. It's difficult. Right?</p>
+<cite>Peter:</cite>
+<time>47:37</time>
+<p>I I I have to make these decisions all the time in my my jobby job of, you know, is something bad enough that we delay shipping it, or do we say, okay. It's here. We're gonna get it the next time around. And and and that's always a judgment call. You know, I think, eventually, you just rely on years of experience to tell you, you know, if it's only gonna happen to 1%, maybe.</p>
+<cite>Peter:</cite>
+<time>48:03</time>
+<p>Okay. You know, that that you should still get this, but get it next time. Don't delay it for the mass. Alright? But that discipline and, like you say, the the karma of, you know, I just gotta do this because it's the right thing to do.</p>
+<cite>Peter:</cite>
+<time>48:19</time>
+<p>Alright. Here it is. The one thing that I cannot do without every day and that is my coffee. Anyone that knows me or anyone that's listened to any of my podcasts or anything else knows that I absolutely cannot operate without my coffee and I love good coffee. So here's the deal.</p>
+<cite>Peter:</cite>
+<time>48:36</time>
+<p>I'm gonna give you one free bag of coffee by going to peterwidham.comforward/coffee. There is a wonderful company out there that follows the fair trade practices, helps out a lot of independent roasters of all sizes and the operation is simple. What you do is you're gonna go to to peterwhidham.comforward/coffee. You sign up there. You get a free bag of coffee sent to you.</p>
+<cite>Peter:</cite>
+<time>49:02</time>
+<p>Yes. In return, they say thank you to me by giving me some coffee, but that's not the reason I'm doing this. The reason I'm doing this is because I have found so many good coffees that I just would never have come across, heard about, or experienced without this service. Trade coffee is is just fantastic. You know, there are plenty of places out there.</p>
+<cite>Peter:</cite>
+<time>49:26</time>
+<p>We all know them that supply coffee, good coffee. You can go to the store, get the coffee, but there is nothing better than discovering new independent roasters and supporting them. Discovering new flavors of coffee, new grinds for You can set it up. It's very smart. You tell it the kind of coffee you like and over time, it gets better and better as it trains in on your selections and your choices and gives you exactly the coffee you're looking for and recommending new ones that that will be very similar.</p>
+<cite>Peter:</cite>
+<time>49:58</time>
+<p>Every time I get a new packet of coffee, I go through and afterwards, I try the coffee. I go through the service and I say, look, I loved this coffee. I thought this coffee was okay or I say, look, I've this was really not for me. And every time I do that, it makes the service a little more accurate on the next selection for me. So again, just go to peterwhidham.comforward/coffee.</p>
+<cite>Peter:</cite>
+<time>50:20</time>
+<p>Get your free bag of coffee today. If you're a coffee lover, you're gonna really appreciate this service. I have been using it for years at this point and thoroughly recommend it.</p>
+<cite>Peter:</cite>
+<time>50:33</time>
+<p>And and I love it when I I hear folks saying that. So thank you for for putting</p>
+<cite>Joannis:</cite>
+<time>50:38</time>
+<p>are liable to clients, I think. So it's</p>
+<cite>Peter:</cite>
+<time>50:40</time>
+<p>Yes.</p>
+<cite>Joannis:</cite>
+<time>50:40</time>
+<p>It's it's even the even from a business perspective, just just objectively, it's it's the, I think, the wisest choice. Because as of the when you're you're you're creating a business, freelance or otherwise, in in software development, You you can't you can't go around with a bad reputation that you leave clients in the past.</p>
+<cite>Peter:</cite>
+<time>51:01</time>
+<p>Yes.</p>
+<cite>Joannis:</cite>
+<time>51:01</time>
+<p>Like, it's the same business choice to be a reliable partner.</p>
+<cite>Peter:</cite>
+<time>51:05</time>
+<p>Yeah. It's it's absolutely the right thing to do. I mean, it's you know, reputation is, you know, everything, you know, as the saying goes. But very conscious of your time here. Is there anything else we haven't covered that you wanna cover?</p>
+<cite>Joannis:</cite>
+<time>51:20</time>
+<p>So the Swift Server work group, which I'm a member, we're organizing a meetup on the 24th April, and we'll be doing a quarterly one after that. I don't know when this podcast is gonna be post posted. But, we'd love for people to be there. I I think, I think just just touching back on that client that I mentioned previously, audio,</p>
+<cite>Peter:</cite>
+<time>51:41</time>
+<p>where we</p>
+<cite>Joannis:</cite>
+<time>51:42</time>
+<p>also drive out our audio engine and a couple other clients as well. I think we do this for most projects now. I really like to design my code as a state machine. I took a lot of inspiration from Corey Banfield who gave a talk at, I think, at 20 19 Swift Server Conference. And he talked about state machines in Swift, about how they implemented HTTP 2, which is quite a complex protocol using Swift.</p>
+<cite>Joannis:</cite>
+<time>52:09</time>
+<p>And and they use enums for to represent state. You can also use trans or a mix of them. And we do the same in Swift Neo SSH, which is the SSH tooling that we use for Citadel. And I actually was involved with the creation of that library, and it's all state machine. And I was I'm absolutely in love with how easy it makes some of my refectors because sometimes I need to add a new feature to the state machine.</p>
+<cite>Joannis:</cite>
+<time>52:34</time>
+<p>And I just add an enum case. Right? Like, hey. There is this new x that I need to the the new this new x fee feature that that that's my app. And I add an case or a variable to it, and it's just especially with cases, if I add a new message that I send over the wire, It's it Swift forces me to handle it.</p>
+<cite>Joannis:</cite>
+<time>52:56</time>
+<p>It's great. But nowadays, I I'm trying to use those patterns using the composable architecture or something similar in iOS. And I'm trying to model my iOS apps to state machines, because I can render the state using SwiftUI in in the composable architecture. And then, that makes my views very easy to construct for unit test or for UI test or snapshot test. But more interestingly, I can test my state machine on Linux as well.</p>
+<cite>Joannis:</cite>
+<time>53:25</time>
+<p>I can port my state machine to Android later on or web assembly or to the back end or using, other way to now I can port it to gnome on Linux desktops.</p>
+<cite>Peter:</cite>
+<time>53:36</time>
+<p>Yep.</p>
+<cite>Joannis:</cite>
+<time>53:36</time>
+<p>And, hopefully, when the when the browser completely releases their Windows UI kit, then we can also use the same little business logic on on Windows. Right? So I'm trying to kind of decouple my my business logic as much as possible from the implementation, to the even to the extent where I know I'm gonna be using, let's say, 85 d h m for audio rendering. But then, I I make sure that that's a protocol that my iOS app conforms a type 2 and injects. And and this pattern has just been amazing for me.</p>
+<cite>Peter:</cite>
+<time>54:10</time>
+<p>Very nice. Yeah. Is isn't it great? You know, it it's it's always amazing to me when I stop sometimes and I think about where we are now and the things that we can do and how quickly we've got there because it it's amazing that, you know, like you say, you mentioned the the the gnome desktop. And I know very bad this the other day.</p>
+<cite>Peter:</cite>
+<time>54:32</time>
+<p>It was the first I'd heard about it. And Mhmm. You know, my first thought was great. You know? The the this dream is starting to come true where I I have my sort of my main language that I I focus on and like to use, and I don't have to keep switching out as much to other languages like I used to.</p>
+<cite>Peter:</cite>
+<time>54:53</time>
+<p>And that's great news for me as a developer. Right? I I can stay focused on my language of choice, but also</p>
+<cite>Joannis:</cite>
+<time>55:01</time>
+<p>Yeah.</p>
+<cite>Peter:</cite>
+<time>55:02</time>
+<p>Grow with it. The fact that I can I can just take Zwift and say, okay? You know, I I can do my projects with this and feel comfortable with it, just because that's my world. Right? You know, other folks, other languages totally get that.</p>
+<cite>Peter:</cite>
+<time>55:18</time>
+<p>And and some sure. Some folks will say, oh, but other x y z language, you've been able to do this for years. That's great, but it's not the great solution for me personally. Or or maybe, you know, sometimes clients request a particular stack because they're gonna take it at the end of the day, and maybe their internal team is comfortable with that. Right?</p>
+<cite>Joannis:</cite>
+<time>55:43</time>
+<p>Right. But, I mean, when you're like I said, when when you're developing swift code, you cannot at least if you don't use AVFoundation as a hard dependency, if you use dependency injection to inject that and then use, like, platform implementations, Let's say Linux has a different audio system, Windows has a different audio system. You can inject those. But the business logic is just swift. There's nothing crazy about it.</p>
+<cite>Joannis:</cite>
+<time>56:08</time>
+<p>It doesn't have any dependencies. Right? If you can write your your your code as clean and objective as as it as I just explained it, not already. You can port that code to all of the platforms that I mentioned before. You can port it to Android.</p>
+<cite>Joannis:</cite>
+<time>56:24</time>
+<p>You can port it to iOS, macOS, Linux, Windows, maybe even WebAssembly. And then soon, you'll able even be able to port some of your codes to embedded systems. And like one of my clients, the one that will be giving a presentation at the meetup from Volcom, we've been discussing using Swift for pro for for some of the protocol code between different devices because we have hardware that's written in c and c plus plus. We have some devices that are written in Swift. We have an iPad app, and all of the communication could be, theoretically be done using the same code because c and c plus plus have been trouble with Swift.</p>
+<cite>Joannis:</cite>
+<time>57:06</time>
+<p>Swift and Swift is now the problem. So if you can do your network protocols, your Bluetooth stack using Swift</p>
+<cite>Peter:</cite>
+<time>57:11</time>
+<p>Yeah. Yeah.</p>
+<cite>Joannis:</cite>
+<time>57:12</time>
+<p>You can do it everywhere. Yeah. Like, what you said is pretty interesting, right, where we have all these different text choices. But I think soon not now. I think now is a bit too soon.</p>
+<cite>Joannis:</cite>
+<time>57:23</time>
+<p>There are not that many dependencies that do Bluetooth on Android for Swift. Right? There are some, like if you if you want to interface with Android libraries, the there are not that many libraries that you can if you want to work with Android on VoiceThread, there are not that many libraries. You can use CC plus plus interrupt, of course. That's great.</p>
+<cite>Joannis:</cite>
+<time>57:43</time>
+<p>So that saves you a lot of the pains that we would have previously. But, like, I I imagine that maybe 2 to 4 years down the line, these ecosystems will flourish a bit more, especially now with the platform steering group, that we see dependencies for Windows with Swift, that we see dependencies, packages that you can use for Android with Swift. And and by then, I mean, as a small team, of developers, you can achieve so much. You just need because because, if you're a small company, you don't need a full time iOS developer for this app. But you do need an Android app, an iOS app, a back end, and a website.</p>
+<cite>Peter:</cite>
+<time>58:23</time>
+<p>Mhmm.</p>
+<cite>Joannis:</cite>
+<time>58:23</time>
+<p>And and if 1 or 2 developers can provide all of this using the same tools and techniques that they're used to with Swift, I mean, that's a billion time for businesses to start adopting Swift.</p>
+<cite>Peter:</cite>
+<time>58:33</time>
+<p>Oh, absolutely. Absolutely. Yeah.</p>
+<cite>Joannis:</cite>
+<time>58:36</time>
+<p>Well, I think we're getting there very</p>
+<cite>Peter:</cite>
+<time>58:38</time>
+<p>soon. Oh, I I do too. You know? It it used to be that, you know, the norm was to have dedicated groups for a particular tech. Now, like you say, you know, those I don't wanna say they're they're reducing, but, you know, you because of these options, you have a core group of developers, I think, on teams that, you know, maintain them from from end to end, which gives, I in my opinion, always a better experience.</p>
+<cite>Peter:</cite>
+<time>59:10</time>
+<p>Right? It's not I wrote my part, handed it off. Hopefully, it should go great with the other team who are doing the website or whatever it may be. But to see that end to end gives developers as well a way to learn and understand how essentially the data from their apps, because that's what it comes down to at the end of the day, you know, goes from from the beginning, from the user input through to the database or or whatever it may be, and all the stack in between. And that makes a huge difference sometimes on how you choose to architect something and, you know, understanding where the potential pitfalls and problems are as well.</p>
+<cite>Joannis:</cite>
+<time>59:54</time>
+<p>Like, a friend of mine, wrote it like, my co cofounder, actually, also a friend of mine, of course. He wrote a a bit of code, I think, a couple years back where they had this this this form builder that they needed. And they ended up making a SwiftUI view that that represents a form, and they made it an in a codable enam, the the view. So each of the components in that form was an enam case, and they just had an area of these enam cases that they were rendering. And then they could decode this entire view from JSON and show it to the user.</p>
+<cite>Joannis:</cite>
+<time>01:00:29</time>
+<p>I I thought it was brilliant. So Interesting. I think if you if you have if you have, like, platform specific UI desires, you create your UI pattern that same way using Swift on Windows, Swift on Linux, Swift on macOS, etcetera, Android, and you you use the the platform native preferred technique for rendering, like Android has a different navigation style from iOS, difference from Windows and Mac OS again. And as, you can just you can really quickly, I think, iterate on top of that once we get to that point.</p>
+<cite>Peter:</cite>
+<time>01:01:05</time>
+<p>Anything else here you wanna cover?</p>
+<cite>Joannis:</cite>
+<time>01:01:08</time>
+<p>I guess one thing. So the Swift server conference is, coming to Yeah. Absolutely. So, server side swift dot info is a conference which is created by Tim Condon, which is now a core team member or the core team member of Vapor, maintains a project, is also a member of the Swift server work group. And I think I I I think almost everyone from the Swift server will be there.</p>
+<cite>Joannis:</cite>
+<time>01:01:36</time>
+<p>Most of the open source maintainers that you know from various places at Apple, various open source project. You'll see all of us around there. And I think if you got, if you're interested in coming there, make sure you buy a ticket and visit this in London later this year.</p>
+<cite>Peter:</cite>
+<time>01:01:52</time>
+<p>Oh, absolutely. Yeah. Go thank everybody for all the hard work they do. Right? Greatly appreciate it.</p>
+<cite>Joannis:</cite>
+<time>01:01:59</time>
+<p>They're always very technical talks. They try to keep it a bit accessible, but there are definitely technical people in the room. So</p>
+<cite>Peter:</cite>
+<time>01:02:06</time>
+<p>Good. Well, you know hey. I mean, the great news about that is as well though is you can get to go and talk directly with the folks. So, yeah, thank you so much for for reaching out to me and, for making this, you know, a slot available for us to get together and talk about these fascinating subjects, interesting subjects. And, and the audience has been asking about this as well.</p>
+<cite>Peter:</cite>
+<time>01:02:33</time>
+<p>Reach out to the links and, hopefully, they've enjoyed the conversation. I know I have. It's it's been great. I knew this was gonna be a really good one, and I, you know, was super excited we were able to make it work. But please, please, please tell folks where they can find you and, anything that you wanna point them to.</p>
+<cite>Joannis:</cite>
+<time>01:02:51</time>
+<p>Alright. So, you can find me on Axel Under the name, Janis, similar to my GitHub username, j o a, double m, I s. I'm cofounder of unbeatable software, which is a Dutch company where we, create and guide iOS developers, back end developers, all all Swift developers to, to achieving their goals. We do we help with training. We help with we do some weekly calls with some companies where we guide them through their issues and try to refine their their well, everything around how they develop Swiss code, basically.</p>
+<cite>Joannis:</cite>
+<time>01:03:28</time>
+<p>Code, basically. So if you're interested in that, definitely reach out to me.</p>
+<cite>Peter:</cite>
+<time>01:03:31</time>
+<p>Yep. Yeah. Johannes, thank you so much, my friend. I was just so excited about this one. We've been, folks, we've been trying to put this one together for a while.</p>
+<cite>Peter:</cite>
+<time>01:03:40</time>
+<p>He he's a very positive mom. You know? Yeah. Yeah. Real yeah.</p>
+<cite>Peter:</cite>
+<time>01:03:44</time>
+<p>And, you know, so excited. And, hopefully, by you know, you're welcome to come back anytime. And I'm I've I've thought of my project that I wanna use Hummingbird for. So, well, I guess, would it be fair to say I should go just go straight to Hummingbird 2 at this stage? Or Oh,</p>
+<cite>Joannis:</cite>
+<time>01:04:02</time>
+<p>yeah. Totally. I think if you're not starting with Hummingbird 2, you're you're gonna be in for,</p>
+<cite>Peter:</cite>
+<time>01:04:08</time>
+<p>you're living in the</p>
+<cite>Joannis:</cite>
+<time>01:04:08</time>
+<p>past. It's just a it's just a straight you're living in the past. Yeah. You're living way in the past.</p>
+<cite>Peter:</cite>
+<time>01:04:14</time>
+<p>There you go. Yeah. So so you heard it. You got Yanni Stoltz. Hey.</p>
+<cite>Peter:</cite>
+<time>01:04:17</time>
+<p>Stop living in the past. Go to Hummingbird too. But, no, I I have a a an idea for a project that I wanna do. So I'm I'm sure I'll tell folks more about that in the future and and how it's going. So I may reach out to you as well and say, like, hey.</p>
+<cite>Peter:</cite>
+<time>01:04:31</time>
+<p>I I've done this stupid thing. How do I get out of this?</p>
+<cite>Joannis:</cite>
+<time>01:04:35</time>
+<p>But Hopefully, there's not too much of that because the docs should be pretty clear. But still, hey. I mean, if if there if it if the docs aren't clear, be sure to send us a a question or or</p>
+<cite>Peter:</cite>
+<time>01:04:44</time>
+<p>Oh, absolutely.</p>
+<cite>Joannis:</cite>
+<time>01:04:45</time>
+<p>Because that's con that's contributing.</p>
+<cite>Peter:</cite>
+<time>01:04:47</time>
+<p>Yeah. There you go. Right, folks? And and we'll, you know, go to the Discord as well. Right?</p>
+<cite>Peter:</cite>
+<time>01:04:53</time>
+<p>Very great great place as well. They're all there. You can reach out to them. So folks, that's what we got for you in this episode. I hope it's been helpful.</p>
+<cite>Peter:</cite>
+<time>01:05:01</time>
+<p>I think it's been helpful to me. I'm, I'm hope hoping that it's inspired other folks to go and and look at stuff as well. You know where to find me. Go to compilesuit.com and, in all the usual places. And, with that, that is what we got for you.</p>
+<cite>Peter:</cite>
+<time>01:05:15</time>
+<p>Thank you.</p>
+</details>

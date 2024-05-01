@@ -1,0 +1,401 @@
+---
+publishDate: 2024-04-05T00:00:00Z
+title: Matt Van Itallie - Sema software, generative ai and code analysis
+excerpt: I talked with Matt Van Itallie, founder and CEO of Sema, we discussed generative AI, developer retention, intellectual property protection, and more.
+image: /images/blog-fi/2024/04-05.jpg
+tags:
+  - podcast
+  - compileswift
+  - swift
+  - AI
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s06-e11
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+import CSLinks from '../../../../components/podcasts/cs-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/341afa9f"></iframe>
+
+<Player/>
+
+I talked with Matt Van Itallie, founder and CEO of Sema, a software company specializing in helping non-technical executives understand software development. We discussed generative AI, developer retention, intellectual property protection, and more.
+
+I bet you never considered using AI to help you, your team, and your company better understand your code base, products, and services.
+
+<CSLinks
+  link1="https://www.semasoftware.com/"
+  link1label="Sema Software"
+  link2="https://www.semasoftware.com/blog/unleashing-developer-productivity-with-genai-tactical-best-%20practices"
+  link2label="Unleashing productivity with GenAI"
+  link3="https://www.semasoftware.com/blog/trusting-your-genai-code-practical-tips-for-engineering-leaders"
+  link3label="Trusting your GenAI Code"
+  link4="https://www.semasoftware.com/blog/generative-ai-bill-of-materials-gbom-tm-a-primer"
+  link4label="Generative AI bill of materials"
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Transcription
+ <cite>Peter:</cite>
+<time>00:02</time>
+<p>What's up, folks? Welcome to another episode of the CompileSwift podcast or videocast depending on which way you are listening or watching this. Have another very special guest with me today, and we're gonna have some great conversation here. I've got Matt Van Itallie with me. Matt, please go ahead and introduce yourself.</p>
+<cite>Matt:</cite>
+<time>00:20</time>
+<p>I will. And thanks again, Peter, for having me. I am so excited to spend some time with you. Of course, I'm Matt Van Itallie, founder and CEO of a software company called Sema. And what we do is help explain the technical world of software development to nontechnical executive, the c suite and the board of directors.</p>
+<cite>Matt:</cite>
+<time>00:41</time>
+<p>We started with a set of products that help summarize, the state and health of a code base. Think of it as nonfunctional requirements or code based health into something like a credit score, to help boards of directors and and executive teams understand. And over the last year, we've had the great honor partnering with some of our clients to be building tools to help engineers and engineering teams adopt AI responsibly and productively. I, I love to run. I do a little cooking and baking with my daughter when I can, and I'm just so happy to be here.</p>
+<cite>Peter:</cite>
+<time>01:17</time>
+<p>Fantastic. You know, just by the description alone, folks, I think we can all agree, you're the superheroes that we've always needed as developers. Right? Because, you know, you you are very much gonna be the folks that's like, we're gonna describe what these crazy people do to the folks that need to understand it. So so you are our superheroes right there, Matt.</p>
+<cite>Peter:</cite>
+<time>01:36</time>
+<p>So thank you for that.</p>
+<cite>Matt:</cite>
+<time>01:37</time>
+<p>Well, with respect, and I promise this won't be confrontational, I do not think that we are the superheroes. And I'll if you it's a good excuse for me to tell you about the name of our company. So it's Sema, s e m a. The famous Sema is a car show, Specialty Equipment Manufacturers Association. Not the same.</p>
+<cite>Matt:</cite>
+<time>01:54</time>
+<p>We're not the same Seema. We were founded by we were, we were founded our name came from, I should say, a famous monk who brought Buddhism from India to China. So united 2 different cultures, 2 extraordinary cultures and shared ideas between them. His name, and I don't speak Sanskrit, so I'm I'm I'm gonna do my best, was Loka Seema, l o k a k s e m a. And it was such a powerful story of translating from one world to the other.</p>
+<cite>Matt:</cite>
+<time>02:29</time>
+<p>And I really think that what Sima does, we are definitely not we are not the heroes here. The heroes are the folks doing the work, carrying out the craft of coding. We're here to help translate and make it make sense to non technical executives who may not know what a refactoring is or may not know why technical debt should be paid down, but it's definitely, just like the translators, just like Lekhaqsimas, translate an existing text, and and all kudos to the the the creators of that, we we pay homage to the folks doing the real work of coding.</p>
+<cite>Peter:</cite>
+<time>03:03</time>
+<p>Well, I'm not gonna disagree with you, because, you know, we I guess, let's put it this way. We need each other. Right? I think that's probably the best way. Right?</p>
+<cite>Matt:</cite>
+<time>03:13</time>
+<p>We can agree on that.</p>
+<cite>Peter:</cite>
+<time>03:14</time>
+<p>Yeah. We're all part of the one big family that makes cool things, and and that's what it comes down to. Right? So let's dive into this here. So, you know, you you take the craziness that we do, make it understandable, analyze it, I think is is perhaps the the more accurate way, and then break it down into, would it be fair to say understandable chunks of information that then relate to other folks?</p>
+<cite>Peter:</cite>
+<time>03:42</time>
+<p>Because I know what you mean. Right? Anytime, you know, I get into those meetings, in my day job, Folks on the podcast know this. I'm an engineering manager. And, you know, we get into those discussions where at some point, the engineers or the engineering team always says, well, we have to do these refactoring things because because we do.</p>
+<cite>Peter:</cite>
+<time>04:02</time>
+<p>And then we get that look. Right? That's like, but this is time and money. You gotta gotta explain this better. Right?</p>
+<cite>Peter:</cite>
+<time>04:09</time>
+<p>So, you know, I know that you have a suite of tools and I've been reading up on them. But, let's dive into how this works. Right? Because you have these very intelligent systems that essentially look at the work that us as engineers create and then gives back information in, I guess, I would say sensible English instead of code speak. Right?</p>
+<cite>Matt:</cite>
+<time>04:34</time>
+<p>Yeah. A lot of what we do, has to do with summarizing and contextualizing the results that engineers are used to seeing every day. Let's take a really simple example of in file security warnings. SAST, you know, the ones that would be detected by a by a high quality SAST or DAST tool. It's one thing to say we have a 100 high risk security warnings.</p>
+<cite>Matt:</cite>
+<time>05:10</time>
+<p>We should tackle them. That that sounds right.</p>
+<cite>Peter:</cite>
+<time>05:14</time>
+<p>Yep.</p>
+<cite>Matt:</cite>
+<time>05:14</time>
+<p>Right? Sounds right. But here, the following sentences are easier for other audiences to understand. Our code base is, is in the growth stage, and growth stage code bases have been around for 2 to 5 years and have 25 to 50 developers working on them. We're in that stage.</p>
+<cite>Matt:</cite>
+<time>05:38</time>
+<p>Compared to all other companies in that all other code bases in that stage, we're in the bottom quartile, having a 100 high risk security warnings, meaning 75%, at least 75% of similar companies have fewer security warnings. Now in practice, maybe non technologists don't know this, but I'll tell them here and they learn it when they work with Cima, Every company has security debt. Every company has tech technical debt. If you got everything to perfect, you wouldn't be able to ship anything. But staying away from the bottom is a good idea.</p>
+<cite>Matt:</cite>
+<time>06:16</time>
+<p>And so saying, listen, we're in the bottom quartile. Let's get to the 2nd quartile, maybe even the first. We're not going to get to 0, but let's put that in context. Oh, and by the way, security warnings take, SaaS warnings take on average 4 hours, to fix. And so we're looking at 3 person months to fix all of them.</p>
+<cite>Matt:</cite>
+<time>06:37</time>
+<p>So all of a sudden so everybody on this podcast listening to this podcast knows where the SaaS warning is and knows how to count them. But if you can express it at a at a more abstract level, well, this compared to what? And what is the tax on the road map? Because it is a tax. Sometimes you have to pay taxes, of course.</p>
+<cite>Matt:</cite>
+<time>06:54</time>
+<p>Otherwise, functions don't work. But it putting it in a way that people can understand the trade off, without having to get into the the tech behind it, That's a lot. You know, that's a simple example of, of what Sima does, of trying to contextualize it, summarize it, and then express it in relative terms and in, especially in terms of engineers' time to to address.</p>
+<cite>Peter:</cite>
+<time>07:16</time>
+<p>It's fascinating way to describe it because as you're you're going through and explaining there, you know, I'm thinking to myself as you're going through, I'm running through sort of my typical day. Right? Where I've got, you know, packages getting updated. Next thing you know, and I think, you know, we see more and more of this now. And and I think that that's why it's so important for, you know, companies and services like yourself.</p>
+<cite>Peter:</cite>
+<time>07:45</time>
+<p>We see so much of this happening so quickly. I could fix let let's say that I I could somehow do the hypothetical never gonna happen, fix a 100% of my issues today. And I'm working through. I've cleared out my Jira tickets for the day. Going home.</p>
+<cite>Peter:</cite>
+<time>08:03</time>
+<p>Feeling good. Come back in the morning.</p>
+<cite>Matt:</cite>
+<time>08:05</time>
+<p>Time for a break.</p>
+<cite>Peter:</cite>
+<time>08:07</time>
+<p>Hey, everybody. It's Peter Whittam here from the Compulsory podcast. I wanna tell you about Setapp. Setapp is a service that provides a subscription fee of just $10 a month and you get access to over 200 Mac applications and it's also available now on iOS as part of that deal. I use the service because it just has a ton of really good first rate apps that I use all the time.</p>
+<cite>Peter:</cite>
+<time>08:34</time>
+<p>And for me, it's invaluable as a developer to have access to tools for things like APIs for planning projects, writing emails, writing documentation, and you get all of these things including database apps, all of that kind of stuff right there on the set up service for just $10 a month. You can use as many or as few applications as you need. If you're interested in checking this out, go to peterwhithamdot competerwitham.comforward/setappsetapp and you can see the details there. And it's got a link that you can go over and start using the service and see how it works out for you. I strongly recommend this to every Mac user.</p>
+<cite>Matt:</cite>
+<time>09:18</time>
+<p>Break time over.</p>
+<cite>Peter:</cite>
+<time>09:21</time>
+<p>Whole new bunch of security warnings because, you know some third party library and whether we like it or not these days we pretty much are gonna depend on at least 1 more likely, you know, tens to 100 depending on your platform of choice and so on. Something happens and overnight I come back and I'm like, where did these 50, the 100 new warnings come from? And and is, you know, then like you say, there's this breakdown of well, it's a warning. How much of a warning is it? What's you know, and, you know, and when I'm looking at them, I say to myself, okay.</p>
+<cite>Peter:</cite>
+<time>09:59</time>
+<p>How bad is this really? Is this a an edge case? Is this a critical problem right now? And then the next question that always comes up in my head is somehow I got to figure out how to explain this to the folks outside of engineering who need to understand this is really important and we need to do this now or we can do this a month from now. You know, something like that.</p>
+<cite>Peter:</cite>
+<time>10:29</time>
+<p>Right? And so the the services and and the tools that you offer sounds like that's a, you know, a really good way to back up the reasoning as to how we reach these conclusions. Right?</p>
+<cite>Matt:</cite>
+<time>10:44</time>
+<p>Well, you're very kind to say it. But I I would say in that situation, Peter, you you don't need a tool like Seemas to do that. It's always about putting it in context and it's having it's having the prioritization conversation first. And I know everybody listening to this and, my certainly myself included, we've all worked on things that in hindsight we didn't need to do. And I think it was, Peter Drucker, the theorist of management who said the most inefficient thing there is is something that isn't worth doing in the first place.</p>
+<cite>Matt:</cite>
+<time>11:19</time>
+<p>And so it's so it's so hard but it's also so tempting to take the next thing in front of us, especially if it's something in our comfort zone. Even if it takes some, you know, thinking work or maybe especially it takes some thinking work, and just tackle that. The hard part is stopping and thinking, should we do this? Is this really the highest and best use of my time advancing the product's goals, our users' goals, our company's goals? My experience and I guess the segue my experience on security debt is there are very, very few executive leadership teams, very few, who have the skill but even have the interest in knowing the details of what security warnings should be fixed and why.</p>
+<cite>Matt:</cite>
+<time>12:11</time>
+<p>In my experience, the best tactic is to agree on an overall framework. And I don't mean that to be fancy. I just mean, like, listen. In our business, given what we do, we're going to ignore the low priority SaaS warnings or CVEs, doesn't matter and mediums. We're going to do the highs.</p>
+<cite>Matt:</cite>
+<time>12:30</time>
+<p>The highs in customer facing code. Highs in code that is safely behind firewalls isn't going to be a threat. That percentage, which is 10% of the total number of warnings, we're going to tackle. And we're going to always make time for that. I'm only asking for 10% to fix them.</p>
+<cite>Matt:</cite>
+<time>12:50</time>
+<p>I'm not here to say taking up, you know, doing all of the security debt overall. We're going to tackle the 10 Any of those that are about 10% of the total will never spend more than 20% of Sprint on security debt or tech debt. And you have our word that if we ever need to do more, we'll come back and ask for permission. So if you create some outlines of what kind of debt, what kind of debt and how much time can we spend on debt. And we we talk about code based health, aka function nonfunctional requirements, to mean any kind.</p>
+<cite>Matt:</cite>
+<time>13:24</time>
+<p>It could be, you know, code quality debt. It could be intellectual property license risk debt. It could be code security debt, whatever it is. See if you can get into an agreement on the big picture, and then you have freedom to make the best engineering sort of back to your previous word. Okay.</p>
+<cite>Matt:</cite>
+<time>13:52</time>
+<p>We're gonna spend a chunk of time addressing the health of the code base. And I know I can just sort of I know that in my head, this mental model, they're gonna spend this much. And if anybody wants to spend more, they're gonna have to come and get permission from me. Other than that, I I now don't have to worry about it. And that from an executive perspective, just explaining just enough of what they need to know, not to hide things, but just give them enough to make decisions, is is a huge part of of of communicating effectively and therefore getting, you know, getting the permission, getting the resources, etcetera, to, to invest properly in in in, paying down that debt.</p>
+<cite>Peter:</cite>
+<time>14:29</time>
+<p>Yeah. Because I I'll freely admit this, as an engineer and every engineer I've ever known, but I'm sure there's some engineer that says that's not me but they probably know it is them. We anytime we are asked something or we are asked to look at something or analyzing a problem or explaining something, as engineers, we can't help ourselves. We always always go too deep. Right?</p>
+<cite>Peter:</cite>
+<time>14:56</time>
+<p>Because we we have all this knowledge and it's not a desire to impress people. It's it's, you know, just this this kind of habitual thing of I want to give you all the information I can for you to make the best decision and sometimes, especially folks outside the the inner circle of engineering, they don't need that information and that, you know, you have a fine line where there's like a crossover. And sometimes you can sort of tell in meetings or when you're talking with folks between, you know, I've got them. They're understanding it. And now I I've gone too far and I've lost them and they've they've kind of switched off.</p>
+<cite>Peter:</cite>
+<time>15:38</time>
+<p>Right? You know, we see it all the time in the news. It this is now, you know, headline stuff. Right? So have you seen any trends?</p>
+<cite>Peter:</cite>
+<time>15:46</time>
+<p>Are you finding that more people are receptive to this?</p>
+<cite>Matt:</cite>
+<time>15:50</time>
+<p>I have. You know, I've give a lot of kudos to our amazing engineers and product team at CEMA because, of course, the people I'm talking to are spending a lot of time looking at at Seema's reports. And and our product team and engineering team has gotten better and better over time at making it digestible to our audiences. You know, we have customers who've seen more than a 100 reports, on different software organizations, all all from CEMA. And just like you look at a 100 anything, you look at a 100 bug tickets, you look at a 100 whatevers, you really start to understand.</p>
+<cite>Matt:</cite>
+<time>16:26</time>
+<p>I'll tell you what's something I I am pretty proud of, in a way that I think with our customers, we've helped shape shape the conversation, a little bit. So we summarize the results about about codebasehealth, and there's, about 45 major metrics, that do matter, that what folks we do think folks should consider. But of those 45, 12 matter the most, in our opinion about whether or not a code base is healthy. Again, think of this as a summary of the nonfunctional requirements. By the way, at the end of this call, there's links.</p>
+<cite>Matt:</cite>
+<time>17:00</time>
+<p>You can read all about them. It's not secret. We'd love sharing it and and getting people Yeah.</p>
+<cite>Peter:</cite>
+<time>17:05</time>
+<p>Lots of stuff we're gonna put in the show notes for folks. Please go read</p>
+<cite>Matt:</cite>
+<time>17:08</time>
+<p>it quickly. Exactly. And, we took very opinionatedly the of from the 45, we picked 12 are the most important. And then we gave them weighted scores, weighted possible scores that sum up to a100. K.</p>
+<cite>Matt:</cite>
+<time>17:23</time>
+<p>So that we could create kind of like a credit score where 30 to 70 is mature, meaning that the code based health is is likely good enough, although you might want to look at some of the risk areas. More than 70 is better than it needs to, but certainly it can be a good spot to be. We there's there's 12. I guess if you did it, you know, a quarter if you did it per equally, each one would be 8 points each, if I did that right, 8 and a little bit. But they're not weighted equally.</p>
+<cite>Matt:</cite>
+<time>17:49</time>
+<p>A few measures, of the of 2 of the 12 are worth 5 points each, And that those are intellectual property risks. So copy left, copy left limited, for folks who know this. Not that it's not important, but if you have them, you can fix them. You just need, you need some engineering time, to triage, to triage and then update, you know, replace the packages with an appropriate license or buy the license or, or put your usage into into, proper standing. So those are weighted less.</p>
+<cite>Matt:</cite>
+<time>18:21</time>
+<p>There is one of the 12. I'm gonna quiz you, Peter. Not that you should remember it. But just from just from your expertise, one metric that's worth 25 points out of a 100 by far the most important measure of code based health. You wanna guess what it is?</p>
+<cite>Peter:</cite>
+<time>18:38</time>
+<p>Oh, now see, this is a challenge because, I I've got my engineering, hat on today. I've been doing some coding. So, I have been deep in code coverage and testing all day. And, you know, so so for me, that's been a big primary one. So I don't know if I'm close, but, you know, certainly that's</p>
+<cite>Matt:</cite>
+<time>19:00</time>
+<p>Oh, very good. Testing is definitely one of the one of the 12, and having good testing having great testing, frankly, is a is like a minor canary in a good way. But if there's high levels of testing, you know, that the engineering team is, has gotten the support and, to to invest in in code quality and code based health. The single biggest factor about whether or not a code base, is healthy is developer retention.</p>
+<cite>Peter:</cite>
+<time>19:27</time>
+<p>Oh, that's that is an interesting Yeah.</p>
+<cite>Matt:</cite>
+<time>19:29</time>
+<p>It's a good one.</p>
+<cite>Peter:</cite>
+<time>19:30</time>
+<p>Right? With that. Yes.</p>
+<cite>Matt:</cite>
+<time>19:31</time>
+<p>And it's not how you would think. Well, it's gotta be number of warnings or something like that. No. Because if there are engineers who understand the code that are still there, they can fix pretty much any problem you put in front of them. And if you don't have the expertise, folks by who don't there's no amount of documentation that can make up for not having the folks who know the logic, you know, know the mental model in their heads.</p>
+<cite>Matt:</cite>
+<time>20:01</time>
+<p>Everyone on this so you asked, you know, have we changed have we seen some trends? Seema, I think, has had a little part to play in helping non technical executives understand that if you have the code but you don't have the coders, that's like having a half written novel without the novelist. Yes. Everyone here listening knows that. Right?</p>
+<cite>Matt:</cite>
+<time>20:25</time>
+<p>Yes. Of course. It's the code is never ending. We're gonna keep editing it, and you need the you need the expertise. But I think our our weighting, our emphasis of developer retention, weighting that heavily, and having those kinds of conversations, we've helped shift the conversation a little bit so people know that developer retention is one of the most important drivers, of code based health.</p>
+<cite>Peter:</cite>
+<time>20:47</time>
+<p>Now, Matt, I gotta say, you have hit the nail on the head and, you know, I I've almost wanna sort of hit myself with the stick a little bit for not recognizing this one as quickly as I should because this is one that comes up. And and I'll ask the audience. I can't see them. I can't hear them. But I'm gonna bet most of them are gonna put their hands up here.</p>
+<cite>Peter:</cite>
+<time>21:12</time>
+<p>Right? So so audience, put your hand in the air. If you have ever worked on a project or you've inherited a project and you're working for a company and you hear at least one person say, well, you know, the folks who worked on that, they don't they don't work here anymore. Right? Yeah.</p>
+<cite>Peter:</cite>
+<time>21:32</time>
+<p>You know, so that's that's number 1.</p>
+<cite>Matt:</cite>
+<time>21:34</time>
+<p>Yeah. And, Dave Mango is a such a smart leader in the world of DevOps, calls low developer retention an anti pattern. So not only is it a challenge for dealing with, having to deal with, retraining and hiring, etcetera, But it really could be indicative of something of something challenging in the organization. And so it's it's just so important to understand what the drivers are of people leaving, and, what responsible methods are available to make it more likely that you find the right people and then that they stay.</p>
+<cite>Peter:</cite>
+<time>22:10</time>
+<p>Yeah. Yeah. Keeping, developers, you know, your team, happy is always a goal for me. Right? You know, there's always gonna be issues.</p>
+<cite>Peter:</cite>
+<time>22:22</time>
+<p>There's always gonna be product problems. There's always gonna be products. There's always gonna be new features that are like, oh, how are we gonna do this? And and we all know this, the timelines that you're asked for, they're always gonna be crazy, you know, simple as that. But at the end of the day, if you don't have someone who is wants to do the work, or or perhaps more importantly, not think of it as work, you know, enjoy those those when you find those magic folks who love the challenge.</p>
+<cite>Peter:</cite>
+<time>22:51</time>
+<p>Right? It's not about the paycheck attached to it because you'll never be paid as much as you think you should. But let's get that one out the way too. Right? Hey, folks.</p>
+<cite>Peter:</cite>
+<time>23:01</time>
+<p>If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter. You can go to patreon.comforward/compileswift where you will get ad free versions of the podcast along with other content. Now I'm gonna twist this a little bit here then because we're we're getting close to that area that's another topic, very hot these days, which is, I'm sure there's some folks out there who are gonna say, well, that's where AI comes in and it's gonna solve these problems. And for me, you know, I'm I'm one of those folks of Look, AI, as great as it is, it's not gonna solve your problem. It's probably gonna give you a different problem.</p>
+<cite>Peter:</cite>
+<time>23:52</time>
+<p>And, you know, all these models are built around the experience that all these folks have, right? So the it's only gonna be as good as the model. So if you don't have folks to feed it, you're right back to square 1. So how does a AI play into, you know, do you use I I know you do in some of your tools but how does that play into some of this analysis as well, you know, rather than just you looking at the code following the patterns, machines can spot things that we just don't see. Right?</p>
+<cite>Matt:</cite>
+<time>24:25</time>
+<p>Exactly. Exactly. We are very excited. I'm personally very excited and we as a business are very excited about the potential, of generative AI to not only improve organizational productivity, but also improve developers' quality of life. We we really think so.</p>
+<cite>Matt:</cite>
+<time>24:46</time>
+<p>And and I think the data the early data suggests that it's it's true and that and it will be continuing. Generative AI can, and if you haven't tried it, by all means, if you're not permitted to at work, of course there are some companies that aren't doing that, Follow those guidance but find do it on your own time and start exploring it. It is a brainstorming aid. It is an interpretation aid. So as challenging as it is to to bring on new developers to a project, having someone it is such a ramp up tool to, hey.</p>
+<cite>Matt:</cite>
+<time>25:22</time>
+<p>Please explain this code to me and what it does, is an explainer. It's really, really powerful. It can help experiment and troubleshoot. It can help find bugs. Really a a partner, in your coding that, that carries, carries a bit of the load.</p>
+<cite>Matt:</cite>
+<time>25:44</time>
+<p>And for folks who are and I know they're out there. Folks who were worried about what does it mean as to be, you know, our identity as a craft person to use AI, does that really still make me a developer? I know that because there are people at Seema. We're building AI tools and people at Seema have come to me and said, Oh, I just feel so uncomfortable about this. I have a very simple question.</p>
+<cite>Matt:</cite>
+<time>26:09</time>
+<p>Do you use open source? You do. Do you think using open source makes you not a developer?</p>
+<cite>Peter:</cite>
+<time>26:17</time>
+<p>Good point.</p>
+<cite>Matt:</cite>
+<time>26:18</time>
+<p>No. Of course not. Well, why is that? Well, open source, it avoids me having to reinvent the wheel. It still involves a ton of judgment.</p>
+<cite>Matt:</cite>
+<time>26:26</time>
+<p>The code doesn't build itself. I have an incredibly important role to play. But boy, does it allow me to focus on the things that are the most important. And that to me is exactly the same, with generative AI. It is it definitely saves time.</p>
+<cite>Matt:</cite>
+<time>26:42</time>
+<p>It definitely gives a leg up. But man, it is not a replacement for the judgment, for the context providing, for the quality control, that engineers must do. Mhmm. It's absolutely critical. It just helps do it, just like version control systems, just like open source.</p>
+<cite>Matt:</cite>
+<time>27:01</time>
+<p>And now here is this very powerful tool, but it still is a tool for craftspeople to build to do their best work.</p>
+<cite>Peter:</cite>
+<time>27:10</time>
+<p>You know, it's it's interesting, as you're going through and and as you you're saying there about, of, you know, do you use open source? It struck me that the there's another one here because see what you think about this, which is, have you ever Googled a problem?</p>
+<cite>Matt:</cite>
+<time>27:28</time>
+<p>Exactly. Tech Overflow, Google. Right? Do you chisel your own microchips? No.</p>
+<cite>Matt:</cite>
+<time>27:35</time>
+<p>Of course not. Right? Positive spectrum between doing it completely by yourself to, to it being totally done for you, over time, we've gotten more and more powerful tools to help engineers do their work.</p>
+<cite>Peter:</cite>
+<time>27:49</time>
+<p>Yeah.</p>
+<cite>Matt:</cite>
+<time>27:50</time>
+<p>And, not a substitute not a substitute for judgment, not a substitute for context and all of that, but certainly a way, a way to help. And I I completely agree. It is, in some regards, an extremely powerful Google search. And if you're gonna do that, no reason you should feel there's no shame involved in, in in using a tool more custom built to the problems you're trying to solve.</p>
+<cite>Peter:</cite>
+<time>28:16</time>
+<p>Absolutely. You know, it's funny to me, and I'm always, you know, I use AI, which is I I've got to be able to describe to it the problem I've got. Otherwise, I'm on a non starter. Right? And then from there, it's gonna give me some suggestions back exactly as if I was standing at the water cooler talking with one of my CODA friends.</p>
+<cite>Peter:</cite>
+<time>28:39</time>
+<p>And that's how I looked at it now. And, I'm I'm gonna give a shout out to a friend of mine here. Adam, if you're out there, buddy, I know you listen to the podcast. Shout out to you because my my grand awakening for AI was he has a tool that he makes develop a duck. And I challenged it one time, and I took a bunch of my code and put it in to the a you know, put it in the AI chat and said, document my code.</p>
+<cite>Peter:</cite>
+<time>29:12</time>
+<p>And sure enough, it did the most beautiful reasoning of understanding my code and explaining it. And that is when for me the light went on of this is how these tools help me.</p>
+<cite>Matt:</cite>
+<time>29:26</time>
+<p>Yeah. I love the idea of on on your everyone's AI journey starting with some portion of the work that is not very satisfying, and see if an AI tool can help. Because life is short, work is short. If there's parts of your job that are not as compelling as others, by all means, see if a tool can help help get you there faster. It's a great, great suggestion.</p>
+<cite>Peter:</cite>
+<time>29:48</time>
+<p>Yeah. When you go in and you analyze a code base and things like that, and you're looking presumably for security holes and saying, hey. You really need to pay attention to this.</p>
+<cite>Matt:</cite>
+<time>30:00</time>
+<p>Yeah. So in the last, over the last year, we've been working on helping understand how much code was introduced from generative AI, just like, how much code came in from open source, to help, to help individual developers and teams and companies manage the risk associated with, associated with, generative AI. We are incredibly supportive of it. But like any powerful tool, the risks, the risks need to be managed. And what we'd say, there's really good news on managing the risk from using generative AI tools to code, which is the risks are manageable.</p>
+<cite>Matt:</cite>
+<time>30:45</time>
+<p>The risks are absolutely manageable. I mean, you combine it with the benefits to productivity and job satisfaction, it really is a clearly positive thing for organizations to adopt as an organization level and at the individual level. With respect to security, you're exactly right. Just like code you copied from Google, you can't trust, or code you copied from Stack Overflow or wherever. Just because it came from somewhere else doesn't mean it should not go through the the security gates that the rest of the code that you've written or the teams written has tackled has has set up.</p>
+<cite>Matt:</cite>
+<time>31:25</time>
+<p>And so exactly as you said, if for some reason you were thinking about using Gen AI code and skipping your your quality gates and skipping your security gates, do not do that. Put them through the same ones. But if you put them through the same ones, you will, of code reviews of your security checks, etcetera, That is sufficient. That is sufficient, just like just like using open source that way. On Cima's side, the one extra level besides looking for security warnings, which, of course, can show up in gen AI generated code, or not, we look we're looking at by detecting how much generative AI code there is and of the code that came in, how much of it has been modified?</p>
+<cite>Matt:</cite>
+<time>32:08</time>
+<p>We say blended as opposed to being purely copy pasted, that gives that's another signal on whether or not the code was sufficiently, sufficiently modified for security, for quality, for understandability. That does not mean that any particular fragment or snippet that you're pulling in, from a tool like GitHub Copilot or or or or chat gpt doesn't mean that one is wrong. It does not. It does mean, that if you looked at an entire codebase or, you know, 50% of it was pure GenAI, meaning straight from a prompt to the code base, that level is probably a pretty big warning sign. And so this latest technology we're building figures out, well, is it 2% of the code?</p>
+<cite>Matt:</cite>
+<time>32:58</time>
+<p>Is it 20? Is it 50? That even was involved with GenAI, that originated with GenAI. And then of that, how much of it got blended first? And broadly speaking, just the the safe procedure is to make sure that GenAI code gets the same level of review, everything else.</p>
+<cite>Matt:</cite>
+<time>33:16</time>
+<p>It could be right but you sure as heck need to give it the same quality review that you would any other piece of code.</p>
+<cite>Peter:</cite>
+<time>33:24</time>
+<p>Yeah. You know, that would be a very interesting metric. Being out having something that says I think x percent is AI generated, and and everything else is I don't wanna say by you know, generated by your developers, but I guess I would say, you know Yeah.</p>
+<cite>Matt:</cite>
+<time>33:47</time>
+<p>Not Gen AI originally.</p>
+<cite>Peter:</cite>
+<time>33:48</time>
+<p>That's thank you. Could have come from</p>
+<cite>Matt:</cite>
+<time>33:49</time>
+<p>your developers. Just 1st. Exactly.</p>
+<cite>Peter:</cite>
+<time>33:51</time>
+<p>I'm like, how do I say this without, like, you know, hand type? No. That doesn't sound appropriate. You know? Thank you.</p>
+<cite>Peter:</cite>
+<time>33:57</time>
+<p>Yeah. That that is it. That would be a fascinating metric. At the end of the day, I'm rationalizing to myself and saying, it's no different than when you're choosing, you know, to to to hire a new engineer. Right?</p>
+<cite>Peter:</cite>
+<time>34:13</time>
+<p>And, hey, you might pick a good coder. You might pick a bad coder. Right? And and really, at the end of the That's what it comes down to is, when you choose to trust AI, it could give you phenomenally good results or maybe some bad results. But so could that bad engineer that you hired that said they were good on a resume.</p>
+<cite>Peter:</cite>
+<time>34:35</time>
+<p>Right? And, you know, maybe I'm wrong, but that's that's how I'm starting to think about it.</p>
+<cite>Matt:</cite>
+<time>34:42</time>
+<p>Junior and thinking of Genai as a junior engineer, I think, is a pretty good analogy. You wouldn't you you want their help, but you need to check the quality of their work. You wanna check the quality of their</p>
+<cite>Peter:</cite>
+<time>34:53</time>
+<p>work.</p>
+<cite>Matt:</cite>
+<time>34:54</time>
+<p>I I will say, the question of whether or not generative AI code will get intellectual property protection is a very serious one. And companies are very, are are it's very sensible to have a thoughtful answer involving legal counsel on will we be able to own our code if we are using Gen AI? That is an extremely reasonable question. FEMA's perspective, spending a lot of time on this, and again, we do not produce an LLM, and that's that's not what we do. We help companies adopt AI, responsibly.</p>
+<cite>Matt:</cite>
+<time>35:41</time>
+<p>Our review is, our review is that Gen AI is absolutely safe from an intellectual property perspective as long as companies, follow proper safeguards, including giving developers the right kinds of tools. We would never say you have to as an enterprise, you know, if you're not an open source business, you have to be able to own own and protect your code, of course. But we do think it is absolutely possible to do so effectively. We have some white papers that you can give to the legal team to make sure, you know, for your own legal team to double check. So again, we we do think you should take the question seriously, but we think the answer is yes.</p>
+<cite>Matt:</cite>
+<time>36:21</time>
+<p>Yes. It is safe, to use an enterprise grade, tier of of a Gen AI tool, to help coders.</p>
+<cite>Peter:</cite>
+<time>36:29</time>
+<p>Yeah. And again, folks, we're gonna put links in the show notes for a lot of these things, especially if you're new to these areas, you know, just the same as everything else. Before you start using these, tools, educate yourself. So Matt, I'm very conscious of your time, you know, that we've spent together here. Is there anything else you'd like to cover or bring up, as we start to close this out here?</p>
+<cite>Matt:</cite>
+<time>36:53</time>
+<p>This has been wonderful, Peter. Thank you so much.</p>
+<cite>Peter:</cite>
+<time>36:55</time>
+<p>Thank you. And thank you so much for bringing just such a great thoughtful conversation to this. Again, we will put folks, we will put lots of things in the show notes for you all. You know, go check them out. Go read them.</p>
+<cite>Peter:</cite>
+<time>37:09</time>
+<p>I'm sure Matt will be only too happy to answer your questions. Reach out on the website as well. Again, we'll put a link in the show notes. So Matt, thank you so much, my friend. It has been a truly wonderful conversation.</p>
+<cite>Peter:</cite>
+<time>37:22</time>
+<p>Greatly appreciate you taking the time.</p>
+<cite>Matt:</cite>
+<time>37:25</time>
+<p>Peter, thank you so much for having me. I really enjoyed it. It was a treat.</p>
+<cite>Peter:</cite>
+<time>37:28</time>
+<p>Thank you. Alright, folks. That's what we got for you here. Another great conversation. I think this is gonna be another one of those classic episodes.</p>
+<cite>Peter:</cite>
+<time>37:36</time>
+<p>With that, if you if you wanna reach out to me, you know where to find me. Compileswift.com. All the links are there for everything. Other than that, we will speak to you in the next episode.</p>
+</details>

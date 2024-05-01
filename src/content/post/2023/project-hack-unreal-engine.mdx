@@ -1,0 +1,50 @@
+---
+publishDate: 2023-04-27T00:00:00Z
+title: Project H8ck, Hello Unreal Engine
+excerpt: Creating an Idle-style game with Unreal Engine is proving interesting and challenging. I like it.
+image: /images/blog-fi/2023/fi-projecthack-ue.jpg
+tags:
+  - game development
+  - project hack
+  - unreal engine
+metadata:
+  canonical: https://peterwitham.com/project-hack-unreal-engine
+---
+
+Creating an Idle-style game with [Unreal Engine](https://www.unrealengine.com) is proving very interesting and not something I have found many details on. This has me thinking that I need to create a video series. Contact me if you think this would be useful.
+
+Update: I have published a post detailing the progress for the multiplayer version.
+
+The extensive full-game development has started in earnest. But there is a twist: I have switched to Unreal Engine from Unity. I will tell you why and catch you up on all the news.
+
+Let me start by saying that I have not used Unreal Engine before, so this project is also a way for me to learn parts of the engine that I need, along with developing the game.
+
+So far, I have solved every problem I encounter as development progresses. This alone gives me hope, as I have not hit some of the issues Unity presented during the core engine building.
+
+To begin with, one primary reason that had me considering the switch of engines was finding things that presented more challenging problems than I felt they should have been with Unity.
+
+For example, multiplayer features like simple leaderboards and data sync. This has frustrated me as I tried Unity's services and Firebase. I talk about some of this in my [UIBuzz Podcast](https://uibuzz.transistor.fm) episode, which can be found at this [link.](https://uibuzz.transistor.fm/38)
+
+I know some folks will point out that there are Unity packages and plenty of tutorials to help set up support for these services. But my point is it was more frustrating than needed. Plus, even when I got them working, I was unsatisfied with the many hoops I had to jump through. A.k.a. plenty of code smells.
+
+## Not everything Unreal Engine is better.
+
+At this early stage of learning, one thing stands out to me. Packaging for distribution with Unreal Engine is far more complicated than with Unity. So, let me put that out there as a high-five for Unity.
+
+The problem starts with the Unreal Engine Editor.
+
+On a Mac, it runs as Intel on my Apple M1 chip, which means there is a performance hit before I even start work. Even at the app opening stage, it is noticeable when the engine needs to recompile all the shaders.
+
+So, I pulled out my Windows gaming laptop (it's a beast). Naturally, Unreal's Editor runs silky smooth on a Windows machine. Maybe that is due to the Epic and Apple relationship. Who knows.
+
+The problem now is packaging for Android and especially iOS on a Windows machine. I still have not been able to make Unreal Editor happy with my JetBrains install of Android Studio to successfully compile and package without complaining.
+
+I can only get an iOS compiler to work by running Unreal Engine Editor on the M1 Mac and exporting it to Xcode, where I deal with all the code signing and other issues. But it does at least work.
+
+## The Good News
+
+The good news is that I have at least figured out a system to move forward as I learn more. I think this will ultimately be better for me to maintain and expand the game while giving a better experience for you, the player.
+
+Remember, you can now play the single-player version beta on Android and iOS by signing up to the game site and signing up. Help craft the game as it moves forward.
+
+Onwards and upwards!
