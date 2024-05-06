@@ -1,0 +1,52 @@
+---
+publishDate: 2024-04-11T00:00:00Z
+title: Local Nextcloud for Dropbox replacement
+image: /images/blog-fi/2024/04-11-storage.webp
+tags:
+  - cloud
+metadata:
+  canonical: https://peterwitham.com/2024/journal/local-nextcloud-for-dropbox-replacement
+---
+
+import Links from '../../../../components/podcasts/uib-links.astro'
+
+Recently, I looked into [Nextcloud](https://nextcloud.com/) as a way to create a local storage network and possibly other services later on.
+
+Why, you might ask. I use [Dropbox](https://www.dropbox.com) and have no complaints about the service or cost.
+
+However, as security and the rising cost of everything become more of a concern, I have to start questioning where I spend those precious dollars.
+
+Being a developer means I start to look at options that others might not consider, like being able to host my services. Nextcloud is a free self-hosting option, and I have plenty of hardware on which I can set it up.
+
+I do not need to access my Dropbox files remotely outside my network, so why bother paying for something that I just use as a giant network-attached storage as a remote solution? After all, I do have a 16TB NAS sitting right under my feet at this very moment.
+
+My concern with my NAS is this: when disaster happens (I noticed I said when and not if; you should think the same) and the drives or the box fail, it means all the files on the drives are in a file system I cannot access directly. This means I have a cloned backup, by the way, on conventional drives.
+
+With Nextcloud, I can access the files on a fully working Linux machine and quickly move them somewhere else if I need to—all with the knowledge that they are local.
+
+### So, how am I setting this up?
+
+I have an older PC desktop machine with way more power than is needed for this task, but it sits idle with Windows 11. It now has a Linux server distribution. I am going with Ubuntu since it works fine, and I'm familiar with it.
+
+I have a [2TB NVMe drive](https://amzn.to/3UcVa3v) that I got for a reasonable price on Amazon (affiliate link), and it has plenty of space. The desktop box has space for more drives as I need them.
+
+I installed Nextcloud following this great walkthrough on Linode's site.
+
+Within a couple of hours, I was up and running. Now the data transfer begins, I'll be sure to share with you how it's all going once I have used it for a while, but right now, it's fast and happy.
+
+
+<Links
+  link1="https://nextcloud.com/"
+  link1label="Nextcloud"
+  link2="https://amzn.to/3UcVa3v"
+  link2label="2TB NVMe drive on Amazon"
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
