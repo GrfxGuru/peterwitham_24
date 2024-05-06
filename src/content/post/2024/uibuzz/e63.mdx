@@ -1,0 +1,102 @@
+---
+publishDate: 2024-03-30T00:00:00Z
+title: Update on porting my game from Unity to UnrealEngine
+excerpt: Some thoughts on the wins and losses of developing a game by yourself versus a team.
+image: /images/blog-fi/2024/03-30uib.jpg
+tags:
+  - podcast
+  - uibuzz
+  - game development
+metadata:
+  canonical: https://peterwitham.com/2024/uibuzz/e63
+---
+import Player from '../../../../components/podcasts/uib-player.mdx'
+import Links from '../../../../components/podcasts/uib-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/a795a147"></iframe>
+
+<Player/>
+
+In this episode of the UIBuzz podcast, I explore the journey of updating and porting my Unity game to Unreal Engine.
+Delving into blueprints, I share my experience transitioning from traditional coding to a more visual approach. Embracing the efficiency and creativity that blueprint coding offers.
+
+I discuss the ease of logic implementation and the abundance of resources available in the marketplace. While highlighting the time-saving benefits of utilizing plugins, I emphasize the importance of focusing on innovation rather than getting lost in technicalities. Reflecting on the challenges faced with publishing and exporting on iOS, I advocate for streamlined workflows to simplify the process.
+
+Despite the hurdles, progress on the game remains steady, with dedicated development time each week. Stay tuned for more updates and insights on the evolving development journey!
+
+<Links
+  link1="https://peterwitham.com/g2derc"
+  link1label="My Godot Endless Runner video course"
+  link2="https://twitch.tv/compiledev"
+  link2label="My live stream"
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+  style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+">Click to show transcription</summary>
+
+ #### Transcription
+  What's up. Everybody welcome another episode of the UIBuzz podcast. I'm your host as always Peter Witham. You can find myself and this podcast at PeterWitham.Com.
+
+In this episode, I am going to continue to talk here about updating. Porting of my unity game to unreal engine. 
+
+My. Idle based gang project hack. You can find a project hack.net. And I put out a new blog post over on compile dev.com for this, and I'll link to it in the show notes, but it's just showing some thoughts of where I'm at and how it's going. So the first thing I want to talk about. Is blueprints now. I know a lot of folks have a lot of opinions about visual coding versus, actually writing the lines of code. 
+
+And as I say, in the blog post, all of you are correct. You go with whichever way you want it to go, but with unreal engine, I wanted to go the blueprint route to really give it a chance to explore it. And to prove to me, whether it's something I should take seriously as someone who's always written lines of code. Or whether I should just go back and do either a mixture of the two or writing the code.
+
+ I'm happy to report. The I'm finding a very easy and very straightforward to use the blueprint system and to code that way. I would say that I am coding up the logic for the game. A lot quicker than when I write it with lines of code, because for me., it was probably the artistic background. I'm just a very visual person and being able to see. The code right there in blocks in front of me and understand the flow. And you. Literally see the flows on the screen is really working out. Now I did. 
+
+When I built this game with unity, the solo player version, I did the same thing I used. And I've mentioned this in a previous episode, I used a plugin called flow canvas, even though unity has its own building system. Didn't care for that much. And I used flow canvas and it worked out great. Yes, it is a learning curve because it's very different. 
+
+ Then writing lines of code where you're mapping it out in your head and, things like types and all of that kind of thing and doing visually does take a while. Now the one big plus for me, I think, and for anybody learning too. Create games and that sort of thing. Is that when you drag out from another, let's just take a variable, right? 
+
+Let's just say you've got an integer variable. And you drag out from that node. On the popup that appears for you, it gives you a list of all the appropriate things that you can do with this known variable type, this indigent, and the same with any other block. If I gret drag out from say a. Physics two D block or something like that. 
+
+It's going to give me the obvious options, which is a great way. To learn a new system because instead of trying to figure out, can I do this? What's it called? It's going to put it there. You can read the notes on each one. And hopefully it's going to give you a clues to what you want to do. So this is a great way I've discovered. Of learning a new engine, a new system that you're not familiar with. But yet you are familiar with coding and understanding what you need to do. 
+
+And you just need to know what that thing is called to achieve those options. This is working out great for me and if I want to, I can always fall back and write code and do a mix of the two. Now the other thing is as well with the blueprint system, just like with unity has a great marketplace and there is a mountain of free stuff out there on these marketplaces. And if you're trying to do something and you can't figure it out, or you want to take a shortcut and save yourself the time and focus on the core of what your game does. This probably a blueprint plugin out there to help you or plug in for something else, a model or whatever. 
+
+But in particular with blueprints, there's a lot of useful functionality out there. And I have a few and I'll probably do an episode talking about those ones. I have free ones and I have ones that I've paid for. Give you a very quick example. I think I mentioned this before.  I wanted to hook up to Firebase and there was like a, a $20 plugin. That took care of everything for me. 
+
+And I just had to fill in credentials and everything else and start using it. And oh my gosh, it's a, time-saver huge. Time-saver and let's talk about that, I'm of the opinion.  The, you should be in a position to focus on the thing you want to make and what makes it great.  So that to me means I don't want to spend days, weeks, months writing code. To make something, do something. 
+
+If that will, if you like already exists out there. In the marketplace, right? So I don't need to be writing a whole bunch of code and learning how to hook up to Firebase. Although I did try  and it took me a long time to realize this was a major pain in the butt, but I don't need to be messing with that. 
+
+I just need to make that happen so that I can then use Firebase for the highest scores and everything else that I need in my game and get on with that. And for me, that philosophy works out great. That would be my advice to other folks too. Don't spend time. Reinventing the proverbial will, right? That is what is preventing you from.  Making your thing and getting it out there. 
+
+And as I always say, users will not appreciate, Hey, I wrote every line of code to myself.  The users don't care. And they shouldn't. And I think that, yes, you can do it. That's great. You'll get respect from your peers. But if there's something out there like a blueprint, That'll save you time and trouble. 
+
+Go that route and keep focusing on the thing. That's going to be awesome that you want to make. So there's that. Now the other thing that, it's not all rosy, I have to say. And I've found this with, unreal and unity. But in particular with  unreal engine is great and giving you options for just about everything. Which actually is causing me problems when it comes to the publishing and exporting because, I'm doing it on iOS burst. Because I carry an iOS device every day. And just trying to get it, to build an export with, this is not necessarily Unreal's fault, but with credentials. And apple accounts and signing certificates and codes. All of this stuff has just been a major pain in the butt. And I think I wrestled it down now. But I know it'll flare up again and bite me at some point. And I think that unreal could do a better job at this. 
+
+And as I mentioned in the blog post again, I'll put a link in the show notes. I think the some kind of visual. Yes, no questions. Workflows can solve a lot of this problem. Because there are so many options and so many things badly described in the interface for publishing and exporting. The it's a minefield for those of us getting started with the engine to try and figure it out. Another example on the Android side, I have an SDK and NDK installed and everything else, Android studio, I've got all of those things installed. 
+
+But mine is through, JetBrains tools at the time. So it's not in the usual place where the system would expect it. And I went into the options in unreal. And even though I told it. Look, you're not going to find it here. Go look here. It's still didn't work. And, To this day, I still have yet to get it working on Android.  And it's ridiculous and it's crazy. 
+
+ Again, it's that thing of like, why am I spending so many hours trying to figure out this bit, there should be simple, right? I've published a bunch of Android apps. I've published a bunch of iOS apps. Why is this such a struggle?  Anyway, so that's just a couple of thoughts and wanting to put that out there this week, just to share an update. But that said the game is coming along really well. 
+
+And I've actually tried to dedicate some time each week to working on it and a stream on Friday nights. If you go to twitch.tv/compiledev  you'll see some there already. And, I didn't get it there this week. I had a busy workload, but the game is coming along really well. 
+
+The single player is going along really well, still working out in the multiplayer parts, how I want that to play out, but I'm feeling very competent about it. So I just wanted to share those updates as I'm  porting from one engine to another. I know a lot of you out there doing that,  worth mentioning of course, that I'm also working on my Godot course. 
+
+I'll put a link in the show notes. If you want to sign up to be notified when that's ready, that's going extremely well. I'm definitely on the tail end of recording and editing that. That course for Godot with an endless runner game in 2d. And folks have been signing up for that. So I greatly appreciate that as well. 
+
+Thank you for that. Other than that folks. That's what I got for ya. Again, you want to reach out to me? Go to peterwitham.com/contact. There's a form there. But I hope this has been helpful if it has, you know, what to do, go tell someone about it. I greatly appreciate that. I will speak to you in the next one.
+</details>

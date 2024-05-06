@@ -1,0 +1,66 @@
+---
+interface Props {
+     link1: string;
+     link1label: string;
+     link2: string;
+     link2label: string;
+     link3: string;
+     link3label: string;
+     link4: string;
+     link4label: string;
+     link5: string;
+     link5label: string;
+     link6: string;
+     link6label: string;
+}
+
+const {   link1, link1label,
+          link2, link2label,
+          link3, link3label,
+          link4, link4label,
+          link5, link5label,
+          link6, link6label, } = Astro.props;
+---
+
+<details>
+<summary style="
+     margin-top: 70px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 128, 0, 0.2);
+">Click to see show links</summary>
+<div
+style="
+     margin-top: 10px;
+     margin-bottom: 60px;
+     padding-top: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 128, 0, 0.2);
+     color: white;
+     text-decoration: none;"
+>
+<div style="
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: center;
+     padding-left: 50px;
+     padding-right: 50px;
+     padding-bottom: 10px;
+     font-size: 0.9em;
+">
+<a href={link1} style="text-decoration: none; padding: 0 10px 0 10px; width: 50%;">{link1label}</a>
+<a href={link2} style="text-decoration: none; padding: 0 10px 0 10px; width: 50%;">{link2label}</a>
+<a href={link3} style="text-decoration: none; padding: 0 10px 0 10px; width: 50%;">{link3label}</a>
+<a href={link4} style="text-decoration: none; padding: 0 10px 0 10px; width: 50%;">{link4label}</a>
+<a href={link5} style="text-decoration: none; padding: 0 10px 0 10px; width: 50%;">{link5label}</a>
+<a href={link6} style="text-decoration: none; padding: 0 10px 0 10px; width: 50%;">{link6label}</a>
+</div>
+</div>
+</details>

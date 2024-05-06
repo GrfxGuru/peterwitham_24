@@ -1,0 +1,147 @@
+---
+publishDate: 2024-01-26T00:00:00Z
+title: Adding a leaderboard to my game and why you should think about them
+excerpt: Leaderboards are a great way to keep players and find new ones. Competition is something players love.
+image: /images/blog-fi/2024/01-26uib.jpg
+tags:
+  - podcast
+  - uibuzz
+  - game development
+metadata:
+  canonical: https://peterwitham.com/2024/uibuzz/e58
+---
+import Player from '../../../../components/podcasts/uib-player.mdx'
+import Links from '../../../../components/podcasts/uib-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/e7c85a4d"></iframe>
+
+<Player/>
+
+In this episode of the UI Buzz Podcast, I discuss adding Game Center support to my SpriteKit game. Adding game services, like leaderboards, can enhance the gameplay experience and encourage friendly competition. Integrating GameCenter was surprisingly easy, and it handles user accounts and cheating prevention. Resetting the leaderboard every seven days ensures fairness. I also mention the potential for implementing an achievement system tied to specific events. Game services can be used with different game development environments.
+
+Also, I'm working on a Godot Engine video course and invite listeners to sign up for updates.
+
+<Links
+  link1="https://peterwitham.com/g2derc"
+  link1label="Godot video course notification signup"
+  link2=""
+  link2label=""
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+  style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+">Click to show transcription</summary>
+
+ #### Transcription
+What's up everybody? Welcome to another episode of the UI Buzz Podcast.
+In this one I'm going to talk about adding, in this case, Game Center support to my Sprite Kit game.
+But it's really about adding support for any kind of game services.
+So, you know, that may be Google Play services, whatever it may be on any platform.
+And why you may want to do that.
+Well, interestingly, I think the reason you want to do it, and it may be something you've never considered,
+and you may be thinking, "Well, you know, it's a single-player game. Why would I want to go and add something like this?"
+Well, the most obvious one that I think is a really good payoff is Leaderboard, right?
+Those high scoreboards.
+Because this is something I always wanted to have from day one in my Endless Hurdles game,
+but I never implemented it from day one because I wanted to take my time and make sure that I got it to be something that I really envisioned it being.
+And that's what I've been able to do with Game Center.
+It was surprisingly easy to do, I have to say.
+For those of you who don't know, Game Center is Apple's implementation of game services,
+and since this game currently only exists on iOS and iPadOS, that's perfect for me.
+And it turns out that adding the integration there is very simple indeed.
+It's only a few lines of code.
+For those of you who are interested, I'll probably do a video on this.
+I do have a livestream recording out there where I've gone into detail on this and walked through the code.
+I'll put a link in the show notes.
+And the interesting thing is that even though I've only given it to my beta testing group right now to test the integration,
+it's already paying off in a friendly battle between the beta testers.
+And this is great because it gives you an extra something in a game that is friendly competition between people.
+There's no complications as far as in-app purchases or any money changing hands or anything like that.
+This is just a friendly competition of who can get the highest score.
+But this really pays off because it has people playing the game more often.
+They're going in and checking who's got the highest score and then trying to beat each other's score.
+The other payoff here is using a third-party service like Game Center.
+Because you have to log in with your Apple ID, that's already taken care of all of the user accounts for me.
+Things like offensive usernames which can be a problem and all of that kind of stuff.
+Plus some rules that I can implement to prevent cheating which is another big thing as well.
+And I'm finding that this is really fascinating because I've set the leaderboard to reset every seven days.
+Because it's not a complicated game and I also wanted to make sure that an implementation I put in place
+did not allow any one or two people to dominate the highest score board forever.
+And the most obvious way to do that is to have the score board reset.
+So what I've done is I currently have it set up to reset every seven days.
+So that gives every player the opportunity to get on that score board and try and beat everybody else.
+Which I think is a good way of doing this.
+Like I say, it's designed to add a friendly element to the game.
+And it also means that if you play the game on multiple devices because it's logging into Game Center, you can do that.
+You don't have to worry about how that's working out.
+Because the other part that I have in the code which again is very simple and is just a few check boxes on the Game Center Services portal
+is to only accept your highest score.
+So even though every time you end a level, you essentially die in the game and the game's over, it submits the score to Game Center.
+But Game Center is only registering your highest score.
+So you don't have to worry about, "Oh, do I have to do this? Do I have to check that this score is more than that score?"
+and all those kind of things.
+I don't have to do any of that. Game Center takes care of it for me.
+I'm sure a lot of other game services do as well, probably Unity, EA Games, and all those kind of things.
+All of this to say, if it's something that is simple to implement in your game, I think it's worth you looking into this.
+Because already I'm feeling like this is a whole new direction for the game.
+Now that I've got it in there and it's in beta testing, it has me thinking about the achievement system.
+I can do an achievement system with that as well, which I'll talk about in the future if I do that.
+Because that's another very useful way to keep people playing your game and feel like they're progressing.
+Especially if it's a game with a simple mechanic, like this endless 101 that I have.
+Now, that's something that is, for example, I could have you jump over hurdles.
+So you could have an achievement for jumping over 100, 500, 1000, and so on.
+Maybe collecting 100 Christmas presents on the Christmas event. All of those kind of things.
+And the interesting part there is that if you tie achievements to specific events for specific times a year.
+Like, for example, the Christmas event that I have in there and the Halloween event that I have in there.
+That'll have people coming back at that time of year to play as well.
+So this is opening up a very interesting set of possibilities and a lot of things that I've probably not even thought of yet.
+And I wanted to put this out there as an episode to get you all thinking about this.
+Because, like I say, it's a very simple thing to do, but it adds a whole new dimension to a game.
+And I think it's worth your time thinking about maybe how this works with your game and how you could bring it into play.
+Because it's all about having users, players, come back.
+And I think that this is a great way to do it.
+And very little effort from the developers perspective to bring this into play.
+And I think it's going to be even better once I start thinking about an achievement system.
+I'm sure I'll talk about this more in the future. It's worth noting that I did see documentation that you can use things like Apple Game Center in other game development environments.
+So even though mine is built with Swift and SpriteKit, I know that I saw documentation on the web when I was doing my research for folks doing it with the Unity game engine, the Unreal game engine, and all those kinds of things.
+So you're not tied to any specific platform as far as this works.
+Although I would say if I was doing this multi-platform, this game, which is the end goal here.
+So iOS, Android, maybe Windows, Steam, whatever it may be, Switch.
+At that point I would look for a system that allows me to work with a scoreboard, a leaderboard, for all of those platforms together.
+Because I've seen games where they have a leaderboard for iOS, they have a leaderboard for Android, and all those kind of things.
+And I find those a little frustrating myself.
+Because then it's a case of, well, which game do I want to play this platform on?
+And then if I switch platforms, I've got to start all over again.
+And I find that kind of frustrating. I suspect a lot of players do.
+So as a developer, I know it's going to be harder, but I think it's worth my time trying to solve that problem.
+Anyway, wanting to put this out there.
+I also want to mention that I am very hard at work on my Godot Engine video course for making an endless runner game based around the idea of the Endless Hurdles game.
+Top of my head, I think I've got 14 videos in the bag and still a few more to go.
+It does take you from the beginning of knowing nothing about the Godot Engine to building this game and packaging it.
+That's my intent. I will be sure to mention it all as completion takes place.
+But if you want to sign up now to be notified when that's ready and you want to build something like this kind of game, I'll put a link in the show notes.
+You can head over to PeterWidham.com and you can just put your email address in there.
+I'm not going to spam you because I hate spam as much as everybody else.
+But that would tell me that you're interested and I'd be only too happy to let you know when the course is available.
+Other than that folks, that's what I've got for you.
+You can reach out to me at PeterWidham.com or UIbars on Twitter if you've got any comments on this.
+Other than that folks, I will speak to you in the next episode.
+</details>

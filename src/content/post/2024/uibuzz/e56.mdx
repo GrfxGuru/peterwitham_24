@@ -1,0 +1,121 @@
+---
+publishDate: 2024-01-05T00:00:00Z
+title: My game development and Godot course plans for this year
+excerpt: I discuss my plans for game development, including my first 3D game and building a video course on building a 2D runner game with the Godot engine.
+image: /images/blog-fi/2024/01-05.jpg
+tags:
+  - podcast
+  - uibuzz
+  - game development
+metadata:
+  canonical: https://peterwitham.com/2024/uibuzz/e56
+---
+import Player from '../../../../components/podcasts/uib-player.mdx'
+import Links from '../../../../components/podcasts/uib-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/ca297de6"></iframe>
+
+<Player/>
+
+I discuss my plans for game development, including my first 3D game, and the importance of learning, planning, and following best practices. I also talk about existing 2D games and building a video course on building a 2D runner game with the Godot engine.
+
+<Links
+  link1=""
+  link1label=""
+  link2=""
+  link2label=""
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+  style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+">Click to show transcription</summary>
+
+ #### Transcription
+  What's up everybody. Welcome to new episode of the UIBuzz podcast. I'm your host as always Peter Witham. You can find myself in this podcast at PeterWitham.Com.  In this episode, I'm going to be talking about my plans for this year. As far as game development. In particular.  In my plans for my first 3d game. 
+
+And I think that this may be of interest. To some folks out there. So I thought let's go ahead and share this Now I've done 2d game development in the past. Not a problem there and I've messed around with 3d, but I've never released a 3d game. 
+
+And I thought it was about time. But I also want to do this the right way. I don't want to just find some tutorials build the game that I want to have and then put it out there. Certainly I can do that and I can do that very quickly. And it would probably work and I would probably have problems down the line. What I'm planning to do is to try and do this the right way I'm taking my approach. That I would with kind of day job things and things like that.  
+
+Which means do some learning first, plan it out.  And then build it in a way that hopefully I try to follow best practices as best as I can ascertain. And as I'm going along, building it in a maintainable way, meaning.  Assume that it's going to be good and popular. I know. But don't laugh. But. By assuming that you often approach things in a slightly different viewpoint and say, okay I may have to live with this code base for a year, something like that, maybe longer. 
+
+And so therefore when you do that  it's not make something one time. Never expect to touch it again or anything like that. 
+
+When you have this approach of. Maintainability over time, you tend to stop and slow down and really think about things. Should this be modular? Should I create. Closed classes or open this up, should this exist in the global space, within the game or unto itself? Things like this, right performance, all of those kinds of things. How easy are the assets to change in the future. 
+
+If I want to add new functionality or radically change, existing functionality. How am I going to go about doing all of those kinds of things? So what I'm going to do. Is it, I'm going to take my time with this. I'm going to take awhile. And I'm going to use all the best practices that I know for making apps with large user bases.  Making games that I've had to sustain over time and also all of the things that have given me problem in the past. And to try and approach it that way. 
+
+I feel like. Taking this approach and getting it and trying to get it right from day one, as opposed to just rushing in and saying.  I've got an idea for a game. I'm going to find a bunch of tutorials that I can patch together to satisfy that game. Make it and ship it. Great. And if that's what you do more power to you, but.  I also know over time, maintainability. Is arguably one of the bigger problems,  that we all face. And therefore, I want to make sure I'm making a code base that I can live with and work with over the future.  Because I may not touch this thing for six months and then come back to it. And I've got to remember how it works. So there's all of that. I'm also doing my first game development or game design document. 
+
+I think it's actually called. And that asks a lot of tough questions upfront. And I'll probably talk about that a bit more. Going forward in the future about this. And it's been very interesting as I've been going through filling in a template for this game, because.  All the immediate stuff. It's very easy to answer.  
+
+You've got the idea for the game and all those kinds of things. But some of the tougher questions that you have to face. Really require you to stop and think and plan ahead as opposed to just dive in, because a lot of them you look at and you say to yourself  I don't have these answers now, but that's just the problem, right? 
+
+If you don't have those answers now, How can you expect to build something that might accommodate them later on? So I'm really slowing things down and just having fun. We're doing this. And using it as an educational tool for myself as well. So that's where I'm at with this, just wanting to put this out. 
+
+There . To say, Hey, if this interests you  this is probably going to be the podcast for you, if it isn't already. And I'm certainly going to be documenting and probably doing videos for this as I go forward with dev logs and things like that. So go ahead. Follow this podcast and let's do it together. Because along the way, I would love feedback. And conversations with folks. Who know an awful lot more about this stuff than I do. 
+
+And if that is you and you want to come on and talk about this or your experiences, or you're going through the same thing, let's go through it together. Hey, reach out to me, PeterWitham.com/contact. Always saying to folks Come on the podcast. Let's talk about it. Let's get something going here, right? 
+
+Let's have a community built around this. Let's support each other as we do these things. 
+
+Okay, moving on. Let's talk about my 2d plans. Now, as many of you may know, I already have a game out there. Analysts hurdles on iOS. I'll put a link in the show notes. I had the Christmas event, which is now.  Closed down. So I'm hoping you had fun and played with that over Christmas. If you did, it's unlocked for you forever. 
+
+If you didn't. Ah, you missed it. Simple as that but let's talk about this now. I built this game with SpriteKit because it started out as a exploration of a SpriteKit on the iOS apple platforms. But. It became something so much more as many of these projects do. And as you go along and have fun with them, 
+
+
+
+Now I've spent. 
+
+I know I've spoken about this before. I spent time rebuilding this game partially in many different engines. To see, which was the best way to go forward with this. And also answer some questions for myself. And it very quickly became apparent. The Godot. Engine is great for what I needed in this game. 
+
+So what I've decided to do, and what I've already started doing is rebuilding the game in the Godot.  engine and I've got some live streams out there.  You can go to twitch.tv/compiledev. And you'll see some streams out there, but I'm also. Going to go so much more with this. So this year I'm going to be porting it over fully from SpriteKit. 
+
+And I'm not abandoning the SpriteKit version right now. So don't think it's abandoned where it is not. But I do want to spend some time. Porting it over. All of the existing functionality in the events that I've got in there. Into the Godot engine first. And then from there, I'll look at it and decide, okay.  The version that's in the app store. 
+
+Do I now. Replace that with the Godot built version. Is it good enough? Is it better those kinds of things, again, I want to take my time with this. And the other thing there is, it opens up the ability of course. For me to release this game on other platforms, which was not an original goal.  But it now turns out. Hey, that's what people want. 
+
+So that's what I'm going to do. So by doing it in Godot I can look at the Android platform is the next obvious one, right? So I'm going to do that. And then I'll look at the desktop platforms. And if I go to the desktop platforms, That may open up some options for more things. So that's the plan for endless hurdles.  Now I have bigger, greater plans for my work with the Godot engine, because I'm just so impressed with it now. 
+
+I should've pointed out my 3d game. I'm going to build that in the unreal engine because I want to learn the unreal engine. And so I'm going to do that in there. However I am working for the Godot. Engine, I had at least one person that I recall in the comments on my YouTube channel. Again, I'll put a link in the show notes.  Asking. 
+
+Hey  can you tell us more about this?  Want to see more videos? So I went away, I thought about it. And I thought  want to give people what they're asking for. But I know I can give them so much more. So  over the Christmas period. I have started recording. A complete video course on building an endless 2d runner game. With the Godot engine. 
+
+Okay. So I'm working on that now. It's not going to be finished. In the next week. Maybe the next month, but I'm working on it. And I thought to myself  rather than just putting together a quick video, explaining things, Why don't I walk people all the way through it from knowing nothing about the Godot engine. To making this game, this 2d game, and then packaging it, having something at the end of it.  And again, I'm planning this and working through it. 
+
+I've done off the top of my head. Five videos that are fully edited in the bank. I've already. Working on the next ones. So I want to do this as a complete course. For everybody so that if you're one of those folks, who's I don't need to know everything about everything. This is the style of game I want to build. This will be the course for you. 
+
+That's going to take you from the beginning of nothing. Through building the scenes. Navigating and Godot, making the characters, animating the characters, working with sprites.  Packaging it up at the end, the user interface, all of those things I have decided, you know what? I should just do a proper job on this for everybody. And take a while to do it. 
+
+So I'm working on that as well, because I also want to know so much more about the Godot engine. It is phenomenally. Good. Okay. Again, that's another plan there. So that's three things I'd given you there this year that I'm committing to. And hold me accountable for those right. It's part of the reason that I put it out there and these podcasts and on the live streams and everywhere I was to share it with you all and on the blog on PeterWitham.Com. Is for you all to hold me accountable. 
+
+If I put it out there and say, I'm going to do it, Hey, I'll be the guy to do it or explain why I haven't. It is way too easy. Sometimes when you're working as an independent solo developer.  To just let something go and forget about it or just decide no, I'm not doing that anymore.  It is so much better for you. And your personal development and the things you make and the. The attention to that, you give them. If you share it with folks who can hold you accountable. Again, there'll be lots more content on this in the future.  Especially on the live streams as well.  Again, twitch.tv/compiledev drop by say hi, ask questions. Hey, if a better way to do something that I'm doing, come tell me about it. 
+
+I would love that we have all sorts of conversations about that. It is very much a community driven. Development stream at that point. And I love that aspect of it. So that's three things I wanted to put out there as far as definite things I want to do for my game development this year. Now I also have plans. To continue working with  Astro for my website, conversion, moving away from WordPress to Astro. 
+
+So there's going to be lots of content on that as well. It's going to be a busy year for me, but I feel that this is the year to do a lot of these things. A lot of it will be game development. Based because that's  where I'm at right now. I'm not abandoning anything else.  Including like my SwiftUI development and my apps. 
+
+That is my career.  Swift and mobile apps are make career and my day job. So I'm not abandoning that. But I wanted to put these other things out here to tell you about other projects that I'm working on. That greatly interest me as well. So that's what I got for you in this one, folks.  You want to reach out to me on anything we're talking about here.  And you've got opinions or  you got better ways to do things or you want to come on this podcast and talk about your projects. 
+
+Reach out to me, PeterWitham.com/contact. There are details in the show notes. Let's have a conversation about this. I love. The community aspect that this podcast affords and gives me. To reach you all, but also for all of you to reach me, it's all about us supporting each other as independent developers. That's what I got for your folks. 
+
+I hope you having found out that I love to hear your projects. @uibuzz or whatever they call it these days as well.  That's it. I will speak to you in the next one.
+</details>
