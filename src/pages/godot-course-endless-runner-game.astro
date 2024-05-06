@@ -1,0 +1,60 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import ContactUs from "../components/widgets/Contact.astro";
+
+const metadata = {
+title: 'Godot course – endless runner game',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+  <Hero tagline="">
+    <Fragment slot="title">
+      Godot course video course
+    </Fragment>
+  </Hero>
+    <h class="text-center">
+  <p class="font-bold text-xl text-green-500">Mastering Endless Runner Game Development with Godot</p><br/>
+  <div style="width: 50%; text-align: left; margin: auto;">
+  <h1 class="font-bold text-xl mb-4 mt-4">A Comprehensive 2D Game Creation Course</h1>
+  <p>Are you ready to unleash your creativity and bring your dream of creating a captivating 2D endless runner game to life? Look no further! My comprehensive video course is tailor-made for aspiring game developers like you who want to learn the ropes of game development using the powerful Godot Engine.<p/>
+  
+  <h2 class="font-bold text-xl mb-4 mt-4">Why Choose My Video Course?</h2>
+  
+<b class="text-cyan-500">Step-by-Step Guidance:</b> I understand that starting from scratch can be overwhelming. My course covers everything, from setting up your project to adding exciting features and gameplay.
+By the end of the course, you will have a fully functional 2D endless runner game that you can proudly showcase.
+<br/><br/><b class="text-cyan-500">Godot Engine:</b> Godot is renowned for its simplicity and power, making it an ideal choice for indie game developers. My course focuses on utilizing the Godot Engine, allowing you to harness its full potential and create a fun 2D game without any coding experience.
+<br/><br/><b class="text-cyan-500">Lifetime Access:</b> Once you enroll in my course, you can access all the course materials, including future updates. You can revisit the content at your own pace, ensuring you have all the resources to create your endless runner games whenever you want.<br/><br/>I break down complex concepts into easy-to-follow steps, ensuring you grasp each concept effectively.  Comprehensive 
+      
+<h2 class="font-bold text-xl mb-4 mt-4">Who Should Enroll?</h2>
+<p>My video course is designed for aspiring game developers, hobbyists, and anyone passionate about creating their own 2D endless runner game.
+<br/><br/>Whether you are a beginner or have some prior experience in game development, my course will provide you with the knowledge and skills required to bring your game idea to life.
+<br/><br/>Enroll in my video course today and embark on an exciting game development journey. Unleash your creativity, challenge your skills, and bring your game ideas to life like never before!</p>
+  
+<h3 class="font-bold text-xl text-green-600 mt-12 text-center">Sign up now, for notification to start your game development adventure!</h3>
+  </div>
+  </div>
+  <ContactUs
+    title=""
+    subtitle=""
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Name',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+      },
+    ]}
+    disclaimer={{
+      label:
+        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+    }}
+  />
+</Layout>
+

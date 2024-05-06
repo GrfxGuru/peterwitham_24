@@ -1,0 +1,35 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+
+const metadata = {
+  title: 'Podcast Recording Calendar',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText tagline="" title="Podcast Recording Calendar" />
+<div style="width: 70%; text-align: left; margin: auto; margin-bottom: 50px;">
+<p>Please find below a calendar that you can use to book some of my time. I often use this to schedule guests for my podcasts and discussions. This should not be used for cold outreach. For that, I recommend my Contact form.</p>
+<br/>
+<p style="font-weight: bold;">Many thanks for reaching out to me.</p>
+<br/>
+<span class="text-sm">
+<i>note: it could take a couple of seconds for my calendar load</i>
+</span>
+<br/>
+<br/>
+<div id="booking-page">
+  <!-- this is where we will inject the interface -->
+</div>
+
+<script is:inline>window.SavvyCal=window.SavvyCal||function(){(SavvyCal.q=SavvyCal.q||[]).push(arguments)};</script>
+<script async src="https://embed.savvycal.com/v1/embed.js"></script>
+<script is:inline>
+  SavvyCal('init');
+  SavvyCal('inline', { link: 'pwitham/podcast-recording', selector: '#booking-page' });
+</script>
+</div>
+</Layout>
