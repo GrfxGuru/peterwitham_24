@@ -16,6 +16,23 @@ export const headerData = {
       ],
     },
     {
+      text: 'Apps',
+      links: [
+        {
+          text: 'Endless Hurdles Game',
+          href: '',
+        },
+        {
+          text: 'FX Preset Manager',
+          href: '/mobile-project-fx-preset-manager',
+        },
+        {
+          text: 'Job Finder Tracker',
+          href: '/mobile-project-job-search-tracker',
+        },
+      ],
+    },
+    {
       text: 'Podcasts',
       links: [
         {
