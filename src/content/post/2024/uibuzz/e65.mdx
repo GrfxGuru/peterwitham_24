@@ -1,0 +1,104 @@
+---
+publishDate: 2024-05-07T00:00:00Z
+title: WordPress to Astro site conversion
+excerpt: Time to move away from WordPress, Astro is my goto site generator now. But sometimes the pain is not the design, it's the years of content that needs converting.
+image: /images/blog-fi/2024/05-07.jpg
+tags:
+  - podcast
+  - uibuzz
+  - web development
+  - javascript
+  - wordpress
+metadata:
+  canonical: https://peterwitham.com/2024/uibuzz/e65
+---
+import Player from '../../../../components/podcasts/uib-player.mdx'
+import Links from '../../../../components/podcasts/uib-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/d86496cd"></iframe>
+
+<Player/>
+
+I have spent the last few weeks deeply investing in converting my site PeterWitham.com from WordPress hosting to static site generation through Astro. It has been an intense couple of weeks to beat my deadline before the WordPress hosting renews for another year. In this episode, I share tips and thoughts to help you do the same.
+
+Not to mention that the site went down again on my host, another excellent reason to stop the madness of WordPress and PHP.
+
+<Links
+  link1="https://astro.build/"
+  link1label="Astro"
+  link2="https://tailwindcss.com/"
+  link2label="Tailwind CSS"
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+  style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+">Click to show transcription</summary>
+
+ #### Transcription
+<cite>Peter:</cite>
+<time>00:05</time>
+<p>What's up, folks? Welcome to another episode of the UI Buzz podcast. I'm your host, Peter Witten. You can find myself and this podcast atpeterwiddom.com. This episode, I'm gonna talk about Astro a bit here.</p>
+<cite>Peter:</cite>
+<time>00:16</time>
+<p>I have been working for a long time now, but over the last week, very intensively at converting my WordPress hosted site for peterwhidham.com to an Astro site. Now I've used Astro before, but it was a long time ago when I did this. So I started converting the site about a year ago, and then it just went on hold. Now what that means is, first of all, that Astro was way out of date, and there'll be links in the show notes if you don't know what ASTRO is. So static site generator is the best way to describe it.</p>
+<cite>Peter:</cite>
+<time>00:51</time>
+<p>So the first thing I had to do was update Astro, and I think I was going from, like, version maybe even version 1 to version 4, something like that. And I was a little concerned because you know how it goes. Anytime something like this that has a massive dependencies, there's always gonna be problems. Well, you know, yes. So sure enough, I I told it to use astro latest, and there were some problems, but they were not too bad to to fix up.</p>
+<cite>Peter:</cite>
+<time>01:19</time>
+<p>There was some outdated dependencies that it told me about. I was able to fix those up. Some of them I had to do manually. But, ultimately, at the end of the day, I I got it upgraded to the latest version of Astro, which I think is 4.5 as of this podcast episode. So with that done, I I then decided, okay, let's dive into this.</p>
+<cite>Peter:</cite>
+<time>01:39</time>
+<p>Now I had two things that I need to achieve before I can take this site live and replace my WordPress site. But before I do that, I wanna talk about why I'm I'm doing this. Now the we all know that static sites are fast. Right? And I've I've done this before, and it it just completely proved it.</p>
+<cite>Peter:</cite>
+<time>01:59</time>
+<p>And my WordPress site, on my hosting company, which I I won't mention, went down again, and I don't know why it just did. And I didn't notice for about a day that it had gone down till I got an email from Jetpack saying, hey. Your site's down. Spoke with the hosting company. They were fantastic.</p>
+<cite>Peter:</cite>
+<time>02:18</time>
+<p>We got it up again in no time, but it just served to remind me what a pain in the butt WordPress is when it comes to just being very touchy, and that's even when everything is working well. So the that's number one reason right there is performance and stability. And number 2, I'll be honest, is cost. So I'm paying for WordPress hosting and I'm paying for several commercial plugins that I am using and they're fantastic. Well, things like Pretty Links, Wordfence, and that all thoroughly recommended fantastic plugins.</p>
+<cite>Peter:</cite>
+<time>02:55</time>
+<p>But if I'm not using WordPress, I don't need those anymore. At the the end of the day, I stand to substantially save on my hosting for my site costs here. And that's another reason why, you know, moving to this static site that is deployed on probably Netlify via GitHub is the way you go here. So I just want to explain that. But the 2 things that are preventing me from doing that right now, number 1 is all of the years years of back content on the WordPress side That has to be converted.</p>
+<cite>Peter:</cite>
+<time>03:28</time>
+<p>Now I'm going the path of using markdown files for the blog posts because I'm just used to that, and it's it works very well. It's super convenient. I do it for compiled swift.com as well, and it works great. Now I'm actually using dotndx files, so it's an extended markdown that it lets me do some extra things, but it's all working out beautifully. But the problem is it takes an exceptionally long time to convert the content.</p>
+<cite>Peter:</cite>
+<time>03:55</time>
+<p>I have converted all of my 2024 content, but there is posts going all the way back to, gosh, pre 2020, easily. Probably more. I I think there's even some going back maybe as how was 2014, and that's a lot of posts. I think even after I'd done all of the killing off of some older content that I think I'd covered in a in an episode before where I trimmed it down from about 650 posts to about 350, something like that. That's still a lot of content, and I decided to take the approach of converting 2024 to the new site, releasing the site, and then bringing in all the back catalog.</p>
+<cite>Peter:</cite>
+<time>04:43</time>
+<p>Because if I wait to do all the content, it's gonna take so long. And before I know it, I'm gonna be paying for another year of hosting. So that's my plan there. And the other reason too is I've gotta convert all the pages and all the forms, Things like signing up for my Godot 2 d video course on making a game, and that's gotta go in there. Again, for that, if you're interested, I'll put a link in the show notes.</p>
+<cite>Peter:</cite>
+<time>05:08</time>
+<p>So that form's gotta go in there. Other forms for things like support forms for endless hurdles and all of those, pre sign up for project hack, that game to get folks who are interested in playing the beta version, plus all the usual contact forms. There's the the compiled swift guest form that I have guests fill in. I gotta get that on there as well. At the end of the day, it's not necessarily about designing and building the site.</p>
+<cite>Peter:</cite>
+<time>05:37</time>
+<p>It is more about getting all that content in there. Something I'm I'm sure folks are very familiar with anytime they migrate to a new site. Now that brings me to a question for you, the audience, which is if you know of a way to export WordPress posts into markdown files, ideally, ones that I can configure so I don't have to do a lot of manual copying and pasting for things like the font matter and things like that, please reach out and let me know. You can do at uibars on Twitter or go to petterwidham.comforward/contact, and please let me know because I'm I'm at the point where I'm almost tempted to write my own script or my own application to do this conversion, but I would much rather just get the content done than build an app for something I'm gonna do one time. So if you know anything about that, please reach out and let me know because it's an absolute nightmare.</p>
+<cite>Peter:</cite>
+<time>06:30</time>
+<p>So that's what I got for you in this episode. I wanted to share this for folks because I really just absolutely love the Astro platform, And if you've been thinking about it, I totally recommend spinning up a site and trying it on a local host. It's very quick to do and a lot of fun to work with. You're using if you've ever done any React, you are absolutely 100% right there. You're already gonna know how this works, and and you can take advantage of it along with the other technologies that it uses in the background, things like Gatsby.</p>
+<cite>Peter:</cite>
+<time>07:02</time>
+<p>Right? I think there's some Redwood in there as well, if I remember rightly. And I'm using Tailwind CSS as my, sort of my font layout library, if you like. And it's just going very well, but I wanted to put that out there as an update because I've spent a massive amount of time on this the last couple of weeks, which has actually prevented me doing some live streaming and everything else because I really wanna get this done before the deadline of the renewal of my hosting. Again, if you wanna talk about this, you are absolutely welcome to come on the podcast.</p>
+<cite>Peter:</cite>
+<time>07:33</time>
+<p>Just reach out to me at Peter Whidham.comforward/contact or at UI Bars on Twitter x, and let's get a conversation going because I am deep in web development territory at the moment, and I want to put this there was an episode to help inspire everybody and just to share some thoughts on, you know, if you might be going through a similar process on how I'm doing this. That's it. If this has been helpful, you know what to do. Tell someone about it, rate, review, all those things, and I will speak to you in the next episode.</p>
+</details>
