@@ -36,16 +36,20 @@ export const headerData = {
       text: 'Podcasts',
       links: [
         {
+          text: 'My Podcast and Streaming Set Up',
+          href: '/my-podcasting-hardware-and-software-studio',
+        },
+        {
           text: 'Compile Swift - Apple Development',
           href: 'https://compileswift.transistor.fm',
         },
         {
-          text: 'UIBuzz - App and game development',
-          href: 'https://uibuzz.transistor.fm',
-        },
-        {
           text: 'Compile Swift Guest Form',
           href: '/csform',
+        },
+        {
+          text: 'UIBuzz - App and game development',
+          href: 'https://uibuzz.transistor.fm',
         },
       ],
     },

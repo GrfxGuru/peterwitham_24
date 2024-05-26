@@ -1,0 +1,136 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Button from '~/components/ui/Button.astro';
+
+const metadata = {
+  title: 'My Podcast Hardware and Software',
+};
+---
+
+<Layout metadata={metadata}>
+<div>
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <section class="flex flex-col items-center">
+      <div class="flex max-w-xl flex-col items-center pb-8 pt-8 text-center lg:pt-32">
+        <h1 class="mb-8 text-4xl font-bold sm:text-5xl md:mb-8 md:text-6xl">My Podcasting and Streaming Setup</h1>
+      </div>
+    </section>
+    <div class="container m-auto">
+<p class="mb-6 text-xl md:mb-8">I am often asked about my Podcasting setup. What hardware and software do I use to achieve the quality people often comment on?</p>
+
+<p class="mb-6 text-xl md:mb-8 font-bold ml-16 italic text-green-600">"The quality is excellent. What hardware and software do you use?"</p>
+
+<p class="mb-6 text-xl md:mb-8">Details and links below. Please note that some of these links are affiliated. This helps me keep producing content and improving the quality of content. These come at no extra cost to you and help me maintain my studio.</p>
+
+<p class="mb-6 text-xl md:mb-8">Almost everything below works or runs on an Apple Mac and Windows PC. I use both depending on my situation and location. The only software that I am aware of being Apple Mac only is Rogue Amoeba Audio Hijack.</p>
+<div class="relative rounded-lg bg-gray-100 dark:bg-gray-800 p-4 mt-20">
+<h2 class="text-4xl font-[600] pb-16 pt-4 text-center">Hardware</h2>
+
+<div class="grid gap-8 sm:grid-cols-2 sm:gap-y-10 xl:grid-cols-3">
+      <!-- Section - start -->
+      <div class="relative rounded-lg bg-blue-100 dark:bg-stone-700 p-3">
+        <h3 class="mb-3 text-lg font-semibold md:text-xl">Microphone</h3>
+        <div class="flex flex-row">
+            <p class="basis-1/2">I love the Rode NT-USB microphone. I have tried many types of microphones and this one just gets the job done for me. It has a USB-C connection on the back along with a headphone port.</p>
+            <img src="/images/amzn/513L9-ByqL._AC_SL1000_.webp" style="width: 60px; apect-ratio: 1/1;" class="basis-1/2"/>
+        </div>
+        <br/>
+        <br/>
+        <Button class="" variant="primary" text="Amazon" href="https://amzn.to/3UVHZEz" target="_blank" class="absolute bottom-2 left-2"/>
+      </div>
+      <!-- Section - end -->
+      <!-- Section - start -->
+      <div class="relative rounded-lg bg-blue-100  dark:bg-stone-700 p-3">
+        <h3 class="mb-3 text-lg font-semibold md:text-xl">Microphone Arm</h3>
+        <div class="flex flex-row">
+            <p class="basis-1/2">I use a Rode PSA1 boom arm to hold the Rode NT-USB microphone. It easily takes the weight, I even have two attached at times for two different machines.</p>
+            <img src="/images/amzn/61gyMTJC-sL._AC_SL1500_.webp" style="width: 60px; apect-ratio: 1/1;" class="basis-1/2"/>
+        </div>
+        <Button variant="primary" text="Amazon" href="https://amzn.to/3UVwDR0" target="_blank" class="absolute bottom-2 left-2"/>
+      </div>
+      <!-- Section - end -->
+      <!-- Section - start -->
+      <div class="relative rounded-lg bg-blue-100  dark:bg-stone-700 p-3">
+        <h3 class="mb-3 text-lg font-semibold md:text-xl">Cables</h3>
+        <div class="flex flex-row">
+        <p  class="basis-1/2">These Amazon USB-C Cables come in a variety of lengths and are braided, so they don't tangle and are very durable.</p>
+        <img src="/images/amzn/71IE9dLBduL._SL1500_.webp" style="width: 60px; apect-ratio: 1/1;" class="basis-1/2"/>
+        </div>
+        <Button variant="primary" text="Amazon" href="https://amzn.to/3V04qZl" target="_blank" class="absolute bottom-2 left-2"/>
+      </div>
+      <!-- Section - end -->
+      <!-- Section - start -->
+      <div class="relative rounded-lg bg-blue-100  dark:bg-stone-700 p-3">
+        <h3 class="mb-3 text-lg font-semibold md:text-xl">Headphones</h3>
+        <div class="flex flex-row">
+        <p  class="basis-1/2">When recording and editing you need to use headphones to hear clearly an issues that need fixing. I use the Beats Studio 3 headphones to also cancel out noise around me.</p>
+        <img src="/images/amzn/61dZZKTi6jL._AC_SL1500_.webp" style="width: 60px; apect-ratio: 1/1;" class="basis-1/2"/>
+        </div>
+        <br/>
+        <br/>
+        <Button variant="primary" text="Amazon" href="https://amzn.to/4dOPYfr" target="_blank" class="absolute bottom-2 left-2"/>
+      </div>
+      <!-- Section - end -->
+      <!-- Section - start -->
+      <div class="relative rounded-lg bg-blue-100  dark:bg-stone-700 p-3">
+        <h3 class="mb-3 text-lg font-semibold md:text-xl">Control Deck</h3>
+        <div class="flex flex-row">
+        <p  class="basis-1/2">There are a couple of reasons I chose the Monogram Creative Console. <br/><br/> First, it is modular and uses magnets to connect in any shape you want.<br/><br/> Secondly, the software enables me to configure for any software I need to use it for.</p>
+        <img src="/images/amzn/momentumcc.webp" style="width: 60px; height: 200px;" class="basis-1/2"/>
+        </div>
+      </div>
+      <!-- Section - end -->
+      <!-- Section - start -->
+      <div class="relative rounded-lg bg-blue-100  dark:bg-stone-700 p-3">
+        <h3 class="mb-3 text-lg font-semibold md:text-xl">Control Deck</h3>
+        <div class="flex flex-row">
+        <p class="basis-1/2">The Elgato Stream Deck enables me to perform any number of functions.<br/><br/>For example, switching scenes in OBS and running applications and automation.</p>
+        <img src="/images/amzn/51c7+tRFEGL._MCnd_AC_.webp" style="width: 60px; apect-ratio: 1/1;" class="basis-1/2"/>
+        </div>
+        <br/>
+        <br/>
+        <Button variant="primary" text="Amazon" href="https://amzn.to/3KiBtmq" target="_blank" class="absolute bottom-2 left-2"/>
+      </div>
+      <!-- Section - end -->
+      </div>
+      </div>
+      <div class="relative rounded-lg bg-gray-100 dark:bg-gray-800 p-4 mt-20">
+<h2 class="text-4xl font-[600] pb-16 pt-4 text-center">Software</h2>
+
+<div class="grid gap-8 sm:grid-cols-2 sm:gap-y-10 xl:grid-cols-3">
+      <!-- Section - start -->
+      <div class="relative rounded-lg bg-blue-100  dark:bg-stone-700 p-3">
+        <h3 class="mb-3 text-lg font-semibold md:text-xl">Descript</h3>
+        <p>Descript is amazing software, I can record both video and audio. Then edit either conventionally using the timeline or by editing the transcripted text and most of the time the editing sounds flawless. It truly saves me hours. I could publish from this app as well, but I have extra steps I like to do in Hindenburg Pro. You can find the software at <a href="https://descript.com">Descript.com</a></p>
+      </div>
+      <!-- Section - end -->
+      <!-- Section - start -->
+      <div class="relative rounded-lg bg-blue-100  dark:bg-stone-700 p-3">
+        <h3 class="mb-3 text-lg font-semibold md:text-xl">Hindenburg Pro</h3>
+        <p>Hindenburg Pro took me a long time to find. I tried many different software packages until I came across this app which is now my goto for every episode of my Podcasts. Using the hardware listed on the page above, I can edit in minutes and publish with a professional sound and polish.</p>
+      </div>
+      <!-- Section - end -->
+      <!-- Section - start -->
+      <div class="relative rounded-lg bg-blue-100  dark:bg-stone-700 p-3">
+        <h3 class="mb-3 text-lg font-semibold md:text-xl">Izotope RX Standard</h3>
+        <p>The Izotope audio plugins are a must for me. I use them to remove breathing sounds, mouth clicks and room reverb to get a clean studio sound with very little effort. They work with many different audio apps on Windows and Mac. They can fix audio issues with amazing accuracy.</p>
+      </div>
+      <!-- Section - end -->
+      <!-- Section - start -->
+      <div class="relative rounded-lg bg-blue-100  dark:bg-stone-700 p-3">
+        <h3 class="mb-3 text-lg font-semibold md:text-xl">Rogue Amoeba Loopback</h3>
+        <p>I use all of the Rogue Amoeba audio applications. But this one stands above the rest. Running on macOS, I can capture audio from any source. It does not matter if it's hardware or software, and then redirect it to where I need it. The perfect use case is directing audio sources to OBS when doing a live stream. So I can listen to music without worrying that it is going out over the stream and having copyright problems.</p>
+      </div>
+      <!-- Section - end -->
+      </div>
+      </div>
+
+<p class="mb-6 text-xl md:mb-8 pt-16">An additional note, while not hardware or software. Finding a quiet place with as little noise as possible is vital to good podcast and live stream production quality.</p>
+
+<p class="mb-6 text-xl md:mb-8">I have tried many variations over the years; this is the smoothest and best that works for me.</p>
+
+<p class="mb-6 text-xl md:mb-20">I have a video that shows my entire workflow from recorded audio to publishing.</p>
+            </div>
+        </div>
+    </div>
+</Layout>
