@@ -20,7 +20,7 @@ export const headerData = {
       links: [
         {
           text: 'Endless Hurdles Game',
-          href: '',
+          href: '/eh.astro',
         },
         {
           text: 'FX Preset Manager',
@@ -79,7 +79,7 @@ export const footerData = {
     {
       title: 'Apps',
       links: [
-        { text: 'Endless Hurdles (Game)', href: 'https://apps.apple.com/us/app/endlesshurdles/id6450933481' },
+        { text: 'Endless Hurdles (Game)', href: '/eh' },
         { text: 'Project Hack (Game)', href: 'https://projecthack.net' },
         { text: 'FX Preset Manager (iOS)', href: '/mobile-project-fx-preset-manager' },
         { text: 'Job Finder Tracker (iOS)', href: '/mobile-project-job-search-tracker' },

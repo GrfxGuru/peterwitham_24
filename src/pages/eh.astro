@@ -1,0 +1,41 @@
+---
+import '~/assets/styles/tailwind.css';
+import { I18N } from "~/utils/config";
+import CommonMeta from '~/components/common/CommonMeta.astro';
+import Favicons from '~/components/Favicons.astro';
+import CustomStyles from "~/components/CustomStyles.astro"
+import Metadata from '~/components/common/Metadata.astro';
+import SiteVerification  from "~/components/common/SiteVerification.astro"
+import Analytics  from "~/components/common/Analytics.astro"
+import BasicScripts from '~/components/common/BasicScripts.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import type { Code, Debug } from 'astro:components';
+import Button from '~/components/ui/Button.astro';
+import Image from '~/components/common/Image.astro';
+import appStoreImg from '~/assets/images/app-store.png';
+const appStoreDownloadLink = 'https://apps.apple.com/us/app/endlesshurdles/id6450933481';
+
+const metadata = {
+  title: 'Endless Hurdles - How long can you survive?',
+};
+---
+<body class="bg-[url('/images/eh/Background1.webp')] bg-repeat-x bg-[#299000]">
+<container class="center">
+    <!-- Title image -->
+    <img src="/public/images//eh/EndlessHurdlesTitle.webp" class="m-auto mt-20 pt-10"/>
+    <!-- HeroText Widget ******************* -->
+    <p class="font-mono text-4xl font-medium text-center pt-12">How long can you survive?</p>
+    <!-- Download section -->
+    <container class="p-8 flex rounded-lg bg-green-800 w-1/3 mx-auto mt-20 justify-center">
+    <Image src="/images/eh/EHAppIcon.webp" alt="Endless Hurdles App Icon" width={64}/>
+        <p class="pr-8 pl-8 text-white font-mono ">Download for free<br/> on the AppStore</p>
+        <!-- Download button -->
+        <Button variant="link" href={appStoreDownloadLink}>
+            <Image src={appStoreImg} alt="App Store Image" width={200} />
+        </Button>
+    </container>
+    <!-- End Download section -->
+    <!-- Screenshots -->
+    <!-- End Screenshots -->
+</container>
+</body>
