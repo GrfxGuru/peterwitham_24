@@ -1,4 +1,5 @@
 ---
+import Layout from '~/layouts/PageLayout.astro';
 import '~/assets/styles/tailwind.css';
 import { I18N } from "~/utils/config";
 import CommonMeta from '~/components/common/CommonMeta.astro';
@@ -36,6 +37,16 @@ const metadata = {
     </container>
     <!-- End Download section -->
     <!-- Screenshots -->
+    Screen shots here
     <!-- End Screenshots -->
+    <!-- Support buttons -->
+    <container class="flex justify-center space-x-8">
+    <Button variant="link" href="/endless-hurdles-privacy-policy" class="font-mono text-white p-3 rounded-lg bg-blue-600 justify-center">
+        <p>Help and Support</p>
+    </Button>
+    <Button variant="link" href="/endless-hurdles-privacy-policy" class="font-mono text-white p-3 rounded-lg bg-blue-600 justify-center">
+        <p>Privacy Policy</p>
+    </Button>
+    </container>
 </container>
 </body>
