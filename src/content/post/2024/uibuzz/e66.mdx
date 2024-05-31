@@ -1,0 +1,127 @@
+---
+publishDate: 2024-05-27T00:00:00Z
+title: Should you use 3rd party services or make your own
+excerpt: 3rd party services for game backends are great, but should you use them or build them?
+image: /images/blog-fi/2024/05-27.jpg
+tags:
+  - podcast
+  - uibuzz
+  - game development
+metadata:
+  canonical: https://peterwitham.com/2024/uibuzz/e66
+---
+import Player from '../../../../components/podcasts/uib-player.mdx'
+import Links from '../../../../components/podcasts/uib-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/bada3ac4"></iframe>
+
+<Player/>
+
+I want to add a cross-platform leaderboard to my updated rebuild of Endless Hurdles. There are two options.
+1. I build my own
+2. I use a 3rd party service
+
+In this episode, I will discuss the pros and cons of both options in the hope that it will help you when you need to make similar choices.
+
+<Links
+  link1="https://peterwitham.com/eh"
+  link1label="Endless Hurdles for iOS"
+  link2=""
+  link2label=""
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+/>
+
+<details>
+  <summary
+  style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+">Click to show transcription</summary>
+
+ #### Transcription
+<cite>Peter:</cite>
+<time>00:05</time>
+<p>What's up, everybody? Welcome to another episode of the UI Buzz podcast. I'm your host, Peter Wyndham. You can find myself and this podcast at petawhildham.com. In this episode, I'm gonna be talking a bit about using third party services or rolling your own as far as a back end for your games or your apps, but in particularly your games is the focus in this episode.</p>
+<cite>Peter:</cite>
+<time>00:28</time>
+<p>I'm talking about this because I have started my my Godot rebuild of my endless hurdles game. There's a link in the show notes for the current version. Has reached a point where it's essentially shippable at this point. I have converted all the things I needed to convert for a 1 dot o. But the one thing that's missing and the one thing that I think really will, you know, bring the game to life much as it did on iOS in the original SpriteKit version is a leaderboard.</p>
+<cite>Peter:</cite>
+<time>00:59</time>
+<p>Now, I have a leaderboard in the app, currently. I'd like to say it's built with SpriteKit. It takes advantage of Game Center on iOS, and it's great. It makes everything painless. And kudos to those folks who make the Game Center services because they are a joy to work with.</p>
+<cite>Peter:</cite>
+<time>01:15</time>
+<p>I have to say they're very straightforward. They're wonderful to manage on the back end as well. Now, unfortunately, in Godot, there are some game center libraries out there, but they're all very early betas and that's just not the way to go when it comes to shipping something. So I decided since I intend to make this build, this version on Godot cross platform, the sensible thing is to have a cross platform leaderboard and achievement systems and and all those things that go with that. Because I know as a player of games, one thing that bugs me is when, you know, I play on iOS and there's an iOS platform specific leaderboard.</p>
+<cite>Peter:</cite>
+<time>01:58</time>
+<p>You play on Android, and and there's an Android one. There's no universal. Right? The games that I love are the ones where I can play on any of those platforms and sort of pick up where I left off. And I think that that makes a lot of sense to embrace that as a game developer these days.</p>
+<cite>Peter:</cite>
+<time>02:14</time>
+<p>So that's kind of a little bit of a for for what it's worth 2¢ advice from me. You know, there's 2 options here. Number 1, I can build my own services. And number 2, I can use somebody else's. And I'm gonna dive into the pros and cons that I think for both of those in this episode.</p>
+<cite>Peter:</cite>
+<time>02:30</time>
+<p>So let's start with rolling your own. Obviously, this way you craft exactly what you want. You know exactly how it works. You host it wherever you wanna host it and it provides all the necessary features and expansion down the road because you are responsible for them. That's fantastic.</p>
+<cite>Peter:</cite>
+<time>02:49</time>
+<p>I mean that's, you know, that's kind of living the dream. However, on the con side, firstly, you've got to maintain the hosting. Secondly, you've got to maintain the app on the back end. Thirdly, you have to perform maintenance on that. Right?</p>
+<cite>Peter:</cite>
+<time>03:05</time>
+<p>At some point, you will and you've also this day and age, you got to deal with people trying to hack into it for whatever reason and doing things with it. Right? Bad actors, you got to deal with that. You have to protect against things like, you know, bad usernames. If if you have a system where people log in or a system, obviously, if it's like a leaderboard where it shows a name, you've got to go and do your very best to protect against bad names.</p>
+<cite>Peter:</cite>
+<time>03:36</time>
+<p>Now, what do I mean by bad names? Offensive words. Right? Insulting words, whatever it may be, you know, or people putting actually putting in, you know, strings, of text. Right?</p>
+<cite>Peter:</cite>
+<time>03:49</time>
+<p>Making a statement in the leaderboard. I've seen that before as well. And you may think this is a simple problem. It really isn't because somewhere along the way, you're either gonna have to build yourself another service or use a third party service to check against this offensive list of words. Right?</p>
+<cite>Peter:</cite>
+<time>04:12</time>
+<p>You're talking about a worldwide scenario here and what's offensive to one person may not be to another and so on and so on. And this is actually a very complicated problem to solve and I think is easily the biggest, no against rolling your own is you are now having to manage and deal with all of this and on top of that, building and creating and maintaining your game. Now, let's talk about the flip side, using a third party service. Well, first of all, you don't have to manage it. Right?</p>
+<cite>Peter:</cite>
+<time>04:47</time>
+<p>I mean, you have to manage the content but you have to manage the service. You don't have to host it. You don't have to, you know, they may have a system that checks for offensive names. Part of the reason I like using Game Center and, you know, on the Google Play Store is they have to have accounts. So those accounts are validated with Apple and Google and I don't have to worry about it, don't have to take care of it.</p>
+<cite>Peter:</cite>
+<time>05:11</time>
+<p>It solves the problem for me. Also, performance. Right? Again, I don't have to manage, maintain, and and update everything and make sure that it's running. And all I had to do is use the APIs to use the service.</p>
+<cite>Peter:</cite>
+<time>05:24</time>
+<p>On the flip side, let's talk about the downside now. So the cons against this are I'm beholding for a 3rd party service. If that 3rd party service decides to shut off my service or they go out of business or they radically change something that breaks everything in my game, I got a problem. Right? And, you know, that was one of the pros of using my own services is is I'm gonna know when that happens and manage it.</p>
+<cite>Peter:</cite>
+<time>05:50</time>
+<p>Well, you know, with a third party company, anything could happen, and next thing you know, you've got a big problem you've got to solve. Now on top of that, of course, there's performance issues. There's privacy issues. There's security issues. What if that service gets hacked?</p>
+<cite>Peter:</cite>
+<time>06:05</time>
+<p>Right? You know, and now it's not your fault and your problem to solve, but you're sort of stuck with it. Right? And now, you know, users may be unhappy or you may have to be required to notify users, all these kind of things. Now I get it.</p>
+<cite>Peter:</cite>
+<time>06:20</time>
+<p>It's a game and you would think, hey, that that data doesn't matter and it's not, you know, identifiable in many ways. They're not stealing someone's identity, but it's a way into a system. And any way into a system is a possible way into another system, and that's how you have to think about these things. So you got to worry about those. Now, of course, there may also be a cost.</p>
+<cite>Peter:</cite>
+<time>06:42</time>
+<p>Right? Some of the ones that I've been looking at are free, and I'm trying them out. I'm not gonna mention them here. I may talk about them in a future episode once I figure out what I'm gonna do and who I'm gonna use, but there may be a cost involved. And you have to decide, okay, is this cost worth it?</p>
+<cite>Peter:</cite>
+<time>06:59</time>
+<p>A lot of these services offer free tiers. Right? And then if you are lucky enough that your game becomes very popular and you reach a certain break point with those plans and those tiers, okay, you may have to start playing. But once you start paying, there's the upside which says you clearly have a successful enough game with enough players. You've got traction.</p>
+<cite>Peter:</cite>
+<time>07:20</time>
+<p>Right? And somewhere along the way, you know, whether you choose to monetize or not is entirely up to you, but you may have to start thinking about recouping some of those costs because, trust me folks, these things can get expensive. You know, as someone who's hosted websites and these podcasts for years at this point, there is a line where you say, boy, I'm I'm kinda hoping that I make, some money to cover the cost to keep these things going at some point. Right? With games, that's more likely because, hopefully, you've got something that's successful.</p>
+<cite>Peter:</cite>
+<time>07:53</time>
+<p>If you've got something that isn't successful, you know, 2 two problems there. Right? The the plus side is it's not costing you for these services. The downside is maybe you need to reconsider the direction of the game. Right?</p>
+<cite>Peter:</cite>
+<time>08:05</time>
+<p>So I want to put these out there for you folks to think about this. If you have opinions or you wanna come and talk about this on the show, I would love that. Reach out to me at Peter Widom dot com forward slash contact, link in the show notes, and let's get a conversation going because this is a definite area that I think is a problem, especially for indie devs. There are many many options. You know, you don't have to necessarily go with the well known ones for your game.</p>
+<cite>Peter:</cite>
+<time>08:32</time>
+<p>You might start with 1 and then go on to another. I hope you have a great week and I will speak to you in the next episode.</p>
+</details>

@@ -20,7 +20,7 @@ export const headerData = {
       links: [
         {
           text: 'Endless Hurdles Game',
-          href: '/eh.astro',
+          href: '/eh',
         },
         {
           text: 'FX Preset Manager',
