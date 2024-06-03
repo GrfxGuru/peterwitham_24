@@ -7,7 +7,6 @@ import Favicons from '~/components/Favicons.astro';
 import CustomStyles from "~/components/CustomStyles.astro"
 import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification  from "~/components/common/SiteVerification.astro"
-import Analytics  from "~/components/common/Analytics.astro"
 import BasicScripts from '~/components/common/BasicScripts.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import type { Code, Debug } from 'astro:components';
@@ -21,30 +20,53 @@ const metadata = {
 };
 ---
 <body class="bg-[url('/images/eh/Background1.webp')] bg-repeat-x bg-[#299000]">
+    <Layout metadata={metadata}>
 <container class="center">
     <!-- Title image -->
-    <img src="/public/images//eh/EndlessHurdlesTitle.webp" class="m-auto mt-20 pt-10"/>
+    <img src="/public/images//eh/EndlessHurdlesTitle.webp" class="m-auto mt-20 p-10 md:p-4 sm:p-4 sm:pl-10 sm:pr-10"/>
     <!-- HeroText Widget ******************* -->
-    <p class="font-mono text-4xl font-medium text-center pt-12">How long can you survive?</p>
+    <p class="font-mono md:text-4xl sm:text-3xl font-medium text-center md:pt-10 sm:pt-10">How long can you survive?</p>
     <!-- Download section -->
-    <container class="p-8 flex rounded-lg bg-green-800 w-1/3 mx-auto mt-28 justify-center">
-    <Image src="/images/eh/EHAppIcon.webp" alt="Endless Hurdles App Icon" width={64}/>
-        <p class="pr-8 pl-8 text-white font-mono ">Download for free<br/> on the AppStore</p>
+    <container class="p-10 flex mx-auto mt-6 justify-center">
+    <Image src="/images/eh/EHAppIcon.webp" alt="Endless Hurdles App Icon" width={128}/>
         <!-- Download button -->
-        <Button variant="link" href={appStoreDownloadLink}>
-            <Image src={appStoreImg} alt="App Store Image" width={200} />
+        <Button variant="link" href={appStoreDownloadLink} class="flex pl-10 items-center">
+            <Image src={appStoreImg} alt="App Store Image" width={250}/>
         </Button>
     </container>
     <!-- End Download section -->
     <!-- Screenshots -->
-    <container class="flex flex-row space-x-4 pt-20 pb-20 justify-center">
-    <Image src="/images/eh/Screenshot1.webp" alt="App Store Game Image 1" width={512} />
-    <Image src="/images/eh/Screenshot2.webp" alt="App Store Game Image 2" width={512} />
-    <Image src="/images/eh/Screenshot3.webp" alt="App Store Game Image 3" width={512} />
+    <div class="flex w-full">
+    <container class="grid grid-flow-row pt-20 pb-20 w-full">
+        <container class="bg-green-600 flex flex-col content-center pt-10 pb-20">
+            <h2 class="sm:text-3xl text-1xl text-center pt-10 font-medium text-white">Jump hurdles to score and survive</h2>
+            <Image src="/images/eh/Screenshot1.webp"
+                alt="App Store Game Image 1"
+                width={1024}
+                class="m-auto"
+                />
+        </container>
+        <container class="bg-green-700 flex flex-col content-center pt-10 pb-20">
+            <h2 class="sm:text-3xl text-1xl text-center pt-10 font-medium text-white">Collect and use jump power</h2>
+            <Image src="/images/eh/Screenshot2.webp"
+                alt="App Store Game Image 2"
+                width={1024}
+                class="m-auto"
+                />
+        </container>
+        <container class="bg-green-800 flex flex-col content-center pt-10 pb-20">
+            <h2 class="sm:text-3xl text-1xl text-center pt-10 font-medium text-white">Beat your highest score</h2>
+            <Image src="/images/eh/Screenshot3.webp"
+                alt="App Store Game Image 3"
+                width={1024}
+                class="m-auto"
+                />
+        </container>
     </container>
+    </div>
     <!-- End Screenshots -->
     <!-- Support buttons -->
-    <container class="flex justify-center space-x-8">
+    <container class="flex justify-center space-x-8 pb-20">
     <Button variant="link" href="/endless-hurdles-privacy-policy" class="font-mono text-white p-3 rounded-lg bg-blue-600 justify-center">
         <p>Help and Support</p>
     </Button>
@@ -53,4 +75,5 @@ const metadata = {
     </Button>
     </container>
 </container>
+</Layout>
 </body>

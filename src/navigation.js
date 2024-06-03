@@ -10,8 +10,12 @@ export const headerData = {
           href: getBlogPermalink(),
         },
         {
-          text: 'Astro Tag',
-          href: getPermalink('astro', 'tag'),
+          text: 'Swift',
+          href: getPermalink('swift', 'tag'),
+        },
+        {
+          text: 'Game Development',
+          href: getPermalink('game-development', 'tag'),
         },
       ],
     },
