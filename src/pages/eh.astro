@@ -38,7 +38,14 @@ const metadata = {
     <!-- Screenshots -->
     <div class="flex w-full">
     <container class="grid grid-flow-row pt-20 pb-20 w-full">
-        <container class="bg-green-600 flex flex-col content-center pt-10 pb-20">
+        <container class="bg-green-600 flex flex-col content-center pt-10 pb-20 relative">
+            <div class="flex justify-center">
+            <Image src="/images/eh/Triangle.png"
+                alt="Down Arrow"
+                width={128}
+                  class="absolute -top-6"
+                />
+            </div>
             <h2 class="sm:text-3xl text-1xl text-center pt-10 font-medium text-white">Jump hurdles to score and survive</h2>
             <Image src="/images/eh/Screenshot1.webp"
                 alt="App Store Game Image 1"
@@ -46,7 +53,14 @@ const metadata = {
                 class="m-auto"
                 />
         </container>
-        <container class="bg-green-700 flex flex-col content-center pt-10 pb-20">
+        <container class="bg-green-700 flex flex-col content-center pt-10 pb-20  relative">
+            <div class="flex justify-center">
+                <Image src="/images/eh/Triangle.png"
+                    alt="Down Arrow"
+                    width={128}
+                      class="absolute -top-6"
+                    />
+                </div>
             <h2 class="sm:text-3xl text-1xl text-center pt-10 font-medium text-white">Collect and use jump power</h2>
             <Image src="/images/eh/Screenshot2.webp"
                 alt="App Store Game Image 2"
@@ -54,7 +68,14 @@ const metadata = {
                 class="m-auto"
                 />
         </container>
-        <container class="bg-green-800 flex flex-col content-center pt-10 pb-20">
+        <container class="bg-green-800 flex flex-col content-center pt-10 pb-20  relative">
+            <div class="flex justify-center">
+                <Image src="/images/eh/Triangle.png"
+                    alt="Down Arrow"
+                    width={128}
+                      class="absolute -top-6"
+                    />
+                </div>
             <h2 class="sm:text-3xl text-1xl text-center pt-10 font-medium text-white">Beat your highest score</h2>
             <Image src="/images/eh/Screenshot3.webp"
                 alt="App Store Game Image 3"
@@ -65,6 +86,15 @@ const metadata = {
     </container>
     </div>
     <!-- End Screenshots -->
+        <!-- Download section -->
+        <container class="pb-20 pt-10 flex mx-auto justify-center">
+            <Image src="/images/eh/EHAppIcon.webp" alt="Endless Hurdles App Icon" width={128}/>
+                <!-- Download button -->
+                <Button variant="link" href={appStoreDownloadLink} class="flex pl-10 items-center">
+                    <Image src={appStoreImg} alt="App Store Image" width={250}/>
+                </Button>
+            </container>
+            <!-- End Download section -->
     <!-- Support buttons -->
     <container class="flex justify-center space-x-8 pb-20">
     <Button variant="link" href="/endless-hurdles-privacy-policy" class="font-mono text-white p-3 rounded-lg bg-blue-600 justify-center">
