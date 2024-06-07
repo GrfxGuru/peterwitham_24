@@ -5,19 +5,19 @@ import type { ItemGrid } from "~/types";
 import Button from "./Button.astro";
 
 const {
-  items = [],
-  columns,
-  defaultIcon = "",
-  classes = {},
+	items = [],
+	columns,
+	defaultIcon = "",
+	classes = {},
 } = Astro.props as ItemGrid;
 
 const {
-  container: containerClass = "",
-  // container: containerClass = "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
-  panel: panelClass = "",
-  title: titleClass = "",
-  description: descriptionClass = "",
-  icon: defaultIconClass = "text-primary",
+	container: containerClass = "",
+	// container: containerClass = "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+	panel: panelClass = "",
+	title: titleClass = "",
+	description: descriptionClass = "",
+	icon: defaultIconClass = "text-primary",
 } = classes;
 ---
 

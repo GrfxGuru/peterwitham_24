@@ -1,0 +1,23 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.8.0/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		}
+	},
+	"files": {
+		"ignore": [
+			".zed/**",
+			".vscode/**",
+			".astro/**",
+			"astro.config.mjs",
+			".eslintrc.js",
+			"tailwind.config.cjs",
+			"prettierrc.js"
+		]
+	}
+}
