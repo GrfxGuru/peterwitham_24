@@ -1,0 +1,131 @@
+---
+publishDate: 2024-05-21T00:00:00Z
+title: How do we combat the rising tide of cross platform on mobile?
+excerpt: Listener Question - How do we combat the rising tide of cross platform on mobile?
+image: /images/blog-fi/2024/05-21.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s06-e14
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/a84109b8"></iframe>
+
+<Player/>
+
+Thanks for the suggestion on this topic. We often see folks asking why cross-platform is such a great idea, but we don't usually discuss why it can also be a bad idea and how we can promote native platform development.
+
+This can be incredibly challenging for companies that see the one code base for cross-platform development as reduced development time and cost without considering the long-term consequences.
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Transcription
+<cite>Peter:</cite>
+<time>00:02</time>
+<p>What's up everybody? Welcome to another episode of the Compile Swift Podcast. I'm your host, Peter Witham, and you can find this this podcast at compileswift.com. It has been a while. I think it's actually been almost a month since the last episode.</p>
+<cite>Peter:</cite>
+<time>00:15</time>
+<p>Now there's few reasons for that. Firstly, I'm just super crazy busy with work, which on one side is always nice, of course. And on the flip side, I you know, you gotta do the day job. Right? So sometimes it gets in the way of personal projects like my podcast.</p>
+<cite>Peter:</cite>
+<time>00:30</time>
+<p>So sorry about that. But also, it's just a very quiet time right now in, you know, the Apple development platforms as we basically, you know, all start to prepare for June and the wwwDC conference. There's always that quiet period. Right? And that's kind of where we're at right now.</p>
+<cite>Peter:</cite>
+<time>00:48</time>
+<p>So I just haven't really felt like there was a lot to talk about And I just didn't have any episode ideas as far as that goes. I'm, you know, working with some folks, some guests, but they're just they're not ready yet. And and so, you know, I kind of had this this period where it was a bit of a break there. So hope you can, you know, forgive me for that. Now that said, in our dev club Discord, there's a link in the show notes, I put forward the question, is there anything anyone thinks that they would like me to talk about?</p>
+<cite>Peter:</cite>
+<time>01:20</time>
+<p>And we did have a question come up. And this is something we've covered before, but I'm gonna come at it from a different angle here. And the question is, how do we combat the rising tide of cross platform on mobile? And shout out to Donuts, you know who you are. Thank you very much for this.</p>
+<cite>Peter:</cite>
+<time>01:36</time>
+<p>Appreciate it. Now, this is a good question and I'm going to come at this from a few different angles. And I also want to sort of talk about cross platform development in general because as you all know, full disclosure for those of you who don't, I oversee development of Android with Java and Kotlin, iOS with Objective C and Swift, and React Native built apps as well. So I feel like I'm in a position to have a valid opinion on this. Never said I'm an expert on any of these, but I I deal with them all on a daily basis with, you know, large user basis.</p>
+<cite>Peter:</cite>
+<time>02:11</time>
+<p>So I I get to I get a good feeling for the real world experience of, you know, seeing these apps work out there. And I think easily the the biggest argument for using native platform technologies instead of cross platform is performance. Right? You know, no question that's number 1. You are sort of always compromising a little bit when you use cross platforms technologies.</p>
+<cite>Peter:</cite>
+<time>02:35</time>
+<p>They're getting a lot better and a lot of these technologies now, you know, use native or transpile to native and they're getting a lot better. But depending on what your app does and how complicated it is and how much the integrations with hardware and all these kind of things, you'll eventually might notice a performance hit, you know, which is arguably one very good reason for not using cross platform. Now the biggest problem and I think where this question comes up is when you work on a team or you work for a company or something like that, that uses one of these cross platform technologies. And, you know, it can be very frustrating when you are say a swift developer on the apple platforms, right? Because a lot of the time you end up with these cross platforms using a lot more code and you have to put in, you know, a lot of these, if iOS, if Android and such and such.</p>
+<cite>Peter:</cite>
+<time>03:33</time>
+<p>Right? Now doesn't seem like a big deal, you know, other than it's a lot of code and arguably the end user never sees it and, you know, frankly, the whoever you're building that for, they don't see it either. But it gets to be a bit of a logistical nightmare with some of these things. Easily, the biggest argument, I think, other than performance is 3rd party libraries. Now all these cross platform technologies have just a huge amount of third party libraries.</p>
+<cite>Peter:</cite>
+<time>04:04</time>
+<p>If you have ever tried to build a React Native app, you immediately appreciate how many, you know, dependencies there are. And the problem that comes with that is you have the built in dependencies that are needed by, say, React Native, Flutter, of course, another one. Right? Quite often, you end up having to use libraries for particular things. I'll give you an example.</p>
+<cite>Peter:</cite>
+<time>04:26</time>
+<p>When you're talking about cameras or you're talking about audio for example. Yes. These platforms have libraries. Sometimes they're good. Sometimes they're not so great.</p>
+<cite>Peter:</cite>
+<time>04:38</time>
+<p>And a lot of the time, you know, they might not have what you want and then you go find some third party library that has what you need and you bring that into your code base where, first of all, number 1, you have now presented an opportunity for a security risk. You have a third party library maintained by somebody else in your code base. Right? Even if you fork the code, you know, it's still somebody else's code. So you have that security risk.</p>
+<cite>Peter:</cite>
+<time>05:07</time>
+<p>And we've all seen over, you know, the recent years how much this can be a problem for different things. Now along with that, you are also dependent on those folks to maintain those libraries and I mean maintain them, continue working with new OS's when they come out, but also for, you know, the current OS's and hoping that people don't do something that breaks your app. Because believe me folks, it happens. It happens quite often, I would say, in my experience. And if you've not had that experience, more power to you.</p>
+<cite>Peter:</cite>
+<time>05:45</time>
+<p>I'm I'm willing to bet it'll get you one day though. I'm just saying. So those are a couple of really good arguments for not using cross platform technologies. The hardest part is convincing the powers that be, whoever you're making an app for. Right?</p>
+<cite>Peter:</cite>
+<time>06:01</time>
+<p>The using a cross platform technology with one code base is a hard thing to argue against when you're saying, okay. I need an Android team. I need a an iOS team or even just one developer of each or one developer that can do both. And I've got 2 code bases and I've got to maintain those 2 code bases. It is a hard sell in in this day and age when it comes to having to make decisions on time, you know, development cycles, release cycles, budgets, all of those kind of things.</p>
+<cite>Peter:</cite>
+<time>06:34</time>
+<p>Hey folks, if you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter. You can go to patreon.comforward/compileswift where you will get ad free versions of the podcast along with other content. But I think that deep down, you know, we as engineers and on on the engineering side, we know that native is easier to maintain. And at the risk of getting flamed, I'll say more reliable for all the reasons I've given so far. Right?</p>
+<cite>Peter:</cite>
+<time>07:12</time>
+<p>Now, you know, for example, yes, okay, you could argue. Let's take swift. Right? Foundation from that, for example. Yeah.</p>
+<cite>Peter:</cite>
+<time>07:20</time>
+<p>There are dependencies in there. Maybe swift UI and and and other things in your app, but they're all maintained by, in this case Apple, right? The the platform owner. And there is less chance of you having a problem or something that you need to overcome or figure out or, you know, you wake up one day and find your app is completely broken and won't build because of some dependency that you now have to figure out the solution. So that's a pretty good sell from an engineering side, I think.</p>
+<cite>Peter:</cite>
+<time>07:52</time>
+<p>And I also think that compatibility is a big one. You know, when you think about Android and when you think about iOS and you look at how far back now companies offer to support those OS versions, that's pretty good. Right? It's not like it used to be where, you know, something would only go back a couple of versions and everyone's gotta go buy a new device or you can, you know, change the requirements for your app, the base level support of OS. They're all pretty good these days, I think.</p>
+<cite>Peter:</cite>
+<time>08:26</time>
+<p>And I also think that, you know, communities play a big part in this. Right? There are huge communities out there for all the platforms that has a an argument on both sides, I guess. You you could say that, you know, iOS has, of course, a great community out there. It's it's almost impossible to not find an answer for a problem these days.</p>
+<cite>Peter:</cite>
+<time>08:48</time>
+<p>And yes, you could say the same goes for Flutter and you could say the same goes for React Native to pick 2 cross platform ones there. You know, again, it comes down to using technologies that are supported and maintained by the companies rather than, you know, engineers with goodwill. And I'm not not beating up the engineers here. But at the end of the day, it comes down to the fact that with your app is broken, you're the one working 3 o'clock in the morning to fix it or your team or whatever. Right?</p>
+<cite>Peter:</cite>
+<time>09:17</time>
+<p>You're the one getting the phone call. You gotta you gotta be able to dive in and fix it. And I think that that's a lot easier to do and a lot easier to debug with native platforms. So, you know, that's some thoughts there on it. I could have very easily argued the opposite and I've I've done that somewhat in the past, you know, as to why cross platform is a good idea.</p>
+<cite>Peter:</cite>
+<time>09:39</time>
+<p>But personally, I think that going native should always be option number 1, right? And putting forward these reasons to support that argument when you're trying to make these decisions as a team or try to sell whatever, I don't know, product department or whatever it is on why 1, you know, one code base to to make all of the build out to all the platforms is not a good idea. And I'll be honest, you know, again from my own experience, the dream or the sales pitch of 1 code base to many platforms. I'm gonna say it. I think it's a lie for the most part.</p>
+<cite>Peter:</cite>
+<time>10:17</time>
+<p>It comes with so many problems that at the end of the day, it it it sounds so beautiful on the sales package. Right? You know, on the the the fancy glossy cover, but when you open it up and you realize, oh, yeah. But, you know, device x has this particular camera or device y has this problem and you have to start coding all of those workarounds, you can end up with some serious spaghetti mess of code. Because before you know it, you know, you you've got a huge list of different hardwares with different requirements and of issues that you have to work around and they start tripping over each other.</p>
+<cite>Peter:</cite>
+<time>10:58</time>
+<p>And, you know, that is something else that I have experienced with cross platform is it's just a logistical nightmare to keep it all straight when you have a mature application code base out there that's got more than a few releases behind it. Right? And and for me that's that's one of the big ones when it comes down to being an engineering manager of having to make decisions of what causes the most amount of pain, how can I reduce that, and how can I maintain good release cycles without worrying that the very next patch on some third party library, like I say, or even just, you know, like for example, react native itself? Right? Or flutter or whatever it may be.</p>
+<cite>Peter:</cite>
+<time>11:42</time>
+<p>Some something how it comes along. That's just gonna give you a bad day and have forced you to do a bunch of rework. You just don't have the time for that in these these days. And and certainly we all know as engineers that we don't get the time that we really need to work on things. Right?</p>
+<cite>Peter:</cite>
+<time>11:58</time>
+<p>So we don't need to be having surprises, which is what happens with a lot of third party, cross platform stuff. So that's my thoughts on this. If you have some thoughts and you wanna come on the podcast and share them, reach out to me. Right? Go to compileswift.com, forward slash contact.</p>
+<cite>Peter:</cite>
+<time>12:15</time>
+<p>Let me know. Like I say, I could forward good arguments for why cross platform is a good idea. But often when I I look at apps that I work on with large, very large user bases, problems come along very quickly and can cause you an absolute nightmare, that you have to resolve super fast and get a patch out. Right? And, that's why personally, I'll always prefer native platform if I have the choice.</p>
+<cite>Peter:</cite>
+<time>12:45</time>
+<p>And I guess that's kind of the the closing statement there for me. And I'm hoping that, you know, I've done justice to the question and given some arguments, and good pointers that you can use to point out to whatever folks you need to as to why maybe you wanna go native platform instead. That's it folks. That's what I got for you. If this has been helpful, let me know, you know, leave a review or reach out to me.</p>
+<cite>Peter:</cite>
+<time>13:07</time>
+<p>Greatly appreciate it. As always, you know, you can support this podcast and the future of this podcast by going to patreon.com forward slash compiled swift. Greatly appreciate it. Hope you're all having a wonderful time. I'm looking forward to dub dub DC.</p>
+<cite>Peter:</cite>
+<time>13:22</time>
+<p>It'll be here before you know it. I'm also working on some other things that maybe I'll talk about in the next episode. Other than that folks, I will see you later.</p>
+</details>

@@ -1,0 +1,135 @@
+---
+publishDate: 2024-05-27T00:00:00Z
+title: CoreData, CloudKit and user data sync, a few tips
+excerpt: CloudKit and iCloud are excellent ways to store user data and make it accessible across multiple devices.
+image: /images/blog-fi/2024/05-27.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+  - coredata
+  - cloudkit
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s06-e15
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/7dbd1841"></iframe>
+
+<Player/>
+
+In this episode, I discuss a recent exploration and problem-solving situation with one of my apps that uses CloudKit to sync data across devices.
+CloudKit and iCloud are excellent ways to store user data and make it accessible across multiple devices. However, they come with some scenarios you need to account for.
+
+For example, have you coded to protect against a bad experience if the user is not logged into their account?
+Here are some tips in this episode with my real-world examples.
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Transcription
+<cite>Peter:</cite>
+<time>00:02</time>
+<p>What's up, everybody? Welcome to another episode of the CompileSwift Podcast. I'm your host, Peter Witham. You can find myself and this podcast at compileswift.com. In this episode, we're gonna talk about data and specifically core data, Icloud kit, syncing, all that fun stuff in your app and some ways to mitigate some of the problems that come along.</p>
+<cite>Peter:</cite>
+<time>00:23</time>
+<p>So where is this coming from? Well, I'm working on an update for my job finder tracker app. It uses core data and Icloudkit for or I should say cloudkit for syncing, and that all works beautifully. They're super simple to use, implement, and fantastic. Now I'm also adding a feature where you can store your resume as well and that's just kind of a side note here, but again it's it's more data.</p>
+<cite>Peter:</cite>
+<time>00:53</time>
+<p>Right? Now of course over time you hope that you're gonna have users and you hope that they're gonna store lots of wonderful data in your app and use it and life will be fantastic. Well, that's that's mostly true. Right? Because you've got to allow for certain situations and those are the ones I'm gonna talk about here today and hopefully give you a few little pointers as to how you can deal with some of these things and suggestions and just things to look out for.</p>
+<cite>Peter:</cite>
+<time>01:23</time>
+<p>So let's dive in at the beginning here and start with the the simple one, right, which is really the the the crux of the problem. When a user installs your app for the first time, that first run experience, they're not gonna have any data on CloudKit. There won't be any structure there for it. Right? So you've got to allow for that.</p>
+<cite>Peter:</cite>
+<time>01:43</time>
+<p>Now, thankfully, that's not too much of an issue because once they add some data, you can store it. Life is good, and away it goes. However, there's one catch. You need to make sure and check that they are logged in. Now I know this probably sounds like an edge case.</p>
+<cite>Peter:</cite>
+<time>02:02</time>
+<p>Some ways it is I guess. Right? That you need to make sure that they are logged into their Icloud account because if they're not, guess what? Nothing's gonna happen and it's not gonna tell you unless you do something to, you know, defend against that. So here's how I've done it and maybe there's better ways but when they go to the first screen in my app that requires the data, the first thing I do and the first thing I check is are they logged in?</p>
+<cite>Peter:</cite>
+<time>02:31</time>
+<p>This is actually pretty straightforward to do. Right? So mine is a SwiftUI app. Let me start there and I've just got an on change event. Right?</p>
+<cite>Peter:</cite>
+<time>02:41</time>
+<p>And I'm I'm gonna give you the code here. Don't worry. It's not complicated. And in fact, it'll pretty much write itself for you if you follow the documentation. So when the the content view, for example, comes up there's an on change handler, on change of the scene phase.</p>
+<cite>Peter:</cite>
+<time>03:00</time>
+<p>Right? And then I've just got an underscore in and I just say let container equal ckcontainer.default. Right? Cloudkit. And then container dot account status.</p>
+<cite>Peter:</cite>
+<time>03:12</time>
+<p>Put this in a closure here. Account status followed by a comma and then error in. And then all you got to do is check it and just say if account status equals dot available, do my thing because they're logged in And if they're not, do something else. Right? In my case, what happens is if they're not logged in, I actually have a Boolean and I say, you know, it's it's true if they're logged in, it's false if they're not logged in.</p>
+<cite>Peter:</cite>
+<time>03:39</time>
+<p>And then that, of course, is tied to some state And if it's false, I just put a nice little message up on the screen that says, hey. You need to be logged into CloudKit to, sorry. You need to be logged into your Icloud account to use this app. Simple as that. Now here's one of the cool things you can do.</p>
+<cite>Peter:</cite>
+<time>03:58</time>
+<p>Right? If if you want to, you can do something fancy here and and take advantage of of what Apple's done for you. So you can display some text, you know, and a button or or however you wanna do this link that says log in to Icloud. And then you can actually tell the app to open up your the the user's, settings on their device and ready for them to log in. And you do that by just dispatching a queue, main at a sync.</p>
+<cite>Peter:</cite>
+<time>04:29</time>
+<p>You can say uiapplication.shared.open with the URL. And the format of that string is is kind of a funny one. Right? I'm sure you've done this before. If you haven't, this is this is how you throw links around to open other applications.</p>
+<cite>Peter:</cite>
+<time>04:44</time>
+<p>But this is this one's got a fun name. So to open the settings on an iPhone or or whatever Apple device, the string is app press colon root equals castle. I don't know why it's that. I got it from the Apple documentation. But if you put that in there and try and open the URL, it's gonna open up the settings in your app, and then boom, the user can log in, go back to your app.</p>
+<cite>Peter:</cite>
+<time>05:10</time>
+<p>Life's gonna be great. Maybe. We'll talk about that in a second. Hey, folks. If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter.</p>
+<cite>Peter:</cite>
+<time>05:26</time>
+<p>You can go to patreon.comforward/compileswift where you will get ad free versions of the podcast along with other content. If they don't log in, the, you know, the the state is gonna be the same. So the the app's gonna not work for them and and probably give them the same response. Right? You know?</p>
+<cite>Peter:</cite>
+<time>05:47</time>
+<p>Because they're not logged in. Now if your app relies on CloudKit for for storing data, at the end of the day, the user has it doesn't really have much of a choice. They either use the app by logging in or or they don't use the app. And, you know, unless you're gonna provide some other third option, that's pretty much the way it goes here. Now here's the fun part.</p>
+<cite>Peter:</cite>
+<time>06:08</time>
+<p>When they go back to the app, if you don't do anything, there's a very good chance, you know, the app's not gonna refresh. No state has changed until, you tell it to do something to go check that connection again. And then it's gonna see, oh, I'm connected now. So user is logged in is true and and away we go. However, you know, the the the funny part that I noticed in testing this when I was doing a live stream, you I I live stream regularly in case folks don't know.</p>
+<cite>Peter:</cite>
+<time>06:37</time>
+<p>Go to twitch.tvforward/compiledev, and and you'll see a, you know, video session of this. Sometimes I've noticed if you wait long enough, it seems like somewhere along the way, it refreshes itself in the system. Next thing you know, it it just updates screen and it's good to go. But that doesn't it's not exactly reliable, and I don't know if it's a bug on my side or if that's by design or but either way, it's not a predictable outcome for the users, so it is not something you should do and or should trust. So what you should do is when you they you know, you go back to the app, you should refresh that state to check and see, okay, they logged in now.</p>
+<cite>Peter:</cite>
+<time>07:17</time>
+<p>Right? Maybe you do, you know, app to background, app to foreground event, or whatever it may be of your choice, but I recommend that you take control of the situation and check it. And then once they're logged in, show the appropriate screen with the appropriate data and so on. However, it's still not that simple. I I know.</p>
+<cite>Peter:</cite>
+<time>07:38</time>
+<p>There's always these glitches. Right? Sometimes too, I've noticed that it's sort of would do it, but it hasn't got all the data yet. So again, you should probably do a better job than I did and protect against that by saying, alright. You know what?</p>
+<cite>Peter:</cite>
+<time>07:55</time>
+<p>Don't update or let the user do anything in the app until I've got all the data, and I'll explain why. Here's the scenario. If you've got a list of things and that list has not appeared on the screen, but you know it exists because you're the developer and you're testing it. Right? And you've got data.</p>
+<cite>Peter:</cite>
+<time>08:12</time>
+<p>Well, if you knew add a new row to that data, it's gonna work. And it'll store it on the back end because context. Right? It it it'll take care of it once you update the context. And then at some future point, it'll actually show the entire list from the back end plus your new data.</p>
+<cite>Peter:</cite>
+<time>08:33</time>
+<p>And it can make for a bit of a weird experience for the user. Right? So I I got nothing. I add something. That goes away and now I got a bunch of things.</p>
+<cite>Peter:</cite>
+<time>08:42</time>
+<p>That is not a desirable user workflow experience. So be very careful with all of this is what I'm saying. Think it through and plan ahead a little bit. The documentation on on how to do all this stuff is actually very good and helped me solve the problem along with some suggestions from the live chat room on the stream, and thank you to those folks. It did present some interesting things that you would think would be edge cases, but actually turn out to happen way more than you it seems likely, especially if iCloud is having a bad day.</p>
+<cite>Peter:</cite>
+<time>09:18</time>
+<p>Right? You know, that's the other thing. This could take a while sometimes depending on the amount of data and whether Icloud's having a good day or a bad day, user's network connection, how quickly the phone's running, all of these things. I wanna put this out there this week because it was just an interesting scenario, and I thought I I should talk about this and offer this up. I I'm not the first person this has happened to.</p>
+<cite>Peter:</cite>
+<time>09:40</time>
+<p>I'm I'm certain of that, unless I did it in such a bad way that I am the first person this happened to, in which case, hey, that's on me. Hope this has been helpful, though. And, you know, this is definitely one of those things I think eventually everybody stores data in the cloud for their users some way or another. And you gotta watch out for these interesting I don't wanna say sync problems, but more user workflows and making sure they can and cannot do the right things based on the status of that sync. So that's it, folks.</p>
+<cite>Peter:</cite>
+<time>10:13</time>
+<p>It's what I got for you. If this has been helpful, you know what to do. Go tell someone about it. Leave a review. Greatly appreciate that.</p>
+<cite>Peter:</cite>
+<time>10:20</time>
+<p>You wanna go the extra step? Why not be a Patreon member and help support the future of this podcast? Go to patreon.comforward/compileswift. Any donations are greatly welcome. You know, if you sign up there, you get the advert free versions of the podcast and you also get the satisfaction of knowing that you're keeping this swift based podcast alive, at a time where we see so many disappearing.</p>
+<cite>Peter:</cite>
+<time>10:46</time>
+<p>Right? We need to support our creators. Other than that, reach out to me, compileswift.com. Right? All the usual places, all the usual networks.</p>
+<cite>Peter:</cite>
+<time>10:56</time>
+<p>That's it, folks. I hope you have a great week. We are 1 week closer to dub dub d c 24. I will speak to you soon.</p>
+</details>
