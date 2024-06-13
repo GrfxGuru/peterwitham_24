@@ -1,0 +1,514 @@
+---
+publishDate: 2024-06-13T00:00:00Z
+title: WWDC24 Compile Swift roundtable discussion
+excerpt: I got together with some good developer friends to discuss the details from WWDC24 and how that affects users and developers.
+image: /images/blog-fi/2024/06-13.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+  - apple
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e01
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+import CSLinks from '../../../../components/podcasts/cs-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/a5a60f88"></iframe>
+
+<Player/>
+
+<CSLinks
+  link1="https://cocoatype.com"
+  link1label="Cocoatype"
+  link2="https://www.twitch.tv/nutterfi"
+  link2label="Nutterfi"
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Transcription
+<cite>Peter:</cite>
+<time>00:02</time>
+<p>What's up, everybody? Welcome to another episode of the CompileSwift Podcast. We have a very, very special one today. I've got some good friends with me today. You're gonna recognize these people if you've been hanging out on the live streams.</p>
+<cite>Peter:</cite>
+<time>00:13</time>
+<p>And, yes, we are gonna talk about dub dub dc 24. In particular, we've had the keynote today and the state of the union, and we're gonna dive into those. And we're gonna go in here. I'm gonna ask each of the guests to introduce themselves, and we're just gonna roundtable a discussion here. So whichever wants to go first, we've got 2 folks here.</p>
+<cite>Peter:</cite>
+<time>00:33</time>
+<p>Number 1, go for it. Whoever wants to go first.</p>
+<cite>Cocoatype:</cite>
+<time>00:36</time>
+<p>I can take that. Yeah. I'm Geoff Pedo, indie iOS developer, iOS, VisionOS, macOS, all the things developer. And I stream as Cocotype on Twitch.</p>
+<cite>Nutterfi:</cite>
+<time>00:47</time>
+<p>Hi, everyone. My name is Dave Nutter. I am a software developer, iOS mostly. A little bit of macOS here and there. I also, stream on Twitch, under the name Netterfy.</p>
+<cite>Peter:</cite>
+<time>00:59</time>
+<p>Yeah. Excellent. We are glad to have you all here. We're gonna use, probably we'll be referring to each other by our screen names because we're gonna do that. We're gonna break down some topics here and go through them.</p>
+<cite>Peter:</cite>
+<time>01:10</time>
+<p>The logical place for us to start is we will start with all of the the major operating systems. Right? No surprise to anybody, major new versions for everything this year. I'll I'll start by saying I was surprised how little attention was given to the, you know, the Apple Vision Pro. Mhmm.</p>
+<cite>Peter:</cite>
+<time>01:31</time>
+<p>Of course, we got version 2 of the OS. I felt it was almost, you know, kind of Apple saying, yeah, we've got this brand new platform, we're not gonna say too much about it today. We've revamped it, given it a few little things. Any thoughts on that, folks? Because I I was surprised.</p>
+<cite>Peter:</cite>
+<time>01:48</time>
+<p>I really thought that was gonna be the the thing that this year I'd be like, oh gosh. Stop talking about it. But they barely started.</p>
+<cite>Cocoatype:</cite>
+<time>01:54</time>
+<p>Yeah. I was surprised by that too. It definitely seems like they cleaned up a lot of the interactions. You know, they moved a lot of the You know, they moved a lot of this stuff to your, like, wrists that previously required staring at the ceiling and to open up control center or open up home or anything like that. But, yeah, they didn't really add a whole lot of new features for something that is supposed to be a v two of a new product.</p>
+<cite>Cocoatype:</cite>
+<time>02:15</time>
+<p>And so between that and how long it took to get the VisionOS 1.2 out, I'm I'm almost wondering if they're having some kind of development issue internally.</p>
+<cite>Peter:</cite>
+<time>02:24</time>
+<p>I'm looking at it, and I'm wondering if they're having a bit of a rethink. I mean, I'm just you know, the let's be honest. There was a lot this year and maybe they just felt, okay, we need to get this other stuff in because it applies to more of the audience. But I I just expected I expected Apple to be Apple and to sort of force it on us. Do you know what I mean?</p>
+<cite>Nutterfi:</cite>
+<time>02:46</time>
+<p>That that could be true. I was gonna say, the the funny thing about these, state of the unions and and these, there's a lot that's packed into an hour. And what they choose to present is always an an interesting choice. For example, we heard, like, the first five minutes were about Apple TV programs, and it felt like some of those minutes could have better been spent on things that the developers actually care about, more, like the devices and the OSes. And it really didn't give, Vision OS Vision OS update, a chance to really shine.</p>
+<cite>Nutterfi:</cite>
+<time>03:22</time>
+<p>As someone who hasn't purchased it yet, still kind of on the fence as to whether or not I should get one, it really didn't give me any more reason to other than, oh, that looks cool. And so I was expecting more as well.</p>
+<cite>Peter:</cite>
+<time>03:33</time>
+<p>That's a good point. Right? Because I remember I think it was last year. You know, here we were kind of saying, hey, Apple, don't forget that you've got that Apple TV thing. Right?</p>
+<cite>Peter:</cite>
+<time>03:44</time>
+<p>And here it is right up front this time around. But maybe that does speak to part of the problem now, which is there are so many platforms, so many things that they really cannot cover them all, and they almost have to pick which are the ones we want to to to bring to the forefront here. Right? You know? And and I say that also thinking to myself that Apple right now, I think they even maybe dropped to to number 3 behind NVIDIA in that.</p>
+<cite>Peter:</cite>
+<time>04:14</time>
+<p>And and if they look at it, maybe the the bean counters have said, look. It's a lot easier for us to ship a lot more Apple TVs than it is Vision Pros, you know, something like that.</p>
+<cite>Cocoatype:</cite>
+<time>04:24</time>
+<p>I also wonder in terms of you said cover, but and made it sound as though, just the amount of time that they have in the keynote to talk about this kind of stuff. But I almost wonder if they're spread too thin on an engineering perspective.</p>
+<cite>Peter:</cite>
+<time>04:39</time>
+<p>Oh, for sure.</p>
+<cite>Cocoatype:</cite>
+<time>04:40</time>
+<p>They have to build out all of these AI features across iPad and iPhone and Vision OS and all of these different things that it's like, okay, you know, Vision OS has to take the back seat this year. I mean, last year, we went an entire year with really nothing to ipados. Is it just we're gonna have a cycle of like this year is, you know, a rebuilding year for Vision OS. This year is the rebuilding year for iPad OS. We're gonna have this endless cycle of this is more of a year for this product, and this is more of a year for this product, and some products are just gonna take a back seat every couple years.</p>
+<cite>Peter:</cite>
+<time>05:15</time>
+<p>Oh, I agree for sure. I think, you know, I I think I speak for a lot of folks when when I say Apple is way too thin on the ground, believe it or not, for such a huge company, from an engineering perspective. Plus, put these things in little blocks. Right, and having folks work on certain things and how they don't always align across all the products. For example, even on the hardware side with the iPad being the most powerful hardware right now, that I I think that does happen and, you know to that note, I'll throw this out here.</p>
+<cite>Peter:</cite>
+<time>05:51</time>
+<p>Who wants to talk about which one do you want next, the iPad or the iPhone?</p>
+<cite>Nutterfi:</cite>
+<time>05:56</time>
+<p>There's, there's definitely some the big thing that was the focus was customization, of the home screen. I guess it was the first thing that they talked about. Something that obviously users have wanted for a very long time, and and to to see it available now, is is great. Some of the stuff under the hood, the most important stuff obviously, being having, Apple intelligence, powered, features on the device, of course, is huge. This, I think, is going to be, quite a huge, you know, update as to what people can do on their phones.</p>
+<cite>Nutterfi:</cite>
+<time>06:35</time>
+<p>You know, people have been hoping that Siri, could be, you know, more useful. Talked about it for many years. And and to have these capabilities now, is is is makes it quite hopeful. You know, I gotta be honest. I'm I'm a little bummed that my 14 pro max isn't going to be getting some of these features.</p>
+<cite>Nutterfi:</cite>
+<time>06:56</time>
+<p>And I'm like, why? I I I get that there's probably, you know, some something in the internals that would, prevent that. But, clearly, it does provide some incentive for people to upgrade their phones. So I'm looking forward to seeing, the great new things that, can come with, with that. These apps can be much more useful, contextual, in app, asking Siri to, you know, whether it's, something, related to messages or contacts or maps, that's that's always a good thing.</p>
+<cite>Nutterfi:</cite>
+<time>07:28</time>
+<p>Not having to go outside of the app that you're in, you know, get the task done. And, also, we'll see. But what what, what APIs are available for third party apps to take advantage of of, these new features. It's it's something that's, I'm I'm really looking forward to diving into.</p>
+<cite>Peter:</cite>
+<time>07:45</time>
+<p>I think, you know, we're gonna talk about sort of AI across the board as a as a subject because that's kind of how Apple has played it, but it it was interesting, your your comment there about, you know, oh, well, sorry, I thought, you know, iPhone 14 owners, you don't get this because one of the things that I've always been impressed with is how Apple makes the new operating system versions work as far back as they as they can, really. Right? Usually many versions. But here, we have a unique situation where probably, you know, I have no doubt older devices like the iPhone 14 will get the OS, but it won't get some of the features And and I just wanted to throw that in there.</p>
+<cite>Cocoatype:</cite>
+<time>08:33</time>
+<p>I I I kinda wanna go back to what Nader was saying about this being a very focused around customization. And I think that even if you look at a lot of the AI features, they kind of all go into that same sort of thing. You know, you had a lot of the, like, image generation stuff that was related to, like, the messaging that you're having. And you look at, like, some of the messaging stuff. They're like, oh, you know, you can now send any emoji as a tap back.</p>
+<cite>Cocoatype:</cite>
+<time>08:58</time>
+<p>You can now, you know, do different things with your photos and and whatnot. That I think that it's kind of interesting how they're going to pitch this to users because I think that they will kind of lump all of this into even the AI stuff. I would strongly doubt that they're going to market that to, you know, billions of people on, you know, TV, you know, broadcast TV or whatnot by saying, oh, your app now has artificial intelligence. Like, that sounds like the kind of thing that Google wouldn't market their OSes with, but I think Apple's gonna be a lot more around, like, these are ways that you can be more creative and be more expressive. And so I think that there is a lot of those features still coming to every phone that they'll go, okay.</p>
+<cite>Cocoatype:</cite>
+<time>09:45</time>
+<p>Yeah. You know, some of this, like, image generation stuff, that's not gonna come to the phone. But tinting your icons, that's all there. The, tap back with any emoji, that's all there. I was gonna</p>
+<cite>Peter:</cite>
+<time>09:56</time>
+<p>say the the one for me and the one that I think a lot of people I know I thought my headphones were gonna explode with with you all screaming how awesome it was, and me too. When they said, you know, here we are now, what, 15 years, and we're like, oh, and by the way, you can now put your icons any way you want on the home screen. Yeah. And not just try and figure out this grid layout.</p>
+<cite>Cocoatype:</cite>
+<time>10:21</time>
+<p>The the other one that that, I was the, the other one that I was thinking of at the time was, being able to replace those buttons on the home screen or sorry, the lock screen, flashlight and camera buttons. And just here's an end to the amount of times that I have my phone in my pocket with the flashlight on, and I can just put something else there instead.</p>
+<cite>Peter:</cite>
+<time>10:42</time>
+<p>Yeah. No. You're right. Because I I think I even said at the time, the amount of times I've not wanted to use a flashlight, and there I am in the middle of the night, right, going from my office, turned everything off to the bedroom, and the lights are off, and boom, the iPhone torch comes on. And you're like, great.</p>
+<cite>Peter:</cite>
+<time>10:58</time>
+<p>Now I can see. That's fantastic. And and also because I do want something more more interesting. Right? You know, we also said about that side button the what do they call it?</p>
+<cite>Peter:</cite>
+<time>11:08</time>
+<p>The action button, I think it is. Yes. And I how I have mine set to activate the camera, and I've now programmed myself to use it that way. It the the next logical step is, yes, on the lock screen, I should be able to replace those with whatever applies to me. I hardly ever make phone calls, hardly ever need to use the torch.</p>
+<cite>Peter:</cite>
+<time>11:31</time>
+<p>So let me do something more useful with them.</p>
+<cite>Cocoatype:</cite>
+<time>11:34</time>
+<p>If you've replaced your action button with the camera, then why do you also have the camera on your lock screen? You know, you can put whatever you want there now instead of having 2 different ways to quickly access the camera.</p>
+<cite>Nutterfi:</cite>
+<time>11:45</time>
+<p>Oh, yeah. I was just gonna say that, you know, for for users, on other other platforms can point and say, hey. We've we've had these features for years. It's like, yeah. We we get it.</p>
+<cite>Nutterfi:</cite>
+<time>11:57</time>
+<p>It's it's there's definitely a little bit of envy there. And, but this this is is a little boon, to those of us who are, you know, making do with what, you know, what what the system, gives us. Clearly, there's there's a market for for, or or or interest, for this. Otherwise, they, you know, they wouldn't have given this any thought, but it is nice to to see, like, you know, Kokatite was was mentioning, the the the the creative aspects, I I think is what Apple is is hoping to market to the consumers is, hey, look at look at everything that you can do. You can make this your own, You know?</p>
+<cite>Nutterfi:</cite>
+<time>12:39</time>
+<p>This this goes, farther back with, like, different, you know, case colors, for example. It's just it's just like one component. And, yeah, maybe a little bit late to the party, as as Apple frequently is, with features. But when they finally do bring something, to the OS or to the hardware, it's, you can tell that a lot of, TLC has, been, baked into it. So, it it I I'm I'm really hoping, to to have some fun with that with the betas.</p>
+<cite>Cocoatype:</cite>
+<time>13:13</time>
+<p>I I I think in this case, they're late to the party on their own OS, though, too, to an extent. I mean, with iOS 14, we had so much of the the widgets, the custom widgets, the aesthetic home screens, the, you know, custom app icons that they weren't previously doing before. And you see how much of, like, what they're doing now with this version of the OS really has its origins in TikTok videos from 4 OSes ago that, people were doing to customize their home screens at that point and and do stuff with, like, invisible app icons just to be able to rearrange their icons in a way that they they wanted to do stuff. And now Apple's really finally catching up to what people were kinda hacking the OS in order to get it to do. Mhmm.</p>
+<cite>Cocoatype:</cite>
+<time>14:00</time>
+<p>Well, I</p>
+<cite>Peter:</cite>
+<time>14:00</time>
+<p>was gonna add to that as well. It it kills off in a in a good way for once. They've sure locked to the right thing. And I'll say this, so people can flame me for it. They've sure locked those I don't wanna call them scammy.</p>
+<cite>Peter:</cite>
+<time>14:15</time>
+<p>Those apps that purport to make the user think they can customize their home screens to look exactly how they made them look today. But in reality, it's, well, you sort of make a shortcut, give it a custom icon, do this. And and, you know, and and people charge for those apps. And, of course, you can do it with with shortcuts and that for free. But I think kudos to Apple for number 1, making it happen and making it simple.</p>
+<cite>Peter:</cite>
+<time>14:43</time>
+<p>And, number 2, hopefully stopping some of that kind of activity, should we say, in the App Store. And and so that makes me happy. But I also wanted to comment on Apple, you know, you both said about Apple being late to the party. And I I never mind Apple being late to the party somewhat because it usually means look. We're not gonna just jump on the bandwagon.</p>
+<cite>Peter:</cite>
+<time>15:09</time>
+<p>We're gonna think about this and try and do it better way before we bring it out. But that said, Cocoatipe, you're quite right. In this case, they're late to the party on their own OS, which in some ways is a little bit unforgivable. But with these new seemingly small feature changes today, I feel like at last when when they say make make your iPhone yours, I can finally do that.</p>
+<cite>Cocoatype:</cite>
+<time>15:36</time>
+<p>I wouldn't say that it's a case where, you know, they should be shamed for being that late to the party on their own OS because Oh, sure. In a sense, it is showing the power of the tools that they had provided before, and especially shortcuts in particular. Users were able to do this kind of stuff even though Apple wasn't providing it for them. And that really has now, like, driven Apple's own feature sets, basically. And I'm really excited to see, you know, with the focus on app intents that they're really doing to drive some of this Apple intelligence stuff, I think this is only just gonna lead more into users building the features that they want for themselves, and then Apple kind of is able to go, well, hey, what are users already doing that we could make way easier for them and build into the system?</p>
+<cite>Peter:</cite>
+<time>16:28</time>
+<p>Hey, folks. If you like what you're hearing in this podcast, and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter. You can go to patreon.comforward/compileswift where you will get ad free versions of the podcast along with other content. I wanna move us on just quickly. There's one thing I wanted to touch on on macOS.</p>
+<cite>Peter:</cite>
+<time>16:55</time>
+<p>Now, you know, macOS to me is always a progressive thing. I've said this before. It's a very mature platform, and it's more about refinement at this point. But the one thing that I think, hopefully, if it works as advertised, will change my life for the better is being able to see essentially a a VNC of my phone on my Mac because it doesn't matter what time or day it is, what day or week it is. I never have my dang phone with me when I need it.</p>
+<cite>Peter:</cite>
+<time>17:25</time>
+<p>And I'll give you the use case in a second. But I thought I'd solved this by having the Apple Watch so I could leave my phone anywhere in the house. I'm sure you felt the pain. Every time I go to log in to something and it's like, oh, give me a 2 factor code. And then it's like, oh, dang it.</p>
+<cite>Peter:</cite>
+<time>17:41</time>
+<p>Where's my phone? Right? So being able to see my phone on my Mac for that one reason alone makes it worth the price of entry. Oh, we should say it. The the the name this year is Sequoia, which I think we universally agree is pretty darn awesome.</p>
+<cite>Peter:</cite>
+<time>17:57</time>
+<p>Right? It just</p>
+<cite>Nutterfi:</cite>
+<time>17:58</time>
+<p>It's cool.</p>
+<cite>Peter:</cite>
+<time>17:58</time>
+<p>It feels right. You know? Okay. Great.</p>
+<cite>Cocoatype:</cite>
+<time>18:02</time>
+<p>I wanna talk about how awesome watchOS is this year. Yeah. So watchOS 11, we got all kinds of cool things for both devs and for consumers. You know, the thing that I think people everybody that I see that, you know, regularly uses their Apple Watch has been banging on for years is I want a way to say I'm sick today. I don't wanna deal with the Apple Watch thing, but I don't wanna lose my streak.</p>
+<cite>Cocoatype:</cite>
+<time>18:24</time>
+<p>You know, I had something, you know, just a 2 or 3 days ago where it's like I accidentally didn't put my watch on the charger right overnight, and then it was dead in the morning, and then I spent, like, the first hour or 2 in the day not having my watch on. It's like, I'm gonna lose my streak for reasons that are not really, you know, my fault, or on a day where I'm just sick or or something like that. And so, you know, I cheated it before. It's like, okay. Well, today, my move goal is a third of what it normally is, or something like that.</p>
+<cite>Cocoatype:</cite>
+<time>18:53</time>
+<p>And now Apple has finally gone to, like, okay, you know, Apple has finally gone, like, okay. You know, we realize people deal with this stuff sometimes. You know? We're gonna say Yep. You can pause it for a day, and and that's totally fine.</p>
+<cite>Cocoatype:</cite>
+<time>19:04</time>
+<p>You you you don't have to worry about losing your streak. Similarly, they built in the ability to have different times or different goals for different days where you can say, you know, I do a lot of walking for my day job, or I I I do a lot of physical movement during the week, and I'm gonna say, you know, my goal for Monday through Friday is x amount, and then my goal for Saturday or Sunday is x minus 200 or or something like that, or vice versa. You know, maybe you're very into active sports over the weekend. You can actually bump it up on the weekend, etcetera, etcetera. Those are some really big consumer facing features that I think they came brought to watchOS this year that I think a lot of people that use watchOS have been claiming for for quite a while.</p>
+<cite>Peter:</cite>
+<time>19:49</time>
+<p>Oh, I agree. I I feel like what they gave me this year on the watch and and also the iPad, but perhaps more importantly on the watch, they gave me a reason to keep keep using my watch. And what I mean by that is, you know, I'd fallen into that camp of, like, you know what? I've got so many devices with me all the time. Do I really still need the watch?</p>
+<cite>Peter:</cite>
+<time>20:13</time>
+<p>But now that they're done, like you said, all these things, it's like, yeah. Okay. That's good. You've solved my pain points because every January, that first time I don't complete my circles is like, well, that's it. Screw it.</p>
+<cite>Peter:</cite>
+<time>20:25</time>
+<p>I've messed it up for another year.</p>
+<cite>Nutterfi:</cite>
+<time>20:27</time>
+<p>Right? Yeah. Absolutely. I any anytime that you can provide, your user with, customization options or allowing them to use it the way that works best for them, that's a win. These these streaks is definitely it's psychological.</p>
+<cite>Nutterfi:</cite>
+<time>20:42</time>
+<p>Right? Like, you, for whatever reason, you can't may you can't fill in your circles that day. It just kills the momentum. So, yeah, I I totally get that. And, you know, similar to, you know, the devices across the board, I know we haven't talked about iPad yet, but, like, it'll give me a reason to actually, like, turn my iPad on, take it out of the drawer.</p>
+<cite>Nutterfi:</cite>
+<time>21:04</time>
+<p>You know what I mean? Like, these these little things that, are supposed to surprise and delight.</p>
+<cite>Cocoatype:</cite>
+<time>21:09</time>
+<p>Yep.</p>
+<cite>Nutterfi:</cite>
+<time>21:09</time>
+<p>Right? Like, that's the reason why we got in the 1st place. May maybe we wanted to try to build an app for that platform, and we and we quickly realized, oh, this is gonna take a little while. I'll I'll work on it later. You put it in the pile next to the other, like, you know, abandoned projects that you have, and, all of a sudden, you know, a year has gone by, and, oh, I haven't even do I even have an iPad?</p>
+<cite>Nutterfi:</cite>
+<time>21:29</time>
+<p>I forgot if I had an iPad. So, like, yeah, these these these things that that help as a user. Because you gotta think as a user, not just as a developer. Right? Because, like, we we like to we have these, like, all fun ideas that we would like, but is but is it useful to to me?</p>
+<cite>Nutterfi:</cite>
+<time>21:44</time>
+<p>Okay. Cool. It would have been useful to anybody else? Okay. Great.</p>
+<cite>Nutterfi:</cite>
+<time>21:47</time>
+<p>How how how can I, make something that someone wants to, gives them a reason to open the app or to or to use the device?</p>
+<cite>Peter:</cite>
+<time>21:55</time>
+<p>So let let's talk about iPad. IPad this year got the feature that it should have had from day 1. And arguably, it's one of the most useful features. Who wants to take it? What might that feature be?</p>
+<cite>Nutterfi:</cite>
+<time>22:09</time>
+<p>Oh, man. Yeah. I'm I'm all about this one. So, clearly, the the calculator app is the, the the most asked for, feature or app on the platform, ever since, the iPad was first introduced. Right?</p>
+<cite>Nutterfi:</cite>
+<time>22:22</time>
+<p>And it was almost, just kind of a joke. It's like, well, they we've gone this long without it. Like, they're never gonna release something like this. It's it's like, you know, it's like Valve and and and getting a Half Life 3.</p>
+<cite>Peter:</cite>
+<time>22:35</time>
+<p>Yeah. Yeah.</p>
+<cite>Nutterfi:</cite>
+<time>22:36</time>
+<p>It's like everybody's waiting for it, and they know that if they if they ever do release it, it's not gonna meet anybody's expectations. This, was really cool to see because not only did they provide a calculator app, but they, have, intertwined, you know, the, the Apple intelligence, features to help, create something, though it's in all places, the notes app, which would provide some calculation, graphing capabilities, you know, updating in real time, variables in your math equations. It looks really slick, and I am really excited about this one.</p>
+<cite>Cocoatype:</cite>
+<time>23:20</time>
+<p>You know, we got a a number of different APIs, all kinds of stuff across all kinds of platforms. You know? I'm gonna I'm gonna go back to, where I started, talking earlier with the watchOS. You know, just the some of the obvious APIs that we're missing, but also some some really nice ones, you know. Last year, they came out with this this new watch, and it allows you to do this double tap functionality.</p>
+<cite>Cocoatype:</cite>
+<time>23:47</time>
+<p>And it's actually kind of a cool thing to to get to do in the 3 Apple apps that support it. And that was it. And now they finally brought that functionality over to, 3rd party developers, and 3rd party developers can start to take advantage of that and have that kind of quick access functionality in their apps. And then I think the other big API that they brought to watchOS that seems like it wasn't asked for as much, but you see it and it goes, oh, man, that's totally obvious, is the live activity functionality. You know, you have these kind of, like, quick updates of all of the information that you want of something that's actively happening, and now it's on your watch where you see it.</p>
+<cite>Cocoatype:</cite>
+<time>24:31</time>
+<p>And I think the coolest example of this or the the coolest implementation of this that they have this, like, whenever you get a new update to it, and the UI that they show on the watch is literally the UI from the Dynamic Island on the phones, and it just pops up as a little bubble on the watch. Yes. And it looks perfect, and you're like, how did this not exist from the moment the Dynamic Island did?</p>
+<cite>Peter:</cite>
+<time>24:54</time>
+<p>Yeah. You you're absolutely right. I was watching one of the videos afterwards, and, you know, essentially, they said, hey. If you've made something for the Dynamic Island, guess what? You've you've you've pretty much already made this this widget, The phone sorry.</p>
+<cite>Peter:</cite>
+<time>25:08</time>
+<p>For the watch. And also that they're interactive. Yep. Right? That's the other thing is you can make them you know, what I really was was like, okay.</p>
+<cite>Peter:</cite>
+<time>25:17</time>
+<p>Wait. Now you're saying these are interactive. I don't need to open the app to do some things, and I can specify what I want them to be and what the double tap is is is gonna be like, okay, if I double tap in my app, I want the primary focus to be this thing. Right? I mean, that's huge for developers.</p>
+<cite>Peter:</cite>
+<time>25:35</time>
+<p>Yes. It's a big year for finally getting access to, like you say, a lot of things that we kind of felt we should have had in the past. You know? And and since we're not really talking about the VisionPRO this year, I guess they get a a get out of jail free for not having to discuss why we don't have access still to some of the things. Maybe that's next year.</p>
+<cite>Peter:</cite>
+<time>25:59</time>
+<p>It felt like a lot of these APIs were universal. I think we discussed this, offhand saying about, oh, if I write this, you know, this feature or use this API on one platform, I don't have to figure out how to do it on the other platform. It's just gonna work for me.</p>
+<cite>Nutterfi:</cite>
+<time>26:15</time>
+<p>Yeah. I did notice, that, in in a couple of places, that, notably animations, where, they are taking, the animation framework or or or or library or what whatever functionality so that it's it's agnostic to SwiftUI or or UIKit that allows you to just kinda focus on what your app needs. And I haven't looked into it, in detail yet, but I'm very much looking forward to learning more about these APIs that have been introduced this year.</p>
+<cite>Peter:</cite>
+<time>26:49</time>
+<p>I I think the good thing is, for all of us, there's a lot of livestream material</p>
+<cite>Nutterfi:</cite>
+<time>26:53</time>
+<p>this year.</p>
+<cite>Peter:</cite>
+<time>26:54</time>
+<p>Right?</p>
+<cite>Nutterfi:</cite>
+<time>26:55</time>
+<p>Yeah. Yeah. Definitely.</p>
+<cite>Peter:</cite>
+<time>26:57</time>
+<p>And and I say that folks because, if if you're not familiar with the live streams of these 2 guests, we'll put lots of links in the show notes because, you know, we we consider and he'll deny it, but it's true, folks. We are lucky to have, I'm gonna call him the true father of SwiftUI at this point. Right? Nullify is absolutely amazing at what he does. And and so, you know, I feel like this year, they finally recognized, like, oh, he's catching up with us.</p>
+<cite>Peter:</cite>
+<time>27:27</time>
+<p>We we better give him something to keep him busy. Right?</p>
+<cite>Nutterfi:</cite>
+<time>27:30</time>
+<p>During our I I can consider myself just an enthusiast.</p>
+<cite>Cocoatype:</cite>
+<time>27:34</time>
+<p>Yeah. I think during our live watch throughs of the party, the number of times that we said, hey, this is for Nutter, this is for Nutter, this is for Nutter, like it's constantly. Yes. And even just watching the</p>
+<cite>Peter:</cite>
+<time>27:45</time>
+<p>that's it.</p>
+<cite>Nutterfi:</cite>
+<time>27:47</time>
+<p>Lots of</p>
+<cite>Cocoatype:</cite>
+<time>27:47</time>
+<p>even just watching the what's new in SwiftUI talk, I went through several of those and and said, like, oh, Nutter's gonna like this.</p>
+<cite>Nutterfi:</cite>
+<time>27:55</time>
+<p>It's just so fun. It's just so fun and, like, you know, it it's it's accessible. So to people that are starting out, you know, they've got these ideas, and sometimes it it can be daunting. Right? Learning a new language, learning a new framework, but, you know, many of these are very, approachable.</p>
+<cite>Peter:</cite>
+<time>28:15</time>
+<p>Yep.</p>
+<cite>Nutterfi:</cite>
+<time>28:15</time>
+<p>And and you can do a lot with a little. And so yeah. Oh, yeah. I'm I'm I'm I'm I'm so excited. I'm really excited about this stuff.</p>
+<cite>Peter:</cite>
+<time>28:22</time>
+<p>SwiftUI essentially gives you the ability to design prototype and ship all in one. Right? You can rapidly use SwiftUI to do a quick layout. We've all done it on our streams and then it's only a few tweaks to get something that is production worthy. Right?</p>
+<cite>Peter:</cite>
+<time>28:41</time>
+<p>And and you just couldn't have that kind of speed when it was AppKit and UIKit. So I think, you know, at this point we've all, you know, universally accepted that this is clearly the future that Apple wants us to have. And so what they do every year with refining it, you know, even this year acknowledging themselves or trying to convince us how much they use SwiftUI, it's something that we've we've got to do whether we want to or not. And in line with that too, of course, there's the the updates to swift data this year. Very conscious of our time here, and I did if you if you're both okay with this, I did wanna touch on just quickly Xcode and then, Swift 6 as well.</p>
+<cite>Peter:</cite>
+<time>29:25</time>
+<p>Now, I'll start with Swift 6 because, first of all, we have completely forgotten to say happy birthday to Swift. Right? 10 years. And and it's been a very, very fast 10 years.</p>
+<cite>Nutterfi:</cite>
+<time>29:37</time>
+<p>Wow.</p>
+<cite>Peter:</cite>
+<time>29:38</time>
+<p>Unbelievable. I know. And and the fact that also in one of the videos I watched, Apple themselves saying, look. Hey. Don't forget.</p>
+<cite>Peter:</cite>
+<time>29:48</time>
+<p>You know, Swift is available on, you know, yes, the Apple platforms, it's I was gonna say, I think it's easy for folks to think, oh, it's that Apple thing, but it really isn't. The Swift video I watched, you know, Ted was on there very heavily pushing, hey. None of this would have happened without the open source and Swift community. Anyone wanna offer some thoughts on Swift 6?</p>
+<cite>Cocoatype:</cite>
+<time>30:19</time>
+<p>I think a big part of exactly what you just said is the announcement today that they're kind of moving a lot of the Swift open source stuff out of the Apple GitHub organization and into this Yes. Github.com/swiftlang instead. I think that's a very good sign that Apple is honestly pretty serious about this not just being the Apple language.</p>
+<cite>Nutterfi:</cite>
+<time>30:41</time>
+<p>I was hoping they'd take it a step further and, do that to SwiftUI as well.</p>
+<cite>Peter:</cite>
+<time>30:45</time>
+<p>But But but also the did, you know, the recognition that they gave to you know, they always mention things like server side, you know, our our good friend, Yanis. Right? Hummingbird and Vapor. But I felt like this year, they were really saying, hey, folks. These are projects too and these are every bit as important as as a Swift Foundation.</p>
+<cite>Peter:</cite>
+<time>31:08</time>
+<p>And and that actually gave me some good feels because the recognition that, look, this is yes. We came up with this, but it's not our thing. That's a very unusual stance from Apple, and so I I felt that that was important.</p>
+<cite>Nutterfi:</cite>
+<time>31:25</time>
+<p>I noticed that too because, I mean, you're you're only as strong as your community. Right? At the end of the day, it's the developer community that's gonna continue to push the platform forward And, showing your support to those who are, you know, giving of their time and resources to come together to try to make something good, something great, you know, elevate the platform. That that was it was nice to see those</p>
+<cite>Cocoatype:</cite>
+<time>31:48</time>
+<p>Time for a break.</p>
+<cite>Peter:</cite>
+<time>31:49</time>
+<p>Hey, everybody. It's Peter Whittam here from the Compulsory podcast. I'm gonna tell you about Setapp. Setapp is a service that provides a subscription fee of just $10 a month, and you get access to over 200 Mac applications and it's also available now on iOS as part of that deal. I use the service because it just has a ton of really good first rate apps that I use all the time.</p>
+<cite>Peter:</cite>
+<time>32:16</time>
+<p>And for me, it's invaluable as a developer to have access to tools for things like APIs, for planning projects, writing emails, writing documentation, and you get all of these things including database apps, all of that kind of stuff right there on the set up service for just $10 a month. You can use as many or as few applications as you need. If you're interested in checking this out, go to peterwhitham.competerwitham.com forward slash set app, s e t a p p. And you can see the details there. And it's got a link that you can go over and start using the service and see how it works out for you.</p>
+<cite>Peter:</cite>
+<time>32:57</time>
+<p>I strongly recommend this to every Mac user.</p>
+<cite>Cocoatype:</cite>
+<time>33:01</time>
+<p>Break time over.</p>
+<cite>Nutterfi:</cite>
+<time>33:03</time>
+<p>Shut up for sure.</p>
+<cite>Peter:</cite>
+<time>33:05</time>
+<p>So, you know, the the clock's gonna get us here. But I don't want to be the one to start the conversation about X Xcode 16 because the the cool thing in Xcode 16 will upset a very good friend of all of ours. Shout out to you, Adam Wolf. So, you know, along with the the AI talks, who wants to talk about Xcode 16 so I don't have to give Adam the bad news?</p>
+<cite>Cocoatype:</cite>
+<time>33:29</time>
+<p>Oh, I already gave Adam the bad news. He he he dropped it off.</p>
+<cite>Peter:</cite>
+<time>33:31</time>
+<p>You've given it to him. Oh, good. Good. You ripped off the Band Aid.</p>
+<cite>Cocoatype:</cite>
+<time>33:35</time>
+<p>We we caught we caught him up on everything, and and I think he's already like, he's got plans on how he can kind of respond. So I think he he's he's a good guy. He'll he'll he'll he'll land on his feet, his web Good.</p>
+<cite>Peter:</cite>
+<time>33:46</time>
+<p>Now now I don't feel so bad about mentioning it. Alright. So, folks, what we're talking about here, if you're a developer, of course, you know that AI is is all over everything these days. And we are getting well done Apple. We are getting Apple intelligence AI in everything.</p>
+<cite>Peter:</cite>
+<time>34:04</time>
+<p>But in particular, what matters for us in this conversation right now is in Xcode. We've all seen the PR demo of how it might work, and it looks very promising. We are all users of Adam's tool, developer doc. Go get it folks. Go get it.</p>
+<cite>Peter:</cite>
+<time>34:22</time>
+<p>Support it. But essentially we're getting some AI assistance in Xcode that I think is gonna be a good thing if it works the way it should because for the most part, it's on device, which course, is always a thing that Apple says, and I I fully support that. But you can take it to the next level with the cloud if you want to, I think is is the best way to phrase that. Right? Anyone have any thoughts on how they think this is gonna go in Xcode?</p>
+<cite>Cocoatype:</cite>
+<time>34:51</time>
+<p>It's interesting because they actually kind of have, like, 2 different sets of tools. There, they have the AI based code completion, and that is the one that it's, you know, kind of running as you type your code the same way that code completion has always kind of worked in theory. You know? We all know what worked means in terms of Xcode code completion. Then they have this new separate second thing called Swift Assist.</p>
+<cite>Cocoatype:</cite>
+<time>35:17</time>
+<p>And that is the one that is going out to the cloud and is way more you're asking it questions. It's it's natural language. It's you're you're kind of generating something much larger. And that one is all based in the cloud. And so they do have these kinda 2 separate pieces.</p>
+<cite>Cocoatype:</cite>
+<time>35:34</time>
+<p>Now the one kinda weird open question part is that Swift Assist is not in the current betas. It's they said it's coming later this year. Yes. It'll be something that that we have later. It's the more powerful, more dramatic one, and that the code completion one, that is the one that runs locally and is, you know, more what you expect from a, like, code</p>
+<cite>Peter:</cite>
+<time>36:00</time>
+<p>completer. Yeah. And I think the way that they're doing this, sort of my take on this is they are carefully addressing the over I'll say it folks. The over exaggerating concerns about AI is taking developers jobs and they're clearly positioning it as no. The reality is it's here to help you.</p>
+<cite>Peter:</cite>
+<time>36:21</time>
+<p>That is what I need And and what I in my one of my earlier episodes this this weekend, I was saying, look, you know, AI is coming. Obviously, we we know this is gonna be a thing in Apple stuff. And I want it to be something that assists me and can help get me out of trouble and perhaps write code for me when I know what I wanna do but not quite figure it out. Or in my case, as we all know on my live streams, I don't wanna look at the documentation. So I'm hoping it works out there.</p>
+<cite>Peter:</cite>
+<time>36:54</time>
+<p>Nutify, what what do you think? Do you think do you think this is gonna help you? Are you excited to to try the AI tools?</p>
+<cite>Nutterfi:</cite>
+<time>37:00</time>
+<p>Oh, yeah. Certainly. I I think, I I don't wanna avoid, the inevitable, meaning that, you know, if you if you have a tool, at your disposal, and you can use it, you should use it. I think that, that's that's just something that, you know, rather than fear the the prospects of of us all all being out of a job someday, you know, there there there has to be we we we're gonna need to maintain it somehow. Obviously, you look at the output of what's currently out there, we definitely need humans to need to to keep the wheel.</p>
+<cite>Nutterfi:</cite>
+<time>37:33</time>
+<p>Right? And, these these these features, are are currently available in in other IDEs. I think this was the answer to, one one of the answers to, you know, GitHub Copilot. It was, you know, it it's it's a way to, like I said, like, take care of the the tedious stuff that you know you know, the boilerplate stuff maybe. As far as, like, how do I do this this new thing that I've never done before?</p>
+<cite>Nutterfi:</cite>
+<time>38:00</time>
+<p>Do I know whether or not this is the best way to do it? You know, sometimes we wonder, how would Apple do it? Since they're the ones that made the APIs, how are we supposed to actually use these APIs in the best way? Because because, you know, there's, like, 500,000,000 different versions of, you know, architecture and and SwiftUI right now. And so what what is the best way to use it for my app?</p>
+<cite>Nutterfi:</cite>
+<time>38:23</time>
+<p>That's something that, hopefully, that these new features can help developers ship because that's the name of the game. Right? It doesn't matter so much how pretty your code is. It matters that you ship, and I'm hoping to ship this year. Hope hopefully, everyone, has the opportunity to to ship as well.</p>
+<cite>Peter:</cite>
+<time>38:42</time>
+<p>I think that's an excellent point. Right? Is if you frame these these services in the sense of, you know, as Apple is pointing out, it's it's gonna understand you just like all of their AI services across all their platforms. It's gonna get to know you, and it's gonna get to know how you build things, And it's gonna hopefully teach and educate you based on the way that you work as opposed to, you know, those those old school days, you open up the book, you start reading, and 5 pages in, you're thinking, I don't relate to this. This is not how I work.</p>
+<cite>Peter:</cite>
+<time>39:16</time>
+<p>Right? So having these tools that is like a pair programming assistant that aids you in a way that it can communicate with you hopefully on on whatever your level may be rather than just telling me, look. Just trust me. Here's the code. Go put this in.</p>
+<cite>Peter:</cite>
+<time>39:31</time>
+<p>Right? And so I'm I'm hoping that's how it plays out, and so it becomes a great teaching tool as well. But I also love the idea of being, teaching tool as well. But I also love the idea of being able to say I think I even mentioned this on my previous episode where I was like, look at my code. I've made my code do what I need it to do, but it's not the best way to write the code.</p>
+<cite>Peter:</cite>
+<time>39:53</time>
+<p>Please now educate me to do the same thing in a better way so that next time maybe I I I improve. Right? Yeah.</p>
+<cite>Nutterfi:</cite>
+<time>40:00</time>
+<p>I mean, it's just an accelerated way to I mean, if if we were all to get together at, like, a dev meetup</p>
+<cite>Cocoatype:</cite>
+<time>40:06</time>
+<p>Yes.</p>
+<cite>Nutterfi:</cite>
+<time>40:06</time>
+<p>Like, how would you do the how would you do x y z? I've never done this before. Well, this is how I do it. You know, have you have you have you thought of it this way? This is just accelerating that process, and it could be it could crash and burn.</p>
+<cite>Nutterfi:</cite>
+<time>40:19</time>
+<p>Yeah. You could be going down this path. Who knows? Right? Like, you know, we we don't really know until we start trying this out.</p>
+<cite>Peter:</cite>
+<time>40:25</time>
+<p>Yeah.</p>
+<cite>Nutterfi:</cite>
+<time>40:25</time>
+<p>But I think we'll quickly be able to find, hey. You know, this is this maybe we have to, like, help steer it towards providing us with the solution that works for us. But, I mean, we were the the Swift developer community is so kind and and willing to share, share with one another. We share code. We we we show examples.</p>
+<cite>Nutterfi:</cite>
+<time>40:43</time>
+<p>We post on, you know, all the all the platforms. We live stream it. You know, we're not we're not hiding our code behind anything, you know, the next gold nugget or whatever. I we we freely, share solutions with each other. I think that's just part of, part of what makes the our community so, tight knit.</p>
+<cite>Nutterfi:</cite>
+<time>41:01</time>
+<p>And so not sure where I'm going with this, but I just I I'm not I'm not afraid of it. I think I think we'll be alright.</p>
+<cite>Peter:</cite>
+<time>41:08</time>
+<p>No. I I actually I think I think you've nailed, the way to wrap this this discussion up by touching on the community because, we are all active members of the Swift, various Swift communities, and also, of course, folks that come to our livestream, and we we always happily try to solve problems for folks, that come to our livestreams and say, hey. I got a question. It's like, great. Let's go for it.</p>
+<cite>Peter:</cite>
+<time>41:34</time>
+<p>And I love tools that enable us to keep doing that. You know, like you say, nothing's nothing is so secret that it's hidden under covers. We all want to help each other make awesome things because that's the fun part. And if AI solves the the not fun part, great. Let's have it.</p>
+<cite>Peter:</cite>
+<time>41:53</time>
+<p>Let let me do the cool bit, and an AI can do the mundane stuff. Alright, folks. So there is so much this year. We could not possibly have covered it in in one episode. I wanna thank, you know, roundtable guests here.</p>
+<cite>Peter:</cite>
+<time>42:07</time>
+<p>This the boys has been an awesome conversation. You will find lots of links in the show notes for the Discord where we all hang out, plus all of our live streams and everything else. But let's go around the table here quickly, and let's just remind folks where they can find you guys. Let's start with you, you know, not a fight. Go for it.</p>
+<cite>Nutterfi:</cite>
+<time>42:26</time>
+<p>Alright. You'll you'll find me mostly, live streaming on Twitch. You the current days and hours are Tuesday, Thursday, Saturday from 8 PM to midnight pacific time. I do a little bit of, developer, stuff, but I also play video games on that platform. So, you know, if you're if you're looking for, programming and non pro gaming, come to my channel.</p>
+<cite>Nutterfi:</cite>
+<time>42:53</time>
+<p>Twitchtv/nutterfy.</p>
+<cite>Peter:</cite>
+<time>42:55</time>
+<p>Cocotype. Go for it. Yeah. Yeah.</p>
+<cite>Cocoatype:</cite>
+<time>42:58</time>
+<p>Everything that I do is a little bit influx right now, but, I also do, live streams on, Twitch as well. Twitch dottv/cocotype. Everything else for me, you can just find atcocotype.com. And that'll tell you about my apps, all of my other socials, all of the things that people might want to do to find me.</p>
+<cite>Peter:</cite>
+<time>43:19</time>
+<p>Fantastic. And, of course, you can find me, Kapal Swift, on on any of the things, any of the networks. Go to compileswift.com. On Twitch, it's twitch.tvforward/compiledev because not only do I do Swift, I do a lot of other things too, mostly whatever the, chatroom tells me to try, like Rust, and and I do a lot of game development. So with that, guys, thank you so much for joining me today and taking the time.</p>
+<cite>Peter:</cite>
+<time>43:47</time>
+<p>It has been a very long day for us all, but this is our time of year. Right? This is this is like our our Christmas. So, guys, thank you so much for your time. I greatly appreciate it.</p>
+<cite>Peter:</cite>
+<time>43:58</time>
+<p>And, folks, we will speak to you in the next episode.</p>
+</details>
