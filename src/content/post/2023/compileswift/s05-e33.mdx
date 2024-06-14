@@ -1,0 +1,1112 @@
+---
+publishDate: 2023-12-02T00:00:00Z
+title: Muse and Developer Duck with Adam Wulf
+excerpt: Muse and Developer Duck are apps I use almost daily. I sat down with Adam Wulf, the creator to discuss these and development practices.
+image: /images/blog-fi/2023/12-02.webp
+tags:
+  - podcast
+  - compileswift
+metadata:
+  canonical: https://peterwitham.com/compileswift/s05-e33/
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+import CSLinks from '../../../../components/podcasts/cs-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/435ab4f9"></iframe>
+
+<Player/>
+
+Muse is a great note-taking app, but it is so much more. I use it almost daily for brain dumps and organizing my thoughts. Developer Duck is an AI-powered tool that works great both stand-alone and inside Xcode. I use it to improve my code, learn, and solve problems.
+
+The creator, Adam Wulf, joined me to discuss the apps and more. He was also gracious enough to offer discounts for listeners.
+
+
+Email hello@museapp.com and mention the podcast to get the 50% off Muse.
+
+<CSLinks
+  link1=""
+  link1label="Muse App"
+  link2="https://museapp.com/"
+  link2label="Developer Duck"
+  link3="https://developerduck.app/"
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+/>
+
+<details>
+  <summary
+      style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Edited Transcription
+
+  What's up folks? Welcome to another episode of the Compulsive Swift podcast or video. If you are watching a video version of this today, I have another very special guest and this is gonna be a great one, and I'm gonna be, try to not, say too many nice things because I use both of these apps and, I talk about them a lot on the livestream.
+
+And this is also someone if you hang out on the livestream and if you don't, what is wrong with you? Go to Compile Swift dot com slash livestream. But you'll probably know the name and you will certainly know the tools. And if you don't know the tools, you will by the end of this episode and you will use them both.
+
+One of them in particular has saved my butt so many times as a developer. Adam Wulf, thank you for joining me. Please introduce yourself.
+
+Yeah. Thank you so much, Peter. It's really good to be here. It's really fun. I am the solo developer for Muse. As of about two months ago. Worked with a team before that on the application for a number of years.  It is a note taking app. It is designed to really just help you think so. It helps you get the mess outside of your mind.  Onto kind of digital paper. You can figure it out and  and really come to deep conclusions. And then the other app that we can talk about today is I'm also the developer for Developer Duck, which is a rubber duck programming app that uses chat. GPT uses some custom prompts and some  logic to make it developer specific to help you  program and think through your programming problems specifically. So yeah that's a, bit about me
+
+. We'll put links in the show notes for everything here. And we're gonna break this down, and I'm gonna try and keep this on track, but like I say I, do use both of these apps and I'm gonna try to not go down too many rabbit holes or dark holes, if you wanna look at it that way.
+
+But let's, start with Muse. First of all I'm gonna take issue with you a little bit here because  is so much more than a Notetaking app.
+
+I'll give a, sort of a quick description here for folks and then you can do it much better. But I'll base this on how I use the app, right? 
+
+To, to me, I describe it to folks and I use it as my brain's whiteboard is, how I it.  Yes you, can take notes with it and everything else, stuff like that. I also use it for gathering things, so it's been like a drop board for me where I'll quickly put links in there that I need to go back to and things like that.
+
+One of the things I've started experimenting with recently  I, was gonna talk to you about this, but then I thought, no, I'll catch you out on the podcast. That's what I should do 
+
+Yeah. 
+
+is,  there's the templates in there and I have started working  using  a Kanban board in the app. 
+
+And, I've done that by laying out some titles and then  just moving the cards around. So for me, it really is my  . Put my brain down on a huge whiteboard that I can beautifully zoom in and out on  and link cards and all of those kind of things. But let's dive into it here.
+
+That, that's how I use it. It's my, 
+
+you know, don't let me forget, but Please I, know I'm not doing it justice.  And, it's 
+
+Yeah. 
+
+to me that also you are it's one person's working on this  , 
+
+are you crazy  
+
+It is a lot. It's,
+
+big and it's, interesting because you can certainly do note taking on it, but when you think of note taking, it's okay, you gotta  Like the Apple Notes app, you get one
+
+giant sheet of paper, it scrolls top to bottom. You can write stuff on it. Good for you.  But in Muse images or  a text or another whiteboard can be a card.
+
+And then you can, on that second whiteboard card, you can zoom in to a completely new  infinite canvas. And so you end up building out,  a tree structure of infinite canvases that contain more infinite canvases inside of them. And then on top of that, you can start linking between them. So instead of a tree structure, it's a graph structure of all of these infinite whiteboards connecting to each other back and forth. So  it's deceptively simple the first time you open the app, 'cause you're like, great giant white space.
+
+I can put stuff on it. I
+
+can write with a pencil.  No big deal. And then it just gets deeper and deeper. The more that you use it, the more that you, build things out. So yeah, it's the same for me. I have, a personal muse for me and my wife and my family, and we track our house stuff and, auto insurance and just things
+
+for life.
+
+And then obviously use it for work as well and have a, expansive board for tracking to-do lists for Muse and for Developer Duck and for all of the, developer tasks, Kanban board style, but also marketing tasks and also  meetings that I have, or if I'm tracking down a particularly nasty bug, then I'll open up a board and I can put all of the information for that bug and organize my thoughts around, what may or may not be the cause and different paths and tracks that I've tried out.
+
+And yeah it's, on, on day one, it's a note taking app, but on day 30 as you're using it, it really becomes a second brain
+
+and a second active brain. It's not a database, it's not a personal knowledge management kind of thing. It can be, but it's an active thinking space for your brain.
+
+For sure.
+
+Oh yeah. And what I like about it here . Is the sort of this infinite space because I, know sort of me and how my brain works and when I'm in that capturing phase, which I think this is key here, 
+
+It, very symbolically just like a huge white  white space, that, that's how my brain works, right?
+
+Is know, this bit here, this bit there, dumping it all over the place in a very non-linear way. And what, I've found is, not to pick on Apple notes here, which is  goes from strength to strength theory release. But the reason those kind of tools don't work for me when I'm in that phase  is the fact that they are very linear list based, right? May and then an image and then so on. always in. A list form. So it gets you thinking in that space in a very list oriented, structured kind of way. And when I'm doing my brain dumps on things, I'm very not structured and, Because that stage I'm telling myself, do you know, don't be structured.
+
+I'll give you an example.  So I recently released a, update from one of my games. And when I was working through that  I knew the things I wanted to do, but I had no idea,  necessarily how some of the things were gonna come together. And  what I also liked is not only can I use this app on the Mac, but more importantly, perhaps  in that phase, I can use it on my iPad.
+
+So I pick up the  
+
+And I'm I'm literally just  . Drawing boxes all over the place.  I'm almost using it like a, drawing app at that 
+
+stage
+
+And, and A box here with this and an arrow pointing to it. And then this links to this  those kind of things that you just can't easily do in, every day kind of brain capturing apps things like to-do lists and things like that, where it's that's always more a case of  got my things, now I need to structure them. 
+
+, 
+
+Yeah, exactly. 
+
+I like that infinite space of just, put it down really.  
+
+Yeah. Yeah that, really echoes what a customer sent in. Very recently, they said, man, so if, when I use Apple Notes  and I'm collecting these thoughts and I want to drop a link in there and a picture and this other link, I have to decide immediately where in the note to put it.
+
+And so before I've even  been able to think through the problem, I have to already start putting structure to the problem.  So it, it feels like the process ends up backwards for tools
+
+like that. Whereas in Muse, you can just  start pushing content in and you don't actually have to decide where it goes at all. You can dump them all on a giant pile, on a whiteboard, or start even categorizing things spatially. A little bit of this is similar to this.
+
+I'll put it over on this side of the board.  And these three things kind of relate, so I'll put them down at the bottom, but you don't have to decide yet.
+
+And  that I think is really part of the magic, is it lets your, thought process digitally in the tool mirror how we do things internally in our minds already, which is,  let me just collect what the inputs are and okay, now that I have all the inputs, I can start to think through them and process them and get to the end result.
+
+Yeah. 'cause for me  over years of being a productivity nut,  I realized that trying to apply structure at the capture phase is where these things fail. Forget whether it's,  
+
+Software tool X, y, Z or a piece of paper.  If I allow my brain to start organizing thoughts as I'm putting down, I've already fouled because I know I'm not thinking about,  letting everything flood in because I'm already trying to sort the boxes. 
+
+Right. Yeah. 
+
+And, so  I, I love that I can do that.  'cause I still do it now even,  I, think I. Mentioned this before.  But I'm still a paper and pen person as well 
+
+because,  The ex the, exact reason being among others  it slows me down  and, therefore if I'm writing with pen and paper, I'm giving it more thought than,  randomly typing a hundred words on a screen somewhere.
+
+But I do love that I can then  just pick these things up once I've got 'em captured,  start to organize them, like you were saying, the boards within boards and things like that.  I start breaking down, okay, there's gonna be a project board for Project X that kind 
+
+of thing,  but it comes along later.
+
+Now, I am curious,  from a sort of the technical side here, like you say you took this over and I've always wondered,  applications like this,  it's that thing of, I look at it, I'm like.  Where do you even start?  Especially as when you say like infinite canvas  and  or, even just I know of some apps where it's it's not infinite, it's just very big 
+
+But From a technical standpoint, how do you  approach these kind of problems when it comes to  not only building something like that, but thinking about,  don't give away any secrets here  how do you store this kind of data in an application? Those kind of 
+
+Yeah. It's,  I think Muse is one of the most interesting projects that I've worked on for exactly that reason.  The way that the data is structured and the way the application is structured,  at its foundation, it relies on a technology called CRDT,
+
+which is a conflict free, replicated data type
+
+is what that means. And so all of the data for Muse and for the stuff that you work on is saved locally on device. 
+
+Whereas if you use something like Notion or Google Docs or any of the other myriad of applications, all of your data lives on Google Server.  And then when you interact with it, the Google server sends back a small piece of it and you get to
+
+work on that small piece.  With Muse, it's the entire system is flipped, so you have a hundred percent of your data locally on, on device.  You can work on it with or without an internet connection, completely
+
+offline, completely online.  And then  the application sends very small deltas of your changes.  To the Muse Sync Server,
+
+which then sends those changes down to your other devices, which also have a complete full copy of your data.  And then that conflict flu, the CRDT, the CON conflict free replicated data type,  handles merging that data in a way that does not show the  merge edits that we're all used to in GI
+
+of, oh gosh, there's a merge conflict, please come fix it.  The data types we use automatically fix conflicts no matter what. 
+
+Um, and there's  some ways that we've structured the data so that way when  conflicts happen,  'cause conflicts inevitably happen, it's just that they get automatically resolved. 
+
+So for example, if I, my Mac is offline and my iPad is offline,  I change the same card or the same image, I move it in two different places.  The way that Muse is set up, it's just last right wins  is the,
+
+Got it.
+
+Structure, right?
+
+And so  I move the card and I move the card on my second device and they both synchronic with each other. And then they both know when the other one edited it. And so they both decide, oh, okay, the iPad wins 'cause it was the most recent.
+
+So they both agree now when that happened,  
+
+Very interesting. 
+
+so then what this, the magic and the reason I can maintain this as a single developer  is in a traditional application you have a giant pile of logic on the device for business logic about how cards act and how the canvas acts and how pencils act and all that sort of stuff.
+
+And then you also have that same logic on the server because the server has to know about cards and pencils and all that sort of stuff. So you end up building a lot of the same logic in two different places.  With the CRDT logic, I'm just sending very small edits to the server.  that are actually opaque to the server.
+
+The server doesn't really care what the edits are because the conflict resolution happens on device. 
+
+So our entire server is actually very dumb.  It knows who I am, it knows who my devices are, and then it just helps route my data to my other devices and to myself. And so  I can build entirely new features  without touching the server at all.  Which  lets me iterate,  thousands of times faster than I could if I had to build new web services and new server logic and new permission systems and all the stuff on the server. I don't have to do any of that. I can just  build  entirely locally on my Mac.  And then I get sync essentially for free just by moving all of my edits through a pretty simple,  the server, I don't know, 2000 lines of code, something like that.
+
+Like
+
+Hmm. 
+
+a very simple server  to push data back and forth.  
+
+That is really 
+
+so yeah. Yeah,  
+
+because it's 
+
+either gonna be one or the other, right? Yeah. That, because you know  that, that's fascinating because  you, have to make a choice, right? With this kind of thing. Like you say, you're either gonna have,  very smart application,  very simple backend, or very complicated backend. 
+
+Very simple application and I've, I pretty much always  worked the other way around just because of what the applications need.  I'm used to  that dumb application is only as good as the data it gets.  
+
+Um, 
+
+Yep.
+
+but I the, problem with that is, yes, first of all, you're gonna need,  you need to either be really good at the client app and the backend, or you need someone else to do the 
+
+backend
+
+Which now is 
+
+Yeah. 
+
+of people. 
+
+Um,  And then you've got,  now we're talking API into right exchange in between and things like that.  Plus the maintenance of the backend and, the backend has to be up, right? Arguably,  one of the, biggest flaws there is the backend has to be up.  
+
+On the flip side, the way you are doing it here. 
+
+You have the added bonus of  great privacy because it's on the device. 
+
+Exactly. Yeah.
+
+so  with that though, a question I have is,  does the data persist on the backend or is it purely used as a pass through mechanism? Meaning if I was to  delete the app from all of my devices, 
+
+What happens with that data? 
+
+Yeah. So the data that's synchronized through the server  does persist on the server.
+
+And so if you drop your laptop in a lake and that was your last device, you can go buy a new laptop, log into your account, and all of your data synchronizes back down to your account.  And so in that
+
+way the, cloud does what it's good at.
+
+It provides a backup. It provides synchronization between clients, 
+
+But then the client is able to do what it's good at. It has a hundred percent of the data. So now there's no loading screens, there's no
+
+spinners, there's no,  hold on, let me go fetch that.  If the server's down, that's fine.
+
+You can keep working. If you're on an airplane,
+
+Yeah.  Love that. 
+
+outta business, that's okay. You can keep working, right? 
+
+Mm-Hmm. 
+
+get a lot more security  controlling your own data,  than you do keeping everything in, a traditional cloud service. 
+
+And, I love this because  that's one of, one of my things is,  I'm, that guy that e even as I talk to you now, right under the desk below me is my NASS  
+
+Yeah, 
+
+I'm the same 
+
+right.
+
+I need to,  I need to make sure I control my data and I have
+
+Exactly. Yeah.
+
+Yeah. 
+
+Google has some horrible,  my brain just shut off but
+
+Yeah. 
+
+CEO falls apart right? And gets split up into three different companies or antitrust or whatever, right?
+
+I, know that my data's safe no matter what.
+
+Exactly. And it's, it, and it's also that thing of  data leaks, right?  
+
+Yeah. 
+
+we all know this, right? In, our industry it's not if it's when, and,  there's a certain amount of data it's  has to persist in the cloud for things. It's just the way it works.  But that doesn't mean we have to put everything out there.
+
+And I am certainly more inclined to  put what I feel is my sensitive data in apps that is on client side. Yes, there may be a copy up in the cloud and I trust that whoever is storing that copy has done all the best practices and protecting it the best they can.  But I'm more inclined to put that stuff in an application.
+
+I.  where I know it's client side.  So 
+
+Yeah. 
+
+not to pick on anyone in particular,  for the past year I've been trying to trust notion  . And, I don't mean because I shouldn't trust them, but because it's, it is that thing of it's going cloud side,  and it's that thing of it's great today, but  
+
+yeah. you just wait for oh, okay. They're either gonna go outta business or get acquired,
+
+and in either scenario the product's gonna disappear or change somehow. And then what happens to my data.
+
+Yeah. exactly. And that's, 
+
+that's big win for you right there is, Hey your privacy is better  than, a lot of these other services,  
+
+exactly. And it, also opens up. Right now the Muse Sync Service is the only sync service that we offer,  but  it opens up the possibility for  You to run your own sync server. And so then you
+
+can download the Muse app. You can get all of the benefits of me sending out updates and improving the app and everything like that.  But then you could sync through your own server entirely, or peer-to-peer syn through your own just home wifi, just device to device
+
+directly without a server.  And so there's a number of different things that I'm looking into that this kind of architecture allows that a traditional cloud architecture would not allow.
+
+There's no way on earth that notion would ever even have the technical possibility of something like this.  And so that, that's what I think excites me most about local first
+
+software, which is Muse is one piece of that kind of environment, but  it, gives control of the data and control of your privacy to you, the end consumer.  And then me as the app developer, I get to do the part that I like, which is build cool features and build cool apps, but I don't have to worry about,  building some enormous monolithic server application 
+
+side process. So
+
+Yeah. there, there's a lot of benefits to it.
+
+I, I'm sure you as the developer,  you and I have spoken before, of course.  And,  we both,  deal with large amounts of data that,  For different things.  And it's a responsibility, right? That the development  you, you just never want to have   unless you a company whose 
+
+business 
+
+the better.  
+
+Exactly. Yeah. It's I don't want your data, I don't wanna be responsible for your data.  I and, like you said, like the sync service. I want as little to go through me as possible,  so that's good too. And  the idea of a local sync and things like that is always appealing. 
+
+I guess maybe we will keep an eye out for the future Muse Server licensing, I , 
+
+Yeah. Yeah. That's definitely something that I'm eager for over the next months is how can I open source pieces of the muse architecture? How can I potentially open source the server  if not open sourcing the server, could I at least offer like a peer-to-peer device to device sync
+
+hmm. 
+
+even need a server?
+
+Which in many ways is even better, right? 'cause
+
+there's  
+
+Yeah, 
+
+less  maintenance for the end user to do if when they want that privacy they can just,  use their wifi,
+
+yeah.  Right. 
+
+And 
+
+definitely things that I'm looking into and that's  a, wonderful benefit of this kind of  architecture is, it's privacy first and it's user control first.
+
+yeah,  And I do wanna say to the users  again I'm, a user of this app, right? It's not the it's not one of these where, oh, I just think it sounds cool. No, I use the app  and like I say, I use it on my iPad and on my Mac.  And, but I do want to say to the users that Adam is. 
+
+Very responsive,  to, to conversations and discussions about features and issues  and things like that, which is also great. It, 
+
+Yeah. 
+
+love that you are open to these ideas as opposed to  the other problem can be sometimes when you have teams or basically more than one or two people making decisions for these things 
+
+Mm-Hmm. 
+
+it becomes a case of, okay, we've got our roadmap and we are gonna stick to that, right?  
+
+Right?
+
+Yeah. 
+
+opposed to going with if my users want this thing, but I'm not sure. But if that's what they want that's the route I'm going,  
+
+yeah, exactly. And so the  literally every single day I carve out time to make sure I'm answering all the emails, making sure I'm responding to everyone. We have,  a very vibrant Discord community as well,
+
+where folks jump in and chat about best practices or questions or features or bug reports or requests or all that sort of stuff.
+
+And so  the  community  within Muse is really the guiding light for
+
+where the application goes. And  the  most important,  the most important foundation, the roots that really grow the tree,  is the simplicity of Muse,  the simplicity of the interface  and the.  And keeping that data local on device so that everything is quick, everything is fast.  And so that way you can, think and you can think problem solve without worrying about if the internet connection just flickered because of the storm outside or 'cause
+
+you need to travel and you're gonna be offline or in a remote area or anything. You can just work
+
+and you don't even have to, all of the worries you have with other tools just to disappear and it becomes  transparent to you.  And so
+
+that, that's what I love about responding  to customers is  you really see  how ideas and how requests and how bug reports bubble up to the top of Oh, okay. This is something that really the community is looking for  people want.  And  it makes my job easier. 'cause I'm just my job is to be a listener 
+
+to be a, guide for the product and,  to  users and to power these customers to,  use the tool to its best potential. 
+
+You are right because,  we know as developers, it's so easy for us to become  absolutely obsessed with a bug that nobody else cares about. , 
+
+yeah.  yeah. This thing that doesn't actually impact any of the customers at all, but
+
+Yeah, 
+
+intellectually stimulating to solve. And
+
+exactly. 
+
+it's, easy 
+
+to get sucked in. Yeah.
+
+And that, that's interesting too because  I I know a lot of really fantastic developers  who, get in that mindset, they become so obsessed with  how technically brilliant something is  
+
+That it prevents them from,  shipping an update or whatever it may be,  as opposed to,  get it functional, give the users what they need. 
+
+and And I've all, I've said in other episodes, I think,  the users don't care how the code looks , right?  
+
+Yeah. 
+
+don't  they just need and the magic to happen. And I think like you say, with the simplicity of Muse and it's it always reminds me of.  The things that are simple to use are so incredibly complicated to,  to build because 
+
+you are 
+
+Away the complexity. 
+
+If you was to sit down and say, build an app like Muse in the real world with notepads,  it's really hard. 
+
+Yeah.
+
+you know, 
+
+It is.
+
+I, I
+
+I'm not sure, 
+
+but 
+
+the problem, 
+
+right? 
+
+Yeah. It's very difficult to find infinite paper. They do not stock it down at your local store,  but it is  and, it's so easy to become obsessed with the technical side that I love when I can put that different hat on and says,  pretend to be a user for the next hour. 
+
+And like you say, read those user reports,  and see  h how does that work with you? 
+
+One other
+
+Mm-Hmm? 
+
+to touch on Muse here before we move on though is if there's one feature I've not quite.  Wrapped my head around or found a way to embrace it yet. And I'm curious,  if  maybe I can get a little bit of the roadmap outta you.
+
+Here is the templates, right? So there's this feature where you have templates. Now, firstly, hey, I may be doing this completely wrong, listeners, so take that.  Anyone who's ever watched my live stream knows that I've been known for getting things wrong occasionally.  So the templates that there's a list of, there's a list of templates in there that you can work with. 
+
+Is there,  is there the, is that list of templates gonna grow? And secondly,  will I ever be able to  my own  in some fashion? The reason I ask the question is,  any developer's probably been there, right? Whenever we spin up a project or something, whatever that may be, there's always that 
+
+Four or five steps. They're the same every time. 
+
+And
+
+I would love to be able to say,  map this out and then say, make that a template. Is there any plans for something like that?
+
+You'll be happy to hear Yes, on both counts. So
+
+there are gonna be more templates coming,  and then you are also going to be able to create your own templates 
+
+and yes that's been requested in a number of times. And so that's,
+
+Excellent.
+
+yep, that's close to the top. Close to
+
+the top for sure. 
+
+let's get that one developer on that, shall we, folks? 
+
+right? Yeah, exactly. I'll,
+
+see if I can find him and let him know.
+
+Yeah. He's gone home for the weekend,  no 
+
+yeah, exactly. 
+
+because that was the first thing that struck me was  again,  a tool that lets me work the way I want to work  and now hearing that  I know my patterns of work and I'll be able to 
+
+Yes, 
+
+into something that, that's a huge deal right there 
+
+It's really a, part of a bigger focus of mine, which is to help  Muse has always been an incredibly simple tool because with very simple primitives,  infinite paper  cards of various datatypes
+
+and ink  that solves the overwhelming majority of, problems that you're trying to think through, just with
+
+Very simple primitives. 
+
+Fantastic.
+
+and so the next piece is  I.  As Muse continues to grow and gets things like templates and gets things like collaboration, which just shipped and
+
+gets things, these new features,  it's very easy for applications to  drown themselves and  accidental complexity. And what used to be a beautifully simple application suddenly has a thousand different  features that I don't even use.
+
+mm-Hmm. 
+
+letting people customize  Muse  Pair Down Muse to just the pieces that they care about the most,  templates being one,  being able to customize the sidebar and turn on and off tools that they don't need.
+
+Mm. 
+
+That's a really big piece of it because the beauty of Muse is how it gets out of your way  to let you think.  And  a, lot of this focus over these next months is gonna be continued fo continued iteration on Helping Muse get out of your way. 
+
+Great. So I've got one other thing that 'cause I'm folks, I'm gonna try and catch him out. I'm gonna find the thing that he's oh no  But I'm, sure that's not the case, but I've got one other thing.  I'd love the ability to  change the background color of 
+
+cards.  And, the reason for that is,  I'm a very visual person, 
+
+Mm-Hmm? 
+
+I can look at a board  even right now in, in all my other tools and everything else, and I use, a lot of the time I'll use different colors to denote severity of things,  so that would be great. Like I say, I've developed this kind of 
+
+So the,  
+
+yeah  
+
+using a background color to denote serious bugs, something like that would be fantastic. 
+
+this is my favorite feature request
+
+Okay. 
+
+it's already implemented
+
+and those are the best kinds of feature requests.
+
+how did I miss this? 
+
+On the iPad, there's the three dots next on the top right of each card.
+
+Yeah. 
+
+open that, opens the context menu,
+
+and you can change the color. 
+
+How 
+
+Um, 
+
+folks see, 
+
+I told you I missed these things, 
+
+right? 
+
+how quick we're building
+
+features together. 
+
+my gosh. 
+
+is wonderful.
+
+Oh 
+
+my 
+
+And on the Mac you can, it's the right, it's in the right click menu. 
+
+Oh
+
+did see 
+
+in the context menu of a card.
+
+Okay, 
+
+folks. That's, It. I, don't know why I'm wasting this guy's time. I really don't.  . Okay. So 
+
+perfect. We, 
+
+thing I'm doing after this is that's it. Going back, changing all 
+
+yeah. Go color all your cards. I've got a board the same way my, my weekly planning board that I use, I have yellow cards and green cards and red
+
+cards and Yeah. Yeah.
+
+okay. That's it. That's that. That's it. Yeah. I've got everything I need from this interview.  
+
+Perfect.  
+
+Is there anything else,  you wanna mention here? I just 
+
+Yes. 
+
+folks, we'll put links in the show notes,  but talk about,  muse as well,  from the perspective of like free paid and so on, 
+
+Yeah. Yeah. 
+
+That's important. 
+
+Yesterday  my birthday 
+
+Happy 
+
+and thank you. And as part of my birthday, I decided, I mean I've worked on Muse for I think four years now.
+
+And I'm just two months into solo development  and I have loved every moment of it and have appreciated the community. And so for my birthday,  I gave out a 50% off to the  unlimited annual plan,
+
+24 hours only.
+
+That's it.
+
+I know this podcast is not literally gonna get released in this very next moment, but if any of your listeners would like that 50% off,  give me a shout and we can work it out and I can send you a code. 
+
+Oh, fantastic. Thank you 
+
+Yeah. 
+
+that, folks. Do it. Just do it, trust me. 
+
+Yep. Because  it is a, free app.
+
+Yeah.
+
+perfect. It is a free app and so anyone is able to download it. They can use it for free forever if they want to.  It is only limited by the number of cards that you
+
+can put down,  and so some users who don't wanna pay for it, which hey, fair enough.  They will export cards  as a muse bundle, as an archive format, and then delete them from the app to keep their card count low and so they can just use it forever.  Great. If you'd like to, support me and support development, which I would certainly appreciate, 
+
+Yeah. 
+
+can buy a subscription either monthly or annual. And there's  different tiers that give you, both, give you unlimited cards,  and then you can have multiple different workspaces and multiple collaborators on those workspaces.
+
+So you can other people to work with you in real time or asynchronously.  Yeah, so it is  free forever.  And then the plans start at 3 99 a month as the  professional tier plan. And that unlocks unlimited cards,  multiple workspaces, multiple collaborators  the whole bit. 
+
+You know what I mean?  Again I can't help but be biased here, but  folks,  go ahead and do it. The reason I say that is  once you start using a tool like this and you get into the ways you develop that system that you use, and you start putting in data  the last thing you want to do is to suddenly hit  a cap at the wrong moment, right? 
+
+Perfect examples here, I'll give you two examples.  You're in that brain dump mode and something  even if you have every intention of  .  upgrading to something else. The last thing you need is anything that's going to, that break the flow of that brain 
+
+dump
+
+Mode, right?
+
+And, then the secondly if you're in a meeting or something like that and you're, jotting these things down,  , you don't want to be like, oh, I am, I'm out of cards. So folks the, trust me, the price  is  priceless as far as I'm concerned, right?  If you are anyone that's looking to organize yourself and projects what, whatever it may be,  and you want to, you are looking to do a tool like this and, use something like this,  just, upgrade from the outset.
+
+Try the do it this way. Try the free one for a couple of days.  
+
+You'll, you'll realize  this is the thing for me, or not that quickly. I, think. And then then dive in and especially take advantage of this.  opportunity to hear from Adam because,  once you go all in,  you are now in that scenario of, okay, this is my app of choice, this is what I'm going with.
+
+I don't have  data spread across, I don't know how many different apps. Yes, I'm guilty of that in the past.  And, you forget where it is. So just make that cap go away  and upgrade. And also, as everyone knows that, listens to this show  I'm a big proponent of  say thank you and reward the folks that make the tools that enable you to do what you need to get done.
+
+So thank you for that. Appreciate that. 
+
+Yeah,
+
+All 
+
+right. 
+
+Yeah. Get those get those listeners that, that discount code jump in
+
+Yeah, show notes  or the blog post for this. I'll be putting it all out there somewhere, or reach out to me and I'll connect you up  we'll, put all of Adam's links in the show notes here, but you can also just reach out to me at ka Swift dot com and say, Hey, Peter, hook me up,  
+
+and
+
+Perfect. 
+
+send them your way. 
+
+All right. I want to talk about another app here,  
+
+This is one of those apps.  It's  depends on where you sit, right? It, yes folks, it involves AI and developers, so  it's either gonna be controversial or a lifesaver. But I'm gonna tell you my story. Here's my story, right? Sit around the campfire. 
+
+I, resisted apps that helped me from an AI perspective because 
+
+I was afraid that it's okay, I'll,  it's not gonna go great   like everybody else. And then Developer Duck came along and some folks on my livestream kept telling me, you  try this. And it was like, all right, I'm gonna try it. 
+
+So downloaded Developer Duck gained a link in the show notes, and  I was sold. And, but the reason I was sold  is two things. Firstly.  It has Xcode integration, obviously of huge importance for, folks like ourselves  and probably a majority of folks listening to this podcast. So that's number one.
+
+But number two, it does such a great job. And I wanna start out just quickly by giving a couple of real world examples.  Again, if you've ever watched my live stream and Adam's been there, he's seen this happen,  I'm one of those people. I write my code out  . In long form so that I can understand it, know what's going on  and then, bring it back in and, make it look slightly more respectable on the live stream so that all my developer friends don't make fun of me.
+
+But also sometimes  you just need to know the answer to something  and it's, it is worked for me both ways. And so that's, really what Developer Duck does here. It's like my assistant for  solving problems, asking questions and making things better. But the most astounding thing that happened to me and Adam, I know you, you've heard me say this before,  was,  I had some code and it was one of those terrible long if statements.
+
+Not that anybody but me has ever written one of those, so I've 
+
+given everyone a, a get outta jail right there. But I had one of those and  . I knew it's  a case statement is the way to, to make this better.  But  it's a case of I could write this, or I think we did this on a livestream and I think, Adam, you were there when I did this was like, let's test this thing.
+
+So I was working in Sprite kit on something. I took the code, took it over to develop a doc, essentially typed in, I think make this code better, gave it the code,  and  and within a few seconds, sure enough it did. And it was an case statement, but it also recognized the,  repetitive code and broke it out 
+
+Mm-Hmm. 
+
+function and things like that. 
+
+And then  not satisfied that I had tried to insult it enough. I decided to give it another go. And  here's, the big one, right folks, we've all done this.  I'm, of course, again, I'm the only person in the world that doesn't document my code. Let's put that 
+
+out there.  But yeah.  But I selected the code and asked it to document my code  dang, if it didn't do it, and I'm sitting here watching this tool explained to me in straightforward  language 
+
+Mm-Hmm. 
+
+my code was doing.  
+
+It wrote it in a way that the documentation was better than I was ever gonna do.
+
+'cause let's be fair, I had every intention of writing that documentation  six or seven months 
+
+That's right. Just after this next line of code to write 
+
+just yeah. Just one more line of code. 
+
+Right. 
+
+it, but it, documented my code and explained it flawlessly. 
+
+Mm-Hmm.  
+
+I just wanna set that up there for folks. But yes, talk to us about Developer Duck.
+
+Explain 
+
+Yeah. 
+
+it came from,  it is so unbelievably clever and why I can retire early and let it do my work for  
+
+Exactly. Yeah. It's when chat GPT launched,  I was,  the first thing I did of course was say, okay, write this code for me. Show me bubble sort. Just
+
+a very easy thing. And sure enough it spit out some code. I'm like, whoa, wait a second. This is not just a,  an English language kind of thing, but this is a code thing really.  And so  I used it  off and on of, oh, I don't really quite understand this piece of code. Let's just see what the chat thing says before I go to Stack Overflow. And I got surprisingly competent answers most of the time. Sometimes it's wrong, of course, but sometimes it  led me on the right direction.  But it was, I. It was very verbose
+
+and it was just so long in its answers and so chatty in its answers. And I thought once the API came out, I was like, okay, what if I could take  chat GPT, which is surprisingly good on its own,  but  get it to just make it a bit more concise, like brevity, please.  Or sometimes I just want it to,  give me a code sample without any of the extra three paragraph long explanations.  And so that's what I set out to do was use the API give it some custom prompts,  so that I get higher quality answers with  less,  just chattiness generally. So it's, very concise in its higher quality answers.  And then through this process, I've learned all kinds of different things about  language models.  If you prompt a language model to say You are an expert in Swift, please analyze the Swift code.  You're gonna get a higher quality answer than if you just don't prompt and tell it that it's a high, that it's a expert Swift developer  because it's doing auto complete,  basically, right? Like it's
+
+predicting based on all of the, that it's ever seen. And so  in prompting it that it is an expert Swift developer,  you are helping the language model narrow down  where it, what kind of data it's using for its autocomplete, basically, right? It's gonna start,  it's gonna default to saying, oh, okay, these Stack Overflow answers,  these, like high quality  hacking with Swift and Swift by Sendell and a number of other blogs that are really high quality. It's gonna start you. Leaning on those a lot more than generic Google Exor results or the rest of its learning library, so you get higher quality results with how you prompt it, which was amazing.  And so that's what Developer Duck does, is  it, gives a high quality prompt, so that way  chat, GPT is using the best of its knowledge to answer you.  It's also chaining some of these things together  so that way it's replying with  the type of reply you most want, whether it's a code block or an explanation in English, or comments or anything else.  So yeah, so it ends up being a  in my opinion, a quicker,  higher quality output than just a typical chat GPT chat instance. And  it's been a really helpful.  Rubber duck for me, especially for questions thinking about,  okay, I need to solve this problem.  I've never really solved this problem before, which is most of coding,
+
+Yep.
+
+I don't even know what the word is 
+
+Mm-Hmm? 
+
+to describe this algorithm.  So you can just start explaining  to developer Duck like you would another human.
+
+And then Developer Duck comes back with all of the jargon that you need to search Stack Overflow and to get  to narrow down to the answer that you need. Suddenly, you know what the API is to look for in  documentation. Suddenly,  where you should start looking generally for the answer.
+
+And so I've found that extremely helpful as well. Maybe it'll gimme the answer straight away, but if nothing else, it gives me the information to start understanding where I should look.  My headphone just fell
+
+Nope. ,
+
+but it helps me understand even where I should look 
+
+Yeah. 
+
+is super helpful.
+
+Yeah you're right.  A couple of examples an example right here.  I was working in my game and I, knew I wanted to include a particle system from Sprite, kit  never  I'd done it before, but it was so long ago that I,  no chance of me remembering.  And I remembered just enough  to basically  tell it, look,  I know it's a particle system, it's in Sprite, kit using Swift,  
+
+and I want, I've got one and I want to put it on a screen.
+
+And that was enough that it almost instantly came back with  . Not only a good example of code exactly how to do that, but it also explains, look, this is what this code is, this is 
+
+how  So you can read the explanation. And I looked at the code and it was enough to jog my memory and go, oh, yep, this is exactly what I need. 
+
+I literally took it,  from the window into my app and boom, away it went.  But you're quite right in as well that it is like a pair programming friend.  
+
+Mm-Hmm. 
+
+more you can give it, the certainly the more accurate it can be.  But it is a progress. Like all these things, I think people think that you ask something, a question, an ai, whatever it is, a question and it's either gonna get it right or wrong.
+
+And that's not really  .  the, way these things work,  it's what I've found is that progressive conversation.  
+
+Um  Look, like you said, it's look, you are an expert on Swift, so already it knows okay. Swift language, and  I know the words particle system. Oh I, know what he's talking about, right? 
+
+And, I'm telling it. I wanna put it on the screen. And from there, that's enough information for it to start suggesting things,  saying, I think you might mean this, right? And 
+
+Right. 
+
+at it and go  that's great,  whatever the next thing is 
+
+Yeah. 
+
+a progressive conversation and it works so beautifully.
+
+I 
+
+and I never feel like I'm leaving  . My tools, right? I never feel like I'm leaving Xcode, for example.  
+
+Mm-Hmm. 
+
+come up in a separate window or I'm using the Xcode integration, but I'm not having to open up a web browser,  to our website, get 
+
+right? 
+
+watch 10 cat videos on YouTube  hours later.
+
+I 
+
+Yeah. 
+
+right. I was writing some code. 
+
+Yeah. 
+
+that's an important aspect too, is it sits right there as a friend to code with  and again folks we'll, put links in the show notes, but  it is not something to be feared  . 
+
+Yeah.  
+
+Yeah.
+
+exactly. I think  
+
+I 
+
+and it's really not.
+
+It's no, This is here to help you  
+
+it's a tool. It's a tool Like anything else I, think of the jump from assembly to
+
+C, right?  We lost  some ability because we, moved back,  in abstraction. And so now when you work in C you can't fiddle precisely with the assembly, which had certain benefits, whether it's speed or anything else.
+
+And it's the same kind of thing. Using this tool, you're going to lose  some stuff. You're gonna,  you're gonna lose,  the ability to, research and really think through exactly what it's going going from zero knowledge to a hundred percent knowledge. Usually that happens entirely in your, own brain, which
+
+is a valuable process  going through ai. You short circuit that so you get to the answer faster.  then once you have the answer, the onus is still on you to say, okay, let me make sure I understand this before I just ship it out the window.
+
+Yeah.  
+
+And so the, tool lets me get to the end quicker. And especially being a programmer, I can validate the output that it gives me and say, yes, this is reasonable code.
+
+It did not insert a SQL injection, or it did not
+
+There's not bugs in here that I need to look at, but it,  yeah it's, a tool  like anything else that we use a debugger a.  All of the analyzers that we use in Xcode to find memory leaks or strong references or reference cycles or anything like that.
+
+It's just another tool in the toolkit  to
+
+Yeah. 
+
+write better
+
+software.  
+
+And also  touching on that there, if you are doing something and you don't know what that is like, for example, you said right there,  thanks to Swift and, things these days you don't have to know as, as much about a memory management as you once did. So if you come across something that's like, you say, it's like 
+
+Retain cycle or strong reference or something like that. And  we've all been there, right? At some point you're like,  I don't wanna ask people because that'll be embarrassing and they might make fun of me. But you can ask these tools,  what is  , 
+
+Yeah. Yeah. 
+
+reference, right? And it'll explain it and it's not gonna judge well, I don't think it's gonna judge you.
+
+Maybe it   
+
+yeah. 
+
+but, so you can use it as a learning tool for  those questions that maybe you don't want to ask someone. But 
+
+Right. 
+
+you said, it's a case of  it, used to be, I've got my reference books on the shelf. If the answer's not there,  I'm in trouble,  and  
+
+What, if I don't know what the question is,   
+
+right. Yeah. 
+
+you can, look through books all the time until the end of time.
+
+It's not gonna help you if you don't know what the question is. But if you've got a tool like AI where you can try to over time,  out the right question, we've all done it, right? There's nothing worse. You Google something  and absolutely nothing comes back. And the first thing you realize is,  asking the wrong 
+
+Yeah,  
+
+Yeah.
+
+exactly. I think  the, times it's helped me the most are  when I don't know the jargon to ask. I know the problem I need to solve, but I don't know the jargon about the solution. I don't know the algorithm name or the data structure name or whatever it is. So I can describe the problem and it's, it gives me back the jargon  as well as maybe even a potential solution.
+
+And so then I can say, okay, now I have enough foundation in my own language to say, okay, now I know what to research.
+
+Now I know what to go read and know how to verify this. This solution,  the other time has been really helpful is when  I have a problem.  And the only way to describe that problem is using just like very general terms.  Of, oh, I have a memory cycle between these two functions and this object.  How do I solve it?  That's not something I can type into Google or Stack Overflow or anything else because it's just gonna spit back. Very general answers of retained cycles are bad. Yes, I
+
+know I'm trying to fix that. Right?
+
+But with a tool like Developer Duck, I can paste in my source code, I can paste in the problem that I'm trying to solve and describe it and it can talk to me very specifically about my exact situation and
+
+my code and my, I've pasted in crash reports and the source code related to the crash report and saying like, why?
+
+I don't know why this is
+
+crashing.  
+
+Give me some  possible scenarios like give, brainstorm with me what I need to look into.  So all sorts of those questions are wonderful. And  what I particularly love about using  Developer Duck in particular, as well as I'm sure a number of other tools do this using the API.  I can opt out  OpenAI and say, with this key, with my company name and with my account,  do not use any of the data that I send to you for training. 
+
+All of my conversations in Developer Duck are now private. Essentially. They're not gonna get recycled into,  the open AI monolith into chat GT's history.  It's something where chat GPT is going to use its existing knowledge to talk about my code, but it's not gonna incorporate my code into its knowledge, 
+
+Yes. 
+
+which makes me a lot more comfortable sharing code that might otherwise be,  entirely private, entirely copyright safe 
+
+And that is a, big problem. I know that for example, in, in my day job,  we, have been told that at least right now, don't use AI tools for that very reason.  Um, 
+
+not because you can't it's not even a case of don't trust the results. It gives you, it really is don't feed the algorithm,  
+
+um,  Even, 
+
+you know,  accidentally something because yes,  once it's in there, it's in there, right?
+
+And if someone's  looking to do,  bad things with  one of your apps  and  you accidentally put in some reference and then one day they're like, Hey, how can I get into hack the API on   or something like that?  If it's in the model, it's gonna spit it back. 
+
+yeah.
+
+If it's memorized that code inside of its training, then all of a sudden it can,  
+
+Yeah. 
+
+spit that code verbatim out to somebody else,
+
+or who knows what, right? It 
+
+can cause problems, and so
+
+And  I  I always say to folks, these folks who  say that AI is taking everybody's jobs and everything else is  it's only gonna be as smart as you make it.  But at the same time, you have to be smart in return. And  you touched on it earlier,  question the results. 
+
+You know, don't just blindly put it in. Look at it, make sure and I'm sure I've said this a hundred times,  sure you understand what it's giving you back. It's just  and  you,  give you an example here.  I, do coding live streams as, Adam well knows, and many of  if someone in the chat room gives you code. 
+
+make sure it's for me, either A, a trusted source  or, B make sure you understand it. Don't just take 
+
+Chat room, put it in and run it. You know? 
+
+and paste random things into your 
+
+Exactly. And, and 
+
+or ai. Both are
+
+exactly. Yeah. The responsibility is still, yeah. The responsibility is yours.  The, it is no different than if you read it in some  resource manual five years ago. 
+
+It's no different. Once you put it in, you are the one making it happen. Yeah. Yeah. Is there 
+
+anything else? Oh I, should say also greatly love the icon.  
+
+You know, um,  it's a very steam punky  you put it on your dock just 'cause it looks cool.  
+
+Yeah. 
+
+I loved it. I went through I tried, I think Midjourney, I tried the first iteration of Dolly and Dolly two, I think, and it was just, Hey, make me a steam punk duck icon  And That, that's the one that came out. And I had two so many favorites that there's you could choose the icon in the app. 
+
+There's there's a bunch of different options that are all ridiculous and wonderful in their own AI generated kind of way.
+
+Oh yeah.  You can have so much fun with these things. I remember,  friend of ours  had, mentioned him the episodes before. Shout out to Cocoa type  who's out there somewhere. He came up with, he, I think it was Midjourney, he used for the 
+
+For my game. Endless Hurdles. And when he came 
+
+Oh, nice. 
+
+yeah, he came back with it and I looked at it and I'm like, you know what?
+
+That's so dang good. And I could never come up with something like that. 
+
+I gotta go with this.  And  again, these AI tools are great for solving problems.   in ways that you just never would've thought of, or 
+
+Mm-Hmm. 
+
+the thought of how to solve the problem.  
+
+Yeah, 
+
+how You use the tool. 
+
+Is there anything else about Developer Duck? Let's talk about licensing on it here because again as we said earlier, support the folks that make tools for you. 
+
+Yeah. Yeah. So it's  it's free to use  I think I give you  what amounts to 50 cents of credit,  which, because chat GPT is so cheap, it ends up being
+
+like the entire text to Moby Dick or something like it. It's an enormous amount of text you get for free. And then after that you can subscribe. 
+
+And that subscription helps the development, obviously, but it helps run the server because the requests do go through my server to get the prompt customized and to,  be able to be fed to whatever the latest models as things get updated. So that's helpful. It starts out, I think the cheapest plan  let me double check,
+
+is I think a dollar, $2, maybe, something like that. Dollar 99. 
+
+I remember 
+
+thinking it, you know, crazy.
+
+Look. Oh, there you go. 
+
+It's very low, but it's actually on discount right now as well.  And so there's a, yeah. December discount. I think it, it's at least half off. 
+
+There. 
+
+yeah. go, in there. 
+
+And I gotta check. I, gotta be honest, I can't remember  what I've got set for, because  I, remember when I started playing with it, and I was playing with something else at the time, and  I, put some credits on like my chat GPT account or something like that. And,  was hooking tools up and using my credits. 
+
+Again, like you say they're so crazy cheap,  those 
+
+credits, you 
+
+Um, 
+
+but I gotta, 
+
+what's nice 
+
+is you can switch,  
+
+I, 
+
+yeah.
+
+You can switch between  the, version 3.5,  which is pretty smart for most things. Or you can use four and their very latest models, 
+
+Yeah, I was gonna mention that. 
+
+GPT five so you can pick whichever model you want, and you can almost ask them both and switch mid conversations.
+
+That way you get,  if you feel like you're not getting the smart enough answer yet,  ask the, version  one, layer up
+
+Yeah. Yeah. 
+
+it's a bit more helpful.
+
+And I, that's why I gotta go back and check because,  I, cannot remember what my,  
+
+Which version I'm on.  But I do remember seeing that you could check pick  the engine versions, however you want to phrase it. So that's 
+
+nice too. But again, developers I've just gotta say it right,  tools like this  in a, in using this, something like develop a duck for an hour. 
+
+When you realize how much time,  even just think of it as 
+
+Time, it saves you, right? 
+
+Yeah. 
+
+it, these licenses are.  Cheaper than I think they should be.  
+
+Yeah. 
+
+so I need to get onto you about that, but you know  
+
+The point 
+
+to pay me twice as 
+
+twice as much. There you go. I'll do it for everybody. Yeah.  But the, thing there is folks, is that these tools,  if you put 'em in the context of how much you pay every year for  coffee,   
+
+Yeah. 
+
+let's just start there, right? 
+
+It's nothing folks. And it will vastly improve  your productivity, your learning, right? It's a learning resource too.  The, these are things that we will use every day in our jobs. And again, reward your tour makers to make better tools and to just say,  thank you for saving me the nightmare. 
+
+So I do wanna put that out there. Strongly emphasized again on both of these tools, use as well.  Yeah. Is 
+
+there anything else
+
+Here? Sorry, go.
+
+I appreciate that. No, I think that's perfect. It's, it is more than paid for itself for me. And I, happen to build it, but if I had not built it, I would've bought it from somebody else because it saves  so much time for me in that research step,  
+
+you know, that's important. 
+
+paid for itself in my own time 
+
+Yeah. 
+
+work.  
+
+And that's something else that I love to hear, and I hear this so often and this is, I think when,  developers are making the things  they're supposed to be making because you use it yourself, so you are gonna feel  the rewards and the pain of the users. 
+
+And  that's ex  I, often say I think that the best tools we make.  Are the ones that we make to use ourselves, not necessarily the ones that we make for our clients because we are living the pros and cons right there with everybody on a daily basis.  So that, almost, I don't wanna say guarantees, but it, certainly says, look, this thing's got a future. 
+
+and and it's not gonna be just a one hit thing and gone away tomorrow. Again, all the more reason to support developers. Is there anything else here we, haven't covered on Developer Duck? You want to dive into? 
+
+Oh, I think we've, I think we've covered a lot. That's everything on my end.  I've enjoyed every moment. Thanks for having me.
+
+Oh, you are welcome. Yeah. we'll we'll have to have you back to, to so many other things that, that we can talk about here, Swift development and everything else.  And, it struck me as we were talking here.  I gotta test this, but maybe I'll do it on a live stream so that I can embarrass myself yet again, I know I do it every week, folks. 
+
+But another great use  for something like develop a doc  I, I'm guessing, would be,  for example, taking something that you find in objective C  and say,  show me a Swift version because.  
+
+I'm still living that pain of  migrating code basis from objective C to Swift. I know I'm not the only one, but that's another great way to, A, learn and b, get it done right. 
+
+Another use for the tool.  Maybe that's my recommendation there. Let's put a request in for something in Xcode  in the integration that just says, convert this to 
+
+and then choose Swift. 
+
+two? 
+
+Yeah. 
+
+Or or right. Unit test four
+
+Oh, oh, that's the 
+
+one. That's the one, yeah, 
+
+that's my next one. Write my test so I don't have to, it'll fit on a button,  
+
+yeah. Or reverse. You write the test and it writes the implementation
+
+Oh, that  wouldn't that, be, 
+
+an interesting thing? Um,  that, that would be interesting to try that. Yeah.  All right.  Conscious of the time here, Adam  . Thank you my friend.  
+
+Thanks 
+
+have been looking forward to this. Oh, you are more than welcome. I have been looking forward to this conversation  because a, again I can't say enough nice things about these tools.
+
+I, I would love to, to say, oh  I did find something that was wrong, but it turns out it was there all the time.  You it was me who knew everybody. 
+
+Yeah. Yeah. 
+
+yeah, thank you so much for your time on this and  make sure, yeah, send me those links. We'll put 'em in 
+
+Yep. 
+
+and that folks, 
+
+Perfect.  
+
+along with, his socials and everything else, take advantage of these offers while they're out there because,  these tools,  tell you how much they've changed my day.
+
+They, really have. And I am, I'm one of those people who's always looking for something to make.  Make life easier so I can focus on the things I should be doing. And, these two tools 
+
+Here enable me to do that. So Adam, thank you so much my friend, for making these tools, putting them out there and, for coming along today to talk about it.
+
+I really hope we've convinced a lot of people to at least go try them, but more importantly, go get them and support Adam in his work. And  even imagine how wonderful these tools are gonna be tomorrow. Thank you buddy.
+
+Awesome. Thank you. Thank you so much, Peter. I enjoyed every second of it. I appreciate it.
+
+Oh, you're very welcome. Again, folks, links in the show notes for everything. That's what we got for you here in this one.  We will leave it there and we will speak to you next time. Thank you.  Awesome dude. Awesome. Let me 
+
+man. Awesome. ​
+</details>
