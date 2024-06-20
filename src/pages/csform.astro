@@ -19,44 +19,70 @@ const metadata = {
   <p class="font-bold text-xl text-green-500">Would you like to appear on the Compile Swift Podcast?</p><br/>
   <p>I always look for exciting people and topics. Please fill in the form below.</p>
   </div>
-  <ContactUs
-    title="Compile Swift Podcast Form"
-    subtitle=""
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-      {
-        type: 'text',
-        name: 'shortbio',
-        label: 'Short bio',
-      },
-      {
-        type: 'text',
-        name: 'website',
-        label: 'Web site',
-      },
-      {
-        type: 'text',
-        name: 'socials',
-        label: 'Social media',
-      },
-    ]}
-    textarea={{
-      label: 'Proposed topics to discuss',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="I try to respond within 48 hours."
-  />
+
+<section class="w-full">
+  <div class="flex mx-auto max-w-9xl justify-center">
+      <div class="w-full lg:w-6/12 xl:w-5/12">
+          <div class="flex flex-col items-start justify-start w-full h-full p-10">
+              <form name="Compile Swift Podcast Guest" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="w-full">
+                  <div hidden>
+                      <label>
+                          Don’t fill this out: <input name="bot-field" />
+                      </label>
+                  </div>
+                  <div class="relative w-full mt-10 space-y-8">
+                      <div class="relative">
+                          <label class="font-medium text-gray-500">Name</label>
+                          <input type="text" name="name" class="block w-full px-4 py-4 mt-2 text-xl
+                          placeholder-gray-400 bg-gray-200 dark: text-black rounded-lg focus:outline-none
+                          focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                          placeholder="Enter Your Name">
+                      </div>
+                      <div class="relative">
+                          <label class="font-medium text-gray-500">Email</label>
+                          <input type="email" name="email" class="block w-full px-4 py-4 mt-2 text-xl
+                          placeholder-gray-400 bg-gray-200 dark: text-black  rounded-lg focus:outline-none
+                          focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                          placeholder="Enter Your Email Address">
+                      </div>
+                      <div class="relative">
+                          <label class="font-medium text-gray-500">Short Bio</label>
+                          <textarea name="bio" rows="6" class="block w-full px-4 py-4 mt-2 text-xl
+                          placeholder-gray-400 bg-gray-200 dark: text-black  rounded-lg focus:outline-none
+                          focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                          placeholder="Enter a short bio" />
+                      </div>
+                      <div class="relative">
+                        <label class="font-medium text-gray-500">Web site</label>
+                        <input type="text" name="Web site" class="block w-full px-4 py-4 mt-2 text-xl
+                        placeholder-gray-400 bg-gray-200 dark: text-black rounded-lg focus:outline-none
+                        focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                        placeholder="Web site">
+                    </div>
+                    <div class="relative">
+                      <label class="font-medium text-gray-500">Social media</label>
+                      <input type="text" name="Social Media" class="block w-full px-4 py-4 mt-2 text-xl
+                      placeholder-gray-400 bg-gray-200 dark: text-black rounded-lg focus:outline-none
+                      focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                      placeholder="Enter any social media">
+                  </div>
+                      <div class="relative">
+                        <label class="font-medium text-gray-500">Proposed topic</label>
+                        <textarea name="Proposed topic to discuss" rows="6" class="block w-full px-4 py-4 mt-2 text-xl
+                        placeholder-gray-400 bg-gray-200 dark: text-black  rounded-lg focus:outline-none
+                        focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                        placeholder="Enter a propossed topic to discuss" />
+                    </div>
+                      <div class="relative">
+                          <button type="submit" class="inline-block w-full px-5 py-4 text-lg font-medium
+                          text-center text-white transition duration-200 bg-blue-600 rounded-lg
+                          hover:bg-blue-700 ease">Send</button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>
 </Layout>
 
