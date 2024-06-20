@@ -11,7 +11,7 @@ const {
 } = Astro.props as Form;
 ---
 
-<form netlify>
+<form data-netlify="true" netlify-honeypot> 
   {
     inputs &&
       inputs.map(
