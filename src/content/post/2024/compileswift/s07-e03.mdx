@@ -1,0 +1,149 @@
+---
+publishDate: 2024-06-30T19:53:00Z
+title: Zed editor for Swift and collaboration, Xcode 16 predictive assist and which iPad?
+excerpt: Zed is a fast Swift code editor with collaboration features. Xcode 16 predictive assist thoughts, and which iPad?
+image: /images/blog-fi/2024/06-30.webp
+tags:
+  - podcast
+  - compileswift
+
+metadata:
+  canonical: https://peterwitham.com/compileswift/s07-e03/
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+import CSLinks from '../../../../components/podcasts/cs-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/d335a370"></iframe>
+
+<Player/>
+
+In this episode, I introduce the open-source code editor Zed and its new features like Swift support and real-time collaboration.
+
+I also share my experiences with the predictive assist feature in Xcode 16 beta.
+
+Lastly, I provide an in-depth comparison of various iPads, discussing the pros and cons of potential upgrades as an iPad Pro M1 owner.
+
+<CSLinks
+  link1="https://zed.dev"
+  link1label="Zed Code Editor"
+  link2=""
+  link2label=""
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Transcription
+ <cite>Peter:</cite>
+ <time>00:02</time>
+ <p>What's up, everybody? Welcome to another episode of the CompileSwift podcast. I'm your host, Peter Witham. You can find myself and this podcast at compileswift.com. Got a couple of things for you in this episode.</p>
+ <cite>Peter:</cite>
+ <time>00:13</time>
+ <p>First thing we're gonna dive into here though is a tool that you may not be aware of that that will enable you to write Swift code as well as many others, but in particular, Swift code is what we care about on this podcast, and it's an application called Zed. You can find it atzed.dev. It is actually open source though, so you can download the binary or there's a GitHub link there. And you can go and download the source code, compile it yourself if you want, make changes. And the reason I'm talking about it now is, yes, it has been around a while and yes, it is lightning fast in my opinion and that opinion of many others.</p>
+ <cite>Peter:</cite>
+ <time>00:54</time>
+ <p>But they now have support for 2 very important things. Number 1, they support the swift language. We all care about that. So why does that matter? A lot of us used to use app code by JetBrains, but they stopped working on that.</p>
+ <cite>Peter:</cite>
+ <time>01:08</time>
+ <p>Unfortunately, real shame there. And, of course, yes, there are plenty of other code editors out there you can use. Visual Studio Code, of course, is 1 of the well known ones for working with Swift and everything else and Sublime Text and all of those. But this 1, Zed, is truly lightning fast in my opinion. Not only lightning fast to use, but it also starts up super quick as well.</p>
+ <cite>Peter:</cite>
+ <time>01:34</time>
+ <p>Now they compare it with milliseconds compared to supply and text in Visual Studio Code. Honestly, when you're talking milliseconds, I mean, at that point, who's even gonna notice or care? For example, they say the zed starts in 58 milliseconds compared to Visual Studio Code of 97. But there are other important things with zed. Like I say, first of all, you can download the source code, change it, and compile it yourself.</p>
+ <cite>Peter:</cite>
+ <time>02:00</time>
+ <p>Always a huge win for us developers. Right? But on top of that, not only do you have all the in performance, but, of course, you know, it's got AI like so many other things now. It has all of the usual tools that you would expect, integrated terminal. There's a VIM mode, themes, a whole bunch of settings you can set and everything else.</p>
+ <cite>Peter:</cite>
+ <time>02:19</time>
+ <p>But the other really important factor here is you may be aware of some other applications, 1 of which is called multi, which is now closing down that essentially allowed you to do pair programming in real time. Now, give you an example here. A lot of time on my live streams, when I'm really screwing up my code, yes, that does happen. I know. There's folks wanna help me out other than screaming into the chat room.</p>
+ <cite>Peter:</cite>
+ <time>02:45</time>
+ <p>Totally understand that. We used to use a tool called Multi where essentially can do just that. Multiple people can edit a file at the same time, which is great, except they're closing down. Now Zed has that built in and we tried it out and it is fantastic. The way it works is through GitHub.</p>
+ <cite>Peter:</cite>
+ <time>03:06</time>
+ <p>Right? So you have your project. You sign in to GitHub in in zed, and then you can invite other peoples to work on your code. And you can see other people working in your code in real time and it just works. That's the important thing here.</p>
+ <cite>Peter:</cite>
+ <time>03:21</time>
+ <p>So that's why I'm mentioning it here. 2 key important things. Number 1, it's now got swift support and number 2, it's got this support that works very well for for multiple users on the same files working on the project and all those kind of things without having to do commits and checkouts and branches and all of that kind of stuff. So again, if you wanna check that out, I'll put a link in the show notes, zed.dev. You can actually check out my compiled dev live streams and you'll see us using it on there.</p>
+ <cite>Peter:</cite>
+ <time>03:51</time>
+ <p>You can go to twitch.tvforward/compiledev and you'll see us using it. So wanted to mention very excited now that this super fast editor has the ability to do all of these things as well. Next up, I wanted to talk about the predictive assist in xcode 16 beta. I've been using, the beta 1 and the beta 2, and I have to say this has really been impressing me. I think I've mentioned it before, but I do want to talk about it.</p>
+ <cite>Peter:</cite>
+ <time>04:17</time>
+ <p>I have found that it has done a really good job at analyzing my code or what it thinks I'm about to write and making suggestions and filling them in. I'm going to give you a really simple example here. Now I'm working on an application at the moment and I needed a timer, essentially a stopwatch. I just needed to go from 0 and start counting up. And as soon as I put in let my timer of type timer equal, the predictive assist kicked in and filled in all the necessary code for me.</p>
+ <cite>Peter:</cite>
+ <time>04:49</time>
+ <p>So I just hit tab and line after line, it created the timer, it created all the hookups it needed. At 1 point, it made an interface example for me, and it just worked. And, yeah, okay. That's a very simple example, but it's doing a great job at helping us do these things that we do every day that you don't necessarily remember all the code for, all the syntax. Right?</p>
+ <cite>Peter:</cite>
+ <time>05:15</time>
+ <p>And so it's turning out to be a very useful tool. Now, this has me really excited to see how the swift assist works when that comes along hopefully in 1 of the future betas, But if you've not tried out any of the Xcode betas yet, Xcode 16 beta 2 as of this podcast recording, I think it might be worth your time and giving it a go. It is worth mentioning though that you will need to be on the Sequoia, the Mac OS Sequoia beta as well to take advantage of this. I don't think you're gonna find this feature will work in Sonoma and I don't believe Apple has a plan to put it in support in there for Sonoma either. So you will need to be running Sequoia for that.</p>
+ <cite>Peter:</cite>
+ <time>05:59</time>
+ <p>Maybe create yourself a separate container put that in there take advantage of that at the same time. But this has been a a really good time saver for me and a really good 1 for just jogging the memory on some of that syntax or and also learning from syntax that I was not aware of. So just a little tip out there for, you know, developers of all levels, these AI tools are there to help and assist us And if you think about it that way rather than what some people say replacing us, you're gonna find that they're gonna really speed up a lot of those mundane things that we do in code all the time. Hey, folks. If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter.</p>
+ <cite>Peter:</cite>
+ <time>06:45</time>
+ <p>You can go to patreon.comforward/compileswift where you will get ad free versions of the podcast along with other content. The last topic I want to bring up in this episode is my adventures with comparing all the iPads. So we're gonna dive into some numbers here. So try and keep up, but I think this is actually starting to be a common problem for a lot of folks. And I thought I should talk about this and and maybe try and help some folks out.</p>
+ <cite>Peter:</cite>
+ <time>07:12</time>
+ <p>So I have the iPad Pro. I've got the m 1 version, and I absolutely love it. You know, it's got the XDR screen, which is absolutely phenomenal. Now I thought to myself, okay. Let's look at all of these new iPads and compare what would my upgrade route be if I was gonna do this.</p>
+ <cite>Peter:</cite>
+ <time>07:31</time>
+ <p>So I started off with the iPad Air, which everybody is raving about. And, yeah, it's a fantastic machine. It's got the m 2 chip so technically a better chip than my m 1. And everything else about it is fantastic. It supports the new pencil and and all of these things.</p>
+ <cite>Peter:</cite>
+ <time>07:49</time>
+ <p>But, it doesn't have the screen that my iPad Pro has. And so, funny enough, it turned out when I compared it with the iPad Air, M1 iPad Pro in my opinion is better because I of all the things the m 1 to the m 2, yeah, okay, it's faster but you're not really gonna notice it too much I don't think on a daily driver, But, what I would notice is losing the XDR screen on my iPad Pro. The iPad Air, of course, has a really nice screen but it's not the XDR version. And even comparing the screen on my current M1 iPad Pro with the new iPad Pro, there's still not a phenomenal amount of difference there as far as maybe a bit of brightness. So it was really interesting that the iPad Air got crossed off the list pretty quickly, which is a real shame.</p>
+ <cite>Peter:</cite>
+ <time>08:43</time>
+ <p>And because when you compare it financially, think about it this way. I've got the iPad Pro, the M1, with the keyboard and the pencil, and my pencil is the version 2 pencil. The advantage of getting an upgrade to an Air is I can continue to use that pencil and that keyboard cover with the iPad Air. I cannot use either of those that I have currently with the new iPad Pro, which in my mind is just crazy and I feel like it's just a money grab, but, hey, that's my opinion. So that was the advantage of looking at the iPad Air, but it turns out if you've had an XDR screen and then you go back to 1 of these other ones, you just notice it.</p>
+ <cite>Peter:</cite>
+ <time>09:28</time>
+ <p>And it's not to say either of them are bad, but it the XDR screen is so phenomenally good. There's, like, you know what? My current iPad Pro is better than that. Moving on to comparing apples to apples, pardon the pun, the m 4 iPad Pro compared to my M1 iPad Pro. Yes.</p>
+ <cite>Peter:</cite>
+ <time>09:47</time>
+ <p>Obviously, the M4 version is significantly better. No no question there. And I should have added that if you want Thunderbolt support on the port, you're gonna have to go with the Pro. Right? You can't use the iPad Air for that.</p>
+ <cite>Peter:</cite>
+ <time>10:02</time>
+ <p>So that is something else I would have been losing. But, you know, yes, comparing the 2 directly, of course, the new version is better in many ways. You know, you got the faster chip and so on, but you still got that beautiful screen and everything else. However, the gotcha here is like I just said. Right?</p>
+ <cite>Peter:</cite>
+ <time>10:21</time>
+ <p>It's not a simple case and others have commented, you can't use your existing accessories, meaning the keyboard cover and the pencil, which I use all the time. So in reality, what it means is, yeah, I can trade in my current M1 iPad Pro and get the new 1, but to be where I'm at now, I also have to pay out for a new cover and I also have to pay out for the new pencil. And as much as I would love to have the the the hover support for the new pencil, I think that's real attractive to me as a as an artist as well and seeing that. I've got to replace all of those as well. So you're suddenly not talking about just switching out the iPad, you're talking about switching out all the accessories that go with it.</p>
+ <cite>Peter:</cite>
+ <time>11:07</time>
+ <p>And the irony here is, by the time you do all of that, you're really looking at the price of essentially getting saying, hey, you know what? I could replace my M1 MacBook Pro for about the same price and get a lot more for my money on that. And I think it's interesting that Apple is really, in my opinion, messing this up for consumers and confusing us because when you look at it now, it's okay. Well, you've introduced so many options at this point that it's almost too confusing for for for regular folks. Right?</p>
+ <cite>Peter:</cite>
+ <time>11:44</time>
+ <p>I'm just talking about regular consumers now. And we've said this before about back in the day. Okay. I know where this is going. Back in the day, an iPhone was how much space do you want, what color.</p>
+ <cite>Peter:</cite>
+ <time>11:56</time>
+ <p>An iPad was how much space do you want. And and, of course, the max. But now there's so many options that I feel like Tim's desire to meet every price point has essentially hurt the simplicity of what everyone used to love about buying Apple stuff. I don't wanna be changing out all of my accessories every couple of years, which is where that's coming down to as well. And I think that it's gonna start to hurt their bottom line even more as people realize, wait, I can't keep shelling out 1, 000 of dollars every year for an iPhone and an I pad.</p>
+ <cite>Peter:</cite>
+ <time>12:33</time>
+ <p>Right? Or every couple of years. I don't mind doing it every 3 or 4 years. But it's it's just getting to be a bit, oh, really? I gotta get a new this and that to go with it now?</p>
+ <cite>Peter:</cite>
+ <time>12:46</time>
+ <p>So at the end of the day, when I looked at it all, the iPad Air, not an option, which is really unfortunate. The iPad Pro the new iPad Pro is the most sensible thing if you are a current iPad Pro owner, but be ready to shell out an awful lot of money depending on where you're currently at as far as what accessories you have. And that was my take on it, so I really don't know. You combine that with, like I say, iPad OS 18, which is gonna be great, but it's still not as as great as the hardware, I guess, in my opinion, is what I would say there. Be very interested to hear everybody's thoughts about this.</p>
+ <cite>Peter:</cite>
+ <time>13:29</time>
+ <p>Reach out to me. Right? CompileSwift on on all the networks. Love to hear what you you think about that. With that folks, just wanted to share those thoughts this week of everything that I've been going through.</p>
+ <cite>Peter:</cite>
+ <time>13:40</time>
+ <p>I might talk a little bit about swift data coming up soon. I've been doing a lot of work with that lately as well. So that's it folks. I hope you have a great 1 and I'll speak to you in the next episode.</p>
+</details>
