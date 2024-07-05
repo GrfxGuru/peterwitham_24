@@ -1,0 +1,139 @@
+---
+publishDate: 2024-07-04T00:00:00Z
+title: Learning Blender in public, a great resource, video game testing advice
+excerpt: My first serious attempt to learn Blender for making game assets plus a great resource.
+image: /images/blog-fi/2024/07-04-uib.webp
+tags:
+  - podcast
+  - uibuzz
+  - game-development
+  - blender
+metadata:
+  canonical: https://peterwitham.com/2024/uibuzz/e68
+---
+import Player from '../../../../components/podcasts/uib-player.mdx'
+import Links from '../../../../components/podcasts/uib-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/e2492cdb"></iframe>
+
+<Player/>
+
+I talk about my experiences learning Blender in public to create some 3D assets for my games. Then I discuss testing on multiple devices to get a real feel for performance problems with your apps and games.
+
+<Links
+  link1="https://blender.org"
+  link1label="Blender software"
+  link2="https://youtu.be/O6HQhs-gk50?si=K7WrblDCfnjQivMw"
+  link2label="Joey Carlino's Blender video"
+  link3="https://peterwitham.com/gdvideo"
+  link3label="My Godot endless runner video course"
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+/>
+
+<details>
+  <summary
+  style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+">Click to show transcription</summary>
+
+ #### Transcription
+ <cite>Peter:</cite>
+ <time>00:05</time>
+ <p>What's up everybody? Welcome to another episode of the UI Buzz podcast. I'm your host, Peter Witham. You can find myself and this podcast at peterwitham.com. In this episode, I'm gonna go at 2 different subjects.</p>
+ <cite>Peter:</cite>
+ <time>00:16</time>
+ <p>I'm gonna talk about some Blender modeling and some experience for a newbie like myself and recommend a good resource for you. And then secondly, I'm gonna talk about the importance of testing your software on multiple devices. So let's dive into the first 1 here. I have been doing some live streams recently. You can go to twitch.tvforward/ compiledev and watch them there.</p>
+ <cite>Peter:</cite>
+ <time>00:38</time>
+ <p>I've been doing some streams on Blender. Now, if you don't know what Blender is, it's free and it is fantastic. In fact, it is extremely fantastic and extremely complicated for a newbie like myself. So I thought to myself, okay, you know what? Why not embarrass myself more than I normally do and learn Blender on some live streams?</p>
+ <cite>Peter:</cite>
+ <time>01:00</time>
+ <p>So that's what I've been doing and they were terrible. But the funny thing is they were terrible in that I didn't achieve what I wanted, but I realized that in the end, actually what I did get from it was an awful lot of learning experience with Blender. Never be afraid to mess up in public. It helps remind folks that we're all human and somebody else out there might be watching thinking, gosh, I don't want to stream and be embarrassed, but this guy's doing it. So maybe it's okay.</p>
+ <cite>Peter:</cite>
+ <time>01:29</time>
+ <p>So you're welcome. I guess is the way I would put it. Anyway, so I wanted to model some 3 d assets for my endless hurdles game. Actually for 2 versions. For the 2 d version that's currently out there, the band, the new 1 that I'm building in Godot, but also for the planned 3 d version that I want to do as well.</p>
+ <cite>Peter:</cite>
+ <time>01:49</time>
+ <p>So I thought, okay, I'm gonna get the best of both worlds. I'm gonna mold them some assets and then I'll use them in the 2 d 1 as well and give it a slightly more a better feeling of depth, better feeling of granularity if you like from the characters and things like that. So I started trying to model a 3 d character. I started off by using just basic primitives and adjusting them and it was okay. But I thought to myself this is gonna take a while.</p>
+ <cite>Peter:</cite>
+ <time>02:16</time>
+ <p>I hopped over to the sculpting mode, which is where you build something from essentially as if he was building it from clay, I guess is the best way to describe it. And I found that it was a lot easier for me to essentially make the 3 d shapes that I wanted. But the problem became they were actually too good. They were too refined. And my character that I wanted to be a basic cartoonish style 3 d character started to look too real.</p>
+ <cite>Peter:</cite>
+ <time>02:47</time>
+ <p>The skin and things like that as I was modeling the head, it all started to look a little too I don't wanna say realistic. I don't think that would be fair. I think just a little bit too more too believable, a little bit too detailed maybe is what I'm looking for. And it was funny because it was like, this is not the path I wanted to go down. And it was taking me a very long time and I was struggling.</p>
+ <cite>Peter:</cite>
+ <time>03:09</time>
+ <p>So I did what I always know to do, which is to say, okay, just up and quit this, Go to bed. Get some sleep. Come back the next day with some coffee. Sit down. Watch some more training videos, and I'm gonna recommend a resource in a second here for you, and then try again.</p>
+ <cite>Peter:</cite>
+ <time>03:26</time>
+ <p>So that's what I did today actually before I recorded this episode, and I'm very pleased with the way it's going. It started out with a different approach. And it's more of a that approach that your art teacher would tell you, which is don't see in your mind's eye the end result of what you wanna make. Build it out with very simple shapes first and then start to make it what you want it to be. So for example, a cube for the head, cube for the neck, cube for the body, some simple shapes for the arms and the legs and so on and then start to work them into the character that you want as opposed to trying to build the character that you want from the onset.</p>
+ <cite>Peter:</cite>
+ <time>04:12</time>
+ <p>And this is working out a lot better for me. And if you check out the artwork for this episode, I probably have included a picture. You can see there. It's not fantastic, but I have done in a few hours what I tried to do in a lot more hours for the previous week. Now all of this, and and I've got some books and all the the usual resources, but the the 1 video that has totally changed the way that I looked at this, and I wanna give this guy complete credit for this, is I hope I'm gonna pronounce the name right, is a YouTube channel by Joey Carlino.</p>
+ <cite>Peter:</cite>
+ <time>04:47</time>
+ <p>So if you happen to be listening to this, Joey, fantastic work my friend. Thank you so much for doing this because I learned everything I needed, including the basics of just getting around Blender and some of the controls, what some of the things do, and the order in which to do things, which turns out is super important. And it was all through 1 of his videos. I will put a link to that video in the show notes, but go check out Joey's channel on YouTube. I'm gonna watch all the other videos on there because, like I say, it just gave me that missing link of how to start doing this.</p>
+ <cite>Peter:</cite>
+ <time>05:25</time>
+ <p>Right? And so if you're thinking about doing this, go check it out. It's just it's well worth the time. Trust me on this. Because I learned to do an awfully good character, Not finished yet, but it totally set me on the right path of understanding what tools, what modifiers, how to do these things, and including, like I say, starting from basic shapes.</p>
+ <cite>Peter:</cite>
+ <time>05:46</time>
+ <p>So go check it out. It's well worth your time. It's coming along very well. The next steps will be to finish the model. And then the fun parts after that, the next learning experience is gonna be rigging up the character so that I can animate them to make them run, do all the things I need them to do, and then figure out what to do from there.</p>
+ <cite>Peter:</cite>
+ <time>06:06</time>
+ <p>Pretty excited about this. But anyway, there you go. That's my sort of 3 d exploration this week. Moving on, my Godot rebuild of my endless hurdles game is essentially shippable at this point. Yay.</p>
+ <cite>Peter:</cite>
+ <time>06:20</time>
+ <p>I know. How about that? Right? I started it in October. Didn't know anything about Godot.</p>
+ <cite>Peter:</cite>
+ <time>06:24</time>
+ <p>Since then, I've learned so much about Godot that I've I've done a video course on how I've made this game. It's available for you all now. You can just go to peteweedham.comforward/ gdvideo, and it'll take you over there and show you how to make a game like this. But the game is essentially ready to ship at this point if I want to. Haven't shipped it quite yet.</p>
+ <cite>Peter:</cite>
+ <time>06:47</time>
+ <p>I'm shipping it to my test flight for iOS and the Android platform some for some friends of mine to test it out as well. Some of them already have. Greatly appreciate them doing that. And that is the second topic that I want to talk about here because on my, frankly, pretty terrible old Android device, I've got a Samsung Galaxy Tab g 7 Lite, which is not the worst tablet in the world, but by no means the best either. I think it came out in 2001.</p>
+ <cite>Peter:</cite>
+ <time>07:18</time>
+ <p>And it's really just an ebook reader for me. But I put the game on there and the performance was dreadful. And I was like, oh, god. And I was panicking because, like, what am I going to do? Well, here's the lesson, folks.</p>
+ <cite>Peter:</cite>
+ <time>07:31</time>
+ <p>If you've got some friends that you trust, ship it to them. Get them to side load it onto their Android devices and test it for you because as soon as 1 of my friends shout out to Mono. You know who you are. Thank you, buddy. As soon as they tested it on their device, they came back saying, hey, the performance is fine.</p>
+ <cite>Peter:</cite>
+ <time>07:49</time>
+ <p>It is capping out at 60 frames per second. And so you can imagine I was like, oh, that's interesting. Fantastic. That means I could actually ship that and just ignore what the results I was seeing on my device, which was very unexpected and certainly not the way I normally like to go. But it does serve the lesson here.</p>
+ <cite>Peter:</cite>
+ <time>08:10</time>
+ <p>Don't trust what you see on 1 device. You shouldn't do that anyway. Right? But I've only got 1 Android device. I've got multiple Apple devices, but I've only got 1 Android device.</p>
+ <cite>Peter:</cite>
+ <time>08:21</time>
+ <p>And as soon as I put it on there, it was terrible. And I was like, oh, gosh. Can't ship this. That's the lesson right there. Find some other folks with some devices.</p>
+ <cite>Peter:</cite>
+ <time>08:29</time>
+ <p>Ask them kindly to test it for you and get feedback from them. Now if they come back and say it's terrible as well, yeah, you got some kind of performance problem. But if they come back and say it's fine, there's no problem here, like I say, 60 frames a second was way more than I was expecting it to achieve. Maybe I can ship this and it's not gonna it's not gonna bomb, not for performance reasons anyway. So that's the the second bit of advice here this week is do that.</p>
+ <cite>Peter:</cite>
+ <time>08:57</time>
+ <p>Don't trust your own test results. Always try to reach out to other folks if you can to test your games and software for you and things like that. Or take advantage of putting it out there in the public and saying, hey. Look. Here's an early access thing on this.</p>
+ <cite>Peter:</cite>
+ <time>09:11</time>
+ <p>Please, I really want some feedback on it. So that's something to think about too. Now on that, that is pretty much what I've got for you this week. A lot of game dev from me this week, and I hope that this has been helpful. If it has, you know what to do.</p>
+ <cite>Peter:</cite>
+ <time>09:23</time>
+ <p>Go tell people about it. I got a lot of comments on my last episode where I was talking about everything having value. Thank you to all of you for that. That was most heartening, I have to say. Thank you for that.</p>
+ <cite>Peter:</cite>
+ <time>09:35</time>
+ <p>With that folks, that's what I got for you. This has been helpful. You know what to do. Like I say, go tell someone, leave a review. Greatly appreciate it.</p>
+ <cite>Peter:</cite>
+ <time>09:43</time>
+ <p>You wanna go to the next step, you can go to Peter withham.comforward/coffeeandbuymea coffee. That would be fantastic. See you later, folks.</p>
+</details>
