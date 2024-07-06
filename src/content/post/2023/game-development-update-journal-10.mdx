@@ -1,0 +1,49 @@
+---
+publishDate: 2023-01-16T00:00:00Z
+title: Game Development Update Journal 10
+excerpt: This week I had two focused objectives. I checked the box on both of them, which is even better.
+image: /images/post-content/2023/01-16/UnityDeviceSimulatorWithGame.png
+tags:
+  - project-hack
+  - game-development
+metadata:
+  canonical: https://peterwitham.com/indie-game-project-hack
+---
+
+## Device Screen Scaling Solution
+
+Number one was fixing the problem with device screen ratio scaling. On the surface, you might think this is simple, make the game screen scale up and down to match the device. But it is not that simple. There are many devices out there with different ratios, and that always upsets the Apple cart, as they say.
+
+I decided it was time to return and use the Unity device simulator [I showed in a post here](https://peterwitham.com/videos/how-to-install-and-use-the-device-simulator-in-unity/). Once the package is installed, it will appear in the general tools menu. This lets me see how the game will look on various devices, including Apple and Android phones and tablets.
+
+![](/images/post-content/2023/01-16/UnityDeviceSimulatorWithGame.png "UnityDeviceSimulatorWithGame.png")
+
+Notice those Yellow lines? That is the safe area for devices with notches (hopefully).
+
+But this is only part of the solution. This is only showing you how it will look. It is not adapting the game to fit. That is where an excellent package with a script comes in handy to help with the scaling.
+
+There is a free package called [“Safe Area Helper” by Crystal Pug](https://assetstore.unity.com/packages/tools/gui/safe-area-helper-130488?aid=1011lkf3Y)
+
+All you need to do is install the package and attach it as a component to a parent game object. Then it will take of the business for you.
+
+## Balancing Game Play Changes
+
+I also made a few more changes to the following to help players get started quicker.
+
+- Reduced the frequency of negative events.
+
+- Increased the ratios of Dark Web Coin generation based on resources.
+
+- Reduced the multiplier for the cost of items to slow it down a little more.
+
+## Other Fixes
+
+There are also some quality-of-life fixes in this update.
+
+- The game will auto-save every two minutes. This does cause a performance hit while the data is being saved. It needs more work.
+
+- The game should do a better job at keeping track of when it is killed by OS memory clean-up on devices and save before it gets shut down. This reduces the loss of background resource gathering.
+
+- If you tried to buy an item by tapping the Green “Buy” circle, it would not always detect the tap/click. That has now been fixed.
+
+In all, a nice collection of fixes and changes to get closer to that finish line.
