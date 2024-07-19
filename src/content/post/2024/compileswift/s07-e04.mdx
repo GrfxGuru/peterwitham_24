@@ -1,0 +1,119 @@
+---
+publishDate: 2024-07-07T17:43:00Z
+title: You need to promote yourself, tips to start
+excerpt: I will explain why it is essential to promote yourself. The short answer is that nobody else will do it for you. So, here are eight tips to get you started on the path to success.
+image: /images/blog-fi/2024/07-07.webp
+tags:
+  - podcast
+  - compileswift
+
+metadata:
+  canonical: https://peterwitham.com/compileswift/s07-e04/
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+
+<Player/>
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/ca1b4ea9"></iframe>
+
+Everything we write becomes legacy code once it's written. That means technical debt in the future, so how can we do a better job today to help future us tomorrow?
+
+<details>
+  <summary
+  style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+">Click to show transcription</summary>
+
+ #### Transcription
+ <cite>Peter:</cite>
+ <time>00:02</time>
+ <p>What's up everybody? Welcome to another episode of the CompileSwift podcast. I'm your host, Peter Witham. You can find myself and this podcast at compileswift dotcom. In this episode, I'm gonna say something that will probably be controversial for some folks.</p>
+ <cite>Peter:</cite>
+ <time>00:17</time>
+ <p>All code becomes legacy code at some point and you should treat it accordingly. And yes, of course, I'm going to give you an example. Some of you may be familiar with my game. I've mentioned it a few times before, Endless Hurdles. It is on the iOS platform and in the store.</p>
+ <cite>Peter:</cite>
+ <time>00:36</time>
+ <p>You can go to petawhidham.comforward/eh. So that's the promo part out of the way. Now I wanted to release an event I think it was just over a week ago, it suddenly dawned on me, this game is about jumping hurdles, then the Olympics are coming up. I mean, I couldn't think of a more perfect reason to release a new event and essentially try to take advantage of that timing and get some people playing the game. Now, as you will also be familiar with, I'm rebuilding the game in Godot, but it is not ready yet, which means I had to open up Xcode, go get my Sprite kit version of the game, but that's the version in the iOS store.</p>
+ <cite>Peter:</cite>
+ <time>01:19</time>
+ <p>And it's perfectly reasonable code to build from and add the event there so that I could do it quickly because I knew at this point, oh my gosh, I've only got a few days to do this from scratch before the Olympics start. So I dived in and, of course, I did some of this or tried to do some of this on live streams because building in public is a thing. Now where does this come in to play with the legacy code? Well, at this point, all of that code in this SpriteKit version of the game is legacy code. I have not touched it in, gosh, 6 months at least, I would say, the Christmas event.</p>
+ <cite>Peter:</cite>
+ <time>01:56</time>
+ <p>So, you know, that's 6 months easy right there as of this podcast episode. Of course, you know, I went in, created the new event based off of one of the other events in the game and that basically means a SpriteKit scene plus a view controller is how I treated a Swift file for that. And it worked beautifully. I just replicated it, added a button, started running it just to see if it would work, and, of course, it worked beautifully. So next part is great.</p>
+ <cite>Peter:</cite>
+ <time>02:29</time>
+ <p>That pays off right there. That is my legacy code from over a year ago paying off for me right there because I I planned ahead that I knew I would create events sometime in the future and created the code in a modular way that enabled me to quickly spin up a new event like that, have it working, and then make the event unique to whatever it needs to be. But the point is, in a matter of minutes, I had working code for the entire event ready to go. And that is legacy code done right, in my opinion. Right there.</p>
+ <cite>Peter:</cite>
+ <time>03:08</time>
+ <p>So this was great. Okay. Now the next phase of course is I start tweaking it and making unique things for that event. I'm not gonna go into any of that in in this episode. You can check out the live streams on twitch.tvforward/compiledev or by maybe even by the time you listen to this episode, it's in the store and you can go and play it for free.</p>
+ <cite>Peter:</cite>
+ <time>03:32</time>
+ <p>Just fire up the game, tap on events, and run the stadium event. Now, putting that aside, again, this is all about doing legacy code the right way. At the time when I wrote the code, of course, it wasn't legacy, but I knew going in, this is something I'm gonna need to deal with in the future as I'm gonna continually add to the code base. I said to myself, okay. This could this legacy code has to be built in a way that essentially becomes part of a dependency within the game that enables me to do it.</p>
+ <cite>Peter:</cite>
+ <time>04:07</time>
+ <p>And I crafted it accordingly. Yay me. It worked and it paid off. It could very easily have not gone that way, but it did. And so there we are, 3rd event, right, in the game with legacy code.</p>
+ <cite>Peter:</cite>
+ <time>04:20</time>
+ <p>But let's talk about that a little bit more and how we have to deal with these things because I never planned to go back to this particular code base at this point. I was expecting my Godot version of the game to be the one that replaces the one in the App Store and away it goes and that's my new code base. If I had not have thought to do this event, I would not have needed to touch this code, but thankfully it all paid off. Now here's the thing. Hey, folks.</p>
+ <cite>Peter:</cite>
+ <time>04:49</time>
+ <p>If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter. You can go to patreon.comforward/compileswift where you will get ad free versions of the podcast along with other content. How does this all play into how we build our apps? We all sometimes make quick decisions on things that maybe deviate from the architecture that we had intended to be in our apps, and we add things in. Right?</p>
+ <cite>Peter:</cite>
+ <time>05:24</time>
+ <p>It's technical debt. It can't help. It just happens. Right? Whether it's a personal app, an app for somebody else or a day job app, meeting requirements, whatever.</p>
+ <cite>Peter:</cite>
+ <time>05:36</time>
+ <p>These things happen and and we have to deal with them. But if we approach this saying to ourselves, one day this is gonna be manageable and understandable, so that you can go back and do that. I went back and looked at this code from my game that was, like I say, at least 6 or 7 months since I last touched it. And there were a few things that puzzled me and I'm like, why the hell did I do this? But then for the most part, it all made sense because I had planned ahead given things sensible variable names, function names, all all that kind of stuff.</p>
+ <cite>Peter:</cite>
+ <time>06:16</time>
+ <p>Yeah. Not the greatest documentation in the world, but it didn't need to be and I think that's the point right there. So legacy code is something we all have to deal with, but we can try to make it manageable from day 1 as we're building it before that becomes a problem. Now it's not always doable, of course, and technologies change and requirements change as far as Ios versions for example or something like that And there's gonna be deprecated stuff you have to deal with. But, hey, you know what?</p>
+ <cite>Peter:</cite>
+ <time>06:48</time>
+ <p>That could happen tomorrow to just about any piece of code you write. And that's why this stuff is important. Now, there's no great technique or tips I think that I can give here to dealing with this. Other than to say, as you are writing stuff today, remember to ask yourself and say to yourself, what is the future me gonna hate me for or thank me for and change your code accordingly. Even just like I say, simple stuff naming things correctly, following your own naming convention.</p>
+ <cite>Peter:</cite>
+ <time>07:21</time>
+ <p>Oh my gosh. The amount of times I have named crazy things because I didn't follow my own naming convention, let a sent let alone a sensible one, has bitten me before and I've learned over time, yeah, that's why I need to improve this. And I did. So as you're going in here, think about your code today and how it looks in the future. And I don't mean the code you write today needs to impress somebody in the future.</p>
+ <cite>Peter:</cite>
+ <time>07:48</time>
+ <p>It just needs to be workable in the future because you never know when it may be needed and and who's gonna need it or how to adapt it. And if you can make it modular and maybe even break it down into packages or things like that, switch packages, what however you want to frame it, your own frameworks, your own utility classes, all of those kind of things. This is all going to pay off eventually to help you. May seem like overhead today is even worse in the future when it's a problem you need to solve and ship in a hurry. Trust me.</p>
+ <cite>Peter:</cite>
+ <time>08:23</time>
+ <p>Been there. Alright? Probably many of you have as well, and you're thinking, oh, yep. I I can think right now of a couple of times that something that should take 5 minutes took hours, and I need you to ship it in 5 minutes. And you got people breathing down your neck for it.</p>
+ <cite>Peter:</cite>
+ <time>08:38</time>
+ <p>So I wanted to put that out there. This is a short episode here. It's been a few of these short thoughtful episodes. Dev thoughts. I don't know what you wanna call it.</p>
+ <cite>Peter:</cite>
+ <time>08:51</time>
+ <p>I want I like putting these out because sometimes you just need to say it. And you just need to put it out there for folks to think about these things. Because this is the kind of stuff that comes up in everyday life for us as developers and engineers. I've also been reflecting upon this podcast where it's at. It's doing very well and that is credit to all of you.</p>
+ <cite>Peter:</cite>
+ <time>09:13</time>
+ <p>I think this is the 100 and 61st episode, if I remember rightly. And I think I just passed the 5 year mark for the podcast. Maybe 4 years. I cannot remember. But something like that.</p>
+ <cite>Peter:</cite>
+ <time>09:26</time>
+ <p>Either way, just phenomenal. I never thought I'd be where I'm at today, still doing this podcast and all of you folks listening to it. I think transparency, we're looking at something like 4 to 5000 downloads every month, and just thank you to everybody. It's great inspiration. But I wanna take this further, and I'm considering rebranding this podcast a little bit instead of CompileSwift, changing it to my streaming name of compiledev because I wanna open it up to talk about other development topics as well.</p>
+ <cite>Peter:</cite>
+ <time>10:03</time>
+ <p>Don't worry. Swift stuff is not going away. That is my as we say in England, that's my bread and butter language right there. That is my daily driver. That is my main thing.</p>
+ <cite>Peter:</cite>
+ <time>10:14</time>
+ <p>That is not changing. I actually just want to expand, like, some of the content that I put in this podcast to other development areas, all of which I think will apply to not only Swift developers, Apple platform developers, Android developers, whatever. That's the whole point. I wanna open it up to more of a discussion of development life in general along with any other languages. I use lots of other languages like we all do.</p>
+ <cite>Peter:</cite>
+ <time>10:45</time>
+ <p>And I I really have had many things in the past that I've wanted to put on this podcast, but didn't really fit the criteria because of this restriction that I'd put on myself. So, just be aware that I'm considering it. I'm not saying it's gonna happen, but it may expand and one day may have a different name but it's all the same stuff and it's all the same people. So, I just want to put that out there. If this has been helpful, folks, you know what to do.</p>
+ <cite>Peter:</cite>
+ <time>11:13</time>
+ <p>Right? Leave a review or rating. Go tell your developer friends about it. You wanna go the extra mile, you can go to patreon.comforward/compileswift and support me there. It's a great way to know that this podcast is reaching the audience, and they appreciate it.</p>
+ <cite>Peter:</cite>
+ <time>11:30</time>
+ <p>And there are rising costs. I'm not gonna lie to you. There's lots of rising costs that are causing problems for every podcaster. We're doing our best to try and keep putting out this content for you all, and that's a great way to support us with hardware and software replacements and services and costs and all those kind of things. But that's it, folks.</p>
+ <cite>Peter:</cite>
+ <time>11:50</time>
+ <p>As I'm, you know, recording this episode, I'm seeing the beta threes for a lot of the Apple stuff drop, so go enjoy those. I'll be installing them and playing around with them. Probably some on my live stream as well at com at twitch.tvforward/compiledev. That's it folks. See you in the next episode.</p>
+</details>
