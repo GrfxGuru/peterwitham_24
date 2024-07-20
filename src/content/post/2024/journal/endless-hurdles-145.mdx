@@ -1,0 +1,70 @@
+---
+publishDate: 2024-07-20T02:53:00Z
+title: Endless Hurdles 1.4.5 - The road to release
+excerpt: There is a story behind the new release that I felt was worth documenting, plus lessons learned.
+image: /images/blog-fi/2024/07-20.webp
+tags:
+- game-development
+- spritekit
+- swift
+- endless-hurdles
+
+metadata:
+  canonical: https://peterwitham.com/2024/journal/endless-hurdles-145
+---
+
+<a href="https://apps.apple.com/us/app/endlesshurdles/id6450933481"><img src="https://peterwitham.com/_astro/app-store.t3tG4Jz3_Z27Qb6z.webp"/></a>
+
+It all started with a realization around 3 am as I tried to sleep.
+
+_Why have I not made an event to celebrate the Olympics?_
+
+Then, fully awake, my brain started to plot what the event might look like and how I could capitalize on the sports event in my game, which literally has you jumping hurdles, just like one of the Olympic events.
+
+## The idea ##
+
+Create an event along the lines of the game's existing Halloween and Christmas events.
+
+Build the environment to look like a stadium with a running track, including new graphics and a scoreboard that enables players to compete for Gold, silver, and Bronze positions. The board should reset every thirty days to keep folks playing and not allow domination of the scoreboard.
+
+The event should also have an achievement and still contribute to other achievements already in the game.
+
+## The Problem ##
+
+I am already way deep in my rebuild from SpriteKit (<a href="https://peterwitham.com/eh">currently in the iOS Store</a>) to Godot (almost ready to release). Therefore, I will need to accept that I have to add to the existing production-ready version rather than the latest and greatest in development.
+
+## Dust off the code ##
+
+Reopening a code base I had not touched in over six months was interesting.
+
+After a couple of hours of trying to remind myself how I built the game using Swift and SpriteKit, I decided it was time to start the work.
+
+_When planning from 9 months ago pays off_
+
+Thankfully, the way I designed the game levels and events paid off. I was able to clone an existing SpriteKit scene and the custom Swift view controller I built for it and run the level.
+
+The only other item needed to add this new event to the game was a button on the events page that loaded the SpriteKit scene.
+
+With those in place, I had a running event linked inside the game, albeit a clone of another event.
+
+The next stage was to open some apps and start drawing the new graphics to replace the environment. This actually took longer than planned as I wanted to keep the look of the new event within the game's aesthetic but add a more 3D perspective to break free from the 2D side view currently in place.
+
+After some attempts, it all started to come together, and the illusion of a 3D running track and hurdle, using the existing players, looked good and very playable.
+
+Now comes the new game balancing; this is always challenging for me when developing a game. During the process of changing how hard the game played, I distributed a couple of TestFlight versions for feedback from folks in the chatroom (yes, I <a href="https://www.twitch.tv/compiledev">live streamed</a> this whole development cycle).
+
+## End in sight ##
+
+With everything in place, I uploaded a build to TestFlight for folks to try out and give last-minute reports.
+
+While all of that was happening, I started working on new screenshots for the Apple AppStore to show the event and catch the eye of folks looking for a game to play.
+
+I took the event from idea to completion within five days, thanks to some planning I put in place nine months ago and a determination to get the new version out before the Olympics.
+
+## Over to you ##
+
+So that is the story behind this new release, now having passed review and released to the store.
+
+It's up to you to play it for free and compete for podium positions. See you on the track!
+
+<a href="https://apps.apple.com/us/app/endlesshurdles/id6450933481"><img src="https://peterwitham.com/_astro/app-store.t3tG4Jz3_Z27Qb6z.webp"/></a>
