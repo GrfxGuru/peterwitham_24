@@ -1,0 +1,208 @@
+---
+publishDate: 2024-08-03T00:00:00Z
+title: Beta 4 releases plus installing Sequoia on a separate drive
+excerpt: Installing multiple macOS versions alongside each other requires some specific steps. I walk you through the whole process.
+image: /images/blog-fi/2024/08-03.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+  - macos
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e06
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+import CSLinks from '../../../../components/podcasts/cs-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/578dc0c1"></iframe>
+
+<Player/>
+
+In this episode of the Compile Swift podcast, the latest beta four releases from Apple, including iOS 18, iPadOS 18, macOS 15, tvOS, visionOS, and watchOS.
+
+I urge listeners not to install beta versions on primary devices used for daily work to avoid potential issues.
+
+Plus, a detailed guide on safely installing macOS betas on a separate APFS container or an external Thunderbolt drive to experiment without risking primary data.
+
+<CSLinks
+  link1="https://amzn.to/3WlaYlP"
+  link1label="Thunderbolt 4 external drive case"
+  link2="https://amzn.to/3Wq9zdE"
+  link2label="NVMe 2TB drive"
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Transcription
+ <cite>Peter:</cite>
+ <time>00:02</time>
+ <p>What's up, everybody? Welcome to another episode of the CompileSwift podcast. I'm your host, Peter Witham. You can find myself and this podcast at compileswift.com . Alright, folks.</p>
+ <cite>Peter:</cite>
+ <time>00:12</time>
+ <p>This week we got the beta fours of, well, just about everything in Apple world. So let's run this through them very quickly. We got Ios 18 Beta 4, iPadOS 18 Beta 4, Mac OS 15 beta 4, tvOS beta 4, VisionOS 2 beta 4, WatchOS beta 4 and there you go. We also got release candidates for the current major versions of the operating systems. I won't go through those.</p>
+ <cite>Peter:</cite>
+ <time>00:43</time>
+ <p>You know what they are. At least I hope so. Also on the application side, let's take a look here. We also got a new Xcode 16 beta 4, which has been doing pretty good for me this week, I gotta say. So now that we're getting deep into the betas here and maybe even approaching police candidates within a month or so, maybe.</p>
+ <cite>Peter:</cite>
+ <time>01:05</time>
+ <p>Right? The fall's gonna get here pretty darn quickly for 2024. Let's talk about how safe it is to consider installing these versions on devices that you use regularly. Right? Now as always, these are pre released versions, folks.</p>
+ <cite>Peter:</cite>
+ <time>01:21</time>
+ <p>Don't put them on your production stuff. Right? If you are like me and you rely on your iPad, your Mac, your iPhone every day for what you do for a living, please take my advice. Do not install these beta versions. They will have problems at potentially at some point and you're gonna have to recover from those, hopefully.</p>
+ <cite>Peter:</cite>
+ <time>01:45</time>
+ <p>So do not install these beta versions. That's just my suggestion. That's what I do. Hey. If you choose to install them, you know what you're getting into.</p>
+ <cite>Peter:</cite>
+ <time>01:53</time>
+ <p>Hey, folks. If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter. You can go to patreon.comforward/compileswift where you will get ad free versions of the podcast along with other content. Now if you do choose to install them, what what you got to look forward to here? Of course, the huge plus is you get to see all the new features and try them all out before they arrive in the final version in the fold for the most part.</p>
+ <cite>Peter:</cite>
+ <time>02:28</time>
+ <p>A lot of the AI services are not ready yet or they're not quite working as you would expect at a production level. Right? Same goes for Xcode. There's still some things missing from the AI services in Xcode, so we haven't got everything yet. But that said, we do now have the iPhone mirroring onto your Mac, which for me that's the big feature this year.</p>
+ <cite>Peter:</cite>
+ <time>02:54</time>
+ <p>That's the one I'm super excited about and as hard as it is, I'm resisting the urge to install Ios beta so that I can try it out. I'm I still just have Ios 17 production on my machine and on my phone, and that's the way it's gonna stay until we get to a really good point or even just after we get the release point, I may wait a little while, see what kind of problems folks have. Now why am I saying this as a developer? If you need to rely on your equipment, don't go putting prerelease software on there. That applies to anything.</p>
+ <cite>Peter:</cite>
+ <time>03:30</time>
+ <p>Right? Apple or other. Just don't do it. You're you're asking for trouble at some point because it's not uncommon that it's happened before that in the very late beta releases or even the release candidates something goes wrong in a big way that's been completely reliable up until now and screws it up for everybody. It happens.</p>
+ <cite>Peter:</cite>
+ <time>03:51</time>
+ <p>It's happened before. It'll happen again. It's just the way it is. Again, this is all pre release stuff, folks. Right?</p>
+ <cite>Peter:</cite>
+ <time>03:58</time>
+ <p>Now that said, if you have other devices or devices specifically targeted as test devices, yes, this is a good time to go ahead and put those betas on there. So why am I saying that? If you've got apps in the app stores or you've got apps just in general that people are paying for, you owe it to them to check them ahead of the release of the new final operating systems later in the year to make sure your apps number 1, operate as you expect. Number 2, operate as your users expect. Number 3, the data data integrity is good.</p>
+ <cite>Peter:</cite>
+ <time>04:36</time>
+ <p>There's no problems there. Those kind of things. And then number 4, just to make sure stability is good. Right? You owe that to your users.</p>
+ <cite>Peter:</cite>
+ <time>04:45</time>
+ <p>Simple as that, in in my opinion. If I had the ability and the money to have a test device, that's what I'd be doing right now. Unfortunately, I don't on my personal apps, so I'm, you know, gonna have to wait. It's as simple as that. Now the other advantage here, like I say, you get to see the features early, and a lot of content makers will be preparing new articles and and all reviews and all these kind of things with all the latest changes of the betas.</p>
+ <cite>Peter:</cite>
+ <time>05:14</time>
+ <p>So you get to stay ahead of the curve there as well. So there really is an upside and a downside to doing this and you've got to figure out what's best for you. Again, my recommendation is if you rely on something every day to do your work, whatever that may mean for you, don't risk it. Now there is one exception and I'm gonna go into that in detail here. For macOS, you can have multiple installs.</p>
+ <cite>Peter:</cite>
+ <time>05:42</time>
+ <p>So you are lucky here. You have the opportunity to mess around with the beta version of Sequoia without risking unless you do something wrong, and I'm gonna walk you through my entire process for doing this in a second here. You can have the benefit of trying out the new operating system along with the current version with some interesting little details that, again, I'll point out along the way. So how does this work? Well, if you've got an m mac, this is gonna be a lot easier for you, and I think that's probably most of the audience right now, maybe even all of them at this point.</p>
+ <cite>Peter:</cite>
+ <time>06:21</time>
+ <p>So how does this work? Well, you may recall the file system APFS. That's what makes the magic here along with containers. What you can do, if you've got a big enough drive with enough space, you can create a new APFS based container and use the recovery system on your Mac to install the operating system into that container and then you can dual boot between the 2. Now I'm gonna stress be very careful here.</p>
+ <cite>Peter:</cite>
+ <time>06:55</time>
+ <p>You can just as easily screw everything up. So tread very carefully. I have messed this up in the past but I've got a system that works for me and in the show notes, I'm gonna give you links to the hardware on Amazon. Yeah. It's an affiliate link, but this is the hardware that I use to make this work for me reliably.</p>
+ <cite>Peter:</cite>
+ <time>07:17</time>
+ <p>So how does this work? Well, first of all, what I'm gonna recommend is the path that I do, which is to create another container and then install macOS Sonoma, in this case, the current release version of the operating system, and then I would install Sequoia Beta 4 over the top. So what you're gonna do is, on a Mac, you're gonna open up the disk utility, make sure you've got enough space, that's number 1 here, and just create a new APFS based container. If you do not know how to do that, there is a lot of documents and walk through videos on the Internet that'll show you how to do that. It's very straightforward.</p>
+ <cite>Peter:</cite>
+ <time>08:04</time>
+ <p>It's just like formatting a disk, but you're actually just creating a new partition essentially on the disk. Again, you're going to want to make sure you've got space here. I've got an M1 Max 14 inch MacBook Pro with a 1 terabyte drive. Now you can install it internally in the other container that's perfectly fine and then you'll dual boot between the 2 of them. However, the system that I'm using actually allows me to use an external drive.</p>
+ <cite>Peter:</cite>
+ <time>08:35</time>
+ <p>So the setup that I have is my internal drive is a 1 terabyte and I've got Mac OS Sonoma on there. That's my main daily driver machine every day. And then I'm using a Thunderbolt 4 NVMe drive in an external container, and I have installed macOS Sonoma on there and then Sequoia over the top. The gotcha that you've got to watch out for is it will not work with USB c based drives. I have tried so many different ways to make it work and I just can't do it.</p>
+ <cite>Peter:</cite>
+ <time>09:12</time>
+ <p>It won't see the drive to boot. And because it won't see the drive at boot time, you can install the operating system on it. You can clone a drive over to it but it won't boot. So make sure you're using Thunderbolt 4 drive, external drive plugged into the thunderbolt port and that's going to work beautifully for you. Again, I'll put links in the show notes to the external drive that I'm using and the external drive box which has a fan in it, keeps everything nice and cool.</p>
+ <cite>Peter:</cite>
+ <time>09:43</time>
+ <p>I've got it plugged into a Thunderbolt 4 hub here, but you can just as easily plug it into your MacBook Pro And, of course, it's Thunderbolt 4. It is every bit as fast as your internal drive as far as I can tell, So there's no weird lag or anything like that. And the beauty of this is if everything goes wrong, okay, it's all gonna go wrong on that external drive. Right? That's the plan.</p>
+ <cite>Peter:</cite>
+ <time>10:09</time>
+ <p>Time for a break. Hey, everybody. It's Peter Whittam here from the Compulsory podcast. I wanna tell you about Setapp. Setup is a service that provides a subscription fee of just $10 a month and you get access to over 200 Mac applications and it's also available now on iOS as part of that deal.</p>
+ <cite>Peter:</cite>
+ <time>10:30</time>
+ <p>I use the service because it just has a ton of really good first rate apps that I use all the time. And for me, it's invaluable as a developer to have access to tools for things like APIs, for planning projects, writing emails, writing documentation, and you get all of these things including database apps, all of that kind of stuff right there on the set app service for just $10 a month. You can use as many or as few applications as you need. If you're interested in checking this out, go to peterwhitham.competerwitham dotcomforward/setapp, s e t a p p. And you can see the details there.</p>
+ <cite>Peter:</cite>
+ <time>11:13</time>
+ <p>And it's got a link that you can go over and start using the service and see how it works out for you. I strongly recommend this to every Mac user. Break time over. So how does this work? Okay.</p>
+ <cite>Peter:</cite>
+ <time>11:27</time>
+ <p>So you turn off your Mac, and then you turn the power on. Keep the power button pushed down, and you'll see on the screen, it'll say keep the button pushed down. And then, eventually, it'll say, okay, going into essentially the boot recovery options. Then it's gonna try and find all the drives. If your container on your internal drive or your external drive already has something on there to boot from, it'll probably show up on the list.</p>
+ <cite>Peter:</cite>
+ <time>11:55</time>
+ <p>Of course, you will see your Macintosh HD. You can just select your Macintosh HD at this point. It's gonna boot into the recovery tools. Now in the recovery tools, what's gonna happen is you've got the option in there to use a disk the disk utility program that's in the Mac to create that container that I was talking about. However, what I recommend, again, with my setup, is use the external drive.</p>
+ <cite>Peter:</cite>
+ <time>12:22</time>
+ <p>Right? So you're gonna target that external drive and format that drive for APFS and let it do its thing. I've got a 2 terabyte NVMe. I think it was about a $149 on Amazon, link in the show notes, and this is great. This is more than enough space.</p>
+ <cite>Peter:</cite>
+ <time>12:43</time>
+ <p>It's double the space of my internal drive. So you format that drive or that container and then what you're gonna do is now go into and say, I wanna recover. So you're gonna recover your macOS installation. Now don't be too concerned because you may be thinking, I think it's doing something to my internal drive. Probably not is the answer.</p>
+ <cite>Peter:</cite>
+ <time>13:07</time>
+ <p>It might look like it. Now eventually, once the recovery has started up and it's gonna say, okay, where do you want to install this recovery OS version? This is the crucial point. Right? This is where you can mess it up.</p>
+ <cite>Peter:</cite>
+ <time>13:23</time>
+ <p>Make sure you either select that container you have made on your internal drive or you select the external drive, make sure you get it right. Do not select your Macintosh HD. And then click next. You're gonna let it go through its thing. If you've ever done this, you'll see it's gonna take a while.</p>
+ <cite>Peter:</cite>
+ <time>13:45</time>
+ <p>30 minutes to an hour, maybe. And then it's gonna do all of that and then it's gonna reboot a couple of times. Sometimes my machine has booted back to the Macintosh HD. If that happens for you, all you gotta do is, again, turn off the Mac, hold down the power button until you get back to those recovery options, and then eventually there's a you know, it'll show you the drives and you can select the one that you wanna work with. Now at this point, if everything goes according to plan, your machine's gonna reboot.</p>
+ <cite>Peter:</cite>
+ <time>14:16</time>
+ <p>You're gonna have a new fresh install of macOS Sonoma, as of recording this podcast, on your external drive. Great. Go through. It's boot that drive. It's gonna ask you it may ask you to authenticate with an account already on your machine.</p>
+ <cite>Peter:</cite>
+ <time>14:36</time>
+ <p>That's fine. Go ahead and do that or create a new account as if you were setting up a new machine. It's hard to say which option you you're gonna get because I've seen several in the past, but this again if you're doing this should be something you're familiar with. So at that point your machine will boot up with the external drive. Fantastic.</p>
+ <cite>Peter:</cite>
+ <time>14:58</time>
+ <p>If you want to keep going, you can just use Mac OS Sonoma and set it up and now you've got a backup emergency disk you can boot from on your external drive and great. However, purpose of what we're doing here, we're going to install Sequoia Beta. So now, you're gonna go up into your system settings, You're gonna already be logged in with Icloud because you'll have to do that to get into the Mac. You will register your Mac if you haven't already to for the beta program. You're just gonna go into software updates and you'll see a drop down there.</p>
+ <cite>Peter:</cite>
+ <time>15:36</time>
+ <p>Currently, you can select the developer beta 4, developer beta, or the the public release beta, whichever one you wanna go with. I've gone with beta 4. That will be my recommendation at this point for us as developers. It's gonna go through and do what it needs to. It's gonna do the download, the verification, and then it's gonna say, hey.</p>
+ <cite>Peter:</cite>
+ <time>15:59</time>
+ <p>I need to reset your Mac to install this. Great. Let it do its thing. Again, you may be under the impression that it's doing it on your internal drive. It's not.</p>
+ <cite>Peter:</cite>
+ <time>16:09</time>
+ <p>It's doing it the one from the one you booted from. So if you booted from the external, it's going to upgrade that to Sequoia. If you booted from the internal drive to the new container I know it's very confusing. Right? It's gonna it's gonna do that.</p>
+ <cite>Peter:</cite>
+ <time>16:25</time>
+ <p>It's gonna do the upgrade for Sequoia. Again, maybe 30 minutes to an hour depending on your machine. It's gonna do all that stuff, then it's gonna reboot. And when it reboots, hopefully, it's gonna reboot into the same drive. If not, use the recovery options like we spoke about.</p>
+ <cite>Peter:</cite>
+ <time>16:42</time>
+ <p>And at that point, folks, you're now looking at the beta. Right? You're now it should now be booted into macOS, Sequoia beta, and you're ready to rock and roll and install your tools and have fun with it. As a developer, please be aware you cannot use Xcode 15 with macOS Sequoia betas. You will need to download Xcode 16.</p>
+ <cite>Peter:</cite>
+ <time>17:06</time>
+ <p>Now the advantage there, of course, is that if you do that, you're gonna get to play with some of the predictive assist in Xcode 16, but you will need to install install the Xcode 16 beta. I recommend downloading it from the developer portal and doing it that way. But at that point, you you're good to go. You're gonna wanna set the machine up like you normally would, but you're now up and running. Use the beta.</p>
+ <cite>Peter:</cite>
+ <time>17:32</time>
+ <p>Take your time and do it very slowly. Do Like I say, you can mess everything up but if you take it slowly and you do it right, you will safely have your existing install of the current Sonoma plus the Sequoia beta that you can switch between by changing the startup disk in your macOS settings. You can literally just open the macOS settings. In the search box, put startup. You're gonna see it say startup disk.</p>
+ <cite>Peter:</cite>
+ <time>18:06</time>
+ <p>Click on that and it's gonna show you all the possible bootable partitions and drives on your system or connected to your system, and you can just switch between them there once you authenticate and unlock the disk. And then reboot the machine, and you're good to go. That was a lot to get through. I know. But this is a good way to do this, I think, and a safe way as long as you watch what you're doing.</p>
+ <cite>Peter:</cite>
+ <time>18:31</time>
+ <p>But as a developer, hopefully, you have enough smarts to to figure out if something goes wrong, how to get it back. Worst case, you will wipe everything on your machine. Be very careful. I completely recommend, obviously, making a backup before you do this. I use carbon copy cloner and time machine, not that I trust time machine, but I that's what I do.</p>
+ <cite>Peter:</cite>
+ <time>18:57</time>
+ <p>I got both of those. So that's what I got for you in this episode, folks. I know that was a lot of details. Play it back a few times if you need to. But if you want to safely play around with the macOS beta, this is a good way to do it and of course with the others like I say don't put them on a production device is is my recommendation.</p>
+ <cite>Peter:</cite>
+ <time>19:14</time>
+ <p>If this has been helpful, you know what to do. Leave a review, tell a friend, put a rating in. If you wanna go the extra mile and help support make content like this, and, for example, I would love to make a video version of everything I just said about the macOS beta install, but it takes time. And that's time that I need to be earning pennies. If you want, go the extra mile.</p>
+ <cite>Peter:</cite>
+ <time>19:41</time>
+ <p>Please go to patreon.com/compileswift, and you can support the podcast and all the content that I make and all future content there. It's not expensive. You get the ad free versions of the podcast and the satisfaction of knowing that I get to continue making all of this stuff for you, which I love doing, by the way. Hope this has been helpful. Let me know in the comments.</p>
+ <cite>Peter:</cite>
+ <time>20:05</time>
+ <p>Let me know in the reviews, everything else. Reach out to me, compile swift on all the networks. Watch the live streams. Right? Twitch.tvforward/compiledev.</p>
+ <cite>Peter:</cite>
+ <time>20:15</time>
+ <p>Make sure you go to compiledev, and that's it folks. I'll speak to you in the next one.</p>
+</details>
