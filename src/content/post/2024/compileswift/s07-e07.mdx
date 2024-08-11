@@ -1,0 +1,121 @@
+---
+publishDate: 2024-08-10T00:00:00Z
+title: Embracing new API's whilst retaining backwards compatibility
+excerpt: Using new features and API's in your app that require specific OS versions is possible whilst retaining backwards compatibility. Here's how.
+image: /images/blog-fi/2024/08-10.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+  - macos
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e07
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+import CSLinks from '../../../../components/podcasts/cs-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/62d0b464"></iframe>
+
+<Player/>
+
+This week, I delved into whether to embrace or avoid new APIs in Apple's upcoming operating systems. I encountered a few challenges while working on my Mac iOS app, which I aimed to have a modern look. Inspired by Apple developer videos, I wanted to incorporate features like a navigation split view and fancy backgrounds, similar to the design of CleanMyMac.
+
+However, I hit a snag when they were in a part of the app's window. Even AI couldn't solve it. Finally, I found a solution in a video on the Apple developer portal, which involved using modifiers only available in macOS 15. Faced with a choice, I implemented conditional code to keep compatibility with macOS 14 while enabling new features for macOS 15 and beyond.
+
+Using conditional code, such as #if available(macOS 15, *), I can target specific OS versions and ensure my app remains functional across different versions without cutting off users. This technique can be applied to various scenarios, not just API availability, making it a versatile tool.
+
+<CSLinks
+  link1=""
+  link1label=""
+  link2=""
+  link2label=""
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Transcription
+ <cite>Peter:</cite>
+ <time>00:02</time>
+ <p>What's up, everybody? Welcome to another episode of the CompileSwift podcast. I'm your host, Peter Witham. You can find myself and this podcast at compileswift.com.</p>
+ <cite>Peter:</cite>
+ <time>00:12</time>
+ <p>This week, I am gonna talk a little bit about whether you should embrace those new fancy APIs and all those kinda things in the newer versions of Apple's operating systems coming out later in the year. Whether you should avoid them or do some fancy logic to enable them for particular systems if it's available. So we're gonna dive in here. The reason for this is I have been working on my Mac OS app this week and I've been trying to make it look nice and fancy and very modern and it's all been working out great. And then there were some things that I wanted to do that I'd seen in some videos and I thought, oh, that's cool.</p>
+ <cite>Peter:</cite>
+ <time>00:49</time>
+ <p>I should do that. And then I was watching the Apple developer videos and they had some new stuff for Windows on Mac apps with SwiftUI and those kind of things. That's where all of this is coming from. So I'm diving in and I I pull up my code. I'll give you two examples that I I wanted to use here from the Apple videos.</p>
+ <cite>Peter:</cite>
+ <time>01:08</time>
+ <p>So I wanted to have a nice background to my Mac app, you know, you've all seen the the fancy apps, right? One that I always use as a good example to me that is just a fantastic design of an application is clean my Mac. I I love the way they do their Mac app and it's it feels like a Mac app, but it doesn't look like, you know, your standard window and those kind of things. So I wanted to do all of that. So I was going through and I worked out.</p>
+ <cite>Peter:</cite>
+ <time>01:36</time>
+ <p>I got a navigation split view controller in there because I wanna use it on multiple platforms in the end and I made all the background look fantastic and everything but there was just one little bit in the top left that I I just couldn't get it to theme out the way I wanted. I tried all the usual things, setting the color of the background to transparent and all these things. And I was like, oh, this is so frustrating. So I was determined not to give up because I really want this Mac app to look nice. It is one for me but I'll probably end up building it out for other folks.</p>
+ <cite>Peter:</cite>
+ <time>02:11</time>
+ <p>If you see my screenshot on threads or on Mastodon, you'll have seen the image there. Right? You know, just search for CompileSwift. Hey. Give me a follow while you're there.</p>
+ <cite>Peter:</cite>
+ <time>02:21</time>
+ <p>Why not? And, you know, where I'm going for on this. And there was just this one little area. So I'm like, okay. What am I gonna do here?</p>
+ <cite>Peter:</cite>
+ <time>02:29</time>
+ <p>I've tried all the usual things and it's not working. I even asked AI and and AI wasn't able to solve it, which in itself was like, wow. So I turned to the Apple developer portal, found a video for this year where they actually solved the problem and I was like fantastic. So the one that I was looking for was basically to use a modifier and and just tell set it on the window and to say in this case dot container background with the properties of thick material for the window. And then there was another one which was window minimized behavior, I disabled and I wanted both of those.</p>
+ <cite>Peter:</cite>
+ <time>03:10</time>
+ <p>So I put them in there and of course I hit the problem. And what is the problem? The problem is these are only available in Mac OS 15 or later. And I was like, dang it. The the solution, I was so close.</p>
+ <cite>Peter:</cite>
+ <time>03:26</time>
+ <p>And I was like, oh, okay. And that's where the decision came in. I was like, well, do I just abandon this and say, okay live with it or I can solve this for Mac OS 15, right? And also recognizing that there's not anything in this app that really technically strictly at this point requires Mac OS 15 to work other than these visual looks and it's not worth cutting off all that audience and even myself at this point. Right?</p>
+ <cite>Peter:</cite>
+ <time>03:57</time>
+ <p>Because it's it's still in pre release. It's not worth making life difficult for those folks by saying, hey. It's only available on Mac OS 15 or later or as far as the app goes. So I decided, yep, you know, the the sensible logic here is one that we're all used to. And and if you're not used to it, then you're gonna find this really useful.</p>
+ <cite>Peter:</cite>
+ <time>04:18</time>
+ <p>Time for a break. Hey, everybody. It's Peter Whittam here from the Compulsory podcast. I'm gonna tell you about Setapp. Setapp is a service that provides a subscription fee of just $10 a month and you get access to over 200 Mac applications and it's also available now on iOS as part of that deal.</p>
+ <cite>Peter:</cite>
+ <time>04:39</time>
+ <p>I use the service because it just has a ton of really good first rate apps that I use all the time. And for me, it's invaluable as a developer to have access to tools for things like APIs, for planning projects, writing emails, writing documentation, and you get all of these things including database apps, all of that kind of stuff right there on the set up service for just $10 a month. You can use as many or as few applications as you need. If you're interested in checking this out, go to peterwhitham.competerwhitham dotcomforward/setapp, s e t a p p. And you can see the details there.</p>
+ <cite>Peter:</cite>
+ <time>05:22</time>
+ <p>And it's got a link that you can go over and start using the service and see how it works out for you. I strongly recommend this to every Mac user. Break time over. There's a way you can do this and you can specify that code only runs, be it a modifier or anything else, and you can say, look, only run this code if it meets these platform requirements. And so it's very straightforward.</p>
+ <cite>Peter:</cite>
+ <time>05:47</time>
+ <p>It's in the documentation, but it goes along the lines of this. So in your swift code, in my case, in my view here, I just say if pound available, so pound sign available, and then you list as the properties, you list the the OS's that you want. You could have like iPad OS, iPhone, Mac OS, but I want if you want to target a specific version you can. So the entire line for mine here is if pound available Mac OS 15 and then there's a star in there as a property. I'll be honest, I'm not sure what that one's for so I just put it in there and it was fine.</p>
+ <cite>Peter:</cite>
+ <time>06:26</time>
+ <p>It worked. But if available, Mac OS 15 and then in the curly brackets, the code that I want to execute. So in this case, some of the the modifiers that I wanted to put in and then what that'll do is if you're running Mac OS 15 or above, it's going to execute that code. If you're not, it's just not going to run it. You're not going to have a problem.</p>
+ <cite>Peter:</cite>
+ <time>06:50</time>
+ <p>It's as if it didn't exist. So I wanted to share that with you because you might not be aware of it and it's a great way to mix in features for that OS when it comes out or any other future OS's and also enable the app to run without having to raise your target level for your operating system. So in other words, in this case, it'll still run for Mac. My app will run for Mac OS 14 just fine and then when 15 comes along that'll be fine and they'll get the new fancy look of the things that I want, but it's also backwards compatible, which is super important right now. And you can really use this technique for anything.</p>
+ <cite>Peter:</cite>
+ <time>07:31</time>
+ <p>It doesn't have to be just for available APIs. Right? I think what you're recognizing here is basically you can put in that block anything you want. Right? Maybe you want a different icon for for different OS's or OS versions.</p>
+ <cite>Peter:</cite>
+ <time>07:46</time>
+ <p>Again, you can go either way or certain colors or whatever it may be. Any anything that you can dream up in your code, you can put in there and target it for specific versions that way. So I went to put that out there, and I wanted to share it with you because it's helping me get past the problem and providing me a way to do essentially everything I want without having to make difficult decisions on whether I'm making things available for certain users, whether I'm making the app available for certain users, whether I'm making the app available for the users that I needed to be including myself at this point like I say on Mac OS 14 or whether I'm restricting it to future ones, I this is my way of of being able to say great, do this for all of them. Now, yeah, in my case, it's only a cosmetic thing. But again, you can put in there any code you want and it's a way of dealing with those those APIs that might not be available on certain platforms.</p>
+ <cite>Peter:</cite>
+ <time>08:44</time>
+ <p>If this has been helpful, you know what to do. Tell someone about it. Leave a rating. Leave a review. If you wanna go the extra mile and support the future of this podcast because I really, you know, I'm not gonna lie to you.</p>
+ <cite>Peter:</cite>
+ <time>08:56</time>
+ <p>It's it's a struggle some weeks to to to not only get up the momentum to do the content, but also it's that time of year when everything renews, Domain names, hosting, everything else, and and I gotta pay for those as well. So if you wanna go that extra level and support future content, you can go to patron.com/compileswift , and I'll give you a mention on the podcast as a thank you, plus you get, you know, with the ad free versions. So thank you so much for doing that for the folks at home. And for the rest of you, that's what I got for you, and I will speak to you in the next episode.</p>
+</details>
