@@ -1,0 +1,691 @@
+---
+publishDate: 2024-08-23T00:00:00Z
+title: Plinky and being featured on the AppStore with Joe Fabisevich
+excerpt: I discuss Plinky and being featured on the AppStore with creator Joe Fabisevich.
+image: /images/blog-fi/2024/08-23.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e09
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+import CSLinks from '../../../../components/podcasts/cs-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/0a95db48"></iframe>
+
+<Player/>
+
+In this episode of the Compile Swift Podcast, I interviews Joe Fabisevich, an experienced iOS developer and indie app creator. Joe discusses his journey in app development, including his work at notable companies like Twitter and Bitly, and his transition to creating his app, Plinky.
+
+Plinky is a link-saving app designed for quick and customizable link organization. It features share extensions and an open API. Joe shares the app's origin story, which stemmed from his need to save and share links with his wife, Colleen. He emphasizes the app's speed, customizability, and extensibility, making it suitable for various users and workflows.
+
+The conversation also touches on Joe's experience of getting Plinky featured in the App Store shortly after its launch, which he describes as a validating moment. He credits his wife, a product marketer, for her support in the marketing process. Joe highlights the importance of intrinsic motivation in app development and the value of connecting with users through customer support.
+Listeners are encouraged to check out Plinky and follow Joe on social media.
+
+<CSLinks
+  link1="https://plinky.app/"
+  link1label="Plinky App"
+  link2="https://links.plinky.app/"
+  link2label="Plinky Newsletter"
+  link3="http://threads.net/@mergesort"
+  link3label="Joe on Threads"
+  link4="https://github.com/mergesort/boutique"
+  link4label=" Boutique on GitHub"
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Transcription
+ <cite>Peter:</cite>
+ <time>00:02</time>
+ <p>What's up, everybody? Welcome to another episode of the Compile Swift podcast.</p>
+ <cite>Peter:</cite>
+ <time>00:05</time>
+ <p>I've got a special guest with me this week. Some of you I'm sure many of you developers will know the name because, he is, he has a wonderful Slack that we all hang out on. It's a super secret place in the middle of the ocean somewhere. But I I have, I've got Joe Fabasevich with me this week and hopefully I didn't get the name too badly wrong. I I tried folks.</p>
+ <cite>Peter:</cite>
+ <time>00:27</time>
+ <p>I tried real hard. He has an application which you may have seen. You may well have seen in the App Store because it was featured. He's that much of a superstar. And so, Joe, please introduce yourself.</p>
+ <cite>Joe:</cite>
+ <time>00:40</time>
+ <p>That is a big promise. Superstar has a lot to say, but I do have an app in the App Store. So the app is called Plinky. Myself, I've been an iOS developer for almost or probably 15 years. I started working somewhere around iOS 3.</p>
+ <cite>Joe:</cite>
+ <time>00:56</time>
+ <p>So we're at iOS 18. I guess that's about the right time. And over the years, I worked at a lot of startups, some names that you may recognize like Bitly and TimeHop. Mhmm. And the last place I worked before going indie was at Twitter, back when that existed.</p>
+ <cite>Joe:</cite>
+ <time>01:11</time>
+ <p>I helped start and, at times, led our societal health team. We basically focused on improving the civic integrity of the platform. And that's a big way of saying we built and designed features that we're trying to minimize misinformation, disinformation, abuse, harassment, you know, something that current management doesn't seem to care too much about. But, yeah, now I do something very, very different. It's building personal playful productivity apps as an indie developer at my little one person shop, Red Panda Club.</p>
+ <cite>Peter:</cite>
+ <time>01:42</time>
+ <p>Fantastic. Well, so first of all, let me just say thank you for all the thing the all the good things you you did at Twitter and that, greatly appreciate that. We we certainly need more folks like yourself out there looking out for for what I call the people's interests. Right? And, also, thank you for Bitly.</p>
+ <cite>Peter:</cite>
+ <time>02:00</time>
+ <p>I I I don't use it so much now, but I was a huge Bitly fan for a long time. Yeah. Let's let's dive into this. So let we're gonna go through some history here and, some of the things you've learned along the way. But for those who don't know, and shame on them if they don't know, we will put lots of link in the show notes.</p>
+ <cite>Peter:</cite>
+ <time>02:19</time>
+ <p>Right? But tell folks what Plinky is and what it does. One of those origin stories. Why you know, how did you come to be like, I need this app?</p>
+ <cite>Joe:</cite>
+ <time>02:28</time>
+ <p>Yeah. I mean, so while we're talking about links, Plinky is an app that makes it really easy to save a link. Plinky has share extensions on the iPhone, the iPad, so you can save from any app. It has browser extensions for Chrome, Safari, and Firefox. It has a little menu bar app that I made called Plinky Mini, and it even has an open API so you can save links from anywhere with just one tap or one click.</p>
+ <cite>Joe:</cite>
+ <time>02:52</time>
+ <p>When you're ready to come back to your links, they're all there in Plinky complete with, you know, the organizational tools you would expect, like folders and tags, search, pinning, a whole bunch of stuff. More coming soon. And, yeah, there are plenty of apps on the App Store that do save links, but, I built Plinky in this, like, very extensible manner, and I think that it really shines in 3 ways. One, it's really quick and, I personally think, delightful and have been told so. Disable link to Plinky.</p>
+ <cite>Joe:</cite>
+ <time>03:18</time>
+ <p>And the reason it is is because I save links dozens of times a day, and all that time that I am saving links adds up. So I made speed a priority in Plinky. I wanted to save your links and get back to what you were doing quickly. And not only is it fast to save a link, but it's fast to just get in and out of Plinky. I don't wanna, like, spend all my time there.</p>
+ <cite>Joe:</cite>
+ <time>03:39</time>
+ <p>The next thing is that Plinky is, like, incredibly customizable. After years of trying out every single link saving product on the App Store, I never found one that just felt right for me. And so I've gone to great lengths to make every aspect of Plinky customizable. That way it becomes your home for links. And adding onto the customizability is extensibility.</p>
+ <cite>Joe:</cite>
+ <time>04:00</time>
+ <p>There are, like, really great read it later apps out there, but they're not particularly good for, I don't know, saving a cute animal video or a funny post on threads that you wanna share to your partner. And there are other apps that are great for long term archiving. They're really complex, made for creatives, but they're not very flexible. Like, you can't use one of them as a to do list for your links. And so I focused on making Plinky an app that works for all kinds of links, all kinds of workflows, and all kinds of people who wanna save links for later.</p>
+ <cite>Joe:</cite>
+ <time>04:27</time>
+ <p>So at the core of it, it's really just an app that helps you save links, whether those are articles, recipes, TikToks, and whatever strikes your fancy. If it's got a URL, Plinky can handle it. And, you know, much like most apps ideas on the App Store, it stemmed from my own needs. I mentioned before that I'm a huge, like, read it later user. I tried Pocket.</p>
+ <cite>Joe:</cite>
+ <time>04:46</time>
+ <p>I tried Instapaper. All of them are great products, and I I like them a lot. The use case for me with Plinky, though, wasn't saving articles. It kind of emerged in, 2021, just as we were exiting that COVID haze, and, I met my then girlfriend, now wife, Colleen. And shortly after we met, she discovered just how much I love links.</p>
+ <cite>Joe:</cite>
+ <time>05:09</time>
+ <p>I'm grateful that she did too when we first started dating. I asked if it wasn't too distracting to send her links during the day because I knew she would be busy with work. And she said, oh, yeah. That'll be fine. And then while she loved that, I was thinking of her and sharing interesting articles and things we could cook together or hikes we can go on or cute animal photos, it really did get distracting for her to have her buzzing her phone buzzing all day.</p>
+ <cite>Joe:</cite>
+ <time>05:35</time>
+ <p>So yeah. She suggested that I save the links for later. And, you know, as a person who has tried every app, I said, this will be easy. That way we could look together look at them, together at night. And I started filling up the notes app with links, but then I quickly found it to be just a disorganized mess.</p>
+ <cite>Joe:</cite>
+ <time>05:50</time>
+ <p>I couldn't actually tell one link from another. Yeah. So then I tried leaving dozens of browser tabs open because I'm a tab hoarder. But then I would lose them and forget about them. And then when Colleen came over, I wouldn't be able to find them.</p>
+ <cite>Joe:</cite>
+ <time>06:03</time>
+ <p>So they just kept piling up my computer. And then I tried adding links as to dos in Things, which is my Reminders app.</p>
+ <cite>Peter:</cite>
+ <time>06:11</time>
+ <p>Mhmm.</p>
+ <cite>Joe:</cite>
+ <time>06:11</time>
+ <p>And then I could not use Things because I had a jumble of links that I wanted to show Colleen. And so none of these systems worked. And one morning, I remember distinctly waking up and going, I have an idea for an app. And she was like, what is it? And I said, it's a small thing.</p>
+ <cite>Joe:</cite>
+ <time>06:26</time>
+ <p>It's just a place for the links. You know, we have this problem. So I built a prototype in a couple weeks and then we started to use it all the time. Then actually what happened was I started to show people, like this little app that I made for the 2 of us. They just loved the idea that I'd made an app for the 2 of us.</p>
+ <cite>Joe:</cite>
+ <time>06:39</time>
+ <p>When they saw the app, they were like, wait, actually, I could use this. Like I'm unhappy with one, you know, one way of saving links or another. And they kept telling me that they wanted an app like this for themselves. And a few months later, that's when I left my job at Twitter and decided I had long decided. It's like a basically a career long dream of mine to be an indie developer, but I decided that the thing I wanted to build was Plinky.</p>
+ <cite>Joe:</cite>
+ <time>07:03</time>
+ <p>It was something that had come along a decent amount in the, like, probably 4 or 5 months that I've been working on it on nights and weekends. And, you know, it took a long time because 2022 I left. And today though, it's a real thing. Plinky is an app. It's on the App Store.</p>
+ <cite>Joe:</cite>
+ <time>07:17</time>
+ <p>But for the 2 of us, it's it's it's more than an app really. It's a tool that we use every day, but we also have our own rituals around it. So sometimes, like, Colleen saves a cute video for me of like a black cat since we have a little black cat. And sometimes I save a hike we can take or something that we can make or place we can go. And then every night, the 2 of us come together.</p>
+ <cite>Joe:</cite>
+ <time>07:38</time>
+ <p>We share links that we would save for each other the same way that we've been doing for 2 and 2 or so years since before it was even on the App Store or before it was a dream. Mine to be working on it full time.</p>
+ <cite>Peter:</cite>
+ <time>07:47</time>
+ <p>Fantastic. Fantastic. So I'm gonna break it down a little bit here because</p>
+ <cite>Joe:</cite>
+ <time>07:51</time>
+ <p>Yeah.</p>
+ <cite>Peter:</cite>
+ <time>07:52</time>
+ <p>You've you've hit on firstly, you you've nowed all of the things that I do badly, and and, I'll break that down in a second. But you you've simplified it to great. You you've given us that one place. Give you some examples here. You see these things and you're like, oh, gotta share this with someone or I'll read it later.</p>
+ <cite>Peter:</cite>
+ <time>08:13</time>
+ <p>I I'm not gonna read it now. That that that's me. Right? For me Mhmm. Everything is always, I'll read it later.</p>
+ <cite>Peter:</cite>
+ <time>08:20</time>
+ <p>Right? Yeah. But the problem that I always have, I don't know if it's just me or this is developers in general. I hope it's not just me because that'll make me super paranoid. But I have lots of apps and lots of places to put all these things.</p>
+ <cite>Peter:</cite>
+ <time>08:34</time>
+ <p>And then later on, you're like, oh, shoot. Where did I put that? And I have tried to solve this over the years, like you mentioned, notes, you know, numerous apps. Right? All these kind of things.</p>
+ <cite>Peter:</cite>
+ <time>08:46</time>
+ <p>Bookmarks in browsers, and then you're using a different browser when it's not there and all of that kind of stuff, including those services that are sort of one of those, like, just gather them all in one place, but it's it's still a bookmark. And if you don't give it a a something meaningful, you're sitting there thinking</p>
+ <cite>Joe:</cite>
+ <time>09:04</time>
+ <p>Mhmm.</p>
+ <cite>Peter:</cite>
+ <time>09:04</time>
+ <p>What was that thing about? You know? Or eventually, as I'm guilty of, especially with the Safari store it, read it later, is I just forget about them completely. Yeah. And, you know, what it reminds me of, the the only solution I ever found that mostly worked.</p>
+ <cite>Peter:</cite>
+ <time>09:22</time>
+ <p>Do you remember I I don't even know if it's still around anymore. There was an app called Yojimbo and Oh, yeah. Did you yeah. You remember that one? That was the only one where it was like, okay.</p>
+ <cite>Peter:</cite>
+ <time>09:33</time>
+ <p>Great. At least I can I've got a spot to put everything. But it was very much put it in there. That was it. Right?</p>
+ <cite>Peter:</cite>
+ <time>09:42</time>
+ <p>Mhmm. And so some of the key areas in your app, I I think, is kind of we use that Apple phrase, a delightful experience. Right? Is, like you said, it's very simple, very straightforward, very quick and easy to use. I also love that you have, like you say, you've got some tags, you know, tags and all the organization in there.</p>
+ <cite>Peter:</cite>
+ <time>10:03</time>
+ <p>But one of the things that stands out to me is you've taken some of the pain out of it for me because as as and and folks go go get the app. Just trust me. Download it. Take a look at it. Please.</p>
+ <cite>Peter:</cite>
+ <time>10:15</time>
+ <p>Yeah. Please. Yeah. Please. Please.</p>
+ <cite>Peter:</cite>
+ <time>10:17</time>
+ <p>Please. Because you'll sit and watch the little bottom bar with all the tags in that as they scroll past, you know. You have all of these suggestions. That's the other thing for me is I've I, you know, I over complicate my life. Right?</p>
+ <cite>Peter:</cite>
+ <time>10:32</time>
+ <p>I'm like, oh, what what's a good tag for this? And then next time you're like, oh, what's a good tag for this? And and you end up with similar tags, but not the same. Right? And so I love the idea that you're suggesting these tags and I'm like, oh, yeah.</p>
+ <cite>Peter:</cite>
+ <time>10:46</time>
+ <p>I'll just go with that one because it's a podcast link. It's a whatever it may be, a movie, a a book. And you've taken the pain out of, like, we'll we'll just tap one of those. Right? You know?</p>
+ <cite>Peter:</cite>
+ <time>10:58</time>
+ <p>Use it how you wanna use it. Right? So talk about that.</p>
+ <cite>Joe:</cite>
+ <time>11:02</time>
+ <p>Yeah. So you touched on quite a few things. I took a few notes. And I think there's one thing that I've never thought of that really came to mind as you were saying, there are so many things that you want to do with an app. I have built Plinky ideally not as not every tool in your arsenal at once, but it's a tool for everybody.</p>
+ <cite>Joe:</cite>
+ <time>11:21</time>
+ <p>And so that customizability and extensibility means that what I want it to be is for a person who wants a read it later app, it's a read it later app. For a person who wants an archiving app, it's an archiving app. I built it really just for people who are like my mom, not people who are have 30,000 links saved. I will get there in terms of being able to support all those use cases, but I consider it almost like a Swiss army knife for links. So I really thought long and hard about this.</p>
+ <cite>Joe:</cite>
+ <time>11:48</time>
+ <p>I even read quite a few books on knowledge management. So the science between folders and tags and search and archiving and all this stuff. And I thought I had some sort of like genius system where everything was a tag. And then as regular people started to use it, I realized I was making a complete mistake and I just should depend on these tools. And people always ask, when do I use a folder versus a tag?</p>
+ <cite>Joe:</cite>
+ <time>12:11</time>
+ <p>And my answer is, it's really up to you. Like what works for you? I've over time started to give folders and tags their own meaning, I would say. So folders are where you put something and tags are more like annotations. But the system remains flexible enough that if someone comes in and says, yeah, I'm a tag person.</p>
+ <cite>Joe:</cite>
+ <time>12:27</time>
+ <p>I really wanna use tags. That's fine. And in fact, in a future version, I'll even let you customize the tab bar at the bottom to say, you never use folders, remove it. Like, I don't care. I want this to be truly your home for links.</p>
+ <cite>Joe:</cite>
+ <time>12:40</time>
+ <p>That design that I started with was very similar to what's there today, but I'll actually take a step back and talk about how the name came to be. Originally, the project was called Linky because I just needed some sort of name to name the Xcode project. And then, one day I was at Colleen's place and I realized, I'm like, oh, I can make this really neat animation and I'm sure you've seen it once Plinky launches. There's this little animation where it goes, p it says p l I n k and the little y jumps into the tab bar. And if you have your sound on, it actually makes a little plink sound.</p>
+ <cite>Joe:</cite>
+ <time>13:14</time>
+ <p>And I just went, oh my God. Plinky. I should name this Plinky. And then once that happened, it's like a light bulb went off in my head and I said, everything needs to be fun. Everything needs to be interactive.</p>
+ <cite>Joe:</cite>
+ <time>13:26</time>
+ <p>It needs to be simple and straightforward that someone who uses, you know, standard Apple apps can figure out. It's a list of links. Yeah. But everything needs to be something you can touch and feel and play with.</p>
+ <cite>Peter:</cite>
+ <time>13:39</time>
+ <p>And and I I'm glad you explained how we got the name because that was one of my things was when I first saw the app, I'm like, okay. I get the link part, and I'm thinking, Plinky. Is it you know you know when you're like, is it because it sounds cute because it is cute? And then I'm like, but how did you come up with plinky? So now you've explained it.</p>
+ <cite>Peter:</cite>
+ <time>13:58</time>
+ <p>So thank you. That that's, like, check that one off the list. Right?</p>
+ <cite>Joe:</cite>
+ <time>14:02</time>
+ <p>Well, I I think that for me, I'm like a very textual person who has a lot of history doing a lot of writing and things like that. And so when words, they have a space in my brain that's also connected to like the visual part and the feel of something. And so it took me a long time to get to Linky, but almost always whenever I open up an Xcode project, I'm like, oh, yeah. Like, I had an idea for an app and great. Like, I have this idea.</p>
+ <cite>Joe:</cite>
+ <time>14:27</time>
+ <p>It's I'm not gonna spill the whole app idea, but it's an app that makes it easier to interact with databases. And I was like, oh, it should be called Databay. It was just obvious. And I was like, well, now I can open the Xcode project.</p>
+ <cite>Peter:</cite>
+ <time>14:39</time>
+ <p>Oh, I'm glad I'm glad you could do that. I one, there must be a clinic out there I can go to that's gonna fix me of this. Right? It's like You just have</p>
+ <cite>Joe:</cite>
+ <time>14:46</time>
+ <p>to read 50 books.</p>
+ <cite>Peter:</cite>
+ <time>14:48</time>
+ <p>That that there you go. Because I'm thinking, like, I should not be spending this much time on this thing. It's one thing if you're like, okay. I get that I went through 50 designs for the icon. That's important.</p>
+ <cite>Peter:</cite>
+ <time>14:59</time>
+ <p>But, you know, when it's like, I can even change this name on the home screen of device x. Right? It doesn't and I'm like, it's just a project name. Just you know, when you're sort of talking to yourself, you're like, Peter, just get over it. Put in anything.</p>
+ <cite>Peter:</cite>
+ <time>15:15</time>
+ <p>You know?</p>
+ <cite>Joe:</cite>
+ <time>15:16</time>
+ <p>There are few words I say more than I say the word plinky these days, so it's a pretty important thing for me to name.</p>
+ <cite>Peter:</cite>
+ <time>15:20</time>
+ <p>Do you now find yourself going around like just plink? Plink? Plink? Plinky? You know?</p>
+ <cite>Joe:</cite>
+ <time>15:25</time>
+ <p>That's the verb, actually. When you save a link, it's called plinking.</p>
+ <cite>Peter:</cite>
+ <time>15:28</time>
+ <p>I was gonna say, I love this that in my head, I'm like, oh, click. It's gone. You know? That that</p>
+ <cite>Joe:</cite>
+ <time>15:33</time>
+ <p>That's right.</p>
+ <cite>Peter:</cite>
+ <time>15:34</time>
+ <p>It just so works. Right? And now I'd also I want to touch on the sharing part. Right? Because Yeah.</p>
+ <cite>Peter:</cite>
+ <time>15:41</time>
+ <p>You you know, this is another thing where a lot of apps are designed for, like, the the the meeting. Right? It's like save it for me. Right? And then maybe I share it, but I, you you know, I gotta leave the app to share it and all those kind of things.</p>
+ <cite>Peter:</cite>
+ <time>15:55</time>
+ <p>You know? And and even Apple now, you know, with notes and and all the their their built in apps are starting to more embrace this, you know, like, the idea of the shared calendar. And it's like, yeah. Why isn't everything have a shared photo album and a shared this and everything else? And I love the idea of the the shared links because I wanted to touch on this.</p>
+ <cite>Peter:</cite>
+ <time>16:16</time>
+ <p>This is the other thing that gets me, and and I've not tried it yet with with Plinky, so we'll see. You know, you see something on because we'll go down these rabbit holes, like you said, like cat photos. Right? Yeah. Who doesn't do that?</p>
+ <cite>Peter:</cite>
+ <time>16:30</time>
+ <p>You know? And so you're going through and you see, like, these cute things on on Instagram or whatever it is. And then you're like, yes. Gotta remember to show someone that later on. And then you go back and because of algorithms, it's like, nope.</p>
+ <cite>Peter:</cite>
+ <time>16:43</time>
+ <p>Gone. Never gonna see it again. You know? And so this idea of, great, if I just put it in this shared thing, I don't even have to tell people about it at that point. So Mhmm.</p>
+ <cite>Joe:</cite>
+ <time>16:54</time>
+ <p>You</p>
+ <cite>Peter:</cite>
+ <time>16:54</time>
+ <p>know, I I think the sharing is an important aspect. I'm curious, and you don't have to give away all the details. Do you use Apple's technologies on the back end for that, whatever it may be, core data, CloudKit, those kind of things? Or did you sort of go with a homegrown, made your own approach?</p>
+ <cite>Joe:</cite>
+ <time>17:14</time>
+ <p>Yeah. I actually built it on my own stack. So I do use Vapor on the server. And</p>
+ <cite>Peter:</cite>
+ <time>17:20</time>
+ <p>Great. Great.</p>
+ <cite>Joe:</cite>
+ <time>17:21</time>
+ <p>Yeah. The app architecture is based on an open source project I maintain, I built. It's called Boutique. Boutique is this it's a library that basically gives you full offline storage in your app no matter what app in only three lines of code. And it's definitely it's got a cup I I know at least a 100 or so apps are using it out there.</p>
+ <cite>Joe:</cite>
+ <time>17:43</time>
+ <p>It's very neat because it just uses property wrappers. So instead of writing at state, you write at stored. And then when you update your database or when you update the data, it saves it to memory. So it updates the value and all those values propagate out through your app, but it also saves it to a storage engine, which most people use the SQLite storage engine. And that means that when you launch your app, all the data is already there.</p>
+ <cite>Joe:</cite>
+ <time>18:12</time>
+ <p>And so it's much simpler than core data and it's much more extensible in a lot of ways. But the most important thing is when you build a core data app, you're building a core data app. Like even with Swift data, you have this, you know, all these property wrappers or specifically ways that you have to rearchitect your app even if it's just a little bit. And when you're using boutique, you actually are writing the same code that you would have written if your app if your state was local. And so this was funny enough, the second commit to Plinky was this giant library because I took a 4 month diversion and built it and open sourced it.</p>
+ <cite>Joe:</cite>
+ <time>18:53</time>
+ <p>It was actually like a month or 2 and then people loved it. And so I spent another month or 2 basically productionizing in the way that it can handle hundreds of thousands of objects. And there's still things I wanna do, and I plan to do probably in a month in about 2 or 3 months to bring it kind of into the observable world. But it's honestly the best infrastructure investment I've ever made. And so, I like, I'm not gonna say core data is bad.</p>
+ <cite>Joe:</cite>
+ <time>19:22</time>
+ <p>I just don't have a preference for it. But it was it's a very crucial part of what makes Plinky work.</p>
+ <cite>Peter:</cite>
+ <time>19:28</time>
+ <p>Very interesting. Yeah. So this gonna have to check this out. And and, you know, definitely send me the links. We'll put it in the show notes for</p>
+ <cite>Joe:</cite>
+ <time>19:36</time>
+ <p>folks. Absolutely.</p>
+ <cite>Peter:</cite>
+ <time>19:37</time>
+ <p>I'll have to play with this because, this sounds intriguing. So this just basically ties in with your again, I could spin up my own Vapor back end and and tie it in there. Is it fair to call it remote syncing still? You know, you've got this local cache or is it it's purely local?</p>
+ <cite>Joe:</cite>
+ <time>19:56</time>
+ <p>It's purely local. But what's interesting is the storage engine itself is an actor. So Okay. You can use either an actor or a distributed actor to build this kind of architecture. And I know someone who has.</p>
+ <cite>Joe:</cite>
+ <time>20:08</time>
+ <p>Actually, they built one person built a, mesh network on top of boutique by building their own storage engine because the storage engine protocol is simple. It's just define read, write, get all keys, and a few other methods that basically shape the structure, but they're all async, which means your async structure could be getting your response in milliseconds because it's happening with the database, or it could be seconds if you are connecting it to a server. So Sure. It's all possible, but out the box, I ship SQLite and file system just as proof of concept for file system to say, this is how you could build your own if you want. And the truth is that for 99.9% of people, SQLite will get them a 100% of the way, and so there's no need for them to ever look anywhere else.</p>
+ <cite>Joe:</cite>
+ <time>20:55</time>
+ <p>The vapor portion for me is I wanted to have my own database, not because CloudKit is bad, but because there are features that I want to build that will involve collaboration. So for example, you mentioned, sharing. Right? Sharing to the app is a feature that obviously is the whole point of the app at the moment. The next version of Plinky is gonna focus on iOS 18.</p>
+ <cite>Joe:</cite>
+ <time>21:20</time>
+ <p>So app intents and widgets and all that really cool stuff that Apple announced. Then I will be building a full Mac app. The current Mac app is the iPad app runs on Mac. It runs well Yep. But I really want, like, a native Mac app.</p>
+ <cite>Joe:</cite>
+ <time>21:34</time>
+ <p>And then the feature that I'm gonna invest in after that is the idea of having shared folders. So you and a partner or you and a group of friends or you and whoever can have one folder where I drop a link in and you see it immediately. So that way if you want to you know, if there's some reason for collaboration, if there's some reason that you have where it's, like, it's important for you and someone to have links together, whether it's a workplace, whether it's, you know, a relationship, that will be available to you. So it takes sharing into Plinky and turns it into a thing where you can share with the people in your life, similar to what you mentioned about notes and reminders and Apple embracing all of that.</p>
+ <cite>Peter:</cite>
+ <time>22:12</time>
+ <p>Cool. Oh, that that's gonna be very awesome. Yeah. And, you know, I I love the idea that it's it's breaking free from like you say, you know, I've never had too many problems with core data. I know I've now kiss of death right there.</p>
+ <cite>Peter:</cite>
+ <time>22:27</time>
+ <p>So I'm actually building an app for myself at the moment, and, it was my excuse to say, alright. We we're gonna do this from the ground up with swift data, which really, to all of us, is, like, it's just core data made pretty or prettiest. You know? You know that you are I don't wanna say locked into a system, but you know the constraints going in. If there's any major shift in core data or swift data, you know, anything like that, you have to move with them, right, especially for breaking things.</p>
+ <cite>Peter:</cite>
+ <time>22:59</time>
+ <p>And so anytime you can, you know, come up with your own system that says they're my constraints. If I get it wrong, it's on me. If I want to do something else, that's on me too. And, yes, like you mentioned, the there's the, you know, the upfront time of building it. Yeah.</p>
+ <cite>Peter:</cite>
+ <time>23:16</time>
+ <p>But at least you know that you are, you know, you're you're taking it down the path you want it to be as opposed to saying, okay. You know, I've gotta do certain things this way. I'm enjoying the swift data. I I will say that, you know, it's it's working out, but I'm not I'm not pushing the limits on it by any stretch.</p>
+ <cite>Joe:</cite>
+ <time>23:35</time>
+ <p>It's definitely a double edged sword because if I want to if I want something to exist in boutique, I have to build it. Right?</p>
+ <cite>Peter:</cite>
+ <time>23:43</time>
+ <p>Yes. Yeah.</p>
+ <cite>Joe:</cite>
+ <time>23:43</time>
+ <p>If I'm saying I wanna focus on Plinky, then it means I'm not working on boutique. I might be when it's in service of Plinky, but that's Plinky product time I'm not working on. And it's a real consideration when I think about, you know, it currently needs to add observable support. There's a branch that adds it, but I need to go clean it up and make it documented, and I need it to be something that can be open source. And then I have to do breaking changes and make sure that I support it properly.</p>
+ <cite>Joe:</cite>
+ <time>24:11</time>
+ <p>But on the other hand, if I want something, then I can build it. And that's a real advantage. That said, it's great when Apple gives you something for free. Right? IOS 18 comes out, and Swift data has this new feature.</p>
+ <cite>Joe:</cite>
+ <time>24:21</time>
+ <p>And yeah, sure, you might not be able to use it for a year or 2 for whatever reason. But it's great. Like, I love getting stuff for free. So it's really about the trade offs that you want. In my case, I'm not recommending that people spend 4 months of their life building a database.</p>
+ <cite>Peter:</cite>
+ <time>24:35</time>
+ <p>Oh, everybody should do it once. Come on.</p>
+ <cite>Joe:</cite>
+ <time>24:38</time>
+ <p>You know, I I will admit, I learned a ton in the process, and I learned a ton about databases. For example, boutique v 1 shipped with that file system storage engine. And pretty quickly, I hit limits like f around 10,000 objects takes about 0.25 seconds to load all the data in the database. And I was like, why is that? These objects are small.</p>
+ <cite>Joe:</cite>
+ <time>24:58</time>
+ <p>And, you know, when you get to 40,000 objects, it's one whole second. And that's when you start to notice real lag. I said, why is this happening? And I realized every time you read a file, there's a file system lock and unlock for resources, and it's actually really slow. I would have never learned any of that if I hadn't done this project.</p>
+ <cite>Joe:</cite>
+ <time>25:17</time>
+ <p>And then I said, gosh, what alternatives are there? And I looked into SQLite and there's this blog post called SQLite is 35% faster than the file system. And it goes really it's like a really long post. It goes really in-depth into why, but the, you know, the short answer is you don't have to lock can unlock the file system. So SQLite is way faster.</p>
+ <cite>Joe:</cite>
+ <time>25:36</time>
+ <p>And so boutique does this hack where I could take your object and convert it into SQLite compatible data and figure out how I should structure each table based on the data in that you're trying to persist. But instead, I just use SQLite as a key value store, the way that I would files. And it's really fast, and I don't have to deal with any of the, woah, like, how do I construct the right table? I was able to build it in one night instead of weeks upon weeks of work. And so even coming up with that hack was a lesson that I learned.</p>
+ <cite>Joe:</cite>
+ <time>26:07</time>
+ <p>Like, oh, actually, anything you want to do in technology is pretty much doable, and you just have to really learn about what you're doing, and then you can figure out interesting solutions.</p>
+ <cite>Peter:</cite>
+ <time>26:18</time>
+ <p>Yeah. You you're right. You have to definitely pick and choose, you know, when you should roll your own or just say I should use this other one because it exists and it solved the problem and, you know, go with that. I do alright. Here it is.</p>
+ <cite>Peter:</cite>
+ <time>26:36</time>
+ <p>The one thing that I cannot do without every day, and that is my coffee. Anyone that knows me or anyone that's listened to any of my podcasts or anything else knows that I absolutely cannot operate without my coffee and I love good coffee. So here's the deal. I'm gonna give you one free bag of coffee by going to peterwidham.com forward slash coffee. There is a wonderful company out there that follows the fair trade practices, helps out a lot of independent roasters of all sizes, and the operation is simple.</p>
+ <cite>Peter:</cite>
+ <time>27:09</time>
+ <p>What you do is you're gonna go to to peterwidham.com forward slash coffee. You sign up there. You get a free bag of coffee sent to you. Yes. In return, they say thank you to me by giving me some coffee, but that's not the reason I'm doing this.</p>
+ <cite>Peter:</cite>
+ <time>27:25</time>
+ <p>The reason I'm doing this is because I have found so many good coffees that I just would never have come across, heard about or experienced without this service. Trade coffee is just fantastic. You know, there are plenty of places out there. We all know them that supply coffee, good coffee. You can go to the store, get the coffee, but there is nothing better than discovering new independent roasters and supporting them, discovering new flavors of coffee, new grinds for you can set it up.</p>
+ <cite>Peter:</cite>
+ <time>27:58</time>
+ <p>It's very smart. You tell it the kind of coffee you like and over time it gets better and better as it trains in on your selections and your choices and gives you exactly the coffee you're looking for and recommending new ones that that will be very similar. Every time I get a new packet of coffee, I go through and afterwards I try the coffee, I go through the service and I say, look, I loved this coffee. I thought this coffee was okay or I say, look, I've this was really not for me. And every time I do that, it makes the service a little more accurate on the next selection for me.</p>
+ <cite>Peter:</cite>
+ <time>28:32</time>
+ <p>So again, just go to peterwhidham.comforward/coffee. Get your free bag of coffee today. If you're a coffee lover, you're gonna really appreciate this service. I have been using it for years at this point and thoroughly recommend it. We wanna touch on I I wanna hit the story behind this and how it made you feel when you discovered that you were featured in the App Store.</p>
+ <cite>Peter:</cite>
+ <time>28:55</time>
+ <p>Be talk about that because, you know, that's something I think and I I've I've spoken about this on the podcast before, with folks. It's something everybody dreams of. You know, did you just sort of wake up one day and you're like, oh, there it is.</p>
+ <cite>Joe:</cite>
+ <time>29:10</time>
+ <p>When I was starting 2024, before Plinky was in the App Store, you know, I create, like, a yearly theme. What do I wanna do this year? And just, like, kind of directional ideas. North stars. And I didn't expect to achieve all of them, and I haven't.</p>
+ <cite>Joe:</cite>
+ <time>29:24</time>
+ <p>The first one was get Plinky featured on some sort of well known trade publication. It could be TechCrunch. It could be Mac stories. It could be 9 to 5 Mac, generating Fireball, all those things that people read. More in the space are probably something like Lifehacker, any of them.</p>
+ <cite>Joe:</cite>
+ <time>29:37</time>
+ <p>I would just be happy. I launched in May. So at the beginning of 2024, still 5 months before launch, I just wrote, like, have Flink to be featured on one of these sites, and I would be over the moon. And then the other one I wrote was happily can be featured in the App Store. And that one, you know, I've been a I was over 15 years, and I've worked on some great apps that have gotten featured, but it's never been my own.</p>
+ <cite>Joe:</cite>
+ <time>29:59</time>
+ <p>It's never been, like, something that I was a 100% responsible for. I can take credit for this. Like, Simone Biles wins gold at the Olympics. She did it, right? Yeah.</p>
+ <cite>Joe:</cite>
+ <time>30:08</time>
+ <p>Yeah. I just honestly had this belief. Like I said, come hell or high water, I'm going to make this happen. And of course, I'm a very like Bayesian type person. I'm like, well, you can do the things that get you closer to the thing that will happen, but you can't guarantee results.</p>
+ <cite>Joe:</cite>
+ <time>30:23</time>
+ <p>But in my heart, I was just like, I'm gonna make it happen. I don't know how, but it's gonna happen. And, you know, the thing that I did was take all the steps that needed to make it happen. And we can touch on that in a little bit. But Yeah.</p>
+ <cite>Joe:</cite>
+ <time>30:33</time>
+ <p>Yeah. I think getting featured, especially so soon after launching, just really validating. I I it felt so special because I've been working I've been giving back to the community. I've been doing all these things in the belief that good service is what you're supposed to do. Building good products is what you're supposed to do.</p>
+ <cite>Joe:</cite>
+ <time>30:52</time>
+ <p>And it's just lessons that I've learned since I was a kid. It wasn't it's not transactional. It's not you do good things and expect good things in return. It's you do good things and occasionally good things happen to you, and that's what makes them so sweet. So the thing is, like, Plinky's been out for 2 and a half almost 3 months.</p>
+ <cite>Joe:</cite>
+ <time>31:08</time>
+ <p>But I look at Plinky and I see all of its flaws. Like, I get really excited when I use Plinky and I go, oh, this feels so good. But then I think about all the features I'm gonna build. And I think, wow. Like, still such a long road.</p>
+ <cite>Joe:</cite>
+ <time>31:19</time>
+ <p>And I I'm invested in this. I'm an indie developer who's spending my time building this. And so I know it's a long road. Yet here's Apple saying, we're willing to put your app on our most important surfaces, and that's just special. Like, the metaphor I would use is it's probably a lot like what getting into Harvard feels like.</p>
+ <cite>Joe:</cite>
+ <time>31:39</time>
+ <p>There's this rush of excitement. There it feels special, but also a lot of amazing apps don't get featured. Right? Like, it</p>
+ <cite>Peter:</cite>
+ <time>31:47</time>
+ <p>They're right.</p>
+ <cite>Joe:</cite>
+ <time>31:47</time>
+ <p>There are in fact, it's the great majority of apps. So to be an app that gets featured does feel really meaningful. But at the same time, you know, I earnestly believe that not getting featured doesn't mean your app isn't good. The same way that I went to a state school. And just because it was an Ivy League, I don't feel like I'm a dumb person for not having gone to Harvard or Yale or wherever.</p>
+ <cite>Joe:</cite>
+ <time>32:07</time>
+ <p>I think, you know, watching the news or watching the world, there we can see plenty of dumbasses who went to Harvard. So it's not a guarantee by any means.</p>
+ <cite>Peter:</cite>
+ <time>32:15</time>
+ <p>I think I I you know, I love what I'm hearing because for me, when I when I first thought about transitioning to, okay, I'm gonna do mobile full time. Right? Mhmm. I have a day job. I work for a company, working on their apps, but there was still that conscious shift of mobile feels like the thing I wanna do.</p>
+ <cite>Peter:</cite>
+ <time>32:37</time>
+ <p>Mhmm. It happened to coincide with the Swift in 2014. You know, I was a web developer and Flash developer and all that stuff. So, you know, when Swift came along, it was I I realized this is my avenue. But what I realized quickly and what I I think the reason that I think it's so great, to work on this stuff is the App Store is a great leveler.</p>
+ <cite>Peter:</cite>
+ <time>33:03</time>
+ <p>Right? Just like you can publish anything to the web or anybody can publish, same with the App Store. And I think it comes down to a lot of that belief of, like you say, you have to believe in what you're doing. Right? You know?</p>
+ <cite>Peter:</cite>
+ <time>33:17</time>
+ <p>And and, yes, we all have those days of, like, oh my gosh. Am I doing the right thing? Is this really gonna work out? I think, like you mentioned, sometimes you just something inside you says, I'm on to something here. Right?</p>
+ <cite>Peter:</cite>
+ <time>33:30</time>
+ <p>Yeah. The fact that I'm still working on this, you know, personally, I couldn't think of a better validation other than your customers saying to you, great job. Right? Yeah. Is to be recognized by the peers of the very system you're using where they say, great job.</p>
+ <cite>Peter:</cite>
+ <time>33:47</time>
+ <p>And especially early on, like you say, milestones, you've got a a road map and everything else. But to get it so quickly is great justification for saying every second I spent on it, every painful decision I made was worth it. Right?</p>
+ <cite>Joe:</cite>
+ <time>34:00</time>
+ <p>Yeah. I mean, you nailed it. I don't think I can put that into better words. I will say that love getting emails from from customers or even just plinky users who haven't become customers yet. I realized in the time that I was working on this, I just missed that connection between the software I was making.</p>
+ <cite>Joe:</cite>
+ <time>34:16</time>
+ <p>I had a couple of 100 people on the beta, and anytime anyone told me something, I was like, this is great. Like, a person telling me something. But when I first started hearing, from people who were, like, in Greece or Bulgaria, and I'm like, I don't know anyone in Bulgaria. Someone found this on the App Store and really cares enough to reach out to me. And I put a 100% into my customer support.</p>
+ <cite>Joe:</cite>
+ <time>34:37</time>
+ <p>I'm writing every word. I care I'll I care a lot about creating a connection over email even if it's I think on one level, like, it's a form of sales. Right? It's a person who emailed I've had people email with like, I love this, but blah blah blah blah blah blah is broken. And I will email them, like, with genuine apology.</p>
+ <cite>Joe:</cite>
+ <time>34:57</time>
+ <p>Like, hey. I'm working on this. I explained why it's not working, and then I go into depth. I ex you know, I I make sure that I really bring them along for the journey. And And then the emails I get back are like, oh my god.</p>
+ <cite>Joe:</cite>
+ <time>35:12</time>
+ <p>Not only did I not expect a person to respond, I didn't expect this level of care and thoughtfulness. And as we kinda touched on with the app itself, I generally live my life as if I put care and thought into everything I do. And I will admit that it takes a lot of effort. It's occasionally exhausting and I find myself burnt out, but I wouldn't do it any other way. And so, honestly, yeah, like the emotions I felt when I got featured and we can talk about what that actual moment was like, but it it's a bit how it's a bit like kinda how it's hard to describe falling in love.</p>
+ <cite>Joe:</cite>
+ <time>35:44</time>
+ <p>You could describe it as 2 people really, like, want to share their emotions and spend their life together, and they want to commit to building a better existence for each other and that they feel all these feelings and all these words that if you've ever been in love, none of the words can ever do it justice. Right? And so I'm not saying it was the same as meeting my wife. And in fact, if she's listening, I promise it wasn't. But actually, no.</p>
+ <cite>Joe:</cite>
+ <time>36:10</time>
+ <p>I I I want to be very direct and honest. My wife is a product marketer, and so she helped me tremendously in this process. And I credit her with a big chunk of why I was featured. Like, the the software, I can write myself. The design, I can do myself, putting up the website, but you can lead a horse to water.</p>
+ <cite>Joe:</cite>
+ <time>36:28</time>
+ <p>And in this case, I was absolutely the horse, you know, who needed to be led to water. And so without her, I'm confident that it wouldn't have gotten featured. So, my number one piece of advice that I tell people is marry a product marketer. But if you can't do that, I will, at some point, probably in the next month or 2, have a blog post that tries to take this, share it with people so that way more amazing apps can get featured.</p>
+ <cite>Peter:</cite>
+ <time>36:52</time>
+ <p>Great. And we we will definitely share that with folks when it comes out because, you know, that is the one of the areas that I often say to folks is like, look. You know, you can you can learn all the technical things. Right? All the very black and white programming type things.</p>
+ <cite>Peter:</cite>
+ <time>37:08</time>
+ <p>Right? Very binary. And then and this happens in our Discord. Shout out to the Discord folks. And, you know, then you get to that part of, ah, now it's the business side.</p>
+ <cite>Peter:</cite>
+ <time>37:22</time>
+ <p>Now it's the marketing, the publicity, and Yeah. You know, all those things is like, okay. I know I've got a great product. How do I tell the world I've got a great product? That that to me is way more stressful than any amount of development because to for me, the development side is very much a you make this decision, you go with this.</p>
+ <cite>Peter:</cite>
+ <time>37:41</time>
+ <p>It's wrong, you change it.</p>
+ <cite>Joe:</cite>
+ <time>37:43</time>
+ <p>It's also enjoyable.</p>
+ <cite>Peter:</cite>
+ <time>37:45</time>
+ <p>Exactly. That's</p>
+ <cite>Joe:</cite>
+ <time>37:45</time>
+ <p>why you do what you do.</p>
+ <cite>Peter:</cite>
+ <time>37:47</time>
+ <p>Exactly. That that's always kind of like, that's my safe zone. Right? Same. You know?</p>
+ <cite>Joe:</cite>
+ <time>37:51</time>
+ <p>Same here.</p>
+ <cite>Peter:</cite>
+ <time>37:52</time>
+ <p>Yeah. And then, you know, when it comes to the other side of it, it's like, I think I got it right. But it's always great if you've got someone else who who knows this stuff and they can say, maybe tweak this a little bit or leave this with me. I'll I'll I'll fix this up for you because it can be stressful. Right?</p>
+ <cite>Peter:</cite>
+ <time>38:10</time>
+ <p>And then, you know, the the reason I was saying about, like, the App Store was I've spoken to some folks in the past and they're like, oh, and it was a huge success in the App Store. And then the following day, you know, something went down and and they were freaking out. And they're like, oh my god. You know? It it totally killed their system because they never expected this kind of volume or for this to happen.</p>
+ <cite>Peter:</cite>
+ <time>38:34</time>
+ <p>Right? You know, you you dream and you're like, oh, that'd be great. And then the next thing you know, you get this the the bandwidth bill come in, and you're like, oh my gosh. You know? You know, hearing folks get excited about their stuff when it goes up in the App Store, they get featured, or like like in my case, I always set myself small goals because everything I do outside of the day job is is just a side thing.</p>
+ <cite>Peter:</cite>
+ <time>38:59</time>
+ <p>Right? And there's only so many hours you can put to that. So I set myself small achievable goals so that I hopefully don't get too disheartened when it's like, oh, it's just not going right. You know, and and so I celebrate those little wins. And that's what when folks ask me about this stuff, and I don't know if you get this, but I get this quite often.</p>
+ <cite>Peter:</cite>
+ <time>39:22</time>
+ <p>They're like, how do I get into this? I wanna do this. How do I do this? And it's like, okay. Understand that you should set yourself small goals.</p>
+ <cite>Peter:</cite>
+ <time>39:29</time>
+ <p>It may be nothing in the big picture, but it should mean everything to you when you do it. Right? Because you're not whoever it may be, and you're gonna get a 1,000,000,000 downloads and a $1,000,000 a year and and things like that. Right? If that's your goal from the outset, good luck with that.</p>
+ <cite>Peter:</cite>
+ <time>39:46</time>
+ <p>You know? But if your goal is more like, I wanna sell one copy of something, and then you achieve that, that is way more rewarding than selling the millionth copy. Do you know what I mean?</p>
+ <cite>Joe:</cite>
+ <time>39:59</time>
+ <p>Yeah. But if I sold the millionth copy, I'd be a lot richer. So I don't know which one's much more rewarding.</p>
+ <cite>Peter:</cite>
+ <time>40:03</time>
+ <p>Yeah.</p>
+ <cite>Joe:</cite>
+ <time>40:04</time>
+ <p>No. But I'll tell</p>
+ <cite>Peter:</cite>
+ <time>40:04</time>
+ <p>you what. You you know, but yeah. No. I know what you mean. It's like, get the one copy.</p>
+ <cite>Peter:</cite>
+ <time>40:08</time>
+ <p>Right? Get the 10. Set a 100. Work your way up to the million. You know, don't ever not want the million.</p>
+ <cite>Joe:</cite>
+ <time>40:16</time>
+ <p>There is this book I remember picking up. I remember picking up a book early in,</p>
+ <cite>Peter:</cite>
+ <time>40:20</time>
+ <p>Hey, folks. If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter. You can go to patreon.comforward/compileswift, where you will get ad free versions of the podcast along with other content.</p>
+ <cite>Joe:</cite>
+ <time>40:40</time>
+ <p>In my programming career, and it was called learn c plus plus in 21 days. And I was very intrigued by the title. Like, it's only 21 days to learn c plus plus And I think the first sentence goes, welcome to the first day of your 10 year journey. And I was like, that checks out. Yeah.</p>
+ <cite>Joe:</cite>
+ <time>40:55</time>
+ <p>And I often feel like if we knew the things that we know now, we never would have started doing the things that we do. But that's why motivation has to be intrinsic. It can't be extrinsic. You can't be motivated by, I'm gonna sell a 1000000 copies of this. You have to be motivated by, I want this thing to exist.</p>
+ <cite>Peter:</cite>
+ <time>41:11</time>
+ <p>Yeah.</p>
+ <cite>Joe:</cite>
+ <time>41:12</time>
+ <p>You can be motivated by extrinsic, to some extent. That's like how we get people who work in finance. But, you know, people would have mixed feelings about that. And so I think that a lot of the mentorship sessions that I do, I find a lot of people get stopped on one thing that they're not familiar with. For example, the marketing or even something as simple as App Store Connect.</p>
+ <cite>Joe:</cite>
+ <time>41:33</time>
+ <p>And if I can spend 5 minutes unblocking them in that regard, it actually unlocks a whole world of possibility. Now all of a sudden, you know, they were just looking for an answer. They were just looking for a solution. They just wanna move on with and do the things they want. I remember this one time, there was someone came to me and they were working on this, this app that was very all encompassing around different, like, Islamic traditions.</p>
+ <cite>Joe:</cite>
+ <time>41:56</time>
+ <p>And I don't know much about that. So I asked him, you know, about it, and I tried to understand what he was building. And he was telling me how it was gonna take, like, a year to shift, you know, maybe months if he was lucky. I said, well, like how much of this matters and how much of matters equally? And he was like, well, this is the most important thing.</p>
+ <cite>Joe:</cite>
+ <time>42:13</time>
+ <p>And I was like, okay, the thing that's most important looks like it's almost done. He goes, yeah. It's almost done, but I gotta have all these other things. I said, why? Like, that's what version 1.1, that's what version 2.0, that's what version 3.0 is for.</p>
+ <cite>Joe:</cite>
+ <time>42:26</time>
+ <p>And, you know, he just hadn't even considered that. He sees all these apps on the App Store that are also great. He never considered that those apps weren't great on day 1. And so, Rifram Dhalla came back to me like 2 weeks later and he goes, Joe, I have an app on the App Store. I'm so excited.</p>
+ <cite>Joe:</cite>
+ <time>42:40</time>
+ <p>I never would have done this without you. And so even me as a person who, you know, doesn't have a context about, Islamic rituals and traditions, you know, looking at through a software lens or looking at through the lens of, like, a potential user, I was able to just go, actually, what really matters here? And</p>
+ <cite>Peter:</cite>
+ <time>42:56</time>
+ <p>Mhmm.</p>
+ <cite>Joe:</cite>
+ <time>42:56</time>
+ <p>The these are the lessons I apply to Plinky. I try and apply it to my life. It's like, what's core? What's essential? What matters?</p>
+ <cite>Joe:</cite>
+ <time>43:03</time>
+ <p>Do that. And, of course, just like any human being, I'm constantly distracted by the buzzing of all the things that aren't essential but feel essential. But it's basically the daily challenge of getting up and saying, here's the entire world. And then actually sitting down and going, here's the 1, 2, 3 things that actually matter, getting them done, and then moving on to the next 2 or 3 things that matter. And that's why I look at my app and I go, oh, this is garbage.</p>
+ <cite>Joe:</cite>
+ <time>43:25</time>
+ <p>And then I get an email from someone who goes, I love your app. It's amazing. I've never thought of anything like this. I never thought I could enjoy saving links. And I'm like, right.</p>
+ <cite>Joe:</cite>
+ <time>43:34</time>
+ <p>Right. Right. That's what you're doing this for.</p>
+ <cite>Peter:</cite>
+ <time>43:36</time>
+ <p>And, you know, it's funny you mentioned that because I'm curious if this happens to you. I I think there must be some huge force in the universe at play here because almost every time that I get to that point where I'm like, why am I bothering to do this? This is this is ridiculous. I should give up, or I can't solve this problem, or Yeah. Should I even care about this?</p>
+ <cite>Peter:</cite>
+ <time>44:01</time>
+ <p>The next day, I get one of those emails. And Mhmm. And it's like somebody heard this and was like, okay. I'm gonna tell you why you're gonna do it. It always goes that pattern.</p>
+ <cite>Peter:</cite>
+ <time>44:11</time>
+ <p>Right? You know? So I don't know if that happens to you, but but you always get that that burst of kind of like the pat on the back just when you need it the most.</p>
+ <cite>Joe:</cite>
+ <time>44:20</time>
+ <p>I think you may wanna look into Buddhism because it sounds like you described karma. No.</p>
+ <cite>Peter:</cite>
+ <time>44:24</time>
+ <p>Yes. Yes.</p>
+ <cite>Joe:</cite>
+ <time>44:25</time>
+ <p>You're you're</p>
+ <cite>Peter:</cite>
+ <time>44:26</time>
+ <p>you're quite right. Yeah.</p>
+ <cite>Joe:</cite>
+ <time>44:27</time>
+ <p>I actually am a big believer in you are I'm sure that this actually happens to more people, but they don't necessarily open their eyes to it because they're narrowed in on something. They're narrowed in on that emotion where they're closed. It may be anger, it may be frustration, it may be sadness. They have this whole wide spectrum that they could be looking at, which is evident by the fact that sometimes you get something in life that changes, the way that you look at everything, but it was there the whole time. You just had to open yourself up to it.</p>
+ <cite>Joe:</cite>
+ <time>44:52</time>
+ <p>Yeah. And so I do really think that there's that phrase, you are the luck that you make or the hard work that you do is, you know, creates the luck that you make. I think to some extent, getting an email like that is all the hard work that you put into the thing before. And so it's not a coincidence. It's just timing and luck.</p>
+ <cite>Joe:</cite>
+ <time>45:09</time>
+ <p>But Yeah. The fact that you did all the work is what set you up for that opportunity.</p>
+ <cite>Peter:</cite>
+ <time>45:13</time>
+ <p>Yes. Yeah. You know, 2 of 2 things that I always always stick with me and I remind myself when I'm having those kind of days, weeks is, firstly, when I got my first, first couple of, podcast reviews. And, you know, one of them was along the lines of, hey, I've been through a whole bunch of podcasts, and this is the first one that ever explained something in a way that it made sense. And it was like, oh, that's exactly the goal I was going for.</p>
+ <cite>Peter:</cite>
+ <time>45:45</time>
+ <p>Right? Yeah. You know, explain things to people hoping that you get the maximum kind of audience from different levels of understanding. And in fact, I you know, for everything that I do, especially when I'm mentoring people and things like that, I like to help those just starting out because that is often the hardest one. Right?</p>
+ <cite>Peter:</cite>
+ <time>46:06</time>
+ <p>You know, you don't wanna be reading bunches of technical manuals. You you need the easy win of do this thing. It worked. Later on, we'll explain why. That right?</p>
+ <cite>Peter:</cite>
+ <time>46:15</time>
+ <p>You know? Yeah. Because you've now got them to the point where it's like, now they wanna do that next thing later on as opposed to giving up. And the other one was, you know, a friend of mine, shout out. I don't know if he listens to the podcast.</p>
+ <cite>Peter:</cite>
+ <time>46:29</time>
+ <p>I should ask him. This guy, Enzi, if you're out there listening, buddy, how are you doing? He happened to come across one of my livestreams, and I'm gonna embarrass him now. He's making a a game that's fantastic. But</p>
+ <cite>Joe:</cite>
+ <time>46:41</time>
+ <p>Embarrassing him.</p>
+ <cite>Peter:</cite>
+ <time>46:43</time>
+ <p>Yeah. I'm totally gonna embarrass him. And he said, you know, like, hey. If it wasn't for me finding you making your game on the livestream, I would never have done this. And and here he is months months later doing phenomenal work.</p>
+ <cite>Peter:</cite>
+ <time>46:56</time>
+ <p>You know, a great believer, like you say, with the mentoring. If if you can just help one person, maybe they'll help the next one. Alright. So we've we've covered a lot in this episode. We could talk about this for hours.</p>
+ <cite>Peter:</cite>
+ <time>47:08</time>
+ <p>You're welcome back anytime, my friend. But, Joe, thank you so much for talking with us today. Please tell everybody where they can find you. Most importantly, tell them where they can find Plinky. We will put lots of links in the show notes, but go ahead and tell folks where they can find you and anything else you wanna mention.</p>
+ <cite>Joe:</cite>
+ <time>47:25</time>
+ <p>Thank you so much for having me. It was actually a real pleasure. It's funny that on the Compile Swift podcast, I feel like the only thing we didn't really do is talk about Swift. The place you can find me, I'm on threads. That's mostly where I hang out these days.</p>
+ <cite>Joe:</cite>
+ <time>47:38</time>
+ <p>It's merge sort, m e r g e s o r t. And I also have a Mastodon account, but you can follow the threads one from Mastodon. It's all very confusing in the meantime until threads properly federates, but that's mostly where I hang out. I have a blog. I'll link to it.</p>
+ <cite>Joe:</cite>
+ <time>47:52</time>
+ <p>It's fabisevich.ch. I'm also writing about, basically, these lessons, like how can you bring your app to market and how can you build interesting features in certain ways. I have a blog dedicated to that called build.ms. The m s stands for merge sort. Then you can find Plinky.</p>
+ <cite>Joe:</cite>
+ <time>48:07</time>
+ <p>That's the most important thing I work on. Plinky.app. And, yeah, you can find it on threads the same way and the App Store. Please download the app. I don't know this pandering, begging, whatever you wanna say, but the most important thing is I genuinely think you'll like it.</p>
+ <cite>Joe:</cite>
+ <time>48:25</time>
+ <p>If you have a need for it in your life, I think you'll enjoy it.</p>
+ <cite>Peter:</cite>
+ <time>48:28</time>
+ <p>I do too. And I I'm not just saying that. You know, if you've ever had to, you know, try and remember a link or put a link somewhere, which is, let's face it, everybody on the Internet, this is gonna work for you. It is so straightforward to use. Even I know how to use it.</p>
+ <cite>Peter:</cite>
+ <time>48:45</time>
+ <p>Right? So so that's how much you got it right. But, yeah, we'll put links in the show notes, folks. Folks, you know where to find me. Go to compileswift.com or petawhythm.com.</p>
+ <cite>Peter:</cite>
+ <time>48:54</time>
+ <p>All the you know, CompileSwift on on all the networks. Again, links in the show notes. Go go try Plinky. I think you will be very happy and, send you a message and say how great it is. Right?</p>
+ <cite>Joe:</cite>
+ <time>49:06</time>
+ <p>Please do. And if if I can steal your outro, I say you leave the CompileSwift podcast a 5 star review and then head over to the App Store and leave Plinky a 5 star review. You know, for symmetry.</p>
+ <cite>Peter:</cite>
+ <time>49:17</time>
+ <p>There you go. Do both of those things and the universe will treat you right is what we're telling you. Right? You know? But if you if you only do one of them, do Plinky.</p>
+ <cite>Peter:</cite>
+ <time>49:27</time>
+ <p>Right? And then we'll</p>
+ <cite>Peter:</cite>
+ <time>49:28</time>
+ <p>put a we'll put a</p>
+ <cite>Peter:</cite>
+ <time>49:29</time>
+ <p>link in Plinky for the other one. There you go.</p>
+ <cite>Joe:</cite>
+ <time>49:32</time>
+ <p>You know what? That's very gracious of you and I've never even want to turn down help. So let's go with that.</p>
+ <cite>Peter:</cite>
+ <time>49:37</time>
+ <p>There you go. Yes. Thank you, Joe. Thank you so much, my friend.</p>
+</details>
