@@ -1,0 +1,125 @@
+---
+publishDate: 2024-08-25T00:00:00Z
+title: Alternative AppStores, are you ready for the new OS versions?
+excerpt: Alternative Apple AppStores are now live, are you going to invest time in your apps with them?
+image: /images/blog-fi/2024/08-25.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+  - apple
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e10
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/5dc05f32"></iframe>
+
+<Player/>
+
+This week, I discuss the emergence of alternative app stores and what they mean for developers. I asks for listeners' experiences and thoughts on managing multiple app store requirements, including code signing and security.
+
+Also touching on Apple's reminder about trader status for the European market.
+
+Wrapping up by emphasizing the importance of testing apps against the latest beta versions of Apple's operating systems and Xcode.
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Transcription
+ <cite>Peter:</cite>
+ <time>00:02</time>
+ <p>What's up? What's up, everybody? Welcome to another episode of the CompileSwift Podcast. I'm your host Peter Witham. You can find me and this podcast at compileswift.com.</p>
+ <cite>Peter:</cite>
+ <time>00:11</time>
+ <p>A special shout out this week to the new Patreon members. Thank you so much to Bitspector and to Adam Wolf. Greatly appreciate you. ArcLight, thank you to you as well. You all make a difference.</p>
+ <cite>Peter:</cite>
+ <time>00:25</time>
+ <p>Right? For just a couple of dollars a month, you're helping keep this podcast alive and you get the ad free versions and I have started to do some Patreon member only content. So if that interests you, go to patreon.com/compileswift. Thank you again to all of you supporters. In this episode, we're gonna talk about a few different things.</p>
+ <cite>Peter:</cite>
+ <time>00:46</time>
+ <p>First of all, I wanna talk about the fact that, hey, those alternative app stores, they are now a reality and I am curious what folks are doing about that and whether you're embracing them or you've decided you know what I'm just gonna leave it be and go straight with the Apple App Store and leave it at that because I'm wondering how this affects our workflows. Now I've not looked into this yet, and I think it's something that obviously I should spend some time on and look at or find someone who's an expert. Hey. If you know more about this alternative app store stuff, you are more than welcome to come on the podcast and talk about it. Reach out to me.</p>
+ <cite>Peter:</cite>
+ <time>01:28</time>
+ <p>CompileSwift on the networks or compileswift.comforward/contact because I would love to talk with you, and I'm sure other folks would like to hear what you have to say. Because I'm wondering if we have to create alternative binaries, how does this affect our code signing? Do we still have to use the profiles and certificates that we have, or does Apple require us to have an alternative set or for that matter perhaps even more scary. Do the alternative app stores not even care about any of that? Now what I mean by that is do we have to not sign our code or do they not care?</p>
+ <cite>Peter:</cite>
+ <time>02:10</time>
+ <p>Which is a scary prospect, right? Because I think they should have some kind of code signing. Me, as a developer, should sign off and say, hey, I accept responsibility. I have not done anything nefarious in this app code and it's okay to put it on your store just as much as it's okay to put it on Apple's app store And users can trust it or users should be able to inspect that because that's gonna be a massive part, I think, of this alternative App Store process is at first, of course, users are gonna love it. They're gonna jump on the bandwagon and there's gonna be folks out there trying to abuse this and the last thing we need is frankly what you see on the Google Play Store or what you did see for the longest time where there's all sorts of nefarious code going on in the background or scammy apps, apps that do harm or to your devices or steal your data or apps that claim to do one thing and then do something else in the background and all of those kind of things.</p>
+ <cite>Peter:</cite>
+ <time>03:22</time>
+ <p>You've all heard the stories as developers. We've all heard the stories as users and it concerns me that may be something that starts happening on the Apple platforms. Now that said, I don't completely buy into Apple's reasoning that, hey, you know what? You're opening up a world of hurt and this is the worst thing ever and you should let us control all of this like we have been doing. I don't buy into that either.</p>
+ <cite>Peter:</cite>
+ <time>03:47</time>
+ <p>I don't like monopolies. I don't think they're good for anybody other than the people who are creating those monopolies and I've spoken about that before. But I do think that there is a certain amount of security and sense of security from me as a user when I install apps on the Apple platforms and I at least on mobile devices and iPads. Let me put it like that. Right?</p>
+ <cite>Peter:</cite>
+ <time>04:11</time>
+ <p>Because, yes, again, it is a little different on the Mac. But, hey, the Mac is a platform that works so well because you can install anything from anywhere. I hesitate to say like the old days because I don't want that to sound negative. I actually mean that in a good way. Right?</p>
+ <cite>Peter:</cite>
+ <time>04:27</time>
+ <p>You are free to do whatever you want on that device. But on our mobile devices and in a world where we are so reliant upon them and they are so widespread and so open to someone trying to do something nefarious. Right? The last thing we need is for that to happen. So there has to be some kind of gatekeeper security mechanism in place and if there is fantastic, like I say, I I want to dive more into this when I have time and see how these work because I think it is interesting.</p>
+ <cite>Peter:</cite>
+ <time>05:02</time>
+ <p>I think it is a good thing in many ways, but we also need to make sure that, you know, us as users, we do the sensible thing and we just don't blindly trust things, which unfortunately happens way too much on the Internet as we all know. Alright. Here it is. The one thing that I cannot do without every day and that is my coffee. Anyone that knows me or anyone that's listened to any of my podcasts or anything else knows that I absolutely cannot operate without my coffee and I love good coffee.</p>
+ <cite>Peter:</cite>
+ <time>05:33</time>
+ <p>So here's the deal. I'm gonna give you one free bag of coffee by going to peterwidham.comforward/coffee. There is a wonderful company out there that follows the fair trade practices, helps out a lot of independent roasters of all sizes, and the operation is simple. What you do is you're gonna go to to peterwhidham.comforward/coffee. You sign up there.</p>
+ <cite>Peter:</cite>
+ <time>05:58</time>
+ <p>You get a free bag of coffee sent to you, yes, in return. They say thank you to me by giving me some coffee, but that's not the reason I'm doing this. The reason I'm doing this is because I have found so many good coffees that I just would never have come across, heard about or experienced without this service. Trade coffee is is just fantastic. You know, there are plenty of places out there.</p>
+ <cite>Peter:</cite>
+ <time>06:25</time>
+ <p>We all know them that supply coffee, good coffee. You can go to the store, get the coffee, but there is nothing better than discovering new independent roasters and supporting them, discovering new flavors of coffee, new grinds for You can set it up. It's very smart. You tell it the kind of coffee you like and over time it gets better and better as it trains in on your selections and your choices and gives you exactly the coffee you're looking for and recommending new ones that that will be very similar. Every time I get a new packet of coffee, I go through and afterwards I try the coffee.</p>
+ <cite>Peter:</cite>
+ <time>07:01</time>
+ <p>I go through the service and I say, look, I loved this coffee. I thought this coffee was okay or I say, look, I've This was really not for me. And every time I do that, it makes the service a little more accurate on the next selection for me. So again, just go to peterwhidham.comforward/coffee. Get your free bag of coffee today.</p>
+ <cite>Peter:</cite>
+ <time>07:20</time>
+ <p>If you're a coffee lover, you're gonna really appreciate this service. I have been using it for years at this point and thoroughly recommend it. Moving on, I got a reminding email from Apple the other day, and I'm sure probably many of you did, if you've not taken care of this, that, hey, you need to go in and put your trader status for the good old European market. Now I've not done it and at the moment I'm not available in the European market on my personal apps and I'm completely fine with that. I'm curious though if you have all taken care of it or whether you look at it like I do and like you know what it's fine.</p>
+ <cite>Peter:</cite>
+ <time>08:01</time>
+ <p>Doesn't bother me. Don't put it in the European market. Frankly, I'm just not seeing the numbers make much of a difference in the downloads of my applications, and so, therefore, I'm just not gonna mess with it unless I have to is what it comes down to. Now I know again, you know, there's controversy and opinions on this, but I am curious if folks have said, you know what? Doesn't matter.</p>
+ <cite>Peter:</cite>
+ <time>08:27</time>
+ <p>Just leaving it alone. Again, reach out to me. CompileSwift on the networks or compileswift.com because I kinda wanna get a feel for how many people are just not bothered about this and how many people have done this and whether it's continued to make a difference for you. Right? I'm sure for a lot of folks, of course, massive companies doesn't make any difference at all.</p>
+ <cite>Peter:</cite>
+ <time>08:47</time>
+ <p>They're gonna do this thing and it's not gonna matter to them because their numbers are gonna be fantastic. But, of course, there are complications that we've gone into previously and had numerous discussions about on the Internet, you know, folks who perhaps don't even have a company and their privacy and all those kind of things. And I'm just wondering now that it's been around a while how that's panning out for everybody and whether it really matters to you or not as a developer, whether you have paid apps and just, you know, how many people are really embracing this and doing it or just saying screw it doesn't matter. Now, of course, Europe is a big market. Right?</p>
+ <cite>Peter:</cite>
+ <time>09:22</time>
+ <p>I'm not saying don't do this but I am wondering for folks around the world how that's working out for you especially when they're free apps because you're giving up some privacy in many ways if you don't have a company or if you're being saying, oh, great. Now I gotta set up a company. And again, there's lots of ongoing discussions even now, but Apple keeps sending me those emails and, yeah, maybe one day I'll mess with it, but for me right now, it's not bothering me any. And the last topic for this week, we are well into the late betas, maybe even buddies candidates of the new versions of the Apple operating systems for 2024. They will be dropping in the fall, of course, like they usually do possibly with new hardware, but we don't need to concern ourselves with that right now.</p>
+ <cite>Peter:</cite>
+ <time>10:14</time>
+ <p>But what this does mean is I hope that all you developers out there have been spending time testing your applications against these new versions of the operating systems. If you have not, shame on you. You've had since June to look at this. Do not wait till the last minute. I've had pretty good compatibility for the most part in my apps, my personal apps.</p>
+ <cite>Peter:</cite>
+ <time>10:37</time>
+ <p>They don't need new versions to ship but I may take it as an opportunity just to refresh the product line anyway. However, if you have had issues or if you don't know if you have issues, you should be well and truly on this by now. Like I say, you've had since June to work on this. There should be no surprises for your users when they upgrade to the new major operating system versions, which usually happens pretty quickly for better or worse. It usually happens pretty quickly and that means that you need to be ready.</p>
+ <cite>Peter:</cite>
+ <time>11:08</time>
+ <p>The last thing you need is customers using the review system in app stores as a way to provide feedback for bad experiences to your apps. Yes, it happens. We all wish it didn't, but that's what they do and we have to live with it. So don't invite trouble. Try and get ahead of the curve.</p>
+ <cite>Peter:</cite>
+ <time>11:31</time>
+ <p>Right? There probably will be some minor issues. Hey, it happens. But if there's anything that you're aware of or you've been made aware of, you should be ready and fixed by the time the final versions come around in the fall. Along with the OS versions, of course, we get new major versions of Xcode.</p>
+ <cite>Peter:</cite>
+ <time>11:49</time>
+ <p>I have been using Xcode the 16 betas and the 16.1 betas. I've kind of been, you know, switching between the 2. At this point, I'm setting with the 16 dot o versions unless Apple decides not to ship that and go with the 16 1 purely from the perspective of just, you know, okay, time to choose 1. I'm going with the 16 dot o, and that's gonna be my my main driver from here on out until the time that it goes final. It feels good to me.</p>
+ <cite>Peter:</cite>
+ <time>12:21</time>
+ <p>I I've had some minor problems, but I know other people have had some bad experiences with I think it was beta 5 was a particularly bad one for some folks. But for me, it's been going okay. But either way, I'm now committed to 16, and that's the route I'm going. I have been testing it under Sequoia and under Sonoma and for that matter, you know, Sequoia has been pretty good to me for the most part as well. And I've noticed that the last remaining apps that I need to have compatible with Sequoia, they're now in beta.</p>
+ <cite>Peter:</cite>
+ <time>12:55</time>
+ <p>In fact, this podcast right now, I'm recording and editing on Sequoia and everything seems to be fine with all of my major apps that I use for content production. So that's what I got for you this week. If any of this has sparked a thought or comment, again, reach out to me, compile swift on any of the networks, or go to compile swift.comforward/contact. Reach out to me there. Love to have conversations with you all.</p>
+ <cite>Peter:</cite>
+ <time>13:20</time>
+ <p>It tells me that you care about what's taking place here and you wanna see more of this, and you're making that happen. So thank you so much. With that, folks, have a great week. I will speak to you in the next episode.</p>
+</details>
