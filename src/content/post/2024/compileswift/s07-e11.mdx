@@ -1,0 +1,457 @@
+---
+publishDate: 2024-08-31T00:00:00Z
+title: Compile Swift Podcast gets a co-host
+excerpt: Say hello to the new co-host of the Compile Swift podcast.
+image: /images/blog-fi/2024/08-31.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e11
+---
+import Player from '../../../../components/podcasts/cs-player.mdx'
+import CSLinks from '../../../../components/podcasts/cs-links.astro'
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/b8750ed6"></iframe>
+
+<Player/>
+
+This is a landmark episode as we say hello to the new co-host. Plus, we discussed Apple's upcoming event, which is expected to feature new iPhones.
+
+But what else might we get?
+
+<CSLinks
+  link1="https://cocoatype.com"
+  link1label="Cocoatype.com"
+  link2=""
+  link2label=""
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+ #### Transcription
+ <cite>Peter:</cite>
+ <time>00:02</time>
+ <p>What's up, everybody? Welcome to another episode of</p>
+ <cite>Peter:</cite>
+ <time>00:04</time>
+ <p>the CompileSwift Podcast. I am your host, Peter Witham. You can find this podcast at compileswift.com. Now this is a very special landmark episode. You are gonna know the name, you are gonna know the voice, and if you don't, well, you will in a minute.</p>
+ <cite>Peter:</cite>
+ <time>00:18</time>
+ <p>We have a cohost, folks. That's right. Someone a lot smarter and a lot more interesting than me. It only took, I don't know, a couple of 100 episodes to figure that out. Who are you mystery co host person?</p>
+ <cite>Geoff:</cite>
+ <time>00:30</time>
+ <p>Hello. My name is Geoff Pado, better known to some of your audience as Cocoatype. But yeah. Fellow Swift dev, fellow Swift streamer, indie dev, all of the descriptions.</p>
+ <cite>Peter:</cite>
+ <time>00:45</time>
+ <p>App maker code corrector. Right?</p>
+ <cite>Geoff:</cite>
+ <time>00:47</time>
+ <p>I I write my own apps, and I write Peter's apps.</p>
+ <cite>Peter:</cite>
+ <time>00:50</time>
+ <p>Yes. He he rebuts my apps. I'm like, okay. What are we gonna do on this screen is I'm going to do it badly, and then you could do it again.</p>
+ <cite>Geoff:</cite>
+ <time>00:56</time>
+ <p>There you go.</p>
+ <cite>Peter:</cite>
+ <time>00:57</time>
+ <p>Yeah. Yeah. But you heard us right, folks. We're doing something new here. I convinced somebody that the world needs to hear not me so much.</p>
+ <cite>Peter:</cite>
+ <time>01:06</time>
+ <p>So, we have a co host, which I think is cool and exciting. And it's even better when it's someone a lot smarter than me because then I get to be the funny guy, you get to be the smart. That's the that's the rule. Right?</p>
+ <cite>Geoff:</cite>
+ <time>01:19</time>
+ <p>That's the bad debt.</p>
+ <cite>Peter:</cite>
+ <time>01:20</time>
+ <p>Bad debt. Bad debt. Alright. So we're gonna talk about something in this episode. It just happened on the day that we are recording this.</p>
+ <cite>Peter:</cite>
+ <time>01:29</time>
+ <p>And we are recording this on August 26, 2024. Just just for a matter of record, hold on to your seats here. Apple is having an event in September. Who knew? Everybody knew.</p>
+ <cite>Peter:</cite>
+ <time>01:40</time>
+ <p>It's gonna be on 9th of 9th this year at 10 AM, and it's got a really cool fancy animation, just like it always does. And I've got my theories as to what it means. What do you think it it the animation is trying to tell?</p>
+ <cite>Geoff:</cite>
+ <time>01:56</time>
+ <p>Especially looking at it with this animation in play where it turns into, like, a sphere type thing with all of these glowing effects. This is clearly mimicking the new glowing effect that you have on Siri with Apple Intelligence in iOS 18. Sorry, iOS 18 dot 1. The new effect is not available in 18 dot o. I have not personally installed 18.1 because, I don't want to run betas on my carry device, and I don't have a spare iPhone 15 Pro lying around to sacrifice for betas.</p>
+ <cite>Peter:</cite>
+ <time>02:32</time>
+ <p>Same here. I've not installed any of the the only thing I have installed is macOS, and I've I've spoken about that on the podcast and everywhere else. I feel comfortable doing that because I can do it on separate containers, drives, whatever. And it's easy to recover from. Yeah.</p>
+ <cite>Peter:</cite>
+ <time>02:48</time>
+ <p>I I only have well, I mean, I have we both have multiple phones in that. Right? But none that we want to</p>
+ <cite>Geoff:</cite>
+ <time>02:56</time>
+ <p>risk. I I have 18 dot o on an old iPhone SE, but that doesn't have any of the Apple intelligence features. That is on 18 dot 1 and requires an iPhone 15 Pro. And I don't have anything that fancy lying around to use for beta machine. However, that does kind of make something interesting.</p>
+ <cite>Geoff:</cite>
+ <time>03:17</time>
+ <p>Apple is showing this glowing effect, this very tied to Siri and Apple intelligence glowing effect on their invite where, you know, we haven't gotten into this speculation, but presumably they're going to announce new phones. Are these phones going to ship straight with 18 dot 1? Or are they going to ship with 18 dot o and not have this glowing effect that they're clearly pitching in the invite?</p>
+ <cite>Peter:</cite>
+ <time>03:42</time>
+ <p>You know, I I have a theory on that. I thought about this. And then and and my theory is they will ship with 18 dot 1. Now here's a couple of reasons why I think that is. Think about the regular Apple patents.</p>
+ <cite>Peter:</cite>
+ <time>03:56</time>
+ <p>Announced something in September, shipping in late October. So that gives Apple a month to get 18 dot 1 in shape, and ship the devices with 18 dot 1 on, and all the gloriousness. Now, here's another reason that I think that, though. For all of the features that, you know, there's lots of cool things in in iOS 18, and and for that matter, iPad and and so on. However, shipping a new version of the OS to existing hardware without having the Apple intelligence, which is the thing that they have talked to death this year, with good reason.</p>
+ <cite>Peter:</cite>
+ <time>04:35</time>
+ <p>So shipping without that is a bit of a, you know, yeah, we didn't make it. Right? And I absolutely don't think you wanna do that with your new phone of the year in the hope that you get to boost the sales up from where they're at right now. And so that's why I think you don't wanna ship a new iPhone with a new OS without the cool thing that you've been talking about all year. And that's my theory.</p>
+ <cite>Geoff:</cite>
+ <time>05:05</time>
+ <p>Yeah. I I definitely agree with a lot of that discussion. However, you did say, you know, announce it now, ship it later in October. That's not historically what they've done with the phones specifically. With the phones, they've very much been it is always they announce pre like, they announce again, this is another break from tradition, that the announcement this year is happening on a Monday, when normally, historically, they happen on a Tuesday.</p>
+ <cite>Geoff:</cite>
+ <time>05:29</time>
+ <p>That's we don't know what that means, but it is it is a change. But, historically, the timeline goes, they announce on a Tuesday, preorders open on Friday, Phones are in hands a a week later on that Friday. So Tuesday to Friday to Friday, that is the thing. So I don't see them going to 18 dot 1 by that fright well, I mean, it's it's difficult because we've never had this, like, 2 things are in beta at the same time released before either. Do they ship</p>
+ <cite>Peter:</cite>
+ <time>06:02</time>
+ <p>Well, I think we have, actually. Wasn't there a previous version of iOS where they did this? Maybe was it 16?</p>
+ <cite>Geoff:</cite>
+ <time>06:11</time>
+ <p>I don't recall. I feel</p>
+ <cite>Peter:</cite>
+ <time>06:12</time>
+ <p>like there was one where, from a developer's perspective, they they had the 2 on the go. I could be wrong. I think I think there was one because but I think if I remember rightly, it ended up shipping as the dot one, and there</p>
+ <cite>Geoff:</cite>
+ <time>06:27</time>
+ <p>was I do remember them shipping a dot one at one point and never having the dot o. But, yeah, I I don't remember the timeline for that Yeah. Behind behind it. So it may be that they're planning on launching 18 dot o, good god, as soon as the announcement, and then shipping 18 dot 1 a week later on the new phones and only the new phones and plus the iPhone 15 Pro. Yeah.</p>
+ <cite>Peter:</cite>
+ <time>06:53</time>
+ <p>Yeah. No. That would be interesting. And and I'm with you from the perspective of if you follow their, you know, normalish pattern, even close to their normal pattern, I gotta think that there's, like you say, there's just not enough time to lock down the point one and ship it in that amount of time. And actually, I would prefer that if that's what they're thinking, that they don't do that.</p>
+ <cite>Peter:</cite>
+ <time>07:20</time>
+ <p>Because it's like, if you're going to take a little time, take a little more time and make it good, right? We don't want this situation of, oh, it wasn't ready to ship. And and I again, I I can't say that any about any of the 18 version of the OS, because I have not tried any of them.</p>
+ <cite>Geoff:</cite>
+ <time>07:41</time>
+ <p>It's been solid on my test phone, The 18 Okay. 18 o. It has been completely solid for me for a while now. More than I can say on Xcode, but</p>
+ <cite>Peter:</cite>
+ <time>07:52</time>
+ <p>Right. Yeah. Xcode's never ready to ship. Yeah. We should talk we'll talk about that as well.</p>
+ <cite>Peter:</cite>
+ <time>07:57</time>
+ <p>That that's good. I've read more good reports from the places that we we both hang out than I have people with issues, and I felt like, from what I can remember, the issues that I read about were kind of fringe cases. It's gonna be an interesting one this year because I think we all desperately want at least so many things. But for me, like, the home layout, home screen layout, having the icons where I want them, and it's like, yeah, please don't make that buggy, right? We'll see what happens on that.</p>
+ <cite>Peter:</cite>
+ <time>08:28</time>
+ <p>I guess we should speculate a little bit about what's the new hardware, the new phone gonna be? And I think it's wrong to say that I, you know, there's not not been anything that hasn't impressed me over the past few releases of the actual hardware, but they've just been very predictable. Right? I'm hoping that they're gonna finally stop saying things like fastest one ever, we can't wait to see what you do with it. I mean, it's like please retire those phrases, right?</p>
+ <cite>Geoff:</cite>
+ <time>08:58</time>
+ <p>They'll never retire those phrases.</p>
+ <cite>Peter:</cite>
+ <time>09:00</time>
+ <p>I'm curious, you know, again, I've said this before, cameras and that, they are all so good for the last few years at least, that it almost doesn't matter, especially last year's one, right? I've got the 15 Pro, you know, with the optical zoom heavy, you wanna call it, that clever mechanism inside, you reach a point, just like CPUs, where they're so good that it's like, look, now it's all just marketing spin to get me to get a new one. So I am curious what they'll do this year. There's all that speculation too about that new hala, but at least the screenshots, I hope to gosh. I really hope they're not real.</p>
+ <cite>Geoff:</cite>
+ <time>09:45</time>
+ <p>See, so I don't follow rumors. So I'm not I I'm not sure, what you're discussing. Can you can you describe it?</p>
+ <cite>Peter:</cite>
+ <time>09:50</time>
+ <p>It it's it yeah. It's and I'm gonna try and make it sound nice.</p>
+ <cite>Geoff:</cite>
+ <time>09:55</time>
+ <p>Okay.</p>
+ <cite>Peter:</cite>
+ <time>09:56</time>
+ <p>And it's kind of that brown bronze color. And in my opinion, gosh, I hope it's not true</p>
+ <cite>Geoff:</cite>
+ <time>10:04</time>
+ <p>because it looks Again, having not seen it, that actually that sounds great to me because that was what I wanted last year with the natural titanium. Their initial screenshots that they put out, the initial, like, press shots that Apple put out of this titanium made it look a lot closer to, like, their, starlight colored colored, devices. And I have 2 starlight iPads, and that is my favorite colorway from Apple that they've done in a very, very long time is is the starlight colored. Yeah. Yep.</p>
+ <cite>Geoff:</cite>
+ <time>10:35</time>
+ <p>Exactly. And so if they have something that is more of a browny bronzy color, which is what I really wanted from the natural titanium last year. And it turned out, you know, it looks fine. It's decent. It's just this is way more of like a gunmetal titanium than what I Mhmm.</p>
+ <cite>Geoff:</cite>
+ <time>10:53</time>
+ <p>Was hoping for when I ordered it. But, hey, if if they've got a if they've got a nice bronzy brownier one, sign me up.</p>
+ <cite>Peter:</cite>
+ <time>11:03</time>
+ <p>Alright. We're gonna put a marker in that so that we'll see what happens. Because the other part of that rumor was that they were, well, you know, again, it's all rumor. Right? But the but the thing was retiring the blue to to to swap this one in.</p>
+ <cite>Peter:</cite>
+ <time>11:18</time>
+ <p>And I hope they don't retire the blue because I had one of those and I really liked it.</p>
+ <cite>Geoff:</cite>
+ <time>11:22</time>
+ <p>They do that every year though. They do take out their, like, one special color and they swap it out because the year before that, they had that, like, nice, like, dark green color that was very cool looking. Last year, it was the blue. It sounds like this year, it's gonna be this this brown bronze color.</p>
+ <cite>Peter:</cite>
+ <time>11:37</time>
+ <p>Yeah. But beyond that, I mean alright. So putting aside, you know, potential color changes, for folks who have a 15, you know, like every year, the question becomes, what could you possibly put in there that will make me feel like I need to upgrade as opposed to, well, I should upgrade because I do, other than the the AI. Because I think the AI is the selling point for not only the OS, but a device that can run it, which is not many of them.</p>
+ <cite>Geoff:</cite>
+ <time>12:10</time>
+ <p>Yeah. So that's what I was gonna say is that that is the answer there is for an iPhone 15 Pro user, there's not too much that I can think of that they would really want to sell for a new iPhone 16 model. However, for everybody that didn't get specifically the iPhone 15 Pro, I think that that's gonna be the answer, is that they are going to make it so that every one of their phones can run all of the new iOS stuff down all the way to the bottom level model, the the base model iPhone 16. That, in a lot of ways, I think is going to be the main thing that they really need to do is bump the amount of memory that's available in the system on a chip. That seems to have been the cutoff that they've done so far is that every device of theirs that has 16 gigs of RAM can run Apple Intelligence.</p>
+ <cite>Geoff:</cite>
+ <time>13:02</time>
+ <p>Everything that has less than 16 gigs of RAM cannot. And so it's only the iPhone 15 Pro models on the phone that have that, and then you obviously, of course, also have all of the m star max and all of the m star iPads. But I think what they need to do next year is put enough memory in even the base model iPhone 16 so that everything every phone that somebody can go out and buy day 1 does have support for Apple Intelligence.</p>
+ <cite>Peter:</cite>
+ <time>13:31</time>
+ <p>I've never from Apple's perspective, I've understood why they structured the the the things the way they do, and, you know, that we all know that pricing structure that Tim wants. Right? Every $100 point, I wanna think. Right? And, but at the same time, it has always baffled me why you would bother to do this because it almost actually doesn't make sense just just for the money.</p>
+ <cite>Peter:</cite>
+ <time>13:59</time>
+ <p>Right? I mean, I get it that you want people to think, well, I need to get the next one because next one up because it's got this. Now, I say that because when I, you know, gonna confess here, you already know this, but I don't think I ever mentioned it to the audience. So I did upgrade my iPad after all because I figured out a way to do a good deal on it, and and so, okay, you know what? Shoot me down, folks.</p>
+ <cite>Peter:</cite>
+ <time>14:23</time>
+ <p>I did it. And I don't regret it. Specifically, I don't regret it because of the pencil, the new pencil. Interestingly, one of the deciding factors for me there, as I was doing that, was the fact that, like, the 1 terabyte version has this much memory. The 5 12 has less.</p>
+ <cite>Peter:</cite>
+ <time>14:42</time>
+ <p>Right? So I went with the bigger one because I plan to have this thing for a while so that I could have the the, you know, the terabyte with the extra memory in the hope that the OS would have a whole bunch of things that would benefit from it. From a user's perspective, I wonder how much that really matters, how much is available memory other than it just silently closes apps in the background that they didn't notice anyway. Yeah.</p>
+ <cite>Geoff:</cite>
+ <time>15:09</time>
+ <p>I think that it has been a benefit to having more memory for a while now has been the, you know, fewer apps get closed in the background, fewer tabs are getting closed in Safari all the time. You know, if you are switching between tabs, you know, it'll kill it if there's not enough memory in place. But I think this year, it really is all about, you have this extra memory in the background when you need it, but it's more going to be about those bursts. When you are using Apple Intelligence to do summarization or to do image generation or to do any of the things that Apple Intelligence has been shut off to do. I think what Apple's gonna do is they're gonna evict everything else.</p>
+ <cite>Geoff:</cite>
+ <time>15:46</time>
+ <p>They're gonna go, this 16 gigs of memory or whatever is just for running one of our big models right now. And so that's why they need that memory in places. You've gotta have those whole models resident in memory in order for any of this to work. And so I think that that is where they're going to be picking this up is if you want these particular, like, very generative heavy features to work, we're basically gonna say clear the decks and make it make it run that.</p>
+ <cite>Peter:</cite>
+ <time>16:17</time>
+ <p>It makes a lot of sense. You know, the last thing, like I say, with these is you wanna you wanna release new hardware and operating system that you have really, I feel, spoken of more than previous years, and then have this problem of almost kind of a backlash from users when it's like, oh, well, this is pretty sucky compared to, you know, how it was sold to me. Right? Yeah.</p>
+ <cite>Geoff:</cite>
+ <time>16:43</time>
+ <p>Well, that is why they're limiting it to only the phones that can do it, really. Yeah. I I think that you you this is why you don't see it coming to even the iPhone 15, like, regular model iPhone 15 is not getting any of the new stuff that is branded Apple Intelligence this year. And so Yeah. I I I think that that's that's why you see it is, like, people are not, you know it's not gonna work.</p>
+ <cite>Geoff:</cite>
+ <time>17:11</time>
+ <p>It's not going to work, certainly on device. And so Apple's like, oh, yeah. We're all about privacy. We're gonna have it local, in memory, never touches our servers, unless you have a phone older than 1 year. I think that what they're doing is they're very much saying, this is how we plan on doing it.</p>
+ <cite>Geoff:</cite>
+ <time>17:29</time>
+ <p>This is the ideal way of doing it. Unfortunately, we did not build the hard we did not foresee this happening. We did not build into hardware down, you know, 3 years ago that we needed to have this much memory to support it. So, unfortunately, it is going to be a cutoff for iPhone 15 Pro and then everything iPhone 16.</p>
+ <cite>Peter:</cite>
+ <time>17:50</time>
+ <p>Part of me says, I'm okay with this because I've got a 15 Pro. Right? Exactly. But I also do do agree that it's like, yeah, if not gonna be able to run it for reasons that maybe a lot of everyday users wouldn't understand, you don't do it. Right?</p>
+ <cite>Peter:</cite>
+ <time>18:06</time>
+ <p>And and live with them complaining about it because they wouldn't if you gave it to them, they'd probably complain more anyway. Yep. So, you know, I I agree with that. Now on this note, I'm curious what you think about this. I have read, again, rumors folks, so take it for what it's worth, but this one actually to me feels very apple like.</p>
+ <cite>Peter:</cite>
+ <time>18:29</time>
+ <p>I have read that you will potentially have a core of AI services that you get maybe because you've got the Apple what do they call that thing? I know I've got it. The family, whatever, extra service thing.</p>
+ <cite>Geoff:</cite>
+ <time>18:44</time>
+ <p>The iCloud button? Apple 1?</p>
+ <cite>Peter:</cite>
+ <time>18:46</time>
+ <p>Thank you. That's it. Apple 1. That's it. Yeah.</p>
+ <cite>Peter:</cite>
+ <time>18:48</time>
+ <p>And then you would potentially have to pay a monthly fee subscription to get access to some other services. And I'm curious if that turned out to be the case, how do you feel about that?</p>
+ <cite>Geoff:</cite>
+ <time>19:03</time>
+ <p>I mean, it does sound very appley, but it also sounds very counter to what their current process is. They have said so many times that a lot of what they are doing with Apple Intelligence is happening on device. And I think for that reason, that is why we don't see that, at least announced so far, of, hey, you know, you're gonna need to pay for this AI service, yada yada yada, because they're doing everything on device, and so there's no need for it to be run on Apple servers. Therefore, you don't need to pay the cost of running this generation as part of it. So, yeah, I can definitely see them adding a feature like that down the road where they're like, oh, we have something that really needs, you know, big heavy machines thrown at it.</p>
+ <cite>Geoff:</cite>
+ <time>19:52</time>
+ <p>But I think Apple's still kinda, like, they're getting their feet wet with what are they even producing that I don't think we're gonna see that this year, at least.</p>
+ <cite>Peter:</cite>
+ <time>20:02</time>
+ <p>Okay. I even at one point thought, boy, it would be a real kind of sting if they said, hey. You know what? We found a way to make it available for older devices. If you're cool with not doing it on the hardware and doing it on secure Apple hardware and paying a subscription.</p>
+ <cite>Geoff:</cite>
+ <time>20:21</time>
+ <p>Yeah. I just I I I think that that muddies too much their argument of we are the AI that doesn't</p>
+ <cite>Peter:</cite>
+ <time>20:30</time>
+ <p>Yeah. And I I agree with that too. Right? You know, because we know that they've invested a lot heavily and things we don't even know about for, you know, Apple based chip dedicated for their AI stuff. It only makes sense.</p>
+ <cite>Peter:</cite>
+ <time>20:45</time>
+ <p>You know, and I and I should say I'm I'm very excited about the OS on the phone and in particular the iPad this year.</p>
+ <cite>Geoff:</cite>
+ <time>20:51</time>
+ <p>Yep. I I'm I'm pretty excited about some of the stuff on the Mac too. You know, you've you've got all of the new writing tools. You've got the summarization in messages and mail. A lot of the same stuff that is on the iPhone.</p>
+ <cite>Geoff:</cite>
+ <time>21:02</time>
+ <p>But if you're using Apple's apps, you have that same sort of benefit now available also to you on the Mac. And so I'm excited to see these same sort of tools across the ecosystem.</p>
+ <cite>Peter:</cite>
+ <time>21:14</time>
+ <p>The Mac just has felt very mature. Right? Operating system for for for a good few years. And and, you know, okay, we could poke fun at bugs and so on. But I mean, as far as what it should do, it's very mature.</p>
+ <cite>Peter:</cite>
+ <time>21:28</time>
+ <p>And so I expect it to be incremental year on year. What I'm hoping comes from this year's one is, as you mentioned, you know, a lot of the writing tools in fact, it's kind of ironic because October 10th, my Grammarly subscription Mhmm. Is up for renewal, and and I actually feel a bit bad about this because I thought, great. That probably gives me a little time to play with the Apple version, essentially. But also, I have a running streak of some ridiculous amount of years of using Grammarly.</p>
+ <cite>Peter:</cite>
+ <time>22:04</time>
+ <p>So, it's also like, oh, I don't wanna lose the streak. But if Grammarly has been Sherlock'd, right, on the Mac, okay, then then I won't renew.</p>
+ <cite>Geoff:</cite>
+ <time>22:15</time>
+ <p>Yeah. Exactly.</p>
+ <cite>Peter:</cite>
+ <time>22:16</time>
+ <p>What it comes down to. So I am excited about that. One other thing I did wanna mention though is if the AI works 75% as good as they claim, will I start using Siri more on the Mac? Because I didn't use it at all on the Mac.</p>
+ <cite>Geoff:</cite>
+ <time>22:33</time>
+ <p>So I think the interesting one there is the addition that they've added to Ios 18, and I don't know that I've seen this on Sequoia yet. First of all, have they released an 18 one type edition of Sequoia? Do we have a version of Sequoia with the Apple Intelligence?</p>
+ <cite>Peter:</cite>
+ <time>22:51</time>
+ <p>Not that I know of.</p>
+ <cite>Geoff:</cite>
+ <time>22:52</time>
+ <p>Yeah. I mean, we've definitely seen 18/1 come out, but I I I don't know that I've seen a 15/1 Sequoia.</p>
+ <cite>Peter:</cite>
+ <time>22:59</time>
+ <p>I was gonna say, to my knowledge, I don't recall ever looking at what AI looks like on the Mac.</p>
+ <cite>Geoff:</cite>
+ <time>23:04</time>
+ <p>So so to to go back to that, I mean, a lot of what is coming in sequoia.one or whatever they they decide to wherever they decide to launch it, is a lot of the same sort of stuff that's coming on 18/1 with the writing tools, the image generation, all of that kind of exciting stuff. But you asked specifically about Siri, and would you use Siri more on the Mac? One thing that they've added to 18/1, and which I assume that they'll also add to Sequoia's Apple Intelligence release, is the ability to type to Siri. And I think that that would be what really is what would drive more use of Siri on the Mac, at least for me, is the ability to say, hey. Maybe there's a Siri window similar to what you get with Spotlight or to what you get with any of the 3rd party tools that are similar to Spotlight, whether that's Alfred or Raycast or whatever the other fancy ones are.</p>
+ <cite>Geoff:</cite>
+ <time>23:59</time>
+ <p>If you could have something like that where you hit a button, Siri pops up, and you're able to just ask natural language questions to Siri there directly and have it do stuff in your system. I think that would drive a lot of use of Siri. Whereas, if it continues to be that you have to hit a button and then you have to talk to your laptop, I don't see people using that quite so much.</p>
+ <cite>Peter:</cite>
+ <time>24:22</time>
+ <p>Well, you know, funny enough that you mentioned that. I'm just looking at my laptop here because maybe I imagined it. Isn't there a microphone button?</p>
+ <cite>Geoff:</cite>
+ <time>24:29</time>
+ <p>There is a microphone button.</p>
+ <cite>Peter:</cite>
+ <time>24:31</time>
+ <p>So wouldn't you make that cool, like, activate Siri, if it's not already?</p>
+ <cite>Geoff:</cite>
+ <time>24:35</time>
+ <p>But and I think there is a way to do that, but the question is, could you do it in a way that you don't have to talk?</p>
+ <cite>Peter:</cite>
+ <time>24:43</time>
+ <p>Yeah. Well, actually, I like what you said. The idea of whatever flavor of spotlight you use, it just being in there. Even if I have to do, like, a slash command something, or slash s or whatever to act to, like, hey, you know, don't do this, run this app, do this, whatever. I'm now talking to Siri.</p>
+ <cite>Peter:</cite>
+ <time>25:05</time>
+ <p>I'm totally cool with that.</p>
+ <cite>Geoff:</cite>
+ <time>25:06</time>
+ <p>Yep. So yeah. Also, me not following any of the rumor sites, are we expecting to see any other sort of hardware updates? You know, I personally, you know, would love an update to the AirPods Max, but I think they typically do those later in the year, more the music focused events. Are we expecting to see any other sort of hardware released alongside the iPhone 16?</p>
+ <cite>Peter:</cite>
+ <time>25:30</time>
+ <p>Yeah. Good question. So I have seen mention, and as valid as you wanna take that, I I've seen mention of new AirPod Pros. I I think I even saw a thing about possibly, new Beats headphones, but I may be confusing that with an updated firmware that adds new features. I wouldn't be surprised to see new AirPods.</p>
+ <cite>Peter:</cite>
+ <time>25:54</time>
+ <p>Right? They sort of go hand in hand with the phone in in many ways, if you pardon the pun. Right? Yeah. Been long enough that the current generation's been out.</p>
+ <cite>Peter:</cite>
+ <time>26:02</time>
+ <p>Certainly, you're absolutely right. The the the Max is kind of like, well, we we made these to see how it went. We saw how it went, and and we left it there, which would be a shame because I don't have them. I know, like yourself, and and other folks who have them, we really like them. So, you know, it always has been a bit odd to me that it's like, Beats and Macs?</p>
+ <cite>Peter:</cite>
+ <time>26:23</time>
+ <p>But then I forget. It's like, well, but it is kind of 2 different markets, and you're, you know, Apple's getting paid twice for having both, you know? Interestingly, what's also been very quiet, I think, is like the Apple TV. Right? Yeah.</p>
+ <cite>Peter:</cite>
+ <time>26:42</time>
+ <p>You know, I don't expect all these features, like we're getting with the Mac and, you know, iPhones and so on.</p>
+ <cite>Geoff:</cite>
+ <time>26:50</time>
+ <p>We're not getting a 16 gigabyte Apple TV that can run Apple Intelligence?</p>
+ <cite>Peter:</cite>
+ <time>26:54</time>
+ <p>Yeah. Exactly. But doesn't that feel like the perfect place for it? Right? I'm in the living room watching, you know, watching one of the many sports events bought up by Apple.</p>
+ <cite>Peter:</cite>
+ <time>27:05</time>
+ <p>Mhmm. Wouldn't you wanna be able to just right there and then ask AI some questions about whatever's going on? Right?</p>
+ <cite>Geoff:</cite>
+ <time>27:14</time>
+ <p>Sure. I don't know. I I I don't know that I have anything in in particular that I I would think of. I know that they did brand the new eyesight feature that they have as being at least in some sense powered by Apple Intelligence, but, I don't know how much that is actually running on device with the Apple TV.</p>
+ <cite>Peter:</cite>
+ <time>27:31</time>
+ <p>Alright.</p>
+ <cite>Geoff:</cite>
+ <time>27:31</time>
+ <p>But they're just saying, oh, you know, this is this is who this person is that you've seen in another thing before.</p>
+ <cite>Peter:</cite>
+ <time>27:37</time>
+ <p>Yeah. Okay. So we'll we'll see what happens. Maybe, you know, wouldn't it be nice to have a surprise?</p>
+ <cite>Geoff:</cite>
+ <time>27:42</time>
+ <p>Something that actually</p>
+ <cite>Peter:</cite>
+ <time>27:43</time>
+ <p>surprises. Oh, didn't see that.</p>
+ <cite>Geoff:</cite>
+ <time>27:44</time>
+ <p>Are always great, which is why I tend not to follow the rumor cycles. And then it's it's funny. All of the people that have followed the rumors, they're like, oh, but they didn't announce this. It was like, I didn't even know that we were supposed to expect that.</p>
+ <cite>Peter:</cite>
+ <time>27:56</time>
+ <p>Yeah. Yeah. It's like, we didn't announce the thing we weren't gonna announce.</p>
+ <cite>Geoff:</cite>
+ <time>28:00</time>
+ <p>Yeah. Yeah.</p>
+ <cite>Peter:</cite>
+ <time>28:00</time>
+ <p>No. I know I know what you mean. Yeah.</p>
+ <cite>Geoff:</cite>
+ <time>28:02</time>
+ <p>So I'm looking at the Apple event page for last year, and one obvious one that I've completely blanked on is whether or not we're getting a new Apple Watch this year. Last year at the September event, they announced the Apple Watch Series 9 and Apple Watch Ultra 2. I would assume that we're gonna get another Series 10 at this point, but I don't know. What what what do we expect anything from the Apple Watch side of the house?</p>
+ <cite>Peter:</cite>
+ <time>28:26</time>
+ <p>I I'm feeling like the watch would be an early next year thing. I mean, we absolutely will get a new generation, of course. But I I kinda feel like</p>
+ <cite>Geoff:</cite>
+ <time>28:38</time>
+ <p>It looks like the last 2 years they've done Apple Watch at the September event, though. In 2023 in 2023, we got a series 9. And in 2022, it says 3 new Apple Watch models.</p>
+ <cite>Peter:</cite>
+ <time>28:50</time>
+ <p>But I I I'm thinking, you know, depending on which market you wanna read, you know, they they need to make the iPhone stand out a bit more again. Right?</p>
+ <cite>Geoff:</cite>
+ <time>28:59</time>
+ <p>Oh, absolutely.</p>
+ <cite>Peter:</cite>
+ <time>29:00</time>
+ <p>Is and and instead of it sort of falling into that category of what is just one of the things Apple makes. Right? Yeah. And so I feel like the sensible thing would be let's just put some space here and really make the iPhone a thing again, and then, hey, we'll do the other stuff maybe with a no a surprise event or some something.</p>
+ <cite>Geoff:</cite>
+ <time>29:22</time>
+ <p>Yep. And they always have multiple events at the end of the year, so they can reshuffle these as however they want.</p>
+ <cite>Peter:</cite>
+ <time>29:27</time>
+ <p>You know, so I I kinda feel like this one, nobody asked me, but if they did, I would say, yeah. Make this one more about the iPhone than anything else. And if you wanna throw something in, fine. But really make it about the iPhone, to convince folks why they should get this with the AI. Well, of course, that's the other irony is maybe you're gonna get the phone without the AI at first, which is still weird.</p>
+ <cite>Peter:</cite>
+ <time>29:54</time>
+ <p>I don't know. But, you know, I guess I do wanna comment on that in general and say, this is, to me, another another example of Apple at the beginning of the year making a lot of promises that don't necessarily come around the way they said they would. And it's getting to be too much of a habit.</p>
+ <cite>Geoff:</cite>
+ <time>30:10</time>
+ <p>They definitely telegraphed that a lot more this year, where they said, you know, a lot of this stuff is going to be coming out over the next year rather than this is stuff coming out in 18 dot o. But it is surprising the level to which that seems to be true with iOS 18.</p>
+ <cite>Peter:</cite>
+ <time>30:27</time>
+ <p>Yeah. Yeah. Which I do think is a real shame because there there is so much to love in it. Yeah. Right?</p>
+ <cite>Peter:</cite>
+ <time>30:33</time>
+ <p>But that's only because, you know, folks out there listen to this, and you and I, we've lived with this thing since June.</p>
+ <cite>Geoff:</cite>
+ <time>30:40</time>
+ <p>Right? Exactly.</p>
+ <cite>Peter:</cite>
+ <time>30:41</time>
+ <p>You know? And so we know what's in there to be excited about, but you've gotta have that public facing thing to sell it in a couple of weeks. Yeah. And I think that that's like if you take those back and you just say coming soon</p>
+ <cite>Geoff:</cite>
+ <time>30:55</time>
+ <p>If if Apple has said if people have heard the stories all along that this is brand new AI features, what they get in a in a couple Fridays is dark mode icons and, control center widgets.</p>
+ <cite>Peter:</cite>
+ <time>31:11</time>
+ <p>Yeah. It's not not gonna go great. Right? Yeah. Yeah.</p>
+ <cite>Peter:</cite>
+ <time>31:14</time>
+ <p>And and I feel like Apple needs to stop putting themselves in the spotlight for a little bit of ridicule in in some ways. You know, promise the earth and then deliver a little bit. Eventually deliver it all. But so far down the line that people have kind of forgotten, like, oh, that's right. There was gonna be this AI thing.</p>
+ <cite>Peter:</cite>
+ <time>31:35</time>
+ <p>Did happen. You know? Yeah. Yeah. Interesting.</p>
+ <cite>Peter:</cite>
+ <time>31:38</time>
+ <p>We'll see we'll see what happens. Of course, we'll be talking about it. But folks, I I I'm hoping you're really excited that, you know, we've got another voice on this podcast to to explain to me why I get all these things wrong in real time as opposed to when everybody listens to it afterwards and they're like, no, he's wrong. So we again, Jeff, thank you so much for for wanting to do this.</p>
+ <cite>Geoff:</cite>
+ <time>32:02</time>
+ <p>Yeah. Thank you for having me.</p>
+ <cite>Peter:</cite>
+ <time>32:03</time>
+ <p>Excited about this. Oh, I'm I'm just so excited about this. Tell folks go ahead. Tell them where they can find you.</p>
+ <cite>Geoff:</cite>
+ <time>32:10</time>
+ <p>You can find all of my links and such on cocoatype.com. My main other social hangouts are threads, threads.net/cocotype, and twitch, twitch.tv/cocoatype. But, yeah, cocotype.com is where you can find almost everything.</p>
+ <cite>Peter:</cite>
+ <time>32:25</time>
+ <p>Yep. And we will, of course, be putting these in the show notes. You know where to find me, impalestruit.com. And with that, folks, hey, it's a whole new era. And by the time we speak next time, who knows?</p>
+ <cite>Peter:</cite>
+ <time>32:39</time>
+ <p>Maybe we'll have some surprises to talk about. See you later,</p>
+ <cite>Geoff:</cite>
+ <time>32:45</time>
+ <p>folks.</p>
+</details>
