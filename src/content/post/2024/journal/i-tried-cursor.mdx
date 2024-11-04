@@ -1,0 +1,110 @@
+---
+publishDate: 2024-11-04T12:00:00Z
+title: I tried Cursor and the results were surprising
+excerpt: At the weekend I used Cursor to create a Web app and the results left me more than impressed.
+image: /images/blog-fi/2024/11-04.webp
+tags:
+  - development-notes
+  - web-development
+  - ai
+metadata:
+  canonical: https://peterwitham.com/2024/journal/i-tried-cursor
+---
+
+I sat down at the weekend to do a live stream testing just how good [Cursor](https://www.cursor.com), the new AI powered code editor really works.
+
+The results were unexpected.
+
+### So what is Cursor?
+Cursor is an AI powered code editor that is getting a lot of talk in the developer communities. It is based on Visual Studio Code and has a layer of really smart AI integration sitting on top.
+
+At the core of Cursor is a panel that you use to interact with the chatbot. You can use this as much or as little as you want. It works best if you let it do all the work and follow the instructions it gives you.
+
+Yes, this is where the AI overlord starts telling us what to do.
+
+### Why Should I care?
+Well, that is an interesting question.
+
+You might be thinking
+
+	Hey I already use a code editor, maybe even Visual Studio Code!
+
+But, this is different. The AI can perform many tasks for you and amazingly well.
+
+What makes this tool standout in many ways is that you can have it analyse your entire project with all the files and make it’s recommendations based on the whole code base, rather than just a file or a non-contextual suggestion.
+
+The reasons that matters is the results. When I was using it, the suggestions would often span many different files, updating everything as needed.
+
+For example, updating environment variables and package listings while adding the code that uses the new packages or updates to a specific version.
+
+### So how did I perform the tests?
+I went in with the intention of letting the tool do the work and using my existing knowledge as a sanity check for create project, files and code.
+
+This, in my opinion, is the best way to use AI tools.
+
+### The project
+I opened the editor and asked the AI to create a Web based application using Node, React, Tailwindcss, MySQL and TypeScript.
+
+I asked it to create a user login system that let users create a new account using email and password, login, a profile page, and a password reset page.
+
+A pretty standard thing for most Web applications these days.
+
+With that, it set about thinking for a minute (actually was about a minute).
+
+It came back with a series of proposed tasks to execute that went along the lines of
+
+- Create a new React application
+- Create a new Database
+- Create a table in the database showing me the SQL statements
+- Create a series of components to be used in the pages
+- Create the Server and Client apps
+- Explaining to me how to run the application parts
+
+That’s a pretty high level breakdown but [watch the stream video on demand to see everything in this article step-by-step](https://www.twitch.tv/videos/2287329528).
+
+The only parts I had prepared ahead of time was to install MySQL and a version of Node on my machine.
+
+### How did it work out?
+There were a few problems along the way.
+
+But here is the cool part, anytime I told it to perform the task it was recommending by hitting a play button and something did not work. I would simple put the error in the chat box and it would figure out a solution for me to try by again, hitting the play button.
+
+A few times the solution did not work, and I repeated the process. It was smart enough to try a different solution and we repeated this conversation until it eventually worked.
+
+Yep, it pair programmed the problem and solved every one of them including realizing that I had not set up the MySQL user password and opening the right files for me to make that adjustment to the application configuration.
+
+### But did the app work as expected?
+
+Short and long answer
+
+YES!
+
+Everything worked exactly as I requested. I could register an account, login and it would show me the profile page.
+
+On the profile page I could reset my password, and the logout worked as expected.
+
+### Bonus points
+So to try and see how well it would work with making changes to a project after creation I requested that it create a page where I could enter a name, url, and a note that was only accessible to logged in users.
+
+Sure enough, it created the new files and updated the existing ones across the application including navigation.
+
+### But what about mobile SwiftUI apps?
+Yep, I tried one of those as well and it nailed it. It created all the files matching my criteria for the Web application.
+
+At the end it had one instruction…
+
+“Add these files to an Xcode project”
+
+And it worked.
+
+### What does this tell us about the future for tools to help developers?
+I think this is a clear indication that developers should embrace these tools as assistants.
+
+Certainly they are more than capable of performing the mundane tasks we repeat with every project, and offer great possibilities for improving our code.
+
+Prototyping using a tool like Cursor is going to be a dream. The ability to say “create using these languages and platforms” is priceless and offers a great way to also learn new technologies on-the-fly.
+
+### The Wrap
+So basically, it performed way beyond my expectations and left me pretty much speechless, as you will see on the stream recording.
+
+Both myself, and the folks in the chatroom were impressed.
