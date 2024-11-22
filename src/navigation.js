@@ -65,10 +65,6 @@ export const headerData = {
 					href: getPermalink("/about"),
 				},
 				{
-					text: "Book my time",
-					href: "/meeting",
-				},
-				{
 					text: "Livestreaming",
 					href: "https://twitch.tv/compiledev",
 				},
