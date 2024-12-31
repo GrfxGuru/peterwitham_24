@@ -1,0 +1,443 @@
+---
+publishDate: 2024-09-14T00:00:00Z
+title: Apple iPhone 16 for Developers
+excerpt: iPhone 16 has some important updates for developers to take note of.
+image: /images/blog-fi/2024/09-14.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e13
+---
+
+import Player from '../../../../components/podcasts/cs-player.mdx';
+import CSLinks from '../../../../components/podcasts/cs-links.astro';
+
+<iframe
+  width="100%"
+  height="180"
+  frameborder="no"
+  scrolling="no"
+  seamless=""
+  src="https://share.transistor.fm/e/59e17933"
+></iframe>
+
+<Player />
+
+In this episode of the Compile Swift Podcast, hosts Jeff and Peter discuss the recent Apple "Nine-Nine" event, discussing the latest hardware announcements and their implications for developers. They reflect on how predictable Apple's product releases have become, highlighting the incremental updates across their platforms, particularly the new iPhone's "Capture Control" feature.
+
+The hosts explore the functionality of this new control, which allows users to adjust zoom and exposure settings directly from the side of the iPhone and how it compares to existing features like the volume button for taking photos. They also discuss the developer experience, including the built-in controls provided by Apple and the potential for creating custom controls.
+
+Additionally, they touch on the importance of understanding user needs when integrating new features into apps and the potential for future enhancements as Apple continues to evolve its technology.
+
+Join Geoff and Peter as they unpack these developments and share insights on how developers can leverage new tools to enhance their applications.
+
+<CSLinks
+  link1=""
+  link1label=""
+  link2=""
+  link2label=""
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+#### Transcription
+
+<cite>Peter:</cite>
+<time>00:02</time>
+<p>What's up, everybody? Welcome to another episode of the compiled swift podcast. We are back this week, and the short version is the Apple event, the 99 event took place, and, Jeff, we we pretty much nailed it, buddy, I think. Right?</p>
+<cite>Geoff:</cite>
+<time>00:19</time>
+<p>Yeah. We we we we I I was not even up on any of the rumors, and yet somehow I predicted absolutely how this event was gonna go.</p>
+<cite>Peter:</cite>
+<time>00:27</time>
+<p>Well, I I actually think that you have, secret connections inside, and and that's what it is. Right?</p>
+<cite>Geoff:</cite>
+<time>00:34</time>
+<p>Yes. That's exactly it. I I I know all of the the top secret Apple information. It just Apple is just such a consistent company these days. They've they've gotten mature to the the point where you really can kind of, like, predict things even without these rumors, even without some of this stuff.</p>
+<cite>Geoff:</cite>
+<time>00:52</time>
+<p>You know? A lot of what we said in the last podcast was basically down to, here's what was announced at WWDC. Given that, here's what we can expect to see. And, you know, there's not a lot of surprises coming out of this company anymore. And I I feel like that's, honestly, for developers, a good thing</p>
+<cite>Peter:</cite>
+<time>01:10</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>01:11</time>
+<p>That, you know, you're not gonna have your world rocked and suddenly need to completely rework your app. But, you know, as a consumer, it can be kinda boring sometimes.</p>
+<cite>Peter:</cite>
+<time>01:20</time>
+<p>Right. And I think that's the two sides of the the coin right there because, you know, we're we're not gonna talk too much, folks, about the the new hardware that was announced today. We are sure that you've seen this a 1000 other places already. Or if not wait 5 minutes and you certainly will. But there is there is a couple of things we're gonna touch on.</p>
+<cite>Peter:</cite>
+<time>01:42</time>
+<p>We wanna come at this more from a developer's perspective. You know, I think the the short version at least from me from a user's perspective is exactly what you said. Right? We're talking about, with the exception of of, you know, visionos and and the Apple headset, everything else is a mature platform at this point for Apple. And so, certainly, incremental updates from a hardware perspective, I I would say surprisingly little, increments this year in in many ways, but I'm sure I'll I'll get flamed for that.</p>
+<cite>Peter:</cite>
+<time>02:19</time>
+<p>But we really wanna come at this from a developer perspective. But is there anything you wanna add? Any any thoughts or anything before we dive in?</p>
+<cite>Geoff:</cite>
+<time>02:26</time>
+<p>No. I I I think that that was basically the the result of this is, you know, we we've seen a lot of incremental updates, over the the last year. I think we're waiting for this big drop of Apple Intelligence, but as we called it last week, that's still coming soon. Yes. That that's that's not coming now.</p>
+<cite>Geoff:</cite>
+<time>02:48</time>
+<p>I think that will be kind of the big shift, but it is something that we're still waiting on, and so we're kind of getting the, like, simpler, more incremental updates right now.</p>
+<cite>Peter:</cite>
+<time>03:00</time>
+<p>Yeah. And and I am certain that, you know, when the when the AI drops, we'll we'll have a lot to talk about there from from many different perspectives. You know, certainly from the developer perspective, I think the question here is always what's new on the hardware that I can take advantage of and the one that I think stood out to both of us, which I I think is kind of interesting and we'll we'll talk about it from a hardware perspective first, Is this new, control on the side of the iPhone, right, this new camera control, I think is is fair to say is is the best way to describe it. To me it's</p>
+<cite>Geoff:</cite>
+<time>03:39</time>
+<p>capture control is the word they use.</p>
+<cite>Peter:</cite>
+<time>03:41</time>
+<p>Control. That's the one. Thank you. And I think to me, it's it's I'm calling it sort of the the little, touchy feely bar. I think that's the best way to put it.</p>
+<cite>Peter:</cite>
+<time>03:55</time>
+<p>You know, interestingly, a shift here I think in that here they were trying to remove as much hardware from the device as they could as far as buttons and everything and now they put one back. But this one is interesting so I'll give a little brief overview for folks and then we'll dive into sort of the more developer level here. So hopefully at this point you're all using your iPhones the right way for taking photographs which is to not do them in portrait and to do them in landscape. And the reason I say that is this control is on the the right hand side of the phone as you are looking at it. It is literally on the side of the phone and for those of you who have like an iPhone 15, I noticed today that essentially it's replaced what I think is the antenna slot, right?</p>
+<cite>Peter:</cite>
+<time>04:46</time>
+<p>On mine I think it's the antenna that's under there and that is now like a a touch bar in in many ways. I think it's the way I'm gonna describe it, and this gives you access to controls. But</p>
+<cite>Geoff:</cite>
+<time>05:00</time>
+<p>Apple has bad bad, history around that.</p>
+<cite>Peter:</cite>
+<time>05:02</time>
+<p>Yeah. Maybe maybe they don't want me to call it touch bar. Yeah. Yeah. Maybe the, yeah.</p>
+<cite>Peter:</cite>
+<time>05:08</time>
+<p>I'm I'm going with the touchy feely bar then. There you go. And, yeah. So it's on the side, and that's why I say about using it, you know, to take photographs and videos in landscape mode because my take on it from a usability perspective and as a left handed person is the positioning is a little awkward unless you are using the phone in landscape mode and you've got essentially the lens panel is on the isn't it your left hand. Right?</p>
+<cite>Peter:</cite>
+<time>05:42</time>
+<p>And then it becomes more of a ever old enough to know what a conventional camera is. It's where the shutter button would have been on the conventional camera on the right hand side. But but what's your take on the on the hardware and and how they've gone about, you know, this design? Well, they called it a whole new design, but it's really not. Right?</p>
+<cite>Geoff:</cite>
+<time>06:03</time>
+<p>It's not new. No. I I basically agree with everything that you said there. Something that I didn't notice until you really started describing it there, something that Apple did a while ago, they actually stole this, I think, from a third party developer, is you've been able to use the volume up button in order to take a picture on your phone. And that feels very similar to what this is doing right there is that it's putting it up in the top right as you hold it so that you can take a picture there.</p>
+<cite>Geoff:</cite>
+<time>06:35</time>
+<p>But what's interesting there is if you're holding it like that, your camera is at the bottom of your phone. Yeah. And that is not always the best angle overall. And so what they've done is they basically put another button in the place where your volume button would be, but on the 180 degree rotated side of the phone. And so I think that's kind of like it's gonna be similar to how people have used their phones before, but now there's an additional place to do it.</p>
+<cite>Peter:</cite>
+<time>07:05</time>
+<p>Yeah. And and also, I think I wanna point out, anyone that's ever spent any time on Instagram, and and, you know, a lot of folks listening know my background. Originally was as a photographer, so I'm I'm very passionate about photography and cameras and, you know, how I I still use my conventional cameras, but anyone that's ever used Instagram for a long time or things like that, you will have seen these hard and I think they've Sherlock some hardware here because you will have seen these hardware devices that take a lot of the time. They take advantage of, the MagSafe on the back of the phone and it puts like a panel that attaches to your phone and puts a little hardware button that's like the little hand grip that you see on cameras and it puts a little shutter release button in that top right position, which essentially this replaces at that point. And for once, I'm not gonna put a link in the show notes because I I don't wanna link to these folks that do these things because some of them are a bit questionable.</p>
+<cite>Peter:</cite>
+<time>08:12</time>
+<p>I'm just gonna leave it at that.</p>
+<cite>Geoff:</cite>
+<time>08:13</time>
+<p>I will say though that for kind of the people that are into the Instagram type stuff or or any of the more, creator focused type, networks out there, Instagram, TikTok, Reels, whatever, any of those, I think I disagree with what you're saying with regards to the placement of it and how you hold your phone. Because this is a much nicer placement, not just for if you're holding the phone properly in landscape with that, with the cameras at the top, but also if you're holding it vertically, pointing the phone at yourself because you're vlogging or you're doing a a a kinda selfie or anything like that, this is much easier to reach this way in portrait as well. So I think that they have made it in such a way that it works for both portrait and landscape and is going to work well for both, you know, quote, unquote true photography and for, you know, kind of these quick creator led videos formats where you're gonna kinda, you know, hold it down, take a, you know, say something into the camera real quick, and then shoot that out or, yeah.</p>
+<cite>Peter:</cite>
+<time>09:30</time>
+<p>So I'm gonna agree and disagree with that because as I'm sitting here doing this now, right, I'm like, okay. Let's try this out. Yes, when I and folks you can't see this but, when I'm holding my phone in the right hand, my thumb goes exactly where that control is gonna be.</p>
+<cite>Geoff:</cite>
+<time>09:50</time>
+<p>Left handed, come on, you gotta hold it.</p>
+<cite>Peter:</cite>
+<time>09:52</time>
+<p>I was gonna get there. So so I totally agree that it's very usable for my right hand because I can I can slide and tap and so on with my thumb? However, with my left hand, there is at least two fingers that sit over that control. Hey, folks. If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter.</p>
+<cite>Peter:</cite>
+<time>10:21</time>
+<p>You can go to patreondot comforward/compile swift, where you will get ad free versions of the podcast along with other content.</p>
+<cite>Geoff:</cite>
+<time>10:29</time>
+<p>Now let's but see, one of them is your pointer finger, which you got much more traction with than with your thumb.</p>
+<cite>Peter:</cite>
+<time>10:35</time>
+<p>Well, it depends how far down in the in your hand you hold the phone and how big the phone is. Right? Yeah. See, for me, at least 3 of my fingers touch it.</p>
+<cite>Geoff:</cite>
+<time>10:47</time>
+<p>Turn like, I can set it to blur in my background. But okay. I guess that</p>
+<cite>Peter:</cite>
+<time>10:51</time>
+<p>Oh, there you go. That's Yeah. Yeah. Yeah. Yeah.</p>
+<cite>Geoff:</cite>
+<time>10:54</time>
+<p>Yeah. I mean, like, I'm putting my finger, like, right here. And so if I'm if I'm holding it with the bottom of, like, the fatty part of my thumb Yep. Then I've got that right there. And that that for me is, like this this was how I held it naturally, which is just like, yeah, doing like that.</p>
+<cite>Geoff:</cite>
+<time>11:09</time>
+<p>And so</p>
+<cite>Peter:</cite>
+<time>11:09</time>
+<p>Yeah. See, my natural hold is to the death grip of too expensive to drop.</p>
+<cite>Geoff:</cite>
+<time>11:14</time>
+<p>Right? It's like holding it holding it all the way down here, and then, yeah, it's it's not gonna work as well.</p>
+<cite>Peter:</cite>
+<time>11:19</time>
+<p>Well and, also, sometimes I I do this, and I put my little finger Mhmm. Underneath.</p>
+<cite>Geoff:</cite>
+<time>11:23</time>
+<p>But you could you're also like you could be taking a photo like this.</p>
+<cite>Peter:</cite>
+<time>11:30</time>
+<p>This is</p>
+<cite>Geoff:</cite>
+<time>11:31</time>
+<p>why this needs to be a video podcast.</p>
+<cite>Peter:</cite>
+<time>11:32</time>
+<p>That's right. We totally should've done this one on the video. This is this is classic b roll right here. So, yeah, I think I think I think user experience will tell over time how well this control is because the other thing that I do, and and maybe this is just me, regardless of which hand I use, whenever I pick my phone up, invariably, my part of my hand touches the screen and triggers something I didn't want it to trigger. Mhmm.</p>
+<cite>Peter:</cite>
+<time>11:58</time>
+<p>And I I'm worried that that might happen with this this button on the side.</p>
+<cite>Geoff:</cite>
+<time>12:02</time>
+<p>With an additional touch button?</p>
+<cite>Peter:</cite>
+<time>12:03</time>
+<p>Yeah. Yeah. Not you know, let alone the complication it's gonna cause for cases, but, hey, case manufacturers, you'll figure it out.</p>
+<cite>Geoff:</cite>
+<time>12:10</time>
+<p>They're used to it. Yeah.</p>
+<cite>Peter:</cite>
+<time>12:12</time>
+<p>Right. So that's the hardware. Let's dive into this now from from the the the the software and how we use this perspective. So, just quickly, the two examples they give, and I I hope there's more than this, and this is just a couple of good examples and we'll we'll talk about the code in that in a second, is to change the zoom and exposure compensation, which is arguably, I think, you know, the the 2 most used things on your your phone as far as taking photographs. Right?</p>
+<cite>Peter:</cite>
+<time>12:45</time>
+<p>Because the pinch and zoom thing, like, I'm trying to take the picture and tap in the screen, I never do that. That that's just not me. Right? So they give, like, this little dynamic island menu that pops out from the side of the screen. And I'm sure the Android folks are gonna say, oh, yeah.</p>
+<cite>Peter:</cite>
+<time>13:03</time>
+<p>Yeah. Samsung's done that a long time. Yes. You're quite right. Now I'm worried that I'm gonna end up with, like, the dynamic islands of death, and we can trademark that because the last thing I need is is, like, dynamic islands popping in all sides of my phone about 3 years from now.</p>
+<cite>Peter:</cite>
+<time>13:23</time>
+<p>But do you wanna you wanna dive in here and start talking about it from the developer experience? And we should preface we're going by the documentation. That's all we've got as reference right now.</p>
+<cite>Geoff:</cite>
+<time>13:34</time>
+<p>So, yeah, looking at the documentation that Apple rolled out, and, you know, it it's early first, swing at the documentation that, you know, people have not really got in, found all the nitty gritty. You know, Paul Hudson hasn't gone in and found all the particular edges and and nitty gritty about all of this. But it seems like what we have available is Apple provides 2 built in controls and then 2 classes which you can subclass in order to provide your own custom controls. So the built in controls that Apple provides are a zoom slider and an exposure bias slider, which directly change the camera's zoom and exposure target bias. You have no control over what else that does.</p>
+<cite>Geoff:</cite>
+<time>14:19</time>
+<p>It just pop in a zoom slider, pop in an exposure bias slider. Apple's gonna handle everything else after that.</p>
+<cite>Peter:</cite>
+<time>14:25</time>
+<p>So fair to say, if you're any kind of camera app, that's gonna be the ones you care about right there. Right?</p>
+<cite>Geoff:</cite>
+<time>14:34</time>
+<p>That makes sense as being at least 2 of the controls that you would want to put into your set of controls. It seems like Apple allows you to have kind of a different choice of the controls that you provide, and those can be 2 of the controls that you provide. Then, in addition to these 2 built in completely done controls, Apple gives you 2 classes that you can build custom controls on top of. 1 is a slider and 1 is an index picker. Now, a slider, I think you know what that means, that's basically just a general, you give it a max value, you give it a minimum value, and it allows you to pick any number in that range.</p>
+<cite>Geoff:</cite>
+<time>15:13</time>
+<p>An index picker is you have a specific set of items and you want to choose between those items. So the example that they give here is, like, set of filters. You want black and white, you want vivid, you want cool, you want warm. That would be an index picker. You provide all of your different filters in there, and then users can pick which one of that set of filters that they're choosing.</p>
+<cite>Geoff:</cite>
+<time>15:40</time>
+<p>And then it doesn't really look like you have too much else in terms of customizability. I don't see anything in here that indicates that you would be able to respond to a double tap or whatever directly. It really looks like you put in a set of controls, and Apple kind of takes care of everything after that.</p>
+<cite>Peter:</cite>
+<time>16:02</time>
+<p>And I think that would go a long way to helping, with my concerns about that accidental triggering. Right? Now that said though, I'm pretty sure you can actually essentially take the photograph with this as well because I know there is a tap and a double tap. I read that somewhere or maybe I read</p>
+<cite>Geoff:</cite>
+<time>16:25</time>
+<p>it online. So there is so all of these controls that we have now is for the the light tap and the double light tap.</p>
+<cite>Peter:</cite>
+<time>16:34</time>
+<p>Got it. So the</p>
+<cite>Geoff:</cite>
+<time>16:35</time>
+<p>way the way that this works is a single light tap that you have is bringing up whatever your last control was and allowing you to adjust that control. So if your last control was, for example, the zoom slider, that's what it's gonna bring up. A single light tap is just gonna bring up that zoom slider, and you can slide it from there. A double tap, light tap, just just just tapping it, is going to bring up the control picker, and so you're gonna be able to switch between the control picker there. So you can switch from zoom to exposure to filters to whatever.</p>
+<cite>Geoff:</cite>
+<time>17:06</time>
+<p>The actual press of actually pressing down on this control is always going to take a picture. And I don't believe that you have the ability to override that in any way, shape, or form.</p>
+<cite>Peter:</cite>
+<time>17:18</time>
+<p>At least</p>
+<cite>Geoff:</cite>
+<time>17:19</time>
+<p>This is just go ahead and take the picture.</p>
+<cite>Peter:</cite>
+<time>17:23</time>
+<p>Yeah. At least in this go around. Right?</p>
+<cite>Geoff:</cite>
+<time>17:26</time>
+<p>Yeah. Ex exactly. In in the version that we have, day and date of the event, it seems like the only, event that you have is you are just gonna take the picture.</p>
+<cite>Peter:</cite>
+<time>17:38</time>
+<p>I think maybe a way for some folks to sort of relate to this. If you've used the the Apple Pro pencil, it's very much feels like a smaller version of that, I think, on the you know, with the exception of don't try and bend your phone. That that ain't gonna work great.</p>
+<cite>Geoff:</cite>
+<time>17:57</time>
+<p>Yeah. Yeah. I mean, just like the Apple Pencil, as you mentioned, it it is handled by an interaction that you add to your view. You have an AV capture event interaction. And just like the pencil squeeze event, for example, it has different phases that you provide.</p>
+<cite>Geoff:</cite>
+<time>18:11</time>
+<p>And so it it works just like a gesture recognizer. You have a began, a recognized, and ended. And so I think in this case, you see that an event started happening, and then when it's done, you just go ahead and take a picture.</p>
+<cite>Peter:</cite>
+<time>18:25</time>
+<p>So this is all cool, right, if I've got a camera app open and I'm, you know, either the camera app or one that I've made, And I've got those controls there. But let's talk about the possibilities, if there are any, of what if I'm on the home screen or, you know, I'm I'm basically not in a photo app.</p>
+<cite>Geoff:</cite>
+<time>18:45</time>
+<p>Yeah. So you can choose to be an app that could be launched by the capture control by adopting this locked camera capture framework. And Apple introduced this locked camera capture framework back at WWDC. And they said at the time, you know, hey, this is because in iOS 18, you can swap out those controls that are on the home screen. So you had the flashlight and the camera before.</p>
+<cite>Geoff:</cite>
+<time>19:11</time>
+<p>Well, maybe your app is on the camera now.</p>
+<cite>Geoff:</cite>
+<time>19:13</time>
+<p>That's why they integrated this. And I think that kinda goes back to what we were saying in the</p>
+<cite>Geoff:</cite>
+<time>19:13</time>
+<p>very beginning is that, mature company, and it's very easy to look at what they're saying and then kinda guess at what they're doing there. And I I feel like this was an obvious outcome of, hey, we've introduced a new framework for what do you do if your phone is locked and you wanna take a picture. That's probably not gonna be just on the home screen. That's that's definitely gonna include stuff like this. So, yeah, if you adopt this locked camera capture framework, you are then put into a list that I presume is in settings somewhere on the user's phone to say, what app are you going to launch when the user taps on or sorry, when a user presses on the capture camera button?</p>
+<cite>Peter:</cite>
+<time>20:01</time>
+<p>Yeah. This is actually, now you say that, it's like an adaptation of the extra button that we got on the phone last year. Right?</p>
+<cite>Geoff:</cite>
+<time>20:10</time>
+<p>Yeah. The the action button.</p>
+<cite>Peter:</cite>
+<time>20:11</time>
+<p>Yeah. The action button. And and funny enough, when I was watching the video for this, I was, you know, the first thing in my head was, does this either make the action button redundant, or is this like a second action button?</p>
+<cite>Geoff:</cite>
+<time>20:23</time>
+<p>Okay. I I think this is like a second action button. I I think that Apple kind of got the hint that users want quick ways to get into things. And I think we we kinda see that even with Apple Intelligence of where Apple is going, people really don't like to sit there. Well, people like to say they don't like to sit there and just use their phones for hours on end.</p>
+<cite>Geoff:</cite>
+<time>20:50</time>
+<p>What they want to do is, you know, quickly be able to accomplish a task and then be done with it. And so I think you're seeing this move towards this with the action button with Apple Intelligence and now with this capture control.</p>
+<cite>Peter:</cite>
+<time>21:03</time>
+<p>And and because I can think of 3 things that you almost always wanna do at some point depending on who you are with your phone when it's locked. In my case, number 1 is always take a picture. That's why my action button is take a picture. Right? So I think that it makes sense that this control is there for that.</p>
+<cite>Peter:</cite>
+<time>21:25</time>
+<p>The other 2 that come to mind, maybe we'll see these in the future, is type a note of some description and record an audio of of some kind. Right? Those, I think, are 3 things that immediately come to mind that I almost always wanna do and it's like, oh, I don't wanna swipe to unlock my phone or whatever. I just need a quick way. And so that action button is perfect for those, and it makes sense that essentially this, at least for now in iOS 18, becomes a a dedicated capture photo, capture video button when I just took my phone out the pocket.</p>
+<cite>Peter:</cite>
+<time>22:03</time>
+<p>Right? I mean, I I completely embrace that use case. Alright. Here it is. The one thing that I cannot do without every day, and that is my coffee.</p>
+<cite>Peter:</cite>
+<time>22:13</time>
+<p>Anyone that knows me or anyone that's listened to any of my podcasts or anything else knows that I absolutely cannot operate without my coffee and I love good coffee. So here's the deal. I'm gonna give you one free bag of coffee by going to peterwidham.comforward/coffee. There is a wonderful company out there that follows the fair trade practices, helps out a lot of independent roasters of all sizes, and the operation is simple. What you do is you're gonna go to to peterwidham.comforward/coffee.</p>
+<cite>Peter:</cite>
+<time>22:47</time>
+<p>You sign up there. You get a free bag of coffee sent to you. Yes. In return, they say thank you to me by giving me some coffee, but that's not the reason I'm doing this. The reason I'm doing this is because I have found so many good coffees that I just would never have come across, heard about, or experienced without this service.</p>
+<cite>Peter:</cite>
+<time>23:09</time>
+<p>Trade coffee is just fantastic. You know, there are plenty of places out there. We all know them that supply coffee, good coffee. You can go to the store, get the coffee, but there is nothing better than discovering new independent roasters and supporting them, discovering new flavors of coffee, new grinds for you can set it up. It's very smart.</p>
+<cite>Peter:</cite>
+<time>23:31</time>
+<p>You it the kind of coffee you like and over time it gets better and better as it trains in on your selections and your choices and gives you exactly the coffee you're looking for and recommending new ones that that will be very similar. Every time I get a new packet of coffee, I go through and afterwards I try the coffee. I go through the service and I say, look, I loved this coffee. I thought this coffee was okay. Or I say, look, I've This was really not for me.</p>
+<cite>Peter:</cite>
+<time>23:59</time>
+<p>And every time I do that, it makes the service a little more accurate on the next selection for me. So again, just go to peterwhidham.comforward/coffee. Get your free bag of coffee today. If you're a coffee lover, you're gonna really appreciate this service. I have been using it for years at this point and thoroughly recommend it.</p>
+<cite>Geoff:</cite>
+<time>24:19</time>
+<p>Well, you kind of have 3 action buttons now. So you've you've got the action button as we got last year, and you can set it to do a whole bunch of things. You can turn on the flashlight, but I think the big one there is being able to run a shortcut. And so that is you can build up any custom thing that you wanted to do on a regular basis very easily there. You've got obviously this new capture control, that is very much used for taking a photo.</p>
+<cite>Geoff:</cite>
+<time>24:44</time>
+<p>As you described, that's one of the biggest things that people really wanna do with their phone when it's not locked. And then the third one is the lock button itself. If you long press it, that is now bringing up Siri. That is your entry to Apple Intelligence. And so all of the things that you are going to do through Apple Intelligence, that's now your 3rd action button on the phone is actually just long pressing the lock button.</p>
+<cite>Peter:</cite>
+<time>25:07</time>
+<p>And and it's a very sensible, I think, physical progression of interacting with this, you know, with the device that most of us have in our hands way too long. Right? And so it become it like, I think you mentioned, it becomes a muscle memory at this point. Right? You know, this even though, like, for example, with this one that is, in air quotes, not a real button, I know that if I put pressure on this part of the device, just like with the the Apple Pencil Pro, I I what's gonna happen?</p>
+<cite>Peter:</cite>
+<time>25:41</time>
+<p>And I think you make a good point there about the shortcuts, and I I feel like Apple is not making enough of a deal with shortcuts and that a lot of people are missing opportunities to do exactly what they want with these controls by triggering a shortcut. I know I'm guilty of it. I keep forgetting. Like, oh, that's right. There's shortcuts, and I can make one to do this thing that I need.</p>
+<cite>Peter:</cite>
+<time>26:09</time>
+<p>Mhmm. So that that's a very good point. And I I do feel this is this is, again, we've, you know, we've said it a couple of times now. This is typical Apple. We think we know a way to put this on a device, put it out there for people, and now let's watch what they do with it and what they ask us to do with it and what irritates them and then progress this over time.</p>
+<cite>Peter:</cite>
+<time>26:35</time>
+<p>So I, you know, I would not be surprised at all if at some point in the future, we see, okay, this is now opened up to a series of APIs to do other things with it in some restricted way. And and again, it reminds me of all the learning that they're doing from the VisionPRO headset. We think this is what people were gonna use it for. What are they actually doing? Okay.</p>
+<cite>Peter:</cite>
+<time>26:58</time>
+<p>These are the areas we need to expand. These are maybe the things that didn't work out, touch bar, and we need to move on. Right?</p>
+<cite>Geoff:</cite>
+<time>27:06</time>
+<p>So I think the the other question, and I'll I'll pose this to you, is when should we, as developers, be looking at these tools that Apple gives us, whether it's new hardware functionality or new software functionality that is based on a specific new device out there that we should be adopting this in our apps?</p>
+<cite>Peter:</cite>
+<time>27:28</time>
+<p>Okay. So from my perspective, I think, like so many things, the first question to ask yourself is, if I've got existing apps, does this complement them in some way? Does it make some feature of my app more accessible? Or is this something that is great but just doesn't work for me in my apps? Also, if I'm looking at, you know, future apps, is it the same question.</p>
+<cite>Peter:</cite>
+<time>27:58</time>
+<p>Does this complement some feature in some way? Can I take advantage of this? Or will it feel almost awkward that I'm implementing new hardware just because it's there? And I say that as well because, you know, it's it's pretty well known amongst developers. Right?</p>
+<cite>Peter:</cite>
+<time>28:15</time>
+<p>If you embrace the latest whatever hardware changes, features, additions Apple may put in there, it does increase your chance of being featured by Apple in the App Store. It also has to feel natural. Otherwise, you know, you're essentially making it worse for yourself by, look, I put this thing in and it feels awkward. So that's my stance on it. And for me right now, I don't have any apps that come to mind that can take advantage of something like this or would benefit from things like this.</p>
+<cite>Peter:</cite>
+<time>28:51</time>
+<p>But with that said, that's kind of where I'm at. I now wanna reverse the question and and hand it over to you because I know that you have apps, for example, that take advantage of the pencil. And I'm a massive pencil user on on my iPad, but I've not written anything to take advantage of it. So what's your take on that?</p>
+<cite>Geoff:</cite>
+<time>29:11</time>
+<p>I mean, yeah, the the pencil is a very similar thing where we got Apple Pencil Pro this year, and you had the ability to implement things that worked with Apple Pencil Pro. And so one of my apps, Kineo, it's a drawing app, but it uses PencilKit. And so it got all of the fancy new Pencil Pro stuff, basically, just for free. I didn't really have to do anything. And then I was so fascinated with the pencil that I also implemented it in my app black highlighter, which does use pencil kit, but it's kind of under the hood, and it doesn't use the same sort of tools as pencil kit does.</p>
+<cite>Geoff:</cite>
+<time>29:47</time>
+<p>And so I had to do a lot more extra work with that and build out a custom tool or a build out a custom user interface for it and and really spend a lot of time working with supporting the Apple Pencil. And I got that together and shipped it. And then at the very end, I was like, was this worth it? And, of course, I go look at my developer analytics and, oh, it turns out, like, 2% of my users are on my bed. Was it really worth it to spend all this time building out pencil support for such a limited number of users?</p>
+<cite>Geoff:</cite>
+<time>30:23</time>
+<p>Probably not. And so I think it's a case where you really need to know not just is this going to feel good in your app, because I think the tool that I ended up building is actually quite nice. It's just was it worth the time versus a lot of the other things that I could be doing to improve that app? Probably not, given how few of my users were on iPad to begin with.</p>
+<cite>Peter:</cite>
+<time>30:45</time>
+<p>And I gotta say, I'm really surprised at those numbers because to me it feels almost way more like an iPad friendly app than it does, say, an iPhone app. But that's just probably because of the way I do things and, like I say, I'm a big pencil user, so I'm always drawing, writing, and and so on on my iPad. Yeah. But also because I'm thinking of the bigger screen. So it is surprising to me that it was not as embraced as as you would think it should be.</p>
+<cite>Geoff:</cite>
+<time>31:17</time>
+<p>I mean, Kineo definitely has the the flip side. It is much more used on iPad than on iPhone. But black highlighter, yeah, definitely a a big iPhone proportion over on on black highlighter. And so users, I think, wanting to redact stuff quickly, they're taking a screenshot. They're they're grabbing something from somewhere else, and they're redacting it quickly.</p>
+<cite>Geoff:</cite>
+<time>31:39</time>
+<p>They're not really sitting down and doing a strong redaction workflow on their iPad.</p>
+<cite>Peter:</cite>
+<time>31:45</time>
+<p>Well, you know, maybe also it's because I'm thinking the the satisfaction of just scribbling over text with the pencil on the on the the iPad as well. But also, you know okay.</p>
+<cite>Geoff:</cite>
+<time>31:57</time>
+<p>It felt great to me when I was building it. So</p>
+<cite>Peter:</cite>
+<time>31:59</time>
+<p>It looked good on stream. Right? Yeah. Yeah. The audience applauded.</p>
+<cite>Peter:</cite>
+<time>32:03</time>
+<p>Yeah. I, I mean, I am surprised though because, again, you know, I I'm a big reader on the iPad, and and I'm not so much on the iPhone. Maybe that's an age thing too, though. I don't know. So so that is surprising.</p>
+<cite>Geoff:</cite>
+<time>32:17</time>
+<p>So I I I think the takeaway is just make sure you know what you're building, make sure you know who you're building it for, and use that to inform whether you're not whether or not you're going to take advantage of the new things that Apple gives us.</p>
+<cite>Peter:</cite>
+<time>32:30</time>
+<p>Oh, gosh. I'm gonna sound like Apple. Very excited to see where this goes. You know, but I I think that the next go around it is always interesting to me that we get you know, this stuff finally drops, like, here on the new hardware in September. We're now accelerating towards June for next year's OSs is where you end up finding out, hey.</p>
+<cite>Peter:</cite>
+<time>32:53</time>
+<p>Look. This is really what we intended for this thing. We just hadn't told you about it yet.</p>
+<cite>Geoff:</cite>
+<time>32:58</time>
+<p>Yeah. What what do you have now on the day that it's released versus what are we gonna have when they have another full OS release?</p>
+<cite>Peter:</cite>
+<time>33:05</time>
+<p>Exactly. Exactly. Right.</p>
+<cite>Geoff:</cite>
+<time>33:07</time>
+<p>I think that's where we can, wrap it up today. Peter, do you wanna tell everyone where they can find all the information about the podcast?</p>
+<cite>Peter:</cite>
+<time>33:14</time>
+<p>Yes. CompileSwift.com for the pod cast and the other things. Eventually, I will be doing my live streams again. I promise when I'm not so busy. Twitch.tv/compiledev, just to make things confusing.</p>
+<cite>Peter:</cite>
+<time>33:30</time>
+<p>Where can I find you, Jess?</p>
+<cite>Geoff:</cite>
+<time>33:32</time>
+<p>I'm available at cocoatype.com, twitch.tv/cocoatype. I'm cocotype on pretty much all of the things. And, yeah, I am still doing my live streams and going to be shipping a new app very soon now, any day now.</p>
+<cite>Peter:</cite>
+<time>33:46</time>
+<p>Yes.</p>
+<cite>Geoff:</cite>
+<time>33:46</time>
+<p>So keep an eye out for that.</p>
+<cite>Peter:</cite>
+<time>33:47</time>
+<p>Yeah. I didn't I I thought in this episode, I wouldn't ask about Shipathon. But, hey, folks. I can promise you he's getting very close. He also doesn't have much time left, so he's got no choice.</p>
+<cite>Peter:</cite>
+<time>33:56</time>
+<p>Yeah.</p>
+<cite>Geoff:</cite>
+<time>33:57</time>
+<p>Exactly.</p>
+<cite>Peter:</cite>
+<time>33:58</time>
+<p>That's it, folks. Hey, folks. If this has been helpful to you, you know what to do. Go tell someone about it. If you wanna go the extra level, go to patreon.com/compileswift.</p>
+<cite>Peter:</cite>
+<time>34:09</time>
+<p>We're putting out some extra little bonus featurettes, I would say, for for folks. And, with that, we will speak to you in the next episode.</p>
+</details>
