@@ -1,0 +1,675 @@
+---
+publishDate: 2024-10-26T00:00:00Z
+title: App Intents
+excerpt: App Intents are a great way to expose parts of your application to the system.
+image: /images/blog-fi/2024/10-26.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e18
+---
+
+import Player from '../../../../components/podcasts/cs-player.mdx';
+import CSLinks from '../../../../components/podcasts/cs-links.astro';
+
+<iframe
+  width="100%"
+  height="180"
+  frameborder="no"
+  scrolling="no"
+  seamless=""
+  src="https://share.transistor.fm/e/e9405b2e"
+></iframe>
+
+<Player />
+
+App intents can be exposed in various ways beyond shortcuts, such as custom controls, focus filters, and spotlight actions.
+
+They enable users to perform specific actions without launching the app, making them more accessible and user-friendly.
+
+App intents can also be used to configure widgets, interact with hardware, and handle preferences, providing a seamless user experience across different platforms.
+
+<CSLinks
+  link1="https://blog.viditb.com/action-centered-design/"
+  link1label="The way we interact with apps is changing"
+  link2="https://developer.apple.com/news/?id=jdqxdx0y"
+  link2label="WWDC Developer video for getting started with App Intents"
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+#### Transcription
+
+<cite>Peter:</cite>
+<time>00:02</time>
+<p>What's up, folks? Welcome to another episode of the CompileSwift Podcast. This week, we are diving into some very Swifty related things. We are gonna be talking about app intents. But first of all, mister Geoff, how are you doing?</p>
+<cite>Geoff:</cite>
+<time>00:18</time>
+<p>Yeah. Just been focusing on trying to get a major feature release out for Bark, and the feature that I'm working on right now is Apple Wallet Export. And so one thing that that requires is actually doing a little bit of both front end work and back end work. And so I've been doing some Swift on the server with Hummingbird, and building that out and having that all deployed. And so now I've I've got all of the back end work done.</p>
+<cite>Geoff:</cite>
+<time>00:50</time>
+<p>I've got it mostly, more or less, hooked up to my front end, and now I need to do the unfortunate part that, everybody hates me for of putting it behind a paywall. So, you know, not not letting people have that feature for free, unfortunately.</p>
+<cite>Peter:</cite>
+<time>01:08</time>
+<p>I'll say, we should definitely talk about maybe Hummingbird in that sometime. Folks, you may remember I'll put a link in the show notes. Our good friend, Giannis, we did an, I did an episode back in those days. I interviewed him, and we should definitely talk about Hummingbird. But I am curious, how are you gonna put that into production?</p>
+<cite>Peter:</cite>
+<time>01:28</time>
+<p>Presumably on some kind of Linux box or something?</p>
+<cite>Geoff:</cite>
+<time>01:31</time>
+<p>I have a single VPS hosted by a service called Hetzner that I run, and I basically just, have it in a Docker container, and I push that up and have it running on my server.</p>
+<cite>Peter:</cite>
+<time>01:44</time>
+<p>Cool. You know, actually, I was thinking about this the other day, and I should ask you. Is there a a good Docker container that we can just spin up that has, you know, Swift on the server and all of that stuff set up ready to run?</p>
+<cite>Geoff:</cite>
+<time>01:59</time>
+<p>There is some great Docker containers for doing Swift development. This was actually one of my first viral videos ever was Oh my god. Posting about how to do, Swift on a non Mac, system by taking advantage of Docker containers and GitHub Codespaces. And so there are some really nice Docker images for doing Swift development and also for deploying Swift code. They have a little one of each.</p>
+<cite>Geoff:</cite>
+<time>02:30</time>
+<p>And so, yeah, it's very easy to get started using Swift. Not really able to use all of Apple's frameworks. You can use Swift. You can use Foundation. You can use the built in stuff.</p>
+<cite>Geoff:</cite>
+<time>02:41</time>
+<p>But, being able to use that on Linux or really from any machine because you can run Docker and you can run that as a virtual image and run Linux there. So, yeah, being able to do Linux development inside of these Docker images. Yeah. The Swift language foundation, whatever you want to call them. They they do a good job of providing some some nice Swift Docker images.</p>
+<cite>Peter:</cite>
+<time>03:06</time>
+<p>Cool. We should talk about that sometime because, you know, I've played around with them from a development perspective, but I've I've always wondered and never looked into it because I've never needed to. But, you know, oh, is there, you know, what's a nice good secure more than anything, production one. So maybe we'll do an episode on that sometime as well. Yeah.</p>
+<cite>Peter:</cite>
+<time>03:25</time>
+<p>So, this week, I think I have finally wrapped up the update for Jobfinder tracker with the initial resume features and a and a bunch of other updates. I had a weird bug that you know, when you had those bugs that you say to yourself, is it me or is this a genuine bug? And you never configure it out. So, I've pushed it to TestFlight and it was a weird it's that weird scenario where you're using CloudKit and that and you wonder like, okay, is it taking a couple of seconds to pull down the data or is something really wrong? So, you know, maybe we'll talk about that sometime, but I'm hoping to get that that out this week.</p>
+<cite>Peter:</cite>
+<time>04:09</time>
+<p>Maybe next week, depends if I get a chance to make the videos, you know. So we'll see. But either way, it's like, gosh, I wrote some code. I I feel proud of myself. Alright.</p>
+<cite>Peter:</cite>
+<time>04:20</time>
+<p>Yeah. Alright. Let's get into the meat of this then. So, I'll give a quick rundown of what app intents are from a high level, and then I know you've actually done some, dare I say, production work with app intents. So, you know, it's definitely gonna be interesting there.</p>
+<cite>Peter:</cite>
+<time>04:38</time>
+<p>But for those who don't know, they they've I would imagine most developers have at least heard of them. Right? Because Apple likes to talk about them. But app intents. So what an app intent is in a in a very broad way is it gives you the ability to for for users in different ways and I'll I'll list a few in a moment.</p>
+<cite>Peter:</cite>
+<time>05:02</time>
+<p>To get into your applications or pull data out. Basically, interact with your application without necessarily having to open the application every time. So for example, right, you know, app if you wanna use app intents, you would use them for things like, you'll see them on, you know, spotlight access. Right? Widgets is probably a very popular one.</p>
+<cite>Peter:</cite>
+<time>05:27</time>
+<p>Siri is</p>
+<cite>Peter:</cite>
+<time>05:27</time>
+<p>another one I am sure everybody has encountered at</p>
+<cite>Peter:</cite>
+<time>05:27</time>
+<p>this point as far as a another one I am sure everybody has encountered at this point as far as a user, control center. The one that I'm perhaps most interested in is the shortcut actions because of all the possibilities that opens up for automated workflows between your apps and other apps and all of those kind of things. And, along with that of course, if you if you want really want to, and you have a need, you know, you've got the good old action button that as you said before we started is really the run a shortcut kind of button for the most part. And and we're not talking about the new one. Right?</p>
+<cite>Peter:</cite>
+<time>06:04</time>
+<p>We're not talking about the camera control one. We're talking about the The</p>
+<cite>Geoff:</cite>
+<time>06:07</time>
+<p>camera control one.</p>
+<cite>Peter:</cite>
+<time>06:08</time>
+<p>Yeah. Not that one. Not yet. We're talking about the button that's been around for, gosh, what is it? 2 or 3 versions at this point of the iPhone?</p>
+<cite>Peter:</cite>
+<time>06:16</time>
+<p>At least 2. Right?</p>
+<cite>Geoff:</cite>
+<time>06:17</time>
+<p>It it 2.</p>
+<cite>Peter:</cite>
+<time>06:18</time>
+<p>2. It came</p>
+<cite>Geoff:</cite>
+<time>06:19</time>
+<p>out with the iPhone 15.</p>
+<cite>Peter:</cite>
+<time>06:20</time>
+<p>Okay. Right. So so, I mean, at a high level, that's what app intents are. They're a way to interact with your application, let other people interact with them. Like I say, widgets and Siri are probably the most well known ones, as far as you've used them and probably haven't realized what it is, but they're super useful.</p>
+<cite>Peter:</cite>
+<time>06:41</time>
+<p>But, you know, Geoff, go we're gonna dive into the details of how you create them and so on. But, you know, go into a little more about how you've used them and why we think this is, you know, this is kind of the thing going forward. Right? Hey, folks. If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter.</p>
+<cite>Peter:</cite>
+<time>07:09</time>
+<p>You can go to patreon.comforward/compileswift, where you will get ad free versions of the podcast along with other content.</p>
+<cite>Geoff:</cite>
+<time>07:18</time>
+<p>So I would say that app intents are basically a way of exposing a single atomic action that your app can do to the system. And in so doing that, you can kind of take these actions and combine them with other actions that your app does or other actions that other apps do or other actions, in fact, that the system does, and use them to kind of tie a bunch of things together. And, yeah, I had originally started out working with the most obvious, most visible form of app intents, which is, of course, using them in the shortcuts app. And what the biggest benefit and also the biggest curse of doing app intents with shortcuts is that, of course, shortcuts is very much a huge power user feature. And so there's not a lot of benefit to focusing on shortcuts as your app intense target, because that's something that really is only going to be used by a very small portion of your users.</p>
+<cite>Geoff:</cite>
+<time>08:31</time>
+<p>However, as I've explored more into app intense, and as I've explored more into what they're capable of, it turns out that there are a lot of App Intense is, like, kind of, at least in my mind, and I think in a lot of developers' minds, tied to shortcuts. And shortcuts is very much a pro user feature.</p>
+<cite>Peter:</cite>
+<time>08:51</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>08:52</time>
+<p>But it turns out that while App Intense being designed for shortcuts is kind of a way to think about it, the actions can actually be exposed in ways that are way more obvious and way more presented to the user. And it makes sense to focus on building app intents because those other more exposed ones are there. And so for that, that is stuff like app intents. That is stuff like the new custom controls in iOS 18. That is stuff like focus filters.</p>
+<cite>Geoff:</cite>
+<time>09:27</time>
+<p>That one's kind of more of a power user feature.</p>
+<cite>Peter:</cite>
+<time>09:30</time>
+<p>Or live widgets?</p>
+<cite>Geoff:</cite>
+<time>09:31</time>
+<p>The shortcut the the the spot sorry, the spotlight actions, the live widgets. Yeah. All of these things. And so while you as a developer probably want to think about it in terms of what it could be as a single item in, shortcuts, because that is the right mental model for designing these atomic actions. It turns out that each of these actions is more usable by the users in ways outside of shortcuts.</p>
+<cite>Peter:</cite>
+<time>10:03</time>
+<p>I think maybe the definition here of, like, a really good use of an app intent is when the the user doesn't realize they're using 1. Right? Mhmm. You know, meaning that, yes, you know, I asked Siri something, and Siri, for once, actually accurately replies because I've got an app intent that it that Siri recognizes. Right?</p>
+<cite>Geoff:</cite>
+<time>10:27</time>
+<p>Well, that is yeah. As we're recording today, Apple released the release candidate for iOS 18 dot 1, which is the one that's really gonna start to be able to take advantage of some of the Apple Intelligence app intents and that that work that is being done there. But for years now, 2 or 3 at least, you've had the ability to expose your app intents to spotlight. So when the user is searching for something in their app, you might, have some kind of action that your app can take appear in the search list even if the user didn't look for that app in particular. And so that's kind of what I'm getting at with this idea of, like, design for shortcuts because that's the right mental model, but then use that to kind of get a foothold in these other areas that users are more likely to run across.</p>
+<cite>Peter:</cite>
+<time>11:18</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>11:19</time>
+<p>For example, in my app Bark, I've got a intent that just shows you a given bar code.</p>
+<cite>Peter:</cite>
+<time>11:29</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>11:29</time>
+<p>Type in the name of the bar code, and it passes that bar code to you. Now, I'm not taking my own advice yet. This is because I had a tight deadline on releasing bark. But Yeah. So I have this shortcut action in there, but what would make sense is what if I have that exposed as a spotlight action as well?</p>
+<cite>Geoff:</cite>
+<time>11:49</time>
+<p>And all I have to do is really just kinda take that existing app intent and make it a spotlight action, and suddenly you can now search for your barcodes in spotlight, Never launch my app. Never have to see my app. Just go into spotlight, search for your barcode name, tap it, boom, there's an image of your barcode. That is something that I think would be really useful to users in a way that, okay, well, you can bring up a barcode as part of a shortcut, maybe is not as useful to the vast majority of users.</p>
+<cite>Peter:</cite>
+<time>12:21</time>
+<p>That is a good example right there. Because let's say, for example, I've got, you know, the barcode for some concert ticket. Right? You know, yes, I could go into the app and get it and, but I've got a couple of options via the the intent here. You're enabling me to either, you know, I can put it as a widget on my home screen.</p>
+<cite>Peter:</cite>
+<time>12:46</time>
+<p>I get to the thing. I just gonna tap it. Boom. There you go. Or, you know, if I wanna risk talking to Siri in public, I don't know why anybody would wanna do that, but you can ask Siri and those kind of things.</p>
+<cite>Peter:</cite>
+<time>12:57</time>
+<p>But the idea being that the intent is gonna get me right down to that one specific thing that I want from the application. Much like I mean, this is perhaps a bad example, but the weather widget. Right? My location. Well, you know, it's probably I don't know.</p>
+<cite>Peter:</cite>
+<time>13:15</time>
+<p>But in the background, maybe sending in my ZIP code or my GPS coordinates, pulling that back out via, you know, an app intent and and getting the weather. That kind of thing is what we're talking about. Right?</p>
+<cite>Geoff:</cite>
+<time>13:28</time>
+<p>Yep. So, yeah, like like I said, the most well known thing that app intents are used for, well, at least until 18 dot 1 and Apple Intelligence, is shortcuts. But I think I've got a a partial list of a lot of the other things that it can be used for. And maybe I know you've also done your own independent research. Maybe you have some that I've missed.</p>
+<cite>Geoff:</cite>
+<time>13:50</time>
+<p>But Alright. The ones that I know of are being able to configure a widget. So when you long press a widget and you have the background, you can, like, change some things about the widgets. So, like, with the weather one, it might be what city are you looking at.</p>
+<cite>Peter:</cite>
+<time>14:04</time>
+<p>Yep.</p>
+<cite>Geoff:</cite>
+<time>14:04</time>
+<p>That's all handled by App Intense. For the interactive widgets that we got last year or 2 years ago, I don't remember, that's all handled by app intents where when you tap on something in a widget and it takes an action, that's an app intent. You have the new custom control center items that we got this year.</p>
+<cite>Peter:</cite>
+<time>14:23</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>14:23</time>
+<p>When you tap on those, those do something based on an app intent. It's keeping along the same line. You also have interactive live activities. When you've got a live activity on your screen, you wanted to do something. That's all app intents.</p>
+<cite>Geoff:</cite>
+<time>14:36</time>
+<p>We have the one that we've been discussing for a while now, the spotlight actions. Yep. That is the ability to see something that is an action, or in some cases, just an actual item in your app. That is a app intent. Focus filters, so when you have the something in your app that changes depending on a user's currently selected focus, whether it's, like, their bedtime focus, or their driving focus, or work or personal or whatever.</p>
+<cite>Peter:</cite>
+<time>15:07</time>
+<p>That's a good one.</p>
+<cite>Geoff:</cite>
+<time>15:07</time>
+<p>I think so. Preferences to users is all, an app intent. It's very similar to the configuring a widget app intent. And then the ability to interact with some of Apple's hardware stuff, we mentioned this earlier. This is mostly just running shortcuts, but you can obviously Mhmm.</p>
+<cite>Geoff:</cite>
+<time>15:28</time>
+<p>Have just a single action shortcut that is with the action button. And one that I think a lot of people miss is the squeeze function on the Apple Pencil Pro.</p>
+<cite>Peter:</cite>
+<time>15:38</time>
+<p>Oh, good point. Yeah.</p>
+<cite>Geoff:</cite>
+<time>15:39</time>
+<p>Directly to a shortcut and have it do different things. So that's my list of of things that app intents can do that are not shortcuts. So</p>
+<cite>Peter:</cite>
+<time>15:48</time>
+<p>No. That's no. You've got it.</p>
+<cite>Geoff:</cite>
+<time>15:49</time>
+<p>Did I miss anything?</p>
+<cite>Peter:</cite>
+<time>15:51</time>
+<p>No. You've got it. You've got a couple on there that I missed. Yeah. And and and now I actually wanna call this episode intent to squeeze.</p>
+<cite>Peter:</cite>
+<time>15:58</time>
+<p>Just see where that takes us, You know?</p>
+<cite>Geoff:</cite>
+<time>16:01</time>
+<p>That's that's that's</p>
+<cite>Peter:</cite>
+<time>16:03</time>
+<p>No. Actually, I've completely forgot about the pencil one. That</p>
+<cite>Geoff:</cite>
+<time>16:07</time>
+<p>that Yeah. I I think a lot of people did. Yeah.</p>
+<cite>Peter:</cite>
+<time>16:10</time>
+<p>That's cool. Yeah. Did you use that one when you</p>
+<cite>Geoff:</cite>
+<time>16:14</time>
+<p>I have not. No. No. The black highlighter Apple Pencil integration is entirely just, handling the Apple Pencil squeeze interaction directly. It's not using Apple Pencil.</p>
+<cite>Peter:</cite>
+<time>16:24</time>
+<p>Okay. Now clear something up for me here because in my mind, I'm thinking that an app intent is really also a replacement for, you know, some things like,</p>
+<cite>Peter:</cite>
+<time>16:36</time>
+<p>well, indirectly deep links. Right? Not to imply that it is, but</p>
+<cite>Peter:</cite>
+<time>16:36</time>
+<p>it's kind of like a</p>
+<cite>Geoff:</cite>
+<time>16:47</time>
+<p>yeah. I yeah, I wanna link to an article, a great article by developer, Viddit Bhargava. He makes, look up a dictionary app and word of the day, which is also kind of a dictionary app, but it's more directed at, hey, learning new vocabulary. And he has a article called Action Centered Design that isn't really about app intents, but it is kind of about app intents, which is saying that rather than designing your app as a set of UI, rather design your app as a set of actions that a user could take, and then build the UI over those actions. What does the user interface for performing this thing look like?</p>
+<cite>Geoff:</cite>
+<time>17:33</time>
+<p>And once you have that set of actions, it's a set of, like, nouns and verbs. And once you have that set of actions, those map very neatly to app intents. And so all of the nouns and verbs that your app can do or or use build an app intent for those.</p>
+<cite>Peter:</cite>
+<time>17:52</time>
+<p>Alright. Here it is. The one thing that I cannot do without every day, and that is my coffee. Anyone that knows me or anyone that's listened to any of my podcasts or anything else knows that I absolutely cannot operate without my coffee and I love good coffee. So here's the deal.</p>
+<cite>Peter:</cite>
+<time>18:10</time>
+<p>I'm gonna give you one free bag of coffee by going to peterwidham.com forward slash coffee. There is a wonderful company out there that follows the fair trade practices, helps out a lot of independent roasters of all sizes, and the operation is simple. What you do is you're gonna go to to peterwidham.com forward slash coffee. You sign up there. You get a free bag of coffee sent to you.</p>
+<cite>Peter:</cite>
+<time>18:35</time>
+<p>Yes, in return. They say thank you to me by giving me some coffee, but that's not the reason I'm doing this. The reason I'm doing this is because I have found so many good coffees that I just would never have come across, heard about or experienced without this service. Trade coffee is just fantastic. You know, there are plenty of places out there.</p>
+<cite>Peter:</cite>
+<time>19:00</time>
+<p>We all know them that supply coffee, good coffee. You can go to the store, get the coffee, but there is nothing better than discovering new independent roasters and supporting them, discovering new flavors of coffee, new grinds for you can set it up. It's very smart. You tell it the kind of coffee you like and over time it gets better and better as it trains in on your selections and your choices and gives you exactly the coffee you're looking for and recommending new ones that that will be very similar. Every time I get a new packet of coffee, I go through and afterwards I try the coffee, I go through the service and I say, look, I loved this coffee.</p>
+<cite>Peter:</cite>
+<time>19:40</time>
+<p>I thought this coffee was okay or I say, look, I've this was really not for me. And every time I do that, it makes the service a little more accurate on the next selection for me. So again, just go to peterwhidham.comforward/coffee. Get your free bag of coffee today. If you're a coffee lover, you're gonna really appreciate this service.</p>
+<cite>Peter:</cite>
+<time>19:59</time>
+<p>I have been using it for years at this point and thoroughly recommend it.</p>
+<cite>Geoff:</cite>
+<time>20:04</time>
+<p>So if I'm thinking about my app Bark, for example, I can add a new bar code. I can scan a picture and get bar codes out of it. I can open a bar code in the app. I can add a location to a bar code. I can add a time to a bar code.</p>
+<cite>Geoff:</cite>
+<time>20:23</time>
+<p>I can export something to Apple Wallet. These are all of the different individual actions my app might take, and I should probably have an app intent for every single one of them. And then based on that, be able to say what are the other use cases for those app intents. And so, for example, adding a location, that might be something that's really only useful in shortcuts, but show me a bar code. That's useful in shortcuts.</p>
+<cite>Geoff:</cite>
+<time>20:51</time>
+<p>That's useful in spotlight search, that's useful as a live activity button, that's useful as a lot of things. And so what can I once I have all of these actions listed, like, what are the various ways that somebody might want to interact with them? And I I I think that it makes a lot of sense to have something like that, be the basis for how you design when you use App Intense.</p>
+<cite>Peter:</cite>
+<time>21:18</time>
+<p>Okay. Yeah. I I'm gonna go read that article myself because as I was watching one of the Apple developer videos today to remind myself how all this stuff works, you know, Apple very much talks about it in that context, you know, verbs and so on. And afterwards I'm sitting here and I was thinking to myself, okay, my job finder tracker app. What app intents would I want to have?</p>
+<cite>Peter:</cite>
+<time>21:40</time>
+<p>And I started scribbling down a list and very quickly, like you said, you realize, oh, some of these make sense for widgets. Some of them make sense for opening up interactions for potentially other developers, you know, things like the share sheet and all these kind of things as well. And I think what I realized was it's all too easy to get carried away. Right? You don't need to offer, like, the essential essentially a visual API for everything in the app.</p>
+<cite>Peter:</cite>
+<time>22:15</time>
+<p>You just need to look at them and go, what are the key things someone would want to essentially do quickly without necessarily diving into an app for? Right? And that's how what I was gonna say, once I started thinking about that, I found my list got an awful lot shorter to what what are the things I actually would wanna do. Right? And what are the things</p>
+<cite>Geoff:</cite>
+<time>22:35</time>
+<p>I don't care about? I I think I disagree.</p>
+<cite>Peter:</cite>
+<time>22:38</time>
+<p>Okay. Cool. In this</p>
+<cite>Geoff:</cite>
+<time>22:39</time>
+<p>case, and and kinda to to back up with with the other article there that we linked to, there's also this is an older WWDC video. I I don't remember. I'll have to go find it and and what year it was in. K. Apple Apple engineer Michael Gorbach, and I have no idea if I pronounced that name right.</p>
+<cite>Geoff:</cite>
+<time>22:56</time>
+<p>So sorry, Michael. Talking about, like, really honestly, you really should have every single action that your app can do exposed as an app intent. And being able to effectively allow users to remix your app makes it so that there is way more of an ability for users to interact with your app. And so that was kinda getting back to what I was talking about with Bark in the first place is, like, I shipped a very limited number of shortcuts for my first version of Bark, but I do know that in a future release, I have like 10 more that I want to do, because I want every tiny piece of the app available in a way that users can kind of quickly do something, whatever individual thing they might want to do in the app, they are able to do it without having to launch the app. I think I actually I I've been using Bark as the example, because that's, you know, my new hot ness, and so, it's what's most front of mine.</p>
+<cite>Geoff:</cite>
+<time>23:57</time>
+<p>I've got a a user for black highlighter who is very excited about, like, the different things that black highlighter could do Mhmm. And all of the ways that I could expose the functionality of black highlighter through app intents. And being able to quickly say, like, oh, go grab the latest screenshot I just took and erase every single phone number in it, and then using a certain color, and then save it. And then now I've taken this image, and now I'm gonna put it in the rest of my shortcut, which is, like, post it to Twitter, for example. And what I have in black highlighter in shortcuts, especially before I started interacting with this user, was a lot more limited.</p>
+<cite>Geoff:</cite>
+<time>24:41</time>
+<p>And they've been sending me ideas and just, like, the number of things that it's kind of exposed to me, like, oh, yeah. No. Like, if I get way more granular and way more thorough in what black highlighter is doing, it makes the app way more powerful in a way that I don't really have to complicate my user interface for.</p>
+<cite>Peter:</cite>
+<time>25:04</time>
+<p>And</p>
+<cite>Geoff:</cite>
+<time>25:04</time>
+<p>Okay. So it allows for all of these individual actions, all of these individual things that a lot of them are, in fact, already in the app, but, you know, take a bunch of taps or take a bunch of of, steps to do. And if I expose them as app intents in a very granular fashion, users are basically able to build their own interface for it. And that is a very powerful way. And, yeah, this is shortcuts.</p>
+<cite>Geoff:</cite>
+<time>25:29</time>
+<p>This is very much a power user feature. But you can imagine the same sort of thing happening with Spotlight, for example. Like, oh, I need to do x thing very quickly. Let me just type in the action that I would be performing, and now it's available. It's done for me, and I don't have to think about it.</p>
+<cite>Geoff:</cite>
+<time>25:49</time>
+<p>And I think that's a very good way for users to be able to interact with your app without having to interact with your app and kind of just have people realizing how important your app is to them without having to go through the hassle of, like, oh, man. I had to, like, open this app, and I've gotta, like, wait for it to do this thing, and I gotta get to this page, and then I gotta go do that. Being able to instead just have every single thing that your app could do more exposed to the system gives them the benefit of your app without you having to build out special features explicitly.</p>
+<cite>Peter:</cite>
+<time>26:26</time>
+<p>So it is interesting. I had never thought about it from the perspective of empowering an a user to remix my app and essentially chain together app intents to perform some series of actions and use the app in a way that I'd never envisioned or, you know, the the end result, something like that. The reason I thought though that it was a bad idea to expose too many things, and and maybe this is just my experience and I've been using the wrong apps. I don't know. Is I hate it when I go to, like, set up some widgets and I'll select an app and I'm just inundated with a 1,000 variations of the widget, you know.</p>
+<cite>Peter:</cite>
+<time>27:12</time>
+<p>And it's like, look, I know what I want. I don't want this endless scrolling list. But now that you've said it, I do like the idea, especially if I freeze the context and say, okay, if I was a power user and I was using shortcuts, I can essentially chain together a whole series of actions to make Mhmm. An app do something the the creator never dreamed of, but has empowered me to do it. So I'll give you that one.</p>
+<cite>Peter:</cite>
+<time>27:37</time>
+<p>Yeah. Alright.</p>
+<cite>Geoff:</cite>
+<time>27:39</time>
+<p>And I I think that there is something even in that that kind of is more like what is the power of app intents versus what are the power of widgets. You can imagine a world in which you're talking about an issue where the user or sorry, where the developer has provided a bunch of different widgets. What if they provided a smaller number of widgets that because of app intents were far more customizable? I think that would have made a better experience where you are using app intents to take a more limited user interface and make it more customizable as opposed to saying, well, we're gonna think of the top ten things that a user might want and display 10 different widgets as opposed to having a single widget that is customizable in 30 different ways.</p>
+<cite>Peter:</cite>
+<time>28:30</time>
+<p>Yeah. Yeah. And in fact, you know, shout out to Cricket in the chat room here who points out, you know, we can spend a lot of time planning and building these interfaces, but as things like AI and and that come along and you have this more, hopefully, natural conversation with your devices that pretend then take these things and perform actions, the idea of okay. You know, I should provide you a UI, but let's have this smart AI in the background use my intents to take what you're asking me to do and run it for you, essentially with no UI at that point. Right?</p>
+<cite>Peter:</cite>
+<time>29:12</time>
+<p>No. But that that's a good point. Yeah.</p>
+<cite>Geoff:</cite>
+<time>29:14</time>
+<p>In in that same case, you know, kinda like going back to the widget example or going back to, just just in line with what Cricket is saying is having all of this in your actual UI means that you've made your UI more complicated for everyone.</p>
+<cite>Peter:</cite>
+<time>29:30</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>29:30</time>
+<p>Whereas giving people building blocks to build their own UI means that you're able to build a much simpler UI for specifically the thing that you want to be able to do.</p>
+<cite>Peter:</cite>
+<time>29:41</time>
+<p>And also just struck me too, you don't have to worry about the UI across platforms. Right? So I can just as easily talk to my watch as I can talk to a app on desktop, a phone, a tablet, and so on. So it's it's a real valid point there. Okay.</p>
+<cite>Peter:</cite>
+<time>30:00</time>
+<p>So let's let's now dive into some code here and and give folks, a way to get started with this and some ideas on how to use it. Of course, we will put links in the show notes for everything. Thoroughly recommend as always go over to the portal, watch the the videos because, they're very informative and they're and actually you will get started with this really quickly. Quite surprised how quickly it happens. Okay.</p>
+<cite>Peter:</cite>
+<time>30:27</time>
+<p>So I'm gonna give you a a very simple example here based on the videos. This is one for my app. All this does is create an app intent, expose it to the system, and you tap on it, it opens your app. Right? Yeah.</p>
+<cite>Peter:</cite>
+<time>30:41</time>
+<p>Okay. No great joy there, but this is the simplest form of a of an app intent I could find. So, you know, you can open up a new Swift file. Right? You're gonna create a struct, give it some name.</p>
+<cite>Peter:</cite>
+<time>30:53</time>
+<p>In my case, I called it add job. It's of type app intent. There are a few different types depending on what your goal is, and and we'll get into some of those. But that gives me an empty struct. In there, I've just got a very simple, static let title with a localized string so that you can see it in the system.</p>
+<cite>Peter:</cite>
+<time>31:15</time>
+<p>Right? It's essentially a title is what it is. Right? So you you know what you're looking at as the user's gonna use it. And then I've got a a function to perform.</p>
+<cite>Peter:</cite>
+<time>31:25</time>
+<p>It's an async throws with some intent result. And in there, all I do is I'm returning that result and it's got one extra line for some navigation within my app. And then, at the end of it, in the struct, I've just got a static let, open app when run set to true because I'm not passing in any configuration and things like that. So it's like just run the app. Right?</p>
+<cite>Peter:</cite>
+<time>31:50</time>
+<p>Now worth noting, if you was doing something extra passing in data or something along those lines, you wouldn't need to put that line because, obviously, it's gonna open your app. Right? But that is all you need to do to get a very basic working app intent that's exposed to the system. What I like about that is Apple has taken all of the pain out of it. Right?</p>
+<cite>Peter:</cite>
+<time>32:13</time>
+<p>None of this having to register in my configuration for my app to say, you know, hey. Expose this to the system or here is a list of the things. You just create this struct. That's it. It's done.</p>
+<cite>Peter:</cite>
+<time>32:28</time>
+<p>So, that's that's my example of a very basic struct there. But, Geoff, you wanna you wanna dive in and make it more interesting?</p>
+<cite>Geoff:</cite>
+<time>32:36</time>
+<p>Time for a break.</p>
+<cite>Peter:</cite>
+<time>32:38</time>
+<p>Hey, everybody. It's Peter Widom here from the Compulsory podcast. I wanna tell you about Setapp. Setapp is a service that provides a subscription fee of just $10 a month, and you get access to over 200 Mac applications. And it's also available now on iOS as part of that deal.</p>
+<cite>Peter:</cite>
+<time>32:57</time>
+<p>I use the service because it just has a ton of really good first rate apps that I use all the time. And for me, it's invaluable as a developer to have access to tools for things like APIs, for planning projects, writing emails, writing documentation, and you get all of these things including database apps, all of that kind of stuff right there on the setup service for just $10 a month. You can use as many or as few applications as you need. If you're interested in checking this out, go to petawitham.competerwitham.comforward/setappset app, and you can see the details there. And it's got a link that you can go over and start using the service and see how it works out for you.</p>
+<cite>Peter:</cite>
+<time>33:46</time>
+<p>I strongly recommend this to every Mac user.</p>
+<cite>Geoff:</cite>
+<time>33:49</time>
+<p>Break time over. So, yeah, the basic app intent, as you described, is just a swift struct with a certain protocol and a few default parameters. Now what you can do is you can also add additional properties with property wrappers on them that Apple provides, and those allow you to add additional configuration to your, intent. To go back a little bit, I talked about adding parameters. Once you add parameters, you can also add a parameter summary, which is the UI that is exposed to 2 shortcuts.</p>
+<cite>Geoff:</cite>
+<time>34:24</time>
+<p>It's it's the sentence that you see in shortcuts. And so, like, for example, I have my open barcode 1. What you provide is actually a string that has references to those parameters as keypads in the parameter summary. And so that is what gives you the UI that you see in shortcuts, where you have English text or whatever language text, and then you have these little spots in that sentence. And you can fill those spots in either by picking something directly or by referencing the result of an earlier shortcut is that is what fills that in.</p>
+<cite>Geoff:</cite>
+<time>35:06</time>
+<p>And so that is the parameter summary, this entire sentence that you have with references to slots that you might put in there. For example, you have the at parameter property wrapper, and that allows you to take in additional parameters from users. So if you're thinking in shortcuts, for example, you might wanna pass in the name of a thing that you're dealing with, or you might wanna pass in, the size of an image that you wanna export or something like that. And you can take in a bunch of different values. These are your kind of standard property list values.</p>
+<cite>Geoff:</cite>
+<time>35:38</time>
+<p>You you got your ints, your strings, your files, URLs, your all of those kinds of things. And those are the default system ones. You can additionally expose data from within your app to the app intense framework as well, and that's called an app entity. And these are the nouns in the nouns and verbs I described earlier. So for example, in my app, bark, barcodes are a app entity, and I need to expose what are all of the barcodes that I have in my app out as app entities.</p>
+<cite>Geoff:</cite>
+<time>36:10</time>
+<p>And that allows me then to say, okay. Well, have an app intent that gives me a list of all of my barcodes. Or if a user wants to have a parameter that opens a specific barcode, then shortcuts can show that list of barcodes to them where they tap open a given barcode. They can tap on that little spot where the barcode is, and it'll give them the list of barcodes, and then they can select which one they wanted to open.</p>
+<cite>Peter:</cite>
+<time>36:36</time>
+<p>Yeah. You can essentially it's like querying the data in your app. Right?</p>
+<cite>Geoff:</cite>
+<time>36:39</time>
+<p>Yep. Exactly. You you do it's in fact, what, is required to do an app intent or sorry, is what is required to do an app entity is defining an app entity query. That is a type you implement that allows you to return all of the entities that your app is using. Cricket has a question about, can you still define a model?</p>
+<cite>Geoff:</cite>
+<time>37:03</time>
+<p>Yes, question mark. Can you define a model as an app entity if it's not stored on device? And if you do have an app intent that lists these, can you have a fetch and query? Yes. You can have, you can have an app entity that does querying, and I believe it does also have, say, like, network access so that you can you can tell it to, like, go and, like, oh, I need to hit my server and go do that.</p>
+<cite>Geoff:</cite>
+<time>37:30</time>
+<p>What is more complicated, and this is the part where I don't get into, like, I don't really know how this works, past a certain number of entities. And so you can think of, for example, like Netflix's catalog here. If Netflix was building out a shortcut and they're like, watch movie and you have every movie that could possibly in Netflix's catalog, that is a different system that you use to integrate with those, and I don't a 100% know how that works. And so I think that that's where you get into this level of, like, app entity queries are meant to be more for limited sets of items that are specific to the user. So for example, a better example here would be a weather app.</p>
+<cite>Geoff:</cite>
+<time>38:19</time>
+<p>You would include the entities that a user has probably previously searched for. You would not include every city in the world. That is a different system that you have to go through, and I don't know much about how that system works. And so Okay. Yeah.</p>
+<cite>Geoff:</cite>
+<time>38:37</time>
+<p>You can do, stuff a little bit more, async, and I I think you can call out to a server at that part. I haven't done that specifically. So I'm I'm pretty sure there's no, like, sandbox. You just have a limited amount of time, basically.</p>
+<cite>Peter:</cite>
+<time>38:53</time>
+<p>That's what I was gonna say.</p>
+<cite>Geoff:</cite>
+<time>38:54</time>
+<p>But then the the results that you return, you can you can do whatever you want to there. And it it's a matter of doing, like, a deep search or something that uses this other system.</p>
+<cite>Peter:</cite>
+<time>39:06</time>
+<p>Yeah. Because I was and and I think you know, because at first, I wasn't sure that I understood. But if you're talking about, can I have can I run an app intent that makes some remote API call, waits for a response, comes back, processes whatever that may be, and then present it to the user as a selection or whatever you're gonna do on the return of that app intent? I was gonna comment. I I gotta believe there's probably, first of all, an an acceptable user amount of time to wait.</p>
+<cite>Peter:</cite>
+<time>39:41</time>
+<p>And then secondly, there may even be, you know, a a predefined expiry time. Right? And an app intent, I would imagine, Apple is not gonna let you run it forever. Right? So if you're bringing back a lot of data or slow server, bad connection, anything like that, I gotta believe there's gonna be an automatic cutout in there somewhere.</p>
+<cite>Peter:</cite>
+<time>40:01</time>
+<p>But I also</p>
+<cite>Geoff:</cite>
+<time>40:02</time>
+<p>I think it's on the order of 10 seconds.</p>
+<cite>Peter:</cite>
+<time>40:04</time>
+<p>Okay. That seems don't know exactly. But, yeah, it's That seems reasonable.</p>
+<cite>Geoff:</cite>
+<time>40:07</time>
+<p>It's reasonable enough to go hit a dead server and do something. It's not enough to, like, do a ton of processing.</p>
+<cite>Peter:</cite>
+<time>40:12</time>
+<p>Yeah. And and, you know, as a user, would I wait 10 seconds for an app intent to do something? I don't know that I would, because I'm impatient, you know. But but I think if he was looking at doing something like that, I actually wonder maybe that's more of a stop and think about, you know, if that's a goal in the app, how you're doing it in the app, maybe. Right?</p>
+<cite>Peter:</cite>
+<time>40:34</time>
+<p>Because, yes, I'd be concerned about that user interaction level and time.</p>
+<cite>Geoff:</cite>
+<time>40:39</time>
+<p>Sorry. To to respond to this question, there is a limit. It's fairly generous. And, yeah, I I have not done it, but I'm 99.9% sure that you can make network calls. And and basically anything that your app can do, you can do.</p>
+<cite>Geoff:</cite>
+<time>40:55</time>
+<p>It it you can say you can mark your app intent as running in your app's environment, I guess. And so it's basically launching your app, and then you can do whatever your app normally does. And so it it's not sandboxed in a way that, for example, a lot of extensions are. Or it's like, oh, you've got a very limited memory environment, and you're not able to make network calls, and you're not able to do whatever. App entities can basically do anything an app can do.</p>
+<cite>Peter:</cite>
+<time>41:21</time>
+<p>I wonder if there's an an yes. Same thing. I've not looked into this, but I almost hope from a security standpoint, maybe there's a requirement to whitelist what you gonna be allowed to call from the app so that, you know, want someone to try and use it maliciously or something like that. Right? I don't know.</p>
+<cite>Geoff:</cite>
+<time>41:40</time>
+<p>I mean, I I it's sandboxed like your normal app is sandboxed. And so</p>
+<cite>Peter:</cite>
+<time>41:44</time>
+<p>Right. And that's what I mean.</p>
+<cite>Geoff:</cite>
+<time>41:45</time>
+<p>Not yeah.</p>
+<cite>Peter:</cite>
+<time>41:46</time>
+<p>Sorry. Not just from the app intent, but your app is in general. If your app's gonna call out and you're gonna expose that, security practices definitely in play Yeah. Just in case.</p>
+<cite>Geoff:</cite>
+<time>41:56</time>
+<p>And so I I I think it's the case, like, you know, if your user has not granted you location permissions within your app. Right. Absolutely. Yeah. And so Yeah.</p>
+<cite>Geoff:</cite>
+<time>42:04</time>
+<p>That is,</p>
+<cite>Peter:</cite>
+<time>42:05</time>
+<p>like, one of the things that,</p>
+<cite>Geoff:</cite>
+<time>42:06</time>
+<p>you know, like, Bark</p>
+<cite>Peter:</cite>
+<time>42:07</time>
+<p>currently</p>
+<cite>Geoff:</cite>
+<time>42:07</time>
+<p>doesn't have photo permissions at all. All. That is a feature that will be coming down in the future. This part's not in the thing, and just I can talk about future plans. But one thing that you can do right now if you really want to have access to your photo library is you can literally just have shortcuts</p>
+<cite>Peter:</cite>
+<time>42:30</time>
+<p>reference your photo library. It goes and gets your photo.</p>
+<cite>Geoff:</cite>
+<time>42:30</time>
+<p>It passes that as just an bark. And then that is a way for you to use your photo library in bark, is just by having it, by having shortcuts handle it, basically. Yeah. And then that way, I have not I haven't had to build out, like, oh, I need to know I need to have photo permissions access. I haven't had to build that out.</p>
+<cite>Geoff:</cite>
+<time>42:58</time>
+<p>I can kinda just, like, let shortcuts handle okay. Here's it's got all of the photo permissions access, and now it's going and grabbing that photo, and it's just giving me that one photo to my app intent.</p>
+<cite>Peter:</cite>
+<time>43:10</time>
+<p>Yeah. It comes back to, like, we were saying earlier. Right? The beauty of shortcuts and being able to essentially just chain together useful items. Yeah.</p>
+<cite>Peter:</cite>
+<time>43:18</time>
+<p>Absolutely. Yeah.</p>
+<cite>Geoff:</cite>
+<time>43:20</time>
+<p>So, yeah, we talked about, app entities. And so, yeah, the the way an app entity is defined or sorry. The way an entity query is defined is it says you can look up entities by a given identifier, and so then you return any entities that match an identifier. And then you also have the ability to say suggested entities, which is like a small limited set of the entities that you think are most relevant to the user right now. And so that's that's the difference between the entity query system and this other system that I'm talking about that, is related to CoreSpotlight.</p>
+<cite>Geoff:</cite>
+<time>43:56</time>
+<p>I don't yeah. That's the part that I I really don't know the answer to on that one is is how, you do the, like, far more in-depth exposing of of a bunch of data. But the entity queries have yeah. You can look up something by a specific identifier, and you can give a set of suggested ones, but you can't really do, you know, like, deep search type stuff.</p>
+<cite>Peter:</cite>
+<time>44:23</time>
+<p>Right.</p>
+<cite>Peter:</cite>
+<time>44:23</time>
+<p>And and that's, you know, sort of alluding back to what I was saying earlier about, you know, overdoing this. The the thing to to remember here is just like, you know, when you're creating an API or something like that, you know, the the the more of these you create, they may well be useful, but it's also the more that you have to manage and hope that they don't break in a future system. And if they do, guess what? You gotta go fix them all. Right?</p>
+<cite>Peter:</cite>
+<time>44:52</time>
+<p>Yeah. But, again, I think that's why it's one of those, you know, hopefully, like everything at this point, folks think about these ahead of time and plan it out a bit. Right? Don't just put them in there because, oh, I should put that in there. You know, what's the reason for it?</p>
+<cite>Peter:</cite>
+<time>45:07</time>
+<p>Right? You know, things like that. Okay. So that's kind of a a level one of app intents right there. And that probably satisfies a lot of use cases for a lot of developers out there and what they wanna do and exposing their apps.</p>
+<cite>Peter:</cite>
+<time>45:22</time>
+<p>But there's a whole other level that we can dive into here where you can customize them to be exactly, you know, meet the requirements that you want and work in the the way that you feel is appropriate for your app. So let's go ahead. You've definitely got more experience with that side of things than I do. So you wanna go ahead and dive in there?</p>
+<cite>Geoff:</cite>
+<time>45:43</time>
+<p>Yeah. So once you have your basic app intent, you can adopt other protocols for specific use cases for your intents. And so we talked about the the various use cases for AppIntense here. We can dig into one of them. So adding customizability to a widget.</p>
+<cite>Geoff:</cite>
+<time>46:03</time>
+<p>You take your existing AppIntend widget exactly as we talked about defining it, And you can now add a new protocol called widget configuration intent. And what that does is it kind of just takes all of the parameters, parameter summaries, the titles, everything that you've defined, and you just say, this could also be used to configure a widget. And so all of those parameters that you've provided, they now show up in a widget when you, tap on the little thing and you go to, like, customize, and then it shows your widget's name, that all of those parameters that you've already identified as your regular app entity, those are now in this widget configuration simply by adopting the widget configuration intent protocol, handling any additional requirements it has. And I think for widget configuration intent, there isn't anything additional. I'm looking at the docs right now, and I don't see anything.</p>
+<cite>Geoff:</cite>
+<time>46:58</time>
+<p>So, yeah, you have your basic app intent. You say it's now also a widget configuration intent, and then you assign that to your widget when you define your widget. You can say, like, oh, configured by blah blah blah, and then you pass in your app intent there. So you could have an app intent that is doing something in shortcuts and say, by the way, this is also a widget, configuration intent. And then suddenly you've got the same code kinda handling 2 different cases.</p>
+<cite>Peter:</cite>
+<time>47:24</time>
+<p>The one that I saw in the Apple video that they gave a quick example of, I think, brought it home real quickly, which was, you know, and interestingly because they they make mention of it. At first, you didn't see it. It's like, oh, you got to hit the little disclosure triangle. Right? And then it drops down</p>
+<cite>Peter:</cite>
+<time>47:41</time>
+<p>Mhmm.</p>
+<cite>Peter:</cite>
+<time>47:41</time>
+<p>In your in the shortcuts, for example, you know, essentially your options. And you can click on it and this one, for example, was a essentially a drop down list you could pick from. Right? But the configuration side, correct me if I'm wrong, everything has to be like most of this stuff, excluding external data that we briefly spoke about, has to be configured in the app when you when you ship it. Right?</p>
+<cite>Peter:</cite>
+<time>48:08</time>
+<p>Because the system's gotta be able to read through and essentially know what your app is wanting to expose so that when you install the app, it configures all of that in the system. Right?</p>
+<cite>Geoff:</cite>
+<time>48:19</time>
+<p>Yeah. I mean, that's that's what the app entity queries that we were discussing earlier</p>
+<cite>Peter:</cite>
+<time>48:23</time>
+<p>Okay.</p>
+<cite>Geoff:</cite>
+<time>48:24</time>
+<p>Is is that you are telling the the app, hey, here's how my data is exposed to the system, and here's what might go in here. And so, for example, you can have one of your parameters in your widget configuration intent be your app entity. And you say, like, I need you to take in this type of item, and the user needs to select an element in this list.</p>
+<cite>Peter:</cite>
+<time>48:49</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>48:49</time>
+<p>And then they you could have that be part of your widget, for example. So again, we go back to the idea of a weather widget. You can say that your app entity is city, and in your widget configuration intent, it would have that app parameter, property wrapper, and then you could have, for example, example, var city, colon, city. And city is all defined by this this app intent query, yada yada yada. And then when you get to your widget and you tap on it and you go to the edit, on the backside, you have, like, a city, row, and then you tap on that, and it populates out a menu, and you can pick your city from that menu.</p>
+<cite>Geoff:</cite>
+<time>49:35</time>
+<p>That would be how this would work. And so you can imagine that exact same entity being used in shortcuts where you have a sentence there that is like, show me the weather for city, and then you tap that city. It picks the item there. And then what that does is it returns some text, for example. Mhmm.</p>
+<cite>Peter:</cite>
+<time>49:57</time>
+<p>Yeah. That that I think was an example that they put. Not not for the weather specifically, but sort of, you know, in the videos, they had an example of how how you would put it in there like that. And I think the the great thing about that is once you see it, you see them do it in the video and they show you the code, you get it really quickly. It's like, oh, this, you know, like I was saying earlier, you know, originally I struggled with deep links and things like that, but the way that they get this across in the video, it just makes sense and infinitely less code to deal with and</p>
+<cite>Peter:</cite>
+<time>50:32</time>
+<p>configuration, unless you choose</p>
+<cite>Peter:</cite>
+<time>50:32</time>
+<p>to make it complicated. I mean, by all and configuration, unless you choose to make it complicated. I mean, by all means. Right? Over engineered if you want to, but not recommended.</p>
+<cite>Peter:</cite>
+<time>50:39</time>
+<p>Yeah.</p>
+<cite>Geoff:</cite>
+<time>50:40</time>
+<p>Design of App Intense kind of does lead it to not getting over complicated because you want it to be kind of these very minimal, very self contained pieces of action. And so you you want your app entities to really just kind of do one thing very quickly, get in, get out. That's it. If you want it to get more complicated, then what you're doing is you're chaining multiple intents together. And you can even do that in app intents directly.</p>
+<cite>Geoff:</cite>
+<time>51:11</time>
+<p>App intents can call out 2 other app intents, or you can leave it to the user, and they're responsible for chaining them together in something like shortcuts.</p>
+<cite>Peter:</cite>
+<time>51:19</time>
+<p>Yeah. I mean, my recommendation is, you know, like you mentioned at the very beginning, maybe provide the blocks to do that, but</p>
+<cite>Peter:</cite>
+<time>51:28</time>
+<p>Mhmm.</p>
+<cite>Peter:</cite>
+<time>51:29</time>
+<p>Save yourself the headache. Give give the user the ability to do what they want. Don't you know, number 1, you don't have to try and progress it unless there's a very specific feature in your app that would benefit from, oh, if I set these things up for the user, you know, a bunch of configuration and stuff as well, fine. Go for it. Right?</p>
+<cite>Peter:</cite>
+<time>51:47</time>
+<p>But, again, it's all maintenance for you down the road should you wanna change something or Apple makes you change it.</p>
+<cite>Geoff:</cite>
+<time>51:54</time>
+<p>So for example, let me describe some of the app intents that I have in black highlighter. I have one app intent that is, okay. Give me an image. Give me some words to redact, and I'll spit you out an image. And another intent that I have is literally just open an image in black highlighter.</p>
+<cite>Geoff:</cite>
+<time>52:16</time>
+<p>Just give me an image. Go launch the app with that that image in there. Now something that a user can do is they can actually just chain those 2 images together and say, like, I wanna open this image in black highlighter, but I have a default set of things that I want always redacted. So I'm gonna go ahead and have it do the default things and then open the image. The user can go and they can build those in, on their own.</p>
+<cite>Geoff:</cite>
+<time>52:40</time>
+<p>However, one thing that I can do as the developer to kind of make this easier is I can actually go provide a hidden parameter. Hidden parameter is a little little, bit of a misnumber. It's just kinda behind the drop down. Oh. And have a checkbox there that is open when run.</p>
+<cite>Geoff:</cite>
+<time>53:00</time>
+<p>And what I can then do is me as the developer, I can check this open when run property. It's just a boolean. If that's true, I can just call my open intent directly from my redact intent. And so I can say, go ahead, grab this image, do the redactions, and then launch the app. And the the way that I've done that under the hood, I'm just calling the same open intent that the user could call directly.</p>
+<cite>Geoff:</cite>
+<time>53:29</time>
+<p>And it's just a way of providing convenience to them by going directly from scan, redact, open, as opposed to the user having to have the scan, redact, open intents, all as 3 separate items.</p>
+<cite>Peter:</cite>
+<time>53:45</time>
+<p>Okay. That's interesting because that answers a question that I I was wondering which is, you know, what I was gonna make the statement that at some point, if an app intent feels like it's getting overly interactive or complicated, that you should at that point say, okay. Now I should pop open the app, and you you you should really do this in the app. But what you're describing there is something I hadn't thought of, which is, hey, let me do the bit that, you know, had the ability to do the the easy bit. And then if you wanna do this extra complicated bit, we'll open the app and pass this off to it.</p>
+<cite>Peter:</cite>
+<time>54:26</time>
+<p>Right? So you got the best of both worlds.</p>
+<cite>Geoff:</cite>
+<time>54:29</time>
+<p>Yep. Yeah. And and I think that is the benefit of, like, really decomposing these down to their smallest individual pieces allows you to, a, build your own intents out of other intents, but then also allow users to use those intents in ways that mix and match them in whatever way they want to.</p>
+<cite>Peter:</cite>
+<time>54:49</time>
+<p>Yeah. Yeah. Got it. Yeah. I guess it's, you know, it's kinda like that writing functions.</p>
+<cite>Peter:</cite>
+<time>54:54</time>
+<p>Right? Write a small function that does one thing. Don't don't make it Yeah.</p>
+<cite>Geoff:</cite>
+<time>54:58</time>
+<p>Exactly. You</p>
+<cite>Peter:</cite>
+<time>54:59</time>
+<p>know? Don't do it the way I do it. Yeah. Alright, folks. So I feel like we've covered app intents here.</p>
+<cite>Peter:</cite>
+<time>55:05</time>
+<p>Certainly enough to get you started and interested. And you should definitely be interested because this, you know, with with the AI from Apple and, you know, hopefully, the improvements in that lady one day, it's gonna be a thing going forward. Right? App intense. So you the sooner you get on board and at least become knowledgeable, the better.</p>
+<cite>Peter:</cite>
+<time>55:28</time>
+<p>With that said, Geoff, where can they find you? Where can they find your apps with all of these working app intents?</p>
+<cite>Geoff:</cite>
+<time>55:36</time>
+<p>As always, everything is at, cocoatype.com.</p>
+<cite>Peter:</cite>
+<time>55:39</time>
+<p>There you go. And as always, I'm at compile swift.com. That's it, folks. See you in the next episode.</p>
+</details>
