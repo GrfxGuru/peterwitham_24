@@ -1,0 +1,449 @@
+---
+publishDate: 2024-10-19T00:00:00Z
+title: Gorkem Ercan - Eclipse, AI/ML, CI/CD
+excerpt: Interview with Gorkem Ercan on many topics including CI/CD and Apple development.
+image: /images/blog-fi/2024/10-19.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e17
+---
+
+import Player from '../../../../components/podcasts/cs-player.mdx';
+import CSLinks from '../../../../components/podcasts/cs-links.astro';
+
+<iframe
+  width="100%"
+  height="180"
+  frameborder="no"
+  scrolling="no"
+  seamless=""
+  src="https://share.transistor.fm/e/e9405b2e"
+></iframe>
+
+<Player />
+
+I interviewed Gorkem Ercan from Jozu about a few essential topics within the development ecosystem that apply to many different technologies, including Apple development.
+
+<CSLinks
+  link1="https://jozu.com/"
+  link1label="Gorkem at Jozu"
+  link2="https://eclipse.org/"
+  link2label="Eclipse Foundation"
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+#### Transcription
+
+<cite>Peter:</cite>
+<time>00:01</time>
+<p>What's up, everybody? Welcome to another episode of the CompileScript Podcast. We have a guest this week, and I'm very excited to talk about this. I have Gorkem Ercan with me today. We're gonna be talking about some CICD, some open source.</p>
+<cite>Peter:</cite>
+<time>00:14</time>
+<p>We have some machine learning in there as well. But Gorkem please introduce yourself.</p>
+<cite>Gorkem:</cite>
+<time>00:18</time>
+<p>Thanks, Peter for thanks for having me. My name is Gorkem and I work as the CTO of Jozu. Jozu is a company that tries to help enterprises adopt AI and ML. What we believe in Jozu is the AI and ML adoption needs to be very close to your current CICD practices and standards. So we try to help establish standards, open standards, and we try to reuse existing standards for INML adoption on enterprises.</p>
+<cite>Gorkem:</cite>
+<time>00:54</time>
+<p>Before Jozu, I was a distinguished engineer with Red Hat. I was running a big portion of the Red Hat's developer tooling efforts. And, before that I worked for Nokia. The other thing is I have been an open source contributor for pretty much all my career over 20 years. I worked on open source projects as part of my daily life.</p>
+<cite>Gorkem:</cite>
+<time>01:21</time>
+<p>I worked on projects as part of not my daily job as well. I did all of those kind of distributions. And until a year ago, I was the board member at the Eclipse Foundation.</p>
+<cite>Peter:</cite>
+<time>01:36</time>
+<p>Very interesting.</p>
+<cite>Gorkem:</cite>
+<time>01:37</time>
+<p>I guess.</p>
+<cite>Peter:</cite>
+<time>01:38</time>
+<p>Yeah. A lot of topics. It's you have had</p>
+<cite>Gorkem:</cite>
+<time>01:40</time>
+<p>a a A lot of topics. Where do you wanna start?</p>
+<cite>Peter:</cite>
+<time>01:42</time>
+<p>Yeah. We got a lot of topics to dive into there. So we're gonna we're gonna try and cover as many as we can. First of all, I'd like to to start we're not gonna do this in order, but I would like to start because I think you are the first person I've ever directly spoken with that has had a connection with Eclipse and all of the Eclipse technologies. Back in the day, I was an Eclipse user like so many folks.</p>
+<cite>Peter:</cite>
+<time>02:06</time>
+<p>And then I feel like Eclipse was the first IDE that I I truly got to grips with. Everything else was played with up until then. And because of the nature of Eclipse with the the plugins and so many different distributions, it really felt like that was a tool. Everyone was using it for so many different interesting projects and builds and everything else. What was it like to spend time working there?</p>
+<cite>Peter:</cite>
+<time>02:31</time>
+<p>Because that, even today, it was such a hot property. I would imagine there was a lot of demand and a lot of pressure.</p>
+<cite>Gorkem:</cite>
+<time>02:37</time>
+<p>I think when we talk about Eclipse as a brand, I think there is a curse and a luxury with that brand. Because as like you, many people have used Eclipse IDE for many years and there are still a lot of people using Eclipse IDE for different purposes. But then the Eclipse Foundation, which is the foundation that hosts the Eclipse, Eclipse ID development is actually much, much more than that. Today, if you look at the whole portfolio of Eclipse Foundations, open search projects, you have everything from automotive to embedded to cloud. So it's a very diverse set of open search projects.</p>
+<cite>Gorkem:</cite>
+<time>03:23</time>
+<p>So Eclipse Foundation itself today is a truly open source foundation beyond Eclipse IDE. As for the Eclipse IDE, yes, you're right. It's been there for over 2 decades now. And it has been used for many different purposes from Java EE to C and it still continues to to chug along. And some are areas of the IDE are not as active as it used to be.</p>
+<cite>Gorkem:</cite>
+<time>03:55</time>
+<p>But that's actually understandable in the sense that those areas have been they have been they don't actually need that much activity. For instance, Java tooling, as you can imagine, is chugging along and it's getting updated as with the Java specification changes. And there are new language features introduced to Java. So those are updated, obviously. Bugs are cleared and compatibility issues or dependencies are updated and so on and so forth.</p>
+<cite>Gorkem:</cite>
+<time>04:24</time>
+<p>But that doesn't sum up to a huge amount of work. So more of a fact, we can even call it maintenance work.</p>
+<cite>Peter:</cite>
+<time>04:31</time>
+<p>I was gonna say, so from an IDE perspective then, do you feel like that's more of a maintenance compared to some of the other like you say, so many topics and so many products within the Eclipse ecosphere. Right? Do you feel like the IDE now is it's a maintenance mode? Not to imply that in a negative way, but it's very immature as well. Right?</p>
+<cite>Gorkem:</cite>
+<time>04:52</time>
+<p>Yeah. It is a very mature product. Therefore, yes, there is a lot of parts of it that are in maintenance mode, but I don't think it would be fair to say all of it. There are other areas where there is a lot of involvement movement happens. Like, for instance, Eclipse IDE has language server support today.</p>
+<cite>Gorkem:</cite>
+<time>05:10</time>
+<p>So I wouldn't call that a maintenance mode feature. But it is a feature that has been added after the popularity of the language servers. Right? I don't think it's fair to say that all parts of the Eclipse IDE is on maintenance mode. There are some areas that are emerging.</p>
+<cite>Gorkem:</cite>
+<time>05:27</time>
+<p>And then, therefore, there is more activity. But the core of Eclipse is very stable. And also, that popularity and adoption is also a curse as well, perhaps. Because the moment that you start to make changes to that base, there are so many projects that are built on top of Eclipse IDE that you cannot really it is I haven't seen too many changes in Eclipse over the last decade where it would introduce breaking changes and would not cause a small civil war.</p>
+<cite>Peter:</cite>
+<time>06:03</time>
+<p>That's interesting.</p>
+<cite>Gorkem:</cite>
+<time>06:04</time>
+<p>Because you can't imagine how many industries, how many, projects are actually based on Eclipse. And this is not just the ease. For instance, think about all the rich client platform applications, RCP applications. There are major industries that actually run on RCP applications that are doing mission critical stuff as well. It's really important for Eclipse IDE or an anti Eclipse core to be to continue to be stable as well.</p>
+<cite>Peter:</cite>
+<time>06:36</time>
+<p>That's a very important point because I was thinking about it, and I remember, I'm gonna show my age now, folks. Back in the day, Eclipse was the IDE, was the editor that I used to edit ActionScript for Flash applications and with those platforms, because it was the first one that I found with all the plugin architectures where it's like, great. You can set it up for what you want, like so many other things. And like you say, even today, even Flash is a good example of what we call a dead technology. But I don't think there is such a thing because these things live on forever.</p>
+<cite>Peter:</cite>
+<time>07:13</time>
+<p>And like you say, once something becomes a standard within a particular industry or especially if a large company adopts something, they become very reluctant to want to change and update those, which also makes it hard to go, like you say, go too far into the core and make too many changes because you cannot risk breaking all the platforms that are out there. Banking is a good example on that with still having COBOL out there and those kind of things. You have to be very careful. And once you bring in open source to the mix as well and you start having third party contributions, I would imagine it gets very complicated. But that's why I love a lot of these foundations that have these boards that sort of look at these things and take a sensible I was gonna say a slow sensible approach.</p>
+<cite>Peter:</cite>
+<time>08:00</time>
+<p>Right? Really think through what makes sense to move on and and expand upon. And I think that moving into more of the open source discussion now, I What's up folks? I have been using SaneBox for years to monitor my email. Now what does it do?</p>
+<cite>Peter:</cite>
+<time>08:17</time>
+<p>It's very smart. It learns over time and you can train it as well on individual emails. It will watch your emails and you can have it, for example, go to specific boxes. So by default, I have mine setups. There's a later box where things like newsletters and all of that kind of stuff goes in there and anything that I don't need to deal with right now.</p>
+<cite>Peter:</cite>
+<time>08:40</time>
+<p>I have another one that just basically filters out the spam and it makes it go away. That works fantastically, by the way. It's very smart. And I also have one where I can set them up to snooze, and I can also set up custom ones as well. I have another one, for example, that has all of my receipts.</p>
+<cite>Peter:</cite>
+<time>08:57</time>
+<p>So I have trained it to learn what a receipt looks like for me, you know, things like Amazon or those online services, and they all get filtered into the boxes. And at the end of the day, that means my inbox really has just the email that I need to deal with right now and needs my attention. As I say, it gets smarter over time. You can train it. It's very smart to begin with, but I want to help you out here.</p>
+<cite>Peter:</cite>
+<time>09:19</time>
+<p>Like I say, I've been using this for years and there is a link. You can go to peterwhytham.comforward/sbox, s b o x, and get $5 off the service and give it a try. But I have been using it for years. I it I cannot tell you how much time it has saved me. My inbox truly is sane again at last.</p>
+<cite>Peter:</cite>
+<time>09:40</time>
+<p>So go to peterwhiddham.comforward/sbox and get yourself $5 off. I feel like that's that's a good thing. I know some folks say it could be limiting in that, oh, if you quote play it safe, but I think that a lot of people now are starting to understand a lot of these tools, these platforms. Open source software in general is so prolific and so widespread that we cannot be here I am in Texas. We cannot be cowboys with these things anymore.</p>
+<cite>Peter:</cite>
+<time>10:10</time>
+<p>Right? We have to be very responsible to so many companies, so many industries, and we hear about this all the time. One little change in open source breaks something critical for so many people, so many services. Right? I know you said open source.</p>
+<cite>Peter:</cite>
+<time>10:24</time>
+<p>You're you're very committed to that. How much of that do you see in that responsibility that folks take a little bit of a less sort of Wild West attitude I think we get these days in a more disciplined approach?</p>
+<cite>Gorkem:</cite>
+<time>10:38</time>
+<p>Like the foundations like Eclipse Foundation, Linux Foundation, and Apache Foundation, these are one of the things that that you have with these foundations is, let's say that you're relying on some a library, whether that's hosted by Eclipse Foundation or not. Right? The one thing that will definitely gonna happen is the people who are involved with that library is gonna very likely to change. And at some point, you're gonna end up with a project, hopefully with new set of people. But there is a lot of projects out there who actually have 0 to no maintenance.</p>
+<cite>Gorkem:</cite>
+<time>11:16</time>
+<p>If you're relying on a project and tomorrow that project just disappears on you or there are no maintainers left. If you're not on a foundation, there's not nowhere that you can go. It's like someone can just delete that project and disappear. But if it's an Eclipse Foundation project, that will never happen. You're guaranteed that that will never happen.</p>
+<cite>Peter:</cite>
+<time>11:40</time>
+<p>Yeah. I was gonna say I've had it happen to me. I've I've worked on apps that have used, a GitHub repo, but basically third party source code. And, hey, the person that owned it decided they didn't wanna do this anymore and rather than leaving it up, they pulled it down and it broke a whole bunch of things. Now they're perfectly entitled to do that.</p>
+<cite>Peter:</cite>
+<time>12:00</time>
+<p>I I got no problem with that. Right? If you choose to to incorporate a third party solution, you know what comes with that. Right? I think as you gain experience in the industry.</p>
+<cite>Peter:</cite>
+<time>12:10</time>
+<p>So that's why I love this idea with these foundations that says, hey. There may be nothing new, but you're okay. Your legacy can live on. Right?</p>
+<cite>Gorkem:</cite>
+<time>12:18</time>
+<p>Yeah. But in the foundations, you can also do the new things as well. Right? If you look at Eclipse Foundation, a lot of new projects. If you look at Linux Foundation or Cloud Native Foundation, a lot of new projects, a lot of imported projects there as well.</p>
+<cite>Gorkem:</cite>
+<time>12:34</time>
+<p>So it's not an impediment to build new projects in those foundations. Yes, they do come with a bit more requirements than, just pushing the code into GitHub, into our GitHub repository. But most of those requirements are have a reason.</p>
+<cite>Peter:</cite>
+<time>12:52</time>
+<p>Yeah. No. And it's interesting and timely in a way. I've not read up too much on this, but I think it was either yesterday or maybe Friday I read that Apple had announced Swift and Java interoperability. But now that we have this combination where I can now use Swift and Java together, I think that's gonna be interesting.</p>
+<cite>Peter:</cite>
+<time>13:13</time>
+<p>And I like to see lots of these things because it enables you to use those new languages, those new skills with the more mature ones as well. And it also invites folks to start using maybe some of their legacy code and things like that and to adopt these new platforms without having to go wholesale and convert all their code. A timely announcement there by Apple as well. And with Swift, of course, being open mostly open source, I'll be diplomatic about it. We have that as well and and it makes it makes everything very transparent.</p>
+<cite>Peter:</cite>
+<time>13:48</time>
+<p>So whichever side of something you're sitting on, you can go look just like everything else with open source and choose to use it or maybe fork it and use it yourself and and make adoptions that way as well. Something else that I I wanna ask about here as well because with Jozu, CICD is something that is I've done a few episodes talking to a few different folks, but it is critical these days. Right? We don't have especially the complexity of software and things like running automation with tests, build pipelines, all of these things, we don't sit here and I I guess I was gonna say Xcode users. We we famously joke about where you you hit the build button on Xcode and you go home for the day.</p>
+<cite>Peter:</cite>
+<time>14:35</time>
+<p>So CICD, let's talk about that because it's very important for me. I'll not only do I like the build process, but being able to run those automated tests is a big one as well.</p>
+<cite>Gorkem:</cite>
+<time>14:48</time>
+<p>Yeah. As you said, CICD and automation is really important for any project. But I think the, the CICD actually goes a little bit further than just being able to compile your project and also test your project. Right? There is also one thing that we have learned in the last 5, 10 years is our supply chains needs to be secured.</p>
+<cite>Gorkem:</cite>
+<time>15:13</time>
+<p>And that pretty much starts with CICD. You or that's, or let's put it this way. CICD is actually the gatekeeper for that. So the days off, like I would be really worried if you are able to just do your build on your machine and push that binary to someone for someone to use. Like that wouldn't, that would be a very,</p>
+<cite>Peter:</cite>
+<time>15:36</time>
+<p>very safe</p>
+<cite>Gorkem:</cite>
+<time>15:37</time>
+<p>to have. Yeah. But today, CICD involves being able to build things, but also recording what you build as well. Because you want to be able to do secure supply chains. And part of that is, oh, I am actually building in an environment where I know what that is.</p>
+<cite>Gorkem:</cite>
+<time>15:56</time>
+<p>Like we had these problems with, what was the SolarWinds project? Right? The SolarWinds problem. Right? If you're not able to control your CI and CD environment closely and record what you have used in your CICD environment and record what you have used as part of your dependencies for every build that you make and provide that in a manner that is not that is that you can prove that hasn't been tampered with, then your supply chain will always be in question.</p>
+<cite>Gorkem:</cite>
+<time>16:34</time>
+<p>So there are tools and techniques that has emerged in the last 3, 5 years in response to incidents like the SolarWinds, where you are able to record your built environment and if you are able to record your dependencies and your, and finally your binaries, as well as your test results, if those are needed. So like the, one of the big, the, the end result is an SBOM, right? A secure, bill of materials, which is something that you can sign and hand over to to and store security and and hand over to your DevOps SRE organization or just store it so that in the future, you can come back to it. And the s bombs are essentially JSON, XML documents that you can search your dependencies. And there are tools out there that you can actually use to turn an SBOM to a searchable graphical tree even.</p>
+<cite>Gorkem:</cite>
+<time>17:36</time>
+<p>And then there are tools, even GitHub Actions have tools where you are able to record your built environment and your dependencies as well. And there are other tools like the CV Foundation has Techton, which I was involved with in the past. And then that does a very good job with this. And pretty much every other CICD tool out there, I'm guessing Jenkins too, but I haven't touched Jenkins in a while.</p>
+<cite>Peter:</cite>
+<time>18:04</time>
+<p>It's been a while. Yeah.</p>
+<cite>Gorkem:</cite>
+<time>18:05</time>
+<p>Is able to to it comes with these sort of capabilities. Right? So this is very important. Like, automation is one part of it, but you also need to be able to think about secure supply chain.</p>
+<cite>Peter:</cite>
+<time>18:17</time>
+<p>Hey, folks. If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter. You can go to patreon.comforward/compileswift, where you will get ad free versions of the podcast along with other content.</p>
+<cite>Gorkem:</cite>
+<time>18:37</time>
+<p>And the things gets a little bit more complicated when you move into consuming AI and ML as well because you you still have a secure supply chain concern. So you should you need to be able to still retrieve and record your AIML projects. And that's one of the reasons why we started the KeytaOps project. What KeytaOps project does is it uses OCI artifacts. And by OCI, I mean the Open Container Initiative, not the Oracle one.</p>
+<cite>Gorkem:</cite>
+<time>19:11</time>
+<p>Apparently, there is an Oracle one as well with the same acronym. So an OCI artifact is essentially like a Docker image, but it can include different things. So what we come up with is an OCI artifact for storing AI and ML artifacts. What kind of artifacts you can store? You can store model weights and models themselves, essentially, datasets, code, documents, and configuration.</p>
+<cite>Gorkem:</cite>
+<time>19:40</time>
+<p>So with everything stored is an OCI artifact, the benefit is you can actually use existing tick like SBOMs, signing, and similar techniques to what you do today with your applications and just use the same tools. For instance, for signing, you can just use a tool like cosine, which you would use for your applications to sign your artifacts and sign your SBOMs and generate your SBOM. Right? And then that would give put you into a secure supply chain trajectory that already exists with many of the organizations. The other benefit is these OCI artifacts are stored in an OCI registry, which is your Docker hub, your Google, not Google, G packages and so on and so forth.</p>
+<cite>Gorkem:</cite>
+<time>20:30</time>
+<p>So that means that the existing mechanisms for your authorization and auditing applies to your AIML artifacts as well. So you're basically changing. That's why we mean, oh, it's a standard you are already using. So you're able to adopt your AI and ML into that standard. Of course, the challenges for AI and ML does not end there with the CICD.</p>
+<cite>Gorkem:</cite>
+<time>21:00</time>
+<p>Because when you think about a classic application that you built, you put the source code, you go through your build process. At the end, your binary is the same binary that you would, if you would do the same build again with the same source code. With AI and ML, it's not, that's not.</p>
+<cite>Peter:</cite>
+<time>21:22</time>
+<p>I was gonna say that's the interesting aspect here. And I think that is, I'm so glad that you brought this up and you explained this because for a lot of us, myself included, I'm certainly no expert on this. That is a major concern, right? Is with conventional source code, in theory at least, we should be able to repeat builds over and over again, same expected results. And, of course, one of the concerns folks like myself who are not as educated on these things as arguably maybe we need to be at this point, immediately, we start thinking, okay.</p>
+<cite>Peter:</cite>
+<time>21:55</time>
+<p>AI, ML, is it changing things between builds? How would I know that? And, of course, like you say, with that comes a trust factor. Right?</p>
+<cite>Gorkem:</cite>
+<time>22:03</time>
+<p>So yes. The if you are using the same code, like, our brains as software engineers are trained with to to think that if I put the same source code, if I check out the code from GitHub or get my Git repository, put that through my I'll get the same. That's how our brains train them up. That's whole the whole process of GitOps actually depends upon. Right?</p>
+<cite>Gorkem:</cite>
+<time>22:27</time>
+<p>That's one basic rule that we all agree on. But with AI and ML, that's not the case. Because you can have the exact same code, exact same dataset, do your training, and it will be a slightly different result. So with AI and ML, I don't think our conventional or existing truths about how we do GitOps is going to apply. So one of the things that that we are working on is, oh, you do your AI pipeline.</p>
+<cite>Gorkem:</cite>
+<time>22:59</time>
+<p>But also you also understand that your pipeline is not going to be 100% repeated. You're gonna get a result. You're gonna store those results. And then from those results, you're gonna select the one that is most likely to be the best for your what you're trying to achieve. In in AI ML, this is called the experimentation.</p>
+<cite>Gorkem:</cite>
+<time>23:22</time>
+<p>Right? You will get multiple experimentation results. And you will play with configurations, get another experimentation result, and so on and so forth. You need to be very ready to do these experimentations and able to compare their results and select the correct one for what you are trying to achieve and get that to production. So there is all this process that needs to happen.</p>
+<cite>Gorkem:</cite>
+<time>23:49</time>
+<p>And this is not, as you can imagine, this is not a linear process as it was with the applications anymore. This is a process that needs to get feedback, make decisions, needs to get feedback and make decisions. So the automation of AI and ML projects, if you're trying to adopt AI and ML in scale, and my guess is many of the enterprises will try to do that in the next decade, is not as linear. So these 2 probably have different methods, techniques, and tools compared to what we have for CICD for applications that can actually react to that loop or feedback or experimentation. And this is just the experimentation part.</p>
+<cite>Gorkem:</cite>
+<time>24:37</time>
+<p>This is that there is the there are also things that you need to consider when you are going to production, when you are doing inference out of your models. And there are also pipelines that you need to do. I think that's a little bit better known than when you're trying to get data into training. I guess the end result or what to summarize, the CICD for AI and ML is going to be much more intelligent maybe or more, more flexible than the CICD for applications today.</p>
+<cite>Peter:</cite>
+<time>25:10</time>
+<p>And I wonder, sometimes I think there's this nervous apprehension with a lot of developers on that very topic, which is, I'm hoping that we've got past that phase of realizing, okay, it's not going to take our jobs. Yeah. We've all matured and grown up and realized that's not gonna happen. And now we need to build our trust in these technologies and say to ourselves, we don't necessarily need to know every single thing. We hope that over time as these models become more experienced, just like us.</p>
+<cite>Peter:</cite>
+<time>25:47</time>
+<p>Right? As we become more experienced and more evolved with these things, we adopt better techniques. We learn better ways. We hope these systems are gonna do the same thing. And and I guess the question is, how do we best educate those around us that it's okay to not necessarily understand exactly 100% how this works and and to essentially trust in the system.</p>
+<cite>Peter:</cite>
+<time>26:12</time>
+<p>Right? And I get it. It's early days. I'm not saying tomorrow we should just trust flat out trust these things, but the theory being they're gonna get smarter over time. They will be smarter than us.</p>
+<cite>Peter:</cite>
+<time>26:22</time>
+<p>Right? I I think that's a fact, and we have to live with it. But our responsibility is how we use that and control it and have that trust with it without just, like, some folks say, oh, you let the AI build this thing and then you push it to production. No. You don't just let it do it.</p>
+<cite>Gorkem:</cite>
+<time>26:42</time>
+<p>Yeah. You don't no. I would push anything to production that is AI generated without</p>
+<cite>Peter:</cite>
+<time>26:47</time>
+<p>Understanding it.</p>
+<cite>Gorkem:</cite>
+<time>26:48</time>
+<p>Looking at it. You need to look at it pretty closely. Yeah. It gets better all the time. It gets trained with data.</p>
+<cite>Gorkem:</cite>
+<time>26:56</time>
+<p>And the more GPUs you can throw at it and the more data you can throw at it, it makes the end result better. I think that's the most important thing with the AI revolution that we are having is the difference is that we are able to throw more resources to trading and get better results. So I think that's the big difference. It looks like to me that we are still able to throw more resources and get better results. So we didn't reach a dead end where throw more resources and the results are not better.</p>
+<cite>Gorkem:</cite>
+<time>27:30</time>
+<p>Right? So that would be the end of that. But we are not there yet. The models are getting better, but that doesn't mean that they will be able to cover everything. And this is we're talking about replacing software engineers.</p>
+<cite>Gorkem:</cite>
+<time>27:46</time>
+<p>And if you have been using, and I have been experimenting with generative AI since CheggptGPT came out, right? It's to understand what it is capable of and what it is not, in means of software development. And it gets better. But at the end of the day, it will never be a 100%. Like, you would never be some of the minuscule tasks, yes, you can just leave it to it.</p>
+<cite>Gorkem:</cite>
+<time>28:11</time>
+<p>But when you design a system that is a little bit off the chart of the beaten road that has been that the AI has been trained with, you it starts to introduce bugs. Right? And to my horror, the code looks okay. It should look like it is it should function. And then you come up with this bug, and now you're in a debugger.</p>
+<cite>Gorkem:</cite>
+<time>28:38</time>
+<p>Right? That's all you have to do. If you don't have a good debugger and if you don't know how to do debug software, don't use it.</p>
+<cite>Peter:</cite>
+<time>28:45</time>
+<p>Yeah. That's a really good point because as you were saying it, it's worth reminding folks, but it's that old saying, alright, it's the output is only as good as the input. And as much as these models may be built upon fantastic programming techniques and patterns and code from all the fantastic software developers out there that it's also picking up the bad ones. And thinking about that, the analogy would be you could ask 2 different developers. You could ask and get a good answer and a bad answer.</p>
+<cite>Peter:</cite>
+<time>29:16</time>
+<p>Which one you go with is still your choice. And like you say, if it's not gonna work, in some ways, it's a case of you got the code from AI. Like you say, you go into the debug session, and then the bad programmer, when you go back and ask him, would be, oh, that's weird. Good luck with that. So you do have to use your skills to understand what it's done and not just trust, okay.</p>
+<cite>Peter:</cite>
+<time>29:41</time>
+<p>I don't understand it. It must be fine. No. Learn from what it's done. And then next time, you won't have to ask it.</p>
+<cite>Gorkem:</cite>
+<time>29:47</time>
+<p>Yeah. It's a tool at the end of the day, and you need to learn how to use that tool as well. But what is interesting to me with the and what is happening is to be honest, this whole conversation about software engineers being replaced with AI and ML, I wouldn't say replace, maybe I'll Yeah.</p>
+<cite>Peter:</cite>
+<time>30:06</time>
+<p>That's how I think.</p>
+<cite>Gorkem:</cite>
+<time>30:07</time>
+<p>As well, but that's probably the table stakes conversation at this point. It's the most obvious one that we all look at and and say, oh, yeah. You know what? We have all these software engineers and they're we give them text and they produce text. So we like, an LLM is essentially text in, text out.</p>
+<cite>Gorkem:</cite>
+<time>30:28</time>
+<p>So we can replace that. That's not how it works. But then the interesting bit is, for me, is there are all these problems as software engineers that we weren't able to fully solve in businesses where the rule based training techniques were not enough and you had to do something more than rule based. And that's when we you start to use ML techniques at that point. Right?</p>
+<cite>Gorkem:</cite>
+<time>30:57</time>
+<p>It's, oh, I can't do this. Can I how do I do prediction? How do I do categorization of a data that is really not very well structured? Right? Those sort of things.</p>
+<cite>Peter:</cite>
+<time>31:07</time>
+<p>Alright. Here it is. The one thing that I cannot do without every day, and that is my coffee. Anyone that knows me or anyone that's listened to any of my podcasts or anything else knows that I absolutely cannot operate without my coffee and I love good coffee. So here's the deal.</p>
+<cite>Peter:</cite>
+<time>31:24</time>
+<p>I'm gonna give you one free bag of coffee by going to peterwidham.com forward slash coffee. There is a wonderful company out there that follows the fair trade practices, helps out a lot of independent roasters of all sizes, and the operation is simple. What you do is you're gonna go to to peterwidham.com forward slash coffee. You sign up there. You get a free bag of coffee sent to you.</p>
+<cite>Peter:</cite>
+<time>31:50</time>
+<p>Yes. In return, they say thank you to me by giving me some coffee, but that's not the reason I'm doing this. The reason I'm doing this is because I have found so many good coffees that I just would never have come across, heard about, or experienced without this service. Trade coffee is just fantastic. You know, there are plenty of places out there.</p>
+<cite>Peter:</cite>
+<time>32:14</time>
+<p>We all know them that supply coffee, good coffee. You can go to the store, get the coffee. But there is nothing better than discovering new independent roasters and supporting them, discovering new flavors of coffee, new grinds for you can set it up. It's very smart. You tell it the kind of coffee you like and over time it gets better and better as it trains in on your selections and your choices and gives you exactly the coffee you're looking for and recommending new ones that that will be very similar.</p>
+<cite>Peter:</cite>
+<time>32:46</time>
+<p>Every time I get a new packet of coffee, I go through and afterwards I try the coffee, I go through the service and I say, look, I loved this coffee. I thought this coffee was okay or I say, look, I've this was really not for me. And every time I do that, it makes the service a little more accurate on the next selection for me. So again, just go to peterwhidham.comforward/coffee. Get your free bag of coffee today.</p>
+<cite>Peter:</cite>
+<time>33:10</time>
+<p>If you're a coffee lover, you're gonna really appreciate this service. I have been using it for years at this point and thoroughly recommend it.</p>
+<cite>Gorkem:</cite>
+<time>33:19</time>
+<p>Thanks. I think those are the interesting bits for me because those problems are still part of our businesses today. And because we weren't able to solve them in the past or solving them was actually really expensive. We now have those problems lying around. I think what's gonna be our next step is, oh, we need to learn how to adopt AI and ML as cheaply and quickly as possible to solve those sort of problems.</p>
+<cite>Gorkem:</cite>
+<time>33:47</time>
+<p>One thing that you said earlier, do we really need to know what is happening inside an LLM 100% to be able to solve a categorization problem? Do we really need to know what is happening inside an OLM to be able to convert an unstructured text to a structured data? Right? I think that's those kind of problems. I think we start to get and adopt AI and ML in there, and that will bring in the efficiencies to our business where you are able to actually accomplish more for the business, which you weren't able to before.</p>
+<cite>Gorkem:</cite>
+<time>34:25</time>
+<p>It all becomes who can adapt to it faster, who can run it cheaper. Those sort of concerns will start to be important for the businesses. And who can do it securely as well. Let's not forget about that. That's not, that shouldn't be an afterthought.</p>
+<cite>Peter:</cite>
+<time>34:42</time>
+<p>Right. And in response to that question, I'm thinking my answer there would be, yeah, I don't necessarily, or we don't necessarily need to understand sometimes how it gets to its conclusion and its result, as long as we can understand the conclusions and the results and look at them and say, we got what we wanted. Right? It's that old thing of going to school showing show your work, right? Your homework.</p>
+<cite>Peter:</cite>
+<time>35:07</time>
+<p>Right? If the answer is correct and you understand how you got there, sometimes the part in between, hey, it's fine to not necessarily get that. Right? You got the answer. And the more times that you get the answer right and the results you're looking for, surely that's the important part.</p>
+<cite>Peter:</cite>
+<time>35:24</time>
+<p>Right? Because I was reading this thing the other day about people were starting to theorize about how we're gonna use AI to and and ML to solve medical problems that we don't have answers for. And even interesting things that I've never even thought of. There's this possibility, and it sounds crazy on the outset, I know. The possibility that maybe AI and ML can help us understand how to communicate with languages that I don't speak.</p>
+<cite>Peter:</cite>
+<time>35:50</time>
+<p>And someone even said animals. And at first you're like, that sounds really crazy. But then you realize, yeah, just because I cannot compute the answer, if something else can, surely that's the part that matters. Right? And giving it time to prove itself and then get it correct.</p>
+<cite>Peter:</cite>
+<time>36:06</time>
+<p>So I guess that would be my answer. Yeah. If I can understand the solution it gives me and I know that it's the right solution, it's done its job, and it's safe to go with that. Right?</p>
+<cite>Gorkem:</cite>
+<time>36:15</time>
+<p>And for instance, also there is a lot of automation in that as well, right? It's like that you cannot if you ever worked in a project that involved the the the televoice services, like support over the phones or complaints over the phones and that kind of things. One of the things that, you know, when I did that kind of work, one of the things that happens is the supervisors listen to some of those calls and try to find if the customer is satisfied with it, with the answers of, and, and of the support and so on and so forth. That, that kind of try to assess if the customer satisfaction is at a level that they want it to be. The problem with that is if you have a, even a smallish operation with hundreds of people working at a time, you don't have enough manpower to monitor a lot of these calls.</p>
+<cite>Gorkem:</cite>
+<time>37:09</time>
+<p>Right? I have, I had the pleasure to talk to one of the company who's actually doing that in their call centers where they have AI listening to these recordings and afterwards giving it, doing a sentiment analysis saying that, Hey, you know what? The sentiment for this call was positive at the end and the customer was satisfied and so on and so forth. And interesting bit is of course they did this and they were able to automate that and they were able to improve their results by making callbacks. So that if the the sentiment score is under certain level, they wanted to do make callbacks to solve actually solve the problem.</p>
+<cite>Gorkem:</cite>
+<time>37:53</time>
+<p>Of course, it didn't come easy. They had to do adjustments because just by listening to they realized that just by listening to the recording, you were not actually able to make a the correct decision for direct sentiment. So they actually had to pull in a few more data sources so that the AI can do better decisions. But it was when we talked, it was very interesting to to hear the iterative process that the company went through to be able to do this. So there are things like that as well, where you cannot humanly automate this kind of work.</p>
+<cite>Gorkem:</cite>
+<time>38:28</time>
+<p>But for something like AI, which is essentially a software that is running, they can easily listen to these conversations, combine other data, and come up with a sentiment score will allow you to improve your business by doing callbacks.</p>
+<cite>Peter:</cite>
+<time>38:44</time>
+<p>Yeah.</p>
+<cite>Gorkem:</cite>
+<time>38:45</time>
+<p>It was an interesting case for me, the whole iterative nature of it. But there will be I can imagine hundreds of cases should exist in a business that is that this is not addressed or was not addressed because of the nature of the problem.</p>
+<cite>Peter:</cite>
+<time>38:59</time>
+<p>Yeah. It's interesting. You hit on a on an area that, without giving away too many details, an area that I'm working with some folks at the moment, and we are looking at exactly those things. Using AI to analyze audio, visual, textual information in a volume that it will be humanly possible, but as a company, you would look at it and say it's not viable to do it. You'd have to have so many folks working so many hours.</p>
+<cite>Peter:</cite>
+<time>39:27</time>
+<p>And if we can get the machines to the software to understand and at least flag things that it thinks are worth looking at for whatever your criteria is. Yes, you may have a human go back and review it, but, hey, if you can just trim, say, down to 10 minutes out of 10 hours worth of something then you've achieved your goal, right? And it's interesting how quickly that is improving and how accurate it's becoming over time compared to, like you say, you just couldn't employ enough people. And also, of course, the added bonus is this software can run 247. Right?</p>
+<cite>Peter:</cite>
+<time>40:07</time>
+<p>Yes. Of course, there are costs involved. You've got to power these and maintain them, but they can run 247, maybe eventually do a better job. So it is all very interesting, these things that you didn't think of in the beginning that are now making you realize, oh, if you can solve this problem, you've got this other problem that's very similar. Right?</p>
+<cite>Peter:</cite>
+<time>40:27</time>
+<p>And that's fascinating. I I think even with this being in the early days of commercially viable AI and ML, we've come so far so quickly that it's almost impossible, I think, to predict where we'll be 5 years from now. How good is this stuff gonna be?</p>
+<cite>Gorkem:</cite>
+<time>40:45</time>
+<p>And I always, again, now it's for bike time turn to show my age. I don't know if you remember that, but there was this whole cut, the early days, like this slogan about digital transformation, right? Or paperless offices, right? And people that that whole idea came out, it's, Oh, paperless office. And everyone thought that the next morning everything will be paperless at the office.</p>
+<cite>Gorkem:</cite>
+<time>41:14</time>
+<p>I know companies who went through that paperless office idea for a decade and reached to become a paperless office. Some of them are still trying to do that. So I think AI and ML is going to be a little bit like that as well. It's going to take a journey for a company to be able to automate the missing pieces of their, their processes that they weren't able to automate.</p>
+<cite>Peter:</cite>
+<time>41:38</time>
+<p>Yeah. Yeah. And it's also, like you say, with the paperless office, it's funny that even today, as I'm sitting here right now with I don't know how many computers around me, right? Desktops, laptops, phones, tablets, watches, all these things. And yet, when it comes down to it, if I have to do something in a hurry, there's a pad and a pencil right there.</p>
+<cite>Peter:</cite>
+<time>42:00</time>
+<p>And and like I was saying earlier, the these things never die. Right? They they merely complement each other. Right? And even today, you think about all of the technologies out there that's captures your handwriting on a piece of paper or screen.</p>
+<cite>Peter:</cite>
+<time>42:15</time>
+<p>Yes. Okay. Now it translates it into a system, but we are essentially still taking notes, for example, like we used to. It's just the mechanism of doing it.</p>
+<cite>Gorkem:</cite>
+<time>42:23</time>
+<p>One of the reasons, like I take my notes on a tablet, but actually do use handwriting for doing that. It's just you're used to it and you but then it augments me in a way that, oh, I can just turn that into text very easily. Although with my handwriting, it's</p>
+<cite>Peter:</cite>
+<time>42:41</time>
+<p>Me too. Left handed. So It's</p>
+<cite>Gorkem:</cite>
+<time>42:43</time>
+<p>a mess. And then I can turn that into text and I can make that searchable. And moreover, for those who can actually read my handwriting, I can send them directly to their mailbox if I need to. So, like, that doesn't replace my handwriting. It just augments it.</p>
+<cite>Peter:</cite>
+<time>42:59</time>
+<p>Yeah. No. You're absolutely right. And and a lot of it, like we say about AI and that as well, it's context. Right?</p>
+<cite>Peter:</cite>
+<time>43:05</time>
+<p>It it's learning how to capture and use that context that we as humans, we we just do it without even thinking about it. Right? Because, sometimes I feel like we underappreciate how clever our brain is taking all of these things Mhmm. And keeping that context that gives them relevance. Like you say, searching.</p>
+<cite>Peter:</cite>
+<time>43:25</time>
+<p>Yes. I can now search my handwritten notes. I could have done with this when I was when I was a kid at school. It would have been priceless and things like that. I'm very conscious of your time.</p>
+<cite>Peter:</cite>
+<time>43:34</time>
+<p>Is there anything we haven't covered that you wanna cover here?</p>
+<cite>Gorkem:</cite>
+<time>43:38</time>
+<p>We talked about open source. We talked about AI and ML, what we do with how we see AI and ML on Jozu and the Keytop's ML project. So I think we we covered a good portion of Fantastic. I'd like to talk about.</p>
+<cite>Peter:</cite>
+<time>43:52</time>
+<p>Fantastic. Okay. So folks, it has been a fascinating conversation. We could probably keep talking about this for hours as we do where exciting topics like this, they spark the imagination. And whatever we can dream up, we can do these days.</p>
+<cite>Peter:</cite>
+<time>44:07</time>
+<p>So, Gorkem, thank you so much for your time today and for the the fascinating conversation. Please tell folks where they can find you, they can find Jozu. Go for it.</p>
+<cite>Gorkem:</cite>
+<time>44:16</time>
+<p>Yeah. Thank you, Peter. You can find me and jozu@jozu.com and use my name at jozu.com if you want to reach to me via email. If you want to get involved with open source project, keytops. Ml is the URL for the project.</p>
+<cite>Gorkem:</cite>
+<time>44:35</time>
+<p>And you have all the information that that in the website for to be able to use or contribute to the project.</p>
+<cite>Peter:</cite>
+<time>44:44</time>
+<p>Fantastic. Yeah, folks, we will put everything in the show notes. Please go look at this. Right? Research this.</p>
+<cite>Peter:</cite>
+<time>44:51</time>
+<p>It it's a fascinating area. It really does blow your mind when you realize what's happening out there, what's possible, and how it can benefit you as well. So, yeah, go check out all the links. With that, you know where you can find me, Compileswift.com and and all the networks. With that, folks, that's what we got for you.</p>
+</details>
