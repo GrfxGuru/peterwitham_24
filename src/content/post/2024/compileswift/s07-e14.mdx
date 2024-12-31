@@ -1,0 +1,560 @@
+---
+publishDate: 2024-09-21T00:00:00Z
+title: Talking TestFlight
+excerpt: TestFlight is great for getting apps to testers before shipping to production.
+image: /images/blog-fi/2024/09-21.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e14
+---
+
+import Player from '../../../../components/podcasts/cs-player.mdx';
+import CSLinks from '../../../../components/podcasts/cs-links.astro';
+
+<iframe
+  width="100%"
+  height="180"
+  frameborder="no"
+  scrolling="no"
+  seamless=""
+  src="https://share.transistor.fm/e/6321b43a"
+></iframe>
+
+<Player />
+
+---
+
+<CSLinks
+  link1=""
+  link1label=""
+  link2=""
+  link2label=""
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+#### Transcription
+
+<cite>Peter:</cite>
+<time>00:02</time>
+<p>What's up, everybody? Welcome to another episode of the Compile Swift Podcast. By now, you may be using that new shiny operating system and having to get your apps ready. So we have an episode for you. But first of all, Geoff, how are you doing, buddy?</p>
+<cite>Geoff:</cite>
+<time>00:16</time>
+<p>Doing good. Stressing out about app review, but, hey. What else is new?</p>
+<cite>Peter:</cite>
+<time>00:21</time>
+<p>To that. Yeah. Yeah. Okay. So let's talk about that.</p>
+<cite>Peter:</cite>
+<time>00:23</time>
+<p>So, folks, if you've been keeping up, and you should be keeping up. Right? Geoff has been working on on an app for with a time challenge in many ways. And, this week, Apple has not been helping you meet that deadline, have they? No.</p>
+<cite>Peter:</cite>
+<time>00:39</time>
+<p>No. No. So so tell us the story. We've all been there, so tell us the story. We'll feel your pain.</p>
+<cite>Geoff:</cite>
+<time>00:44</time>
+<p>Apple, has some requirements that are in my mind, they're not clear. This this is one that I'm willing to accept, reasonable discussion on that that that, maybe people are saying that this is clear. But if you have an app with subscriptions, you have to provide in your app description on App Store Connect information about your app's privacy policy and terms of use. Now if you go look at the app review guidelines, they really only say privacy policy. They don't say anything about terms of use.</p>
+<cite>Geoff:</cite>
+<time>01:17</time>
+<p>But I'm willing to you know, I've heard this before. It's not clear. Whatever. Anyway, the first version of the app I put out, I only included privacy policy in my, app description.</p>
+<cite>Peter:</cite>
+<time>01:29</time>
+<p>That's an important point right there because I'm probably gonna get hand now. I only do a privacy policy and have never got dinged.</p>
+<cite>Geoff:</cite>
+<time>01:38</time>
+<p>If</p>
+<cite>Peter:</cite>
+<time>01:38</time>
+<p>So I wanna throw that in.</p>
+<cite>Geoff:</cite>
+<time>01:40</time>
+<p>Only if your app has a consumable subscription that Okay. You are required to provide the terms app review guidelines multiple times, trying to</p>
+<cite>Peter:</cite>
+<time>01:43</time>
+<p>look for it. I have the,</p>
+<cite>Geoff:</cite>
+<time>01:55</time>
+<p>I don't know if you remember. What was this? Oh, man. This was several years ago at this point. Apple put together the app review guidelines as, like, this comic book.</p>
+<cite>Geoff:</cite>
+<time>02:03</time>
+<p>Do you remember this?</p>
+<cite>Peter:</cite>
+<time>02:05</time>
+<p>Oh, I don't remember this.</p>
+<cite>Geoff:</cite>
+<time>02:06</time>
+<p>Oh, man. I'll have to find it and see if I can I can post it? Cool. Yeah. It is no longer available through Apple, but I definitely downloaded it at one point and have it.</p>
+<cite>Geoff:</cite>
+<time>02:13</time>
+<p>But it's this really cool, like, almost like Marvel Comics style thing of the app review guidelines as of that year. It's it's Interesting. It's like some great art, honestly, really. But, yeah. No.</p>
+<cite>Geoff:</cite>
+<time>02:28</time>
+<p>So I've read the app review guidelines multiple times. I read them again, double triple checking that I had everything exactly how they wanted it. Nothing says you are required to provide a terms of use in that app review guidelines, as far as I could tell. I don't know. I digress.</p>
+<cite>Peter:</cite>
+<time>02:42</time>
+<p>Alright. Alright.</p>
+<cite>Geoff:</cite>
+<time>02:43</time>
+<p>However, I did not include these terms of use in my original app description. So Apple rejects me.</p>
+<cite>Peter:</cite>
+<time>02:48</time>
+<p>Okay.</p>
+<cite>Geoff:</cite>
+<time>02:49</time>
+<p>Fair rejection there, in my opinion. Whatever. They rejected me. They said, you have to add your terms of use to your app and to your app description. And so I went in.</p>
+<cite>Geoff:</cite>
+<time>03:02</time>
+<p>I changed on RevenueCat, the sponsors of the hackathon. Great paywall thing. I just had to go and drop a little link on their paywall page. It's right there. It's in the app.</p>
+<cite>Geoff:</cite>
+<time>03:11</time>
+<p>I didn't even have to do anything with my code base. It's there. It's in the app. Then I go and I add the link to my app description. Added at the very bottom, Bark is provided under a standard end user license agreement for more information link.</p>
+<cite>Geoff:</cite>
+<time>03:27</time>
+<p>That's what I added. Resubmitted the app, sent it to Apple, rejected again. You need to include this link in your app description. I did. It's right here.</p>
+<cite>Geoff:</cite>
+<time>03:36</time>
+<p>It and so, yeah, that was what I sent them. I sent them a screenshot, and I said, it's in the app description. It's right there. Here it is. It's circled in a red circle.</p>
+<cite>Geoff:</cite>
+<time>03:46</time>
+<p>It's right here.</p>
+<cite>Peter:</cite>
+<time>03:47</time>
+<p>And I've seen this. And so so I wanna back you up here and say, it's not even like something that can be misinterpreted. It's very clearly</p>
+<cite>Geoff:</cite>
+<time>03:56</time>
+<p>Yeah. It's very clearly in in black and white right there. And yeah. So, let it run over the weekend and then into today, Monday, and waited for Apple to respond. They did not respond.</p>
+<cite>Geoff:</cite>
+<time>04:12</time>
+<p>They haven't said anything. And so I've pulled the app and resubmitted it, and it has been about 12 hours since then. And I still have no further communication from them. So I'm not sure what I need to do. Like, if they want me to change something, I'm happy to change something.</p>
+<cite>Geoff:</cite>
+<time>04:28</time>
+<p>But instead, I'm just kinda just being given the silent treatment, and it sucks.</p>
+<cite>Peter:</cite>
+<time>04:34</time>
+<p>So I first thing that comes to mind is, you know, yeah, okay, probably not the greatest day to submit something for review, given that so many people are gonna be doing it and and that, but that said, I remember a scenario, and, I'll be I I'm gonna purposefully be sketchy on the details because it's jobby job, but, I remember a scenario submitting an app update for an app that had been in the store for a good few years, and they came back, and and and the update had nothing to do with with what they mentioned. And they came back and said, you know, basically, we had a problem with some verbiage. So I looked at it and, you know, and I'm like okay, well, it looks okay to me. And I went back and looked through the history and this piece of verbiage had been like this since day 1 on this app, so years. Right?</p>
+<cite>Peter:</cite>
+<time>05:35</time>
+<p>So, you know, knowing how it is and it's like, you know, okay, you gotta be nice. Right? So I replied saying, hey, this piece of verbiage has never changed in the app, and it has been fine for x amount of time, x amount of versions, and some details. And then, the the the following day, yeah, sure enough, it just magically got approved. Yep.</p>
+<cite>Peter:</cite>
+<time>06:02</time>
+<p>Not not even, like, and I'm not saying that, you know, hey, you should say you're wrong or anything, but not even an acknowledgment of okay or or anything, it just magically got approved. And and this has always been a bit of, bit of an area of concern for me, and and I know many others, is this not so much the, okay, you know, you didn't approve it. You gave me some kind of rough explanation that I gotta go through documentation for and figure out for myself, but it's very much a one way communication, and I would argue not the most helpful communication. Right? It is very much a one way conversation, and, you know, I have issues with that.</p>
+<cite>Geoff:</cite>
+<time>06:48</time>
+<p>Yeah. Right. And they have, like, made your anecdote kind of semi official now, where they say, if you have an app already in the store and you are doing a bug fix update and we reject you for some reason, you can then officially say, hey, you know, I I need this bug fix out. I'm doing this thing, and, you know, I will fix it in the next one. You can do the special problem.</p>
+<cite>Peter:</cite>
+<time>07:14</time>
+<p>Sure.</p>
+<cite>Geoff:</cite>
+<time>07:14</time>
+<p>The part that I'm running into an issue with that is really kinda, ruining my life is that does not apply when you are submitting an app for the first time ever. And so this is a case where it's just like, well, we can't say you're gonna do this later because, you know, this is the first version of the app, period. And so I'm not really getting to get away with this sort of, oh, yeah. I'll I'll totally fix this problem later. They're just, like, no.</p>
+<cite>Geoff:</cite>
+<time>07:42</time>
+<p>We want it correct the first time.</p>
+<cite>Peter:</cite>
+<time>07:43</time>
+<p>But but, you know, yeah. No. It it is. It's like, okay, and what should we do about that? And and then they point you to, you know, some long document that's, like, oh, good luck.</p>
+<cite>Geoff:</cite>
+<time>07:54</time>
+<p>They would tell me, hey. We need you to do x. I would totally go do that. Instead, they</p>
+<cite>Peter:</cite>
+<time>08:00</time>
+<p>are just</p>
+<cite>Geoff:</cite>
+<time>08:00</time>
+<p>ignoring me. And it's, yeah, if you say, hey, we need you to put this exact wording in here with this exact format of link, fine. I'll do it. I'm happy to do this thing to make you happy to to allow me to ship this app. What they are doing instead is they said, you didn't add this link.</p>
+<cite>Geoff:</cite>
+<time>08:23</time>
+<p>I go, yes, I did. Here it is. And then I've heard nothing for almost 3 days now.</p>
+<cite>Peter:</cite>
+<time>08:30</time>
+<p>Which is never a good sign. Right? Because we've all we all know folks. If it's not happened to us, we know someone where you you fall into the infinity bucket of I think I've just fallen down a deep dark hole and they're never gonna find me again. Right?</p>
+<cite>Peter:</cite>
+<time>08:47</time>
+<p>And and and, you know, the problem there is, like you said, you know, even if you pull it and sort of start over</p>
+<cite>Geoff:</cite>
+<time>08:54</time>
+<p>Which I did.</p>
+<cite>Peter:</cite>
+<time>08:55</time>
+<p>Yeah. There's no there's no guarantee, of course. And and not that anyone guarantees your app would ever make it in the store. But at the same time, there's also no other way.</p>
+<cite>Geoff:</cite>
+<time>09:06</time>
+<p>Yep.</p>
+<cite>Peter:</cite>
+<time>09:06</time>
+<p>And and therefore, essentially, we have sleepless nights wondering is it ever gonna happen. Right? You know, even even if this was not a case where you need it to happen within a certain time frame, and I know you allowed plenty of time, within a certain time frame, and I know you allowed plenty of time. Now I think you even put a put a thing on threads about it. Right?</p>
+<cite>Peter:</cite>
+<time>09:19</time>
+<p>Yeah. A 4 week. You know, which I do a similar thing,</p>
+<cite>Geoff:</cite>
+<time>09:22</time>
+<p>and it's like that's</p>
+<cite>Peter:</cite>
+<time>09:23</time>
+<p>plenty of time even to to to get a problem and deal with it, normally. So, I mean, I it's almost a redundant question, I guess, but you you just sit and wait and hope for the best. Right?</p>
+<cite>Geoff:</cite>
+<time>09:40</time>
+<p>And and I mean, I even went through and called Apple and said, like, hey. You know, they're like, if, I I don't remember who it was that recommended this to me. They're like, you know, Apple has this phone line, and so many people, of our age, I guess, are unwilling to pick up the phone and actually call somebody that it's actually kinda unchapped, and you can get a hold of a real person pretty quickly. So I did that, and they're like, oh, well, we can't help with any</p>
+<cite>Peter:</cite>
+<time>10:11</time>
+<p>So so what I mean what does that statement even mean? Right? You know? It's like it's kind of like, well, then why are you here?</p>
+<cite>Geoff:</cite>
+<time>10:18</time>
+<p>Yeah. Yeah. I mean, it it definitely like, I've had it recommended to me for other problems, but, yeah, it definitely seems like that's more of a, you know, Astro Connect is not working type deal rather than I need help</p>
+<cite>Peter:</cite>
+<time>10:30</time>
+<p>You know, and and I'll I'll say this so so you don't have to. You won't get in trouble. Apple Apple because we know Apple obviously pays attention to us. Right? Apple stop listening to this podcast for the next couple of minutes.</p>
+<cite>Peter:</cite>
+<time>10:42</time>
+<p>Alright? Please. Sure. Unless you're one of those people that has enough what's what's the phrase I'm looking for here? Celebrity status?</p>
+<cite>Peter:</cite>
+<time>10:53</time>
+<p>Yeah. You know, or, you know, a company that that has that kind of status or something, and then once you start complaining about it on social media, next thing you know it gets resolved. Right? Which is not 99% of us. Right?</p>
+<cite>Peter:</cite>
+<time>11:10</time>
+<p>Yeah. Okay, Apple. You can start listening again now. Yeah. Yeah.</p>
+<cite>Peter:</cite>
+<time>11:14</time>
+<p>Okay. So anything else you wanna add there, or should we leave it there? Tune in next episode to see what happens.</p>
+<cite>Geoff:</cite>
+<time>11:21</time>
+<p>Yeah. To to find out whether or not I, actually made it in time for the hackathon.</p>
+<cite>Peter:</cite>
+<time>11:26</time>
+<p>Hey, folks. If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter. You can go to patreon.comforward/compileswift where you will get ad free versions of the podcast along with other content. Let's talk about the bit that happens before your horror story. And by that, this is something that I think most people know about as Apple developers, but also, there's probably a fair few who don't even think about it, and that's TestFlight.</p>
+<cite>Peter:</cite>
+<time>12:03</time>
+<p>And so, you know, we're gonna go into detail here about how we use TestFlight, what it is, why you should use it, maybe why you shouldn't use it, and how you can get through all of that to then get rejected when you put the app review in. Right. So, I'll go ahead here. I'll give a quick sort of overview for those of you who don't know what TestFlight is. If you are familiar with Android platforms, for example, you know you know of the Google Play Store.</p>
+<cite>Peter:</cite>
+<time>12:33</time>
+<p>There is a Google Play Store console, and it is kind of Google's equivalent of test flight. It is a place to go in, and, what it allows you to do is push from Xcode your binary up to test flight, and you'll have seen this probably when you do the archiving process. And it's a testing. It's a pre staging area, or staging area, I guess, for testing, and it can be tested just by you, by internal groups, or external groups, but it's a it's kind of these simulation, I guess, I call it, of production before hitting production. Would you say that's a fair description?</p>
+<cite>Peter:</cite>
+<time>13:15</time>
+<p>That's kind of how I describe it to people.</p>
+<cite>Geoff:</cite>
+<time>13:18</time>
+<p>Yeah. It it's basically a way to release your app to a subset of users, as you described, kinda 2 different sets of users. You can either have internal users, which are specifically users who have access to your App Store connect page, which we'll get into why that may or may not be the best idea, and external users, which is users who do not have access to your App Store connect page. And there are a couple different ways that you can add people to those different groups. But, yeah, this is a way to give access to your app to people before actually putting it on the App Store.</p>
+<cite>Peter:</cite>
+<time>14:00</time>
+<p>Yeah. So there there's, as Geoff says, there's very clearly 2 groups here. Well, actually, I guess there's technically 3. One of them is it's just you. We'll we'll sort of divide them up here.</p>
+<cite>Peter:</cite>
+<time>14:12</time>
+<p>But it all starts with you you do your archive in Xcode. You push it up, and you say, hey, I wanna send this one to test flight. So it goes up into the test flight portal. It takes sometimes a few minutes, maybe a bit longer, depending on how the day's going. And then eventually it appears on this list where you have your app configured in the portal, and, you know, different versions, whatever, 0.1, 0.2, different build numbers, which is super important, and we'll talk about that, because that can catch you out very easily right there.</p>
+<cite>Peter:</cite>
+<time>14:45</time>
+<p>So do you wanna cover, like, the sort of the internal group? And I'll go through and explain, how I use, the external group and how it may be beneficial to other people.</p>
+<cite>Geoff:</cite>
+<time>14:57</time>
+<p>Yep. So internal users are users, as I said earlier, who have access to your App Store Connect account. So you add them by going to App Store Connect, going to users and access, and literally giving them an account there and then adding them to your test flight group. You can have multiple different groups in test flight, both internal groups and external groups. But this is just literally what is the set of users that are going to be given access to a given build.</p>
+<cite>Geoff:</cite>
+<time>15:28</time>
+<p>So the benefit to having people visible as internal users is they get immediate access to a build. You do not have to go through any review. You are able to just basically say, I put up this build, this user gets access to it, and they are immediately given access to it. The downside or at least the thing to be wary of when using internal groups is you have to give them a role in App Store Connect. And even the most limited roles in App Store Connect have quite a bit of power.</p>
+<cite>Geoff:</cite>
+<time>16:07</time>
+<p>So I think the most limited role that you can give to somebody in App Store Connect is customer support. And as customer support, they still have the ability to purchase and submit technical support incidents, TSIs, those things that you get 2 of per year, to ask for code level support on things. They can do that on your behalf using your account and and charge it to you. They can also reply and edit responses to customer reviews in the App Store. So if somebody has reviewed your app, they are able to go in and be like, no.</p>
+<cite>Geoff:</cite>
+<time>16:43</time>
+<p>Shut up. And have that as your official company response to their review. So make sure that you are giving these internal customer support levels to people that you do actually trust, and and are making sure that you're you're not giving too much power away just because you want somebody to be able to test your app.</p>
+<cite>Peter:</cite>
+<time>17:04</time>
+<p>Once you you know, it's set up there, one thing that we should point out that applies to both is, assuming it's still the same, you get an email me as the tester. Right? I would get an email saying, hey, you know, firstly, you would be invited to test the app. We probably most developers have seen that, or certainly know of other apps that, you know, they could have joined to be a tester on. It says it says, hey.</p>
+<cite>Peter:</cite>
+<time>17:34</time>
+<p>We you've been invited to test program blah blah blah. So you accept that, and from then on in, you would have am I right in saying, you know, you do have to have test flight on your device, here. Right? Because it's the only way yeah. So then it it will get listed in test flight on your iPhone, for example.</p>
+<cite>Peter:</cite>
+<time>17:54</time>
+<p>A new, version is released, and we'll talk about that, here in a second after we've gone through the different groups. They get notified and, actually, depending on the settings, it'll also update the installed app. For example, your app. Right? I've I've been on the beta and, you know, it's set so that, hey, it just automatically updates when you you push out a new one.</p>
+<cite>Peter:</cite>
+<time>18:17</time>
+<p>Right? Yep. So, anything else you wanna cover on the internal group, and then I'll I'll talk about the external. No. Okay.</p>
+<cite>Peter:</cite>
+<time>18:25</time>
+<p>So on the external one, this is perhaps the one would you say it was fair to say a lot of people would have seen because of, it opens up the possibility for, in air quotes, anybody to to join. Yeah. So what you do is you on the ex you'll go to the portal. Right? You'll see under testers, there will be, the internal testing, Geoff just spoke about, and there'll be an external testing, and you can create groups.</p>
+<cite>Peter:</cite>
+<time>18:54</time>
+<p>You can give them any name you like. Right? So it might be, you know, QA, developers, exact you know, never give executives a group. Let's just Mhmm. Cross that one off the list.</p>
+<cite>Peter:</cite>
+<time>19:05</time>
+<p>Product managers, don't give them access. But that kind of thing, right? So you create a group, and then inside that group, the one of the things you can do is you can assign testers. So, you know, you would go in, you would say, okay, you know, can I add somebody? Naturally, you put in a few details, like, for example, an email address.</p>
+<cite>Geoff:</cite>
+<time>19:28</time>
+<p>First name, last name, email address. Yes. Yeah. Only email address is required.</p>
+<cite>Peter:</cite>
+<time>19:33</time>
+<p>Yes. Yeah. Although it's always good to have a name for when it comes to grooming these lists. Mhmm. Because sometimes they can get way out of hand, these these lists.</p>
+<cite>Peter:</cite>
+<time>19:42</time>
+<p>So yeah. And then same same thing. Right? The person's gonna get an email to be invited to the program, so on and so on as we just described. But this is a way to do this without, people being on the internal group, right?</p>
+<cite>Peter:</cite>
+<time>19:56</time>
+<p>Because you at least in my opinion, you should keep that internal group as as closed as possible, and you don't want too many people on there. You want basically what's necessary, is what I would describe it as. So for example, your developers, your QA folks, they might be on there. Right? But the difference here is, as well, with an external group, you have this option to create a public link.</p>
+<cite>Peter:</cite>
+<time>20:24</time>
+<p>Now you can reverse this, because you can go in and just say, I'm looking at one of mine here. For endless hurdles, you can go in and disable it. But if you turn it on, it's gonna make a link. Right? It'll be something like, you know, testflight.apple.com/join/somefancystring.</p>
+<cite>Peter:</cite>
+<time>20:41</time>
+<p>And then you can copy that link, and that will make it available to essentially anybody who uses that link, can go get the app. But is it fair to say, in a way, this could be not as helpful as you might think. Right? Because you don't wanna have a whole bunch of testers who just wanna get the app and use it because it's out there, and it's new, and it's cool, and they wanna play with it, and they never give you any feedback. That that is not that is not the design of it.</p>
+<cite>Geoff:</cite>
+<time>21:15</time>
+<p>It depends on on your your goals with the the app, but, yeah.</p>
+<cite>Peter:</cite>
+<time>21:20</time>
+<p>Yeah. Because the reason I say it like that is because, you know, for a while, people saw this as a way to get around, I don't have to put it in the store. I can man you know, and it's like, that's not the way this was meant to be used. Looking here sorry. Go on.</p>
+<cite>Geoff:</cite>
+<time>21:35</time>
+<p>No. I was just gonna say and there are limitations to that in order to prevent it from being used that way. You can have a maximum of, I believe it's 10,000 external testers. And so if you think that your app is never gonna have more than 10,000 users, hey, yeah. Sure.</p>
+<cite>Geoff:</cite>
+<time>21:51</time>
+<p>Just put it on TestFlight. And TestFlight. Yeah. And and just just do it that way. But the other downside is I don't believe it's possible to actually charge any money through in app purchase if you have your app on TestFlight, because, any app that's been distributed through TestFlight, all in app purchases are completely free.</p>
+<cite>Peter:</cite>
+<time>22:10</time>
+<p>Yeah. It it's my understanding that yeah. It's it's like folks it's like having your own it's like a QA stack. Right?</p>
+<cite>Geoff:</cite>
+<time>22:16</time>
+<p>Yep.</p>
+<cite>Peter:</cite>
+<time>22:16</time>
+<p>You know, it's kind of like not real world. Right? So well, I hope I hope people's QA stack is isolated from the real world. Let's put it that way. That's a whole other bucket of trouble.</p>
+<cite>Peter:</cite>
+<time>22:28</time>
+<p>But, so for example you know, yes. There's this limit. Right? And I'm noticing here on the group management, as I'm looking here on the public link, it does actually say next to it test account, so, like, 4 of 10. So you can edit that limit.</p>
+<cite>Peter:</cite>
+<time>22:43</time>
+<p>I think, like, I Yeah. I may have set mine to 10, if I remember rightly.</p>
+<cite>Geoff:</cite>
+<time>22:48</time>
+<p>You can limit the number of users who are able to use the public link. Yes.</p>
+<cite>Peter:</cite>
+<time>22:54</time>
+<p>You can</p>
+<cite>Geoff:</cite>
+<time>22:55</time>
+<p>you can you can set a maximum amount. You see this often pretty with, like, big, high profile test flights. So for example, the one that I'm thinking of is Ivory, the TapBot's app for Mastodon. I think that what they did was they published their test flight links, and they did it like 50 people at a time. And then they would go bump that, and they'd be like, hey, there's 50 slots open.</p>
+<cite>Geoff:</cite>
+<time>23:18</time>
+<p>1st come, 1st served. And, yeah, they they would roll it out more a period at a time. So if you want to have a large set of users, but you don't wanna be overwhelmed by a massive amount right up front, that's another way to do it. Is to say, hey, you know, I'm gonna set a low limit. I'm going to increase that limit over time just as I'm ready to make sure that I have the ability to support this many users.</p>
+<cite>Peter:</cite>
+<time>23:43</time>
+<p>Yeah. I actually, I think that's how I got into the Ivory app, was I was signed up to be on the the beta, got in, and then I'm still using it now because now that it's released and paid for it because love it. But, yes. And and and the reason another good reason to do this is real world example here, folks. You don't want to be in a situation where you have a mountain of users on there, and then you release a build, has a terrible screw up in it, like, they can't log in or something.</p>
+<cite>Peter:</cite>
+<time>24:15</time>
+<p>Because guess what? You're gonna get a lot of messages.</p>
+<cite>Geoff:</cite>
+<time>24:18</time>
+<p>Hey. I mean, at least you're releasing it to TestFlight, not to your real world.</p>
+<cite>Peter:</cite>
+<time>24:22</time>
+<p>That that's very true. I hope you stop there. Yeah. And and so that's why in my mind sometimes too, like you suggested, it's a good suggestion, those, you know, grow slowly expand the list is very much, in my mind, a people version of alpha beta, so on and so on. Right?</p>
+<cite>Peter:</cite>
+<time>24:42</time>
+<p>You hope that over time those reports get less and less. Right? And then you grow the group. So that's how this works, and your builds will appear on the list, in in TestFlight, and you can assign, you know, especially with the external groups and so on, you can assign them to these builds. So you may have a specific build that you want tested for specific group of people, and so you can assign it to that group.</p>
+<cite>Peter:</cite>
+<time>25:08</time>
+<p>Right? And then in there too, you get some, you know, obviously, on the page, you can get some stats like sessions, how many people have pulled that one down, how many times it's crashed. But really, go go use the analytics, right, and and the tools in Xcode for that kind of thing. But it's a good way of knowing, okay, someone at least has downloaded it, and and we're off and running. So that is how you set up, you know, your your initial usage of sort of basic setup on TestFlight.</p>
+<cite>Peter:</cite>
+<time>25:38</time>
+<p>You're now ready to to rock and roll, and away you go.</p>
+<cite>Geoff:</cite>
+<time>25:42</time>
+<p>Time for a break.</p>
+<cite>Peter:</cite>
+<time>25:43</time>
+<p>Hey, everybody. It's Peter Widom here from the Compulsory podcast. I'm gonna tell you about Setapp. Setapp is a service that provides a subscription fee of just $10 a month, and you get access to over 200 Mac applications. And it's also available now on iOS as part of that deal.</p>
+<cite>Peter:</cite>
+<time>26:03</time>
+<p>I use the service because it just has a ton of really good first rate apps that I use all the time. And for me, it's invaluable as a developer to have access to tools for things like APIs, for planning projects, writing emails, writing documentation, and you get all of these things including database apps, all of that kind of stuff right there on the set up service for just $10 a month. You can use as many or as few applications as you need. If you're interested in checking this out, go to peterwitham.competerwitham.comforward/setapp, s e t a p p. And you can see the details there, and it's got a link that you can go over and start using the service and see how it works out for you.</p>
+<cite>Peter:</cite>
+<time>26:51</time>
+<p>I strongly recommend this to every Mac user.</p>
+<cite>Geoff:</cite>
+<time>26:55</time>
+<p>Break time over.</p>
+<cite>Peter:</cite>
+<time>26:57</time>
+<p>But and and here's a but. There's always a but. Right? Go on, Geoff Give us the but.</p>
+<cite>Geoff:</cite>
+<time>27:03</time>
+<p>So the major difference between external testing and internal testing that we haven't really covered yet is beta app review. So when you're going to internal testing, you can just publish those builds to any given user. With external testing, you have to go through Apple first, and they have to give your app an app review very similar to the actual App Store app review, but a little bit less, thorough. You know? Obviously, they're not checking app metadata.</p>
+<cite>Geoff:</cite>
+<time>27:34</time>
+<p>They're not checking anything like that. They're really just making sure, do you have an actual app? You can't just publish, you know, sample projects to the App Store, your hello world. They do make sure that you have an actual app there, to publish.</p>
+<cite>Peter:</cite>
+<time>27:48</time>
+<p>Pictures of diamonds and rubies and</p>
+<cite>Geoff:</cite>
+<time>27:50</time>
+<p>Exactly. And they're obviously checking to make sure you're not publishing anything malicious, anything illegal, anything like that. But, yeah, you do have to get this app through beta app review. Now the interesting thing about how this works is you only have to do this when you change the version number. And to clarify, I mean, the marketing version number.</p>
+<cite>Geoff:</cite>
+<time>28:13</time>
+<p>So you see, like, a 1 dot o or a 2 dot o. You can then publish more builds with different build numbers under the same version number, and Apple generally will not check that again. They reserve the right to, but usually what happens is as long as you're publishing the same app, same version number, different build numbers, you don't have to go through beta app review again. However, next time you rev your version number, you will have to go through that again.</p>
+<cite>Peter:</cite>
+<time>28:43</time>
+<p>Good point. And and, yeah, let's talk about those build numbers here for a second because so there is something interesting here that folks should pay attention to because you want to increment your build numbers and the reason for that is you cannot submit the same version number and build number for an app. It'll come back and say, hey, this this already exists, and go increment. You can just change one of them. Right?</p>
+<cite>Peter:</cite>
+<time>29:15</time>
+<p>So you could, you know, pretty common to change your build number, for example. Now I'm talking about iOS here because that's where my most, you know, my my experience is with test flight in the App Store. So you can increment your build number manually, or if you've got CICD, Actually, honestly, the the best answer is have CICD and let it do it for you so you don't have to remember and keep track of these things. But, Geoff you wanna wanna jump in here with something that I did not know.</p>
+<cite>Geoff:</cite>
+<time>29:44</time>
+<p>Yep. This is true what you said for iOS, tvOS, VisionOS. Those are the 3 platforms that you can have on a App Store connect that that add those, where it's true. On macOS, specifically, you cannot reuse a build number at all. So on iOS, tvOS, VisionOS, and you may be asking, where's where's this watchOS?</p>
+<cite>Geoff:</cite>
+<time>30:06</time>
+<p>Well, you can't submit a watchOS app without an iOS app, so it's under iOS.</p>
+<cite>Peter:</cite>
+<time>30:09</time>
+<p>It's kinda covered. Yeah.</p>
+<cite>Geoff:</cite>
+<time>30:10</time>
+<p>It's covered. Yep. On iOS, tvOS, and VisionOS, you can submit marketing version 1 dot o build number 10. And then you can turn around, you can submit marketing version 1 dot 1 build number 10. And it is totally fine with that.</p>
+<cite>Geoff:</cite>
+<time>30:25</time>
+<p>On macOS, that second one would fail because you have already used build number 10. So instead on macOS, you would have to do marketing version 1 dot o, build number 10, marketing version 1 dot 1, build number 11. 11. You cannot reuse that same build number on macOS specifically.</p>
+<cite>Peter:</cite>
+<time>30:45</time>
+<p>That's interesting. I did not so I've I've never submitted an app to, you know, test flight or anything like that for for the Mac. So I'd I'd not come across this, and that's good to know. So that that is pretty much how you use TestFlight and reasons you would use it. Now, this also, of course, you're gonna adapt and and use your own workflows as to how you're gonna use this.</p>
+<cite>Peter:</cite>
+<time>31:10</time>
+<p>If you're in a team, you know, obviously, it's good to discuss this. But but, truly, I I think, at least from my perspective, don't wanna speak with Geoff here, I think the best answer is set up your CICD. Right? Fastlane or whatever your choice is. Once you've got gone through the pain of having it set up, and just let it take care of all this for you.</p>
+<cite>Peter:</cite>
+<time>31:30</time>
+<p>The signing and everything else, we didn't even talk about that, but I think, you know</p>
+<cite>Geoff:</cite>
+<time>31:35</time>
+<p>It's not bad.</p>
+<cite>Peter:</cite>
+<time>31:35</time>
+<p>It would be fair to say, if you're listening to this podcast and you're a developer, you know the pain of signing apps. Right? It's as simple as that. We've got everything in here. Right?</p>
+<cite>Peter:</cite>
+<time>31:44</time>
+<p>We've got it set up. The test flight is going out to folks. Folks are using it. If you've ever used an app, by the way folks, on test flight, when you install it, you know, you will see that screen that says, hey, you know, developer hopefully puts in some notes saying I want you to look at this, this, and this. And then it says, hey, you can take a screenshot and you can send them feedback.</p>
+<cite>Peter:</cite>
+<time>32:07</time>
+<p>So, what is that feedback? And, you know, what what information can you put in there? And and how does that work, Geoff?</p>
+<cite>Geoff:</cite>
+<time>32:14</time>
+<p>Yeah. So what the developer gets back from that is, obviously, the screenshot that was sent and then a bunch of useful information about the user's experience at the time. And so it'll have stuff like what device are they using, what version number are they using, what battery level is there, or how much disk space do they have free. So just a bunch of little useful analytics stuff. The user can obviously include their screenshot and also include a little bit of commentary.</p>
+<cite>Geoff:</cite>
+<time>32:44</time>
+<p>And then you're given all of this as, like, a bundle, and it includes who actually submitted this information to you. And so you're able to use that information and go through and see, if you can figure out, you know, what was the bug that was done there. Yeah. There's a zip bundle. It includes some JSON.</p>
+<cite>Geoff:</cite>
+<time>33:06</time>
+<p>You can also open it in the next code. I'm not entirely sure what that does for the screenshot feedback. For the crash feedback, it's a little bit different, but I haven't gotten to the crash.</p>
+<cite>Peter:</cite>
+<time>33:14</time>
+<p>Yeah. I love the crash feedback because it'll take you right to it. Yep. Well, I don't like it because I don't wanna get any.</p>
+<cite>Geoff:</cite>
+<time>33:20</time>
+<p>Don't wanna get crash feedback.</p>
+<cite>Peter:</cite>
+<time>33:22</time>
+<p>Okay, folks. So I'm gonna give you an example here. Right? So I'm on the test flight beta for Geoff's Barcodes app. And what happens here is, right, I've got the app on my device here, and I can take a screenshot or not.</p>
+<cite>Peter:</cite>
+<time>33:39</time>
+<p>I always recommend, folks, giving as much information to the developer as you can. Screenshots are priceless. Let me just say that. But anyway, I go into TestFlight. And when I'm looking at the app listing in TestFlight, you'll see that there's a send beta beta beta English, I know, feedback button.</p>
+<cite>Peter:</cite>
+<time>33:58</time>
+<p>And when I tap on that, what's gonna happen is there's a little menu comes up, says include screenshot, don't include screenshot. Right? And so I'm just gonna since this is an example, I'm just gonna hit don't include screenshot. And then it says, you know, share your email address, and it is optional. I would recommend, if you have gone to the time and trouble of, you know, testing this app for a developer and you found us something, me as a developer, I would say, please put your email in so that the very least, not only can I respond to your comments, but I can say thank you for sending me this message?</p>
+<cite>Peter:</cite>
+<time>34:37</time>
+<p>Right? So I put in the email address, and then, basically, it says the text box under the tell us about your experience. And in there, you're gonna put as much detail as you possibly can. Right? Help help the developer out.</p>
+<cite>Peter:</cite>
+<time>34:49</time>
+<p>And then you hit submit, and off it goes to the portal. So with that, once it hits the portal Geoff yeah, let's talk about that that package.</p>
+<cite>Geoff:</cite>
+<time>34:59</time>
+<p>Yeah. So once it hits the portal, for screenshot feedback, you get the screenshot itself, if it was included. You get all of the information that the user attached, and and filled into this form along with their email address. You also get a bunch of kind of built in information that Apple has included automatically by default. So you get the app version, both the version number and the build number.</p>
+<cite>Geoff:</cite>
+<time>35:23</time>
+<p>You get some information about their device, what device are they running on, what version of iOS, some more obscure information, like battery level and how much disk space they had, and what version of Internet they were connected to, whether they're on WiFi or are they on cellular, that kind of thing. And all of that information is kind of wrapped up and sent to you as a single piece of feedback. In theory, you can download these. It doesn't seem to be working for me right now, but, you should be able to get all of that information in another form as well. I believe, if I recall correctly, it's like a JSON form, plus your screenshot, plus some of the other information there.</p>
+<cite>Geoff:</cite>
+<time>36:01</time>
+<p>That is another way that you can access this information without having to be on the App Store Connect portal just to see this. For a crash, however, you get very similar things. You can't really see too much on the portal itself, but what you get is user's email, the information that they included with it, all of that same app and device information. And then if you do download that, you also get the actual crash log. And so this is the same sort of crash log that you would see any other time.</p>
+<cite>Geoff:</cite>
+<time>36:31</time>
+<p>It's got your stack trace. It's not symbolicated by default, but you can open it in Xcode. Xcode will symbolic it for you, get all of the information that you need to see where did this crash happen.</p>
+<cite>Peter:</cite>
+<time>36:43</time>
+<p>And and that is the priceless part right there. Right? I mean, that is why, you know, you wanna give the developer as much information as you can because the the details that they get in the logs and everything else can guide them to the the problem in the app. They're sitting there staring at it. But me as a developer, I can, you know, I know what should happen at this stage in the application, and I need to be painted a really clear picture what happened to you as the user.</p>
+<cite>Peter:</cite>
+<time>37:15</time>
+<p>And the only way I can do that is for you to give me as much information as possible. I always say to folks, you know, like, hey, there's no such thing as too much information. Right? Even something that may seem, you know, incidental to you can suddenly have a whole lot of weight. You might be 1 of 10 or 1 of a 100 people saying the same thing.</p>
+<cite>Peter:</cite>
+<time>37:38</time>
+<p>And that is how, also as developers, we try to figure out what's what's the most important bug to fix here. Right? So it might not seem like a big deal to you, but if you're one of a 100 people reporting it, it's a big deal to us. Right? Yeah.</p>
+<cite>Peter:</cite>
+<time>37:51</time>
+<p>Yeah.</p>
+<cite>Geoff:</cite>
+<time>37:52</time>
+<p>You you may have that one extra bit of information that cracks the case.</p>
+<cite>Peter:</cite>
+<time>37:56</time>
+<p>Yeah. Yeah. Because the idea here is all of this is supposed to make the world better before we go to production. This is the last step. Right?</p>
+<cite>Peter:</cite>
+<time>38:04</time>
+<p>And and you can go through this, you know, as we were saying earlier about the the cycles, the build numbers and the the version numbers. We can go through this many, many times until we get to the point where we're like, okay, release time. And fingers crossed. Right? And and so let's let's, you know, switch that up.</p>
+<cite>Peter:</cite>
+<time>38:23</time>
+<p>And what does that look like? So this is the next part that's straightforward. Right? You've already got your app set up in the App Store Connect. Right?</p>
+<cite>Peter:</cite>
+<time>38:33</time>
+<p>And so when you're getting ready to distribute and we're not going to talk about distribution here, but we'll just sort of briefly give you an idea of how you transition from one to the other. So what happens is, you go through, you set up your version for distribution, and you can select a binary. Right? Based on however many is listed, via test flight. Okay?</p>
+<cite>Peter:</cite>
+<time>38:55</time>
+<p>So you might have, you know, 1 dot o build a 127. Right? 1 through a 127. And that's where you're gonna select your specific build. It doesn't necessarily have to be the last one you pushed up.</p>
+<cite>Peter:</cite>
+<time>39:09</time>
+<p>And that's an important point because I've been there. Right? Where it's like, oh, actually, we don't want to do the latest one. The one before was better. We want to ship that one.</p>
+<cite>Peter:</cite>
+<time>39:17</time>
+<p>So you do get to choose and pick it there. That is pretty much the process. Geoff, is there anything else we wanna cover here? I I feel like we've got hopefully, I've given a pretty good walk through and explanation to folks who are wondering what is this TestFlight, and how do I use this to my advantage?</p>
+<cite>Geoff:</cite>
+<time>39:33</time>
+<p>Yeah. No. I think we've covered pretty much, all of the things that you might wanna know about TestFlight.</p>
+<cite>Peter:</cite>
+<time>39:39</time>
+<p>Awesome. And this is so timely because, I'm gonna predict that at least 10 apps need to be updated this week with with iOS 18 and and so on, and all the all the different platforms. Right? So, hopefully, you know, folks, go install your updated OSes and listen to the podcast while that's happening. You got time.</p>
+<cite>Peter:</cite>
+<time>39:59</time>
+<p>Trust me. You got time. Yeah. Alright. So that's what we got for you this week, folks.</p>
+<cite>Peter:</cite>
+<time>40:04</time>
+<p>Just wanna say again, thank you to all the Patreon supporters. You're awesome. Right? You know, and we've been putting out some extra content for you folks to say thank you for supporting the podcast. It really does make a difference.</p>
+<cite>Peter:</cite>
+<time>40:17</time>
+<p>You wanna be a member, go to patreon.comforward/compulsed. We'd love to have you there. And we we'll put links in the show notes for the Discord where you can come and join the fun as well. But, Geoff where can they find you?</p>
+<cite>Geoff:</cite>
+<time>40:30</time>
+<p>You can find everything that I have to do at cocoatype.com.</p>
+<cite>Peter:</cite>
+<time>40:33</time>
+<p>There you go. You can find me at compileswif.com . You'll don't worry, folks. You'll remember these. If we say them enough times, it's just gonna become a thing.</p>
+<cite>Peter:</cite>
+<time>40:41</time>
+<p>Alright? Alright, Geoff. Thank you, buddy. I'm I'm hoping next time we can tell folks of the wonderful, wonderful experience you had where life just got better for you on your stores, so Lovely. Good luck, my friend.</p>
+<cite>Peter:</cite>
+<time>40:57</time>
+<p>And, with that folks, we will speak to you in the next episode. Goodbye.</p>
+</details>
