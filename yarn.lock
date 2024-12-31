@@ -20,10 +20,10 @@
   resolved "https://registry.yarnpkg.com/@antfu/utils/-/utils-0.7.10.tgz#ae829f170158e297a9b6a28f161a8e487d00814d"
   integrity sha512-+562v9k4aI80m1+VuMHehNJWLOFjBnXn3tdOitzD0il5b7smkSBal4+a3oKiQTbrwMmN/TBUMDvbdoWDehgOww==
 
-"@astrojs/cli-kit@^0.2.3":
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/@astrojs/cli-kit/-/cli-kit-0.2.5.tgz#a009d651794808ccdb114db6ab001b4e1b3c630c"
-  integrity sha512-j6zpNUjtHJGEIKkTrTPvQD3G/sJUKyseJty42iVR3HqytzqHwLK165vptdT4NZKfZ082yLnUtsOXxRyIdfm/AQ==
+"@astrojs/cli-kit@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@astrojs/cli-kit/-/cli-kit-0.4.1.tgz#aee9ddd1828ba238fad6fd8bca06bce0a7addf0f"
+  integrity sha512-bVzyKzEpIwqjihBU/aUzt1LQckJuHK0agd3/ITdXhPUYculrc6K1/K7H+XG4rwjXtg+ikT3PM05V1MVYWiIvQw==
   dependencies:
     chalk "^5.0.1"
     log-update "^5.0.1"
@@ -142,15 +142,15 @@
     is-wsl "^3.1.0"
     which-pm-runs "^1.1.0"
 
-"@astrojs/upgrade@^0.2.2":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@astrojs/upgrade/-/upgrade-0.2.3.tgz#a79570ba29fc62ec03be8255ab1ed7fd971a54dc"
-  integrity sha512-XisG4KS8JJxEerrR7tavLKbZI8NqZEmY2fOAykWyBQFU4MW+eaXZYA5xbV2P8wejOHMdlGRiEFFKcAD4rE3u4Q==
+"@astrojs/upgrade@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@astrojs/upgrade/-/upgrade-0.4.2.tgz#3d0b58dfbc209687dd5e7ad36b81a5823c008d11"
+  integrity sha512-J+A/m/N27IOCUU6KytgZozxUlGP8Y7pkNTfwelcRe6QdGzKo6ww8PlX2Q3tnWy7I4o0QFAVgGwJuoyUWujneuw==
   dependencies:
-    "@astrojs/cli-kit" "^0.2.3"
-    semver "^7.5.4"
+    "@astrojs/cli-kit" "^0.4.1"
+    preferred-pm "^4.0.0"
+    semver "^7.6.3"
     terminal-link "^3.0.0"
-    which-pm-runs "^1.1.0"
 
 "@astrolib/seo@^1.0.0-beta.4":
   version "1.0.0-beta.8"

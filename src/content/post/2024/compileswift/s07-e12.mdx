@@ -1,0 +1,478 @@
+---
+publishDate: 2024-09-31T00:00:00Z
+title: Swift 6 Migration
+excerpt: Migrating to Swift 6 can be a pain, but these tips should help.
+image: /images/blog-fi/2024/09-31.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e12
+---
+
+import Player from '../../../../components/podcasts/cs-player.mdx';
+import CSLinks from '../../../../components/podcasts/cs-links.astro';
+
+<iframe
+  width="100%"
+  height="180"
+  frameborder="no"
+  scrolling="no"
+  seamless=""
+  src="https://share.transistor.fm/e/e9405b2e"
+></iframe>
+
+<Player />
+
+In this episode of the CompileSwift podcast, the hosts discuss Swift 6 migration, highlighting its non-breaking changes and new features like module-level access control and data race safety.
+
+They emphasize gradual migration, the importance of planning, and the benefits of new data types.
+
+<CSLinks
+  link1="https://www.swift.org/migration/documentation/migrationguide/"
+  link1label="Swift 6 migration guide"
+  link2="https://www.hackingwithswift.com/articles/269/whats-new-in-swift-6"
+  link2label="Hacking with Swift - What's new in swift 6"
+  link3="https://www.massicotte.org/non-sendable"
+  link3label="Non-sendable types are cool too you know"
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+#### Transcription
+
+<cite>Peter:</cite>
+<time>00:02</time>
+<p>What's up everybody? Welcome to the episode of the Compile Swift Podcast. First of all, let me say thank you to our new Patreon supporter, Tong Vo. Greatly appreciate that. And if anybody else wants to become a supporter, go to patreon.comforward/compileswift.</p>
+<cite>Peter:</cite>
+<time>00:18</time>
+<p>Now this week, we will be talking about Swift 6 migration. But first of all, hey, Geoff How you doing, buddy?</p>
+<cite>Geoff:</cite>
+<time>00:25</time>
+<p>Oh, I'm doing just fine. I've been very busy lately with the ongoing RevenueCat hackathon, but, getting ready to ship a version of that app soon, and hopefully be a little bit less busy than I have been the last couple weeks. How are you doing?</p>
+<cite>Peter:</cite>
+<time>00:40</time>
+<p>I'm doing good. Now I have to say, you know, so, of course, I've been watching your livestreams as you've been going through this, and it's nice that I can sit and see someone else do this without the pressure of me being the one that's, like, oh, I got a ship. And and I'll say that, you know, it's funny because I think it was the weekend just gone where, that moment of realization of, like, it's good. It's going great. I got plenty of time.</p>
+<cite>Peter:</cite>
+<time>01:07</time>
+<p>And then you see a date and you're like, oh. Right?</p>
+<cite>Geoff:</cite>
+<time>01:11</time>
+<p>Definitely, I've I've had the road map pulled up for a while. And then to see very quickly as the end of that is winding up, I am wanting to launch a beta 2 weeks before the deadline, and that's tomorrow as we look forward right now. So, it turns out that, these these deadlines, they sneak up on you.</p>
+<cite>Peter:</cite>
+<time>01:31</time>
+<p>Yeah. And then especially when you're sitting there and you're thinking, oh, and I gotta go talk to that guy on the podcast again. That's an hour I won't get back. Right?</p>
+<cite>Geoff:</cite>
+<time>01:39</time>
+<p>No. No. No. No. No.</p>
+<cite>Geoff:</cite>
+<time>01:40</time>
+<p>I think this is this is useful, times to discuss some of the things that, you know, I've been learning through this.</p>
+<cite>Peter:</cite>
+<time>01:47</time>
+<p>Absolutely. Yeah. And now this week so, the the long weekend that we just had here in the US, I did a couple of things. I decided to start reworking the design of one of my apps and I got a few things working there. I did a, live stream looking at Kotlin multi platform that some might call a little controversial, I guess.</p>
+<cite>Peter:</cite>
+<time>02:15</time>
+<p>So folks go check that out if you want. Link in the show notes. So I've been doing all of that and then today I had every intention of, installing the latest macOS Sequoia beta on my machine, you know, and getting one of those up and running, but this time on the internal drive so I could get the AI services for Xcode and all that stuff. However, here's a tip folks. When you are upgrading your machine and you've got the the stuff ready to go, don't leave the room to come back to discover that it had actually downloaded a quick lot quicker than you thought and had rebooted and started installing it on the main drive.</p>
+<cite>Peter:</cite>
+<time>02:56</time>
+<p>So, thankfully, it's stable enough, but it's also now my daily driver on my personal machine. So working that today. Alright. Let's let's cover our main topic here. So Swift 6 migration.</p>
+<cite>Peter:</cite>
+<time>03:11</time>
+<p>I am sure probably all the developers out there on Apple platforms, right, have known Swift 6 is coming for a long time and also that it for once it's not breaking changes, but it is a lot of good stuff that requires some changes. But there's also, yeah, a very nice way to invoke it. Right? Let's go from the top here. So the very first thing is, right, you you've, you know, you've if you download Xcode 16, it's gonna come with Swift 6, but you don't have to turn it on if you don't want to.</p>
+<cite>Peter:</cite>
+<time>03:47</time>
+<p>And so let's talk about that first because I know a lot of people feel like, oh, now I've got to upgrade. Right?</p>
+<cite>Geoff:</cite>
+<time>03:54</time>
+<p>I I I think that's that's a little bit of a wrong way to look at it, though, because the truth is with Xcode 16, you are getting Swift 6 right out the gate. What you're not getting is opting into some of the breaking changes with Swift 6.</p>
+<cite>Peter:</cite>
+<time>04:08</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>04:08</time>
+<p>You do get the ability to use non breaking changes in Swift 6, even without opting into what they're calling the Swift 6 language mode. That allows you to use some of the new features with the compiler without opting into the things that will break preexisting code. One of the things that you get in Swift 6 in Xcode 16 that you can run even without opting into the Swift 6 language mode is the new module level access control keywords. So this is where on import my other module, you can say now internal import my other module or public import my other module in order to not leak some of your implementation details to other modules. And so that's something that you can use even without opting into all of the other what I'm sure we're gonna get into eventually is, like, the concurrency checking and something like that.</p>
+<cite>Geoff:</cite>
+<time>05:02</time>
+<p>So non breaking changes, you can get automatically. For some of the breaking changes, you have to opt into them.</p>
+<cite>Peter:</cite>
+<time>05:09</time>
+<p>And and I think that that, you know, as I was reading through, and folks will put a link to the migration guide in the show notes, One of the nice things about this is it is under my control, right, to do this. And also, you can actually I've read in there interestingly as well, you know, per target as well. So</p>
+<cite>Geoff:</cite>
+<time>05:29</time>
+<p>That's great.</p>
+<cite>Peter:</cite>
+<time>05:30</time>
+<p>There is really fine granular controls. And I think this is very smart. Right? Because nobody likes a big migration problem. If you wanna turn everything on and have that problem, okay.</p>
+<cite>Peter:</cite>
+<time>05:45</time>
+<p>But why would you do that? Yeah. But but you can. Right? Or, you know, the the approach that I very much applaud on this is turn it on to the level you want, where you want it, and do it slowly.</p>
+<cite>Peter:</cite>
+<time>06:00</time>
+<p>So in my mind that suggests to me maybe I'll turn some on, look for my warnings, and take those as my kind of level one problems to maybe go through and adjust. And then as you go through life should get easier for you. Right? You know, talk about some of this, like you say, this granular control and I know you've looked at this a bit. I have not actually tried it on my code yet for fear of it actually making my code better.</p>
+<cite>Peter:</cite>
+<time>06:30</time>
+<p>So, go go ahead and dive in a little.</p>
+<cite>Geoff:</cite>
+<time>06:33</time>
+<p>Yeah. So what you're describing with the opting in at different levels is the ability with Swift 5's language mode, which is the the default, and when you are bringing in an older project, is the ability to turn on strict concurrency warnings to a given level, without yet opting into the Swift 6 language mode, which makes all of those warnings errors. So you can do that on a per module basis as well. These are just build settings. If you're familiar with the Xcode build settings UI, it's the big one that has a ton of rows in it, and you've got all kinds of granular control over each part of your project.</p>
+<cite>Geoff:</cite>
+<time>07:11</time>
+<p>That is useful if you have a very large module or a single module app where you really want to tackle even just that at a specific level. You can opt into things that are warnings and not yet errors, so it doesn't actually break your bill. That allows you to kind of tackle some of the specific parts of the problems in order to gradually ratchet your way towards having a version of this that will work with the full Swift 6 language mode when you're ready to move to that.</p>
+<cite>Peter:</cite>
+<time>07:45</time>
+<p>Yeah. And I I think, hopefully, right, folks are already structuring their code in a modular way, and therefore, you can approach this and say, okay, you know, maybe as a team or as a solo developer for example, I think I'm going to approach this very much the way that we did migrating some apps from objective c, which is to say, let's go take a look at the the networking code, right? And and maybe if you don't have it modularized maybe this is the time to do that as well, you know, as you migrate across. But to break it down like that and so you can slowly check off that list and know, okay, this portion of the code is good and you don't have this, you know, as we get in sometimes where you end up having to chase down some spaghetti to find the actual problem that then you fix and causes a problem somewhere else. So hopefully, if people have been following good practices this should fall in line and not be, you know, such a burden.</p>
+<cite>Peter:</cite>
+<time>08:46</time>
+<p>Like, for example, when we had the early swift years where we had to go through those huge changes that we had no choice but to adapt to. Right?</p>
+<cite>Geoff:</cite>
+<time>08:55</time>
+<p>Yep. Yep. Yep. Yeah. And and to to that end, you know, the way that I've been approaching it has been very similar to what you said.</p>
+<cite>Geoff:</cite>
+<time>09:03</time>
+<p>I use a tool called Tuist that allows you to specify your Xcode projects in terms of Swift code and generate an Xcode project file from that. And I just built a thing into my module template that is uses Mac's Swift version. I did this so that I could actually continue to develop with Xcode 15 and Xcode 16 at the same time and opt in to Swift 6 on a module by module basis, but be able to fall back to Swift 5 on Xcode 15. And, yeah, literally, all I've done is just have a parameter that I can pass in true, false, am I using Swift 6? And on an older project that I have, I set it to default to false and have just been going through each module at a time and saying, can I update this?</p>
+<cite>Geoff:</cite>
+<time>09:52</time>
+<p>Okay. Go ahead. Set it to true. See what needs to be fixed. And if I decide that it's too big of a lift right now, set it back to false.</p>
+<cite>Geoff:</cite>
+<time>10:01</time>
+<p>You're fine. Move on. With my newer project, the project that I'm working on for the hackathon, I set that value to true by default, and the only times that I'm setting it back to false is mostly been in cases where I'm relying on a third party library that is not yet able to fully be moved over. And so I've got a couple of places where that's still true. Some third party libraries are not yet fully Swift 6 compatible, and I'd prefer not to throw on one of the options that you have is the ability to mark and import as pre concurrency.</p>
+<cite>Geoff:</cite>
+<time>10:35</time>
+<p>And I haven't wanted to do that. That seems like a thing where it's just lying in wait to hide later and come back and bite you later. Where you're like, oh, I forgot that this entire thing was marked pre concurrency. And then as soon as I need to, actually upgrade it, oh, it turns out there was a whole lot of errors hidden behind the fact that I was basically hiding them with this pre concurrency warning.</p>
+<cite>Peter:</cite>
+<time>10:56</time>
+<p>Hey, folks. If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter. You can go to patreon.comforward/compileswift, where you will get ad free versions of the podcast along with other content. I'm glad you mentioned, you know, 3rd party libraries there because that hadn't even entered my head yet. Some of the libraries I I may use or, you know, swift packages, whatever you wanna call them, probably are not swift 6 compatible yet.</p>
+<cite>Peter:</cite>
+<time>11:31</time>
+<p>And sometimes it can take a long time, maybe even never.</p>
+<cite>Geoff:</cite>
+<time>11:35</time>
+<p>One thing that I wanna say about that is if you're familiar with the website swift package index, it's a great website that lists all kinds of 3rd party swift packages and gives information and stuff about them. One thing that it's had is it now has on every single package that's on there a check for whether it's ready for Swift 6. I believe it even says what version of the package is ready to opt into Swift 6 mode. So that gives you a very good way to quickly check and see, hey, are my packages ready for Swift 6? And if they are ready for Swift 6, what version do I need to upgrade to in order to have that capability?</p>
+<cite>Peter:</cite>
+<time>12:15</time>
+<p>Very handy. Yeah, folks. We'll put a link in the show notes for that. This is I'm just looking at this now. This is cool.</p>
+<cite>Peter:</cite>
+<time>12:21</time>
+<p>Yeah. Because it's gonna be a while. Right? You know, it's Yeah. And and again, this is why I like the way they've done this is okay.</p>
+<cite>Peter:</cite>
+<time>12:30</time>
+<p>You know, it doesn't have to happen overnight. Theoretically, everybody should be fine to keep shipping and, you know, they're not gonna suddenly break on a compile. Again, depending on if you choose to throw the switches. Right? And I I noticed, you know, when I've done this, I did it in Xcode and you can go into the build settings and you can say, you know, swift 6 and set appropriate flags.</p>
+<cite>Peter:</cite>
+<time>12:55</time>
+<p>But I did notice today when I was looking through the documentation that it's also gonna be useful for CICD because you can do it from the terminal as well. Okay. So before we go any further, let's talk about the different ways that you can enable, you know, the Swift six language mode as they call it. So a couple of different ways you can do this here folks is you can use the Swift compiler. Right?</p>
+<cite>Peter:</cite>
+<time>13:18</time>
+<p>So, you know, to give you an example here from their documentation, you know, you would go in, you could run from the terminal. You'd have, like, swift, and then you do, like, you know, dash swift dash version, and then 6 followed by your swift file. You can also do it using the swiftpm. You can do swift build and then you do it dash x swifttzswiftdashversiondashxswifttz6. That's an easy one to remember.</p>
+<cite>Peter:</cite>
+<time>13:47</time>
+<p>Right? Yeah. And, of course, the easiest way by far that I suspect probably most people will go with with you go into your build settings in Xcode and you could actually just put in the search box for the Swift language version and set it to 6. That's that's a quick way right there to enable it. And then you can also use XE config as well and and set Swift version to 6.</p>
+<cite>Peter:</cite>
+<time>14:12</time>
+<p>So there's plenty of options for turning it on here. And like I say, it covers CICD as nicely as well.</p>
+<cite>Geoff:</cite>
+<time>14:18</time>
+<p>Oh, that's interesting because I definitely knew about the package manifest version of it and the Xcode build settings version of it. But it's interesting to hear it sounds like you have to opt into it on the command line for things like one off scripts and stuff. I kind of assumed that that would just be Swift 6 by default, and you were stuck with Swift 6 for those kinds of tools. But it it sounds like you have to explicitly opt into the Swift 6 language mode on the command line no matter what.</p>
+<cite>Peter:</cite>
+<time>14:45</time>
+<p>It is weird. Right? Because if I've got to specify, you know, like the dash swift dash version 6, that I would do that to say, like, version 5, version 4 Yeah. 4 dot whatever. So it does beg the question, and maybe if someone out there smarter than us knows the answer, please reach out to us.</p>
+<cite>Peter:</cite>
+<time>15:04</time>
+<p>Right? And let us know. It does beg the question, if it's not 6 by default, is it 5 by default? I mean, it's not clear.</p>
+<cite>Geoff:</cite>
+<time>15:12</time>
+<p>It would have to be. Right?</p>
+<cite>Peter:</cite>
+<time>15:13</time>
+<p>Yeah. So that is an interesting, note there because they don't touch on it in the documentation. They just tell you how to invoke 6. So we'll have to check that out and see. Yeah.</p>
+<cite>Geoff:</cite>
+<time>15:25</time>
+<p>Yeah. I do know with the package manifest, like you said, you change the version number at the top that, like, special magic comment at the top. Yeah. And then after that, if you want something to be in the language 5 version mode, you have to then opt into it on each individual target setting to go back to 5. But, yeah, it's it's it's interesting to hear that it sounds like the opposite is true on the command line.</p>
+<cite>Peter:</cite>
+<time>15:50</time>
+<p>May have to play with that. I may have to, you know, just make a swift file and try it out, and we'll see what happens. Maybe by the next episode, I'm like, oh, here's what happens. It doesn't doesn't define any. It goes back to swift 3.</p>
+<cite>Geoff:</cite>
+<time>16:05</time>
+<p>We can we can have some some official podcast follow-up.</p>
+<cite>Peter:</cite>
+<time>16:09</time>
+<p>Yeah. Yeah. Actual follow-up. Unless, of course, someone at Apple wants to tell us. And and hey.</p>
+<cite>Peter:</cite>
+<time>16:14</time>
+<p>Great. You know? Yeah. So now that we know how to invoke it, let's talk about what the real sort of the main core driver here is in Swift 6. And there's a lot of things.</p>
+<cite>Peter:</cite>
+<time>16:25</time>
+<p>We'll we'll cover them. But the real big one, you wanna cover, you know, sort of the main driver here between Swift 6?</p>
+<cite>Geoff:</cite>
+<time>16:33</time>
+<p>Yes. So the biggest part of Swift 6 is, of course, data race safety. And if you don't know what a data race is, it's basically when you are having your code concurrently looking at a single piece of information, a single piece of state. And depending on when you look at it, it may have been changed. And you're expecting it to be one thing, and, actually, it's changed out from beneath you, and it's now a different value.</p>
+<cite>Geoff:</cite>
+<time>17:01</time>
+<p>So imagine, for example, the score of a game, and you're trying to display the score of your game on a scoreboard somewhere. And so you go for your your update, and you're gonna get the number. But then the user or the the player gets a coin or something, and that score goes up. But that happened after you fetched that value and before you put it on the screen. And now your score is out of sync.</p>
+<cite>Geoff:</cite>
+<time>17:30</time>
+<p>It's it's incorrect. What data rate safety is intended to do is that in the compiler, it is figuring out, hey. Is that kind of thing going to happen? And if it is, we're gonna give you an error. We're not gonna let you write this code that could cause this problem.</p>
+<cite>Geoff:</cite>
+<time>17:49</time>
+<p>Obviously, if you're displaying the score of a video game, probably not that important. It's gonna be fine eventually. If you think of this as updating your amount of money in your bank account, this is obviously a much bigger problem. So having this safety around for specific types of apps is going to be a very useful thing, and it's it's just one more case where the Swift compiler is trying to ensure the correctness of your code. You know?</p>
+<cite>Geoff:</cite>
+<time>18:18</time>
+<p>When Swift came out, we had the big one of null safety, you know, with objective c. You never knew if something was null or not, and you could just very easily write code that messaged null and didn't do what you expected it to do. And Swift came in and said, you know, we've got optionals now. We're going to enforce in the compiler that you know whether or not something is null when you it. This is doing something very similar to that, but with a a lot of common concurrency issues.</p>
+<cite>Peter:</cite>
+<time>18:47</time>
+<p>Yeah. And as I was reading through, the part that I think really helped it make sense to me, This idea of these what they call the isolation domains and and I'll quote it here from the documentation because this is the part that sort of drove it home for me as I was trying to wrap my head around this. So mutable state can only be accessed from one isolation domain at a time. You can pass it between isolation domains from one to another, but it's only accessible within that domain as well. So you can safely, you know, work with whatever it may be, numbers, whatever your data is, and and know that, okay, some external force is not working on the code here and hopefully you're not going to have this situation.</p>
+<cite>Peter:</cite>
+<time>19:34</time>
+<p>Now I would imagine if you don't plan this out though, the fact that it's isolated, basically encapsulated with this domain could be a problem though, right, if you don't plan accordingly. Am I understanding that correctly? Although there is this idea of non isolated as well.</p>
+<cite>Geoff:</cite>
+<time>19:51</time>
+<p>Right? So the first thing I I hear and there is you can pass state between isolation domains. That's only kind of true, and and that's something that I think is going to be one of the first things that people see when they start addressing Swift 6 errors. You're only able to pass state between isolation domains that is sendable, is is the word that they've decided to use for this. And so you have to mark each type that you want to be able to share across isolation domains as sendable.</p>
+<cite>Geoff:</cite>
+<time>20:23</time>
+<p>And that is essentially you saying, I promise that this code is good to work across multiple threads. And, there's a lot of ways to handle that. The most basic of which is use immutable data. If you have a struct and you, have that entire thing and all of these values in that struct are themselves already sendable, you're sendable by default. Again, another asterisk to that, which is that if you are if it's a public type, you have to explicitly say that you are sendable, but then the compiler opts right back into that and say, okay.</p>
+<cite>Geoff:</cite>
+<time>21:01</time>
+<p>Yeah. No. I can tell that this thing is sendable. You're promising that you're gonna keep it sendable. So that that's the easiest way to do it.</p>
+<cite>Geoff:</cite>
+<time>21:08</time>
+<p>The other way that you can do it is you can operate your own synchronization, basically, and say, okay. I've built out a thing that makes sure that this is thread safe. And then you can mark it as unchecked sendable, which is to say, I a 100% promise that this is sendable. I know the compiler doesn't know enough about what I've done in order to make it sendable, but I am guaranteeing that it is going to be sendable. And I'm basically telling the compiler, hey.</p>
+<cite>Geoff:</cite>
+<time>21:35</time>
+<p>Don't worry about it. I I know what I'm doing. And so those would be the 2 types that you have to be able to pass data between different isolation domains. Then the other thing that you discussed, you talked about the the idea of these isolation domains. So the way that they're defining these isolation domains is a couple different things.</p>
+<cite>Geoff:</cite>
+<time>21:54</time>
+<p>You can be, as you said, non isolated, which is I've got a value that doesn't require a specific isolation domain. It's going to be fine. You can use it from whatever isolation domain that you have, and I don't have to worry about thread safety with this kind of function or with this kind of state. Then the other major isolation domains that you have are all of Swift's actors. As actors were introduced a while ago with the Swift concurrency stuff, and now they are part of the data race safety that is being built into Swift 6.</p>
+<cite>Geoff:</cite>
+<time>22:31</time>
+<p>So you can have isolated to a specific actor, or you can have it isolated to a global actor. Now the global actor, I think, is going to be the one that people are gonna run into the most. Your most obvious global actor here is the main actor. This is your main thread. And a lot of the stuff that you are going to be doing with UI has to be on the main actor.</p>
+<cite>Geoff:</cite>
+<time>22:53</time>
+<p>Apple has marked UI view controller and view in so if you I main actor. And so anything that is being interacted with from UI view controller or a SwiftUI view has to be on the main actor. So you're you're opting into being isolated to that particular global actor.</p>
+<cite>Peter:</cite>
+<time>23:12</time>
+<p>And if I remember rightly, I think is this a case of whatever the parent has, the children have it as well. Right?</p>
+<cite>Geoff:</cite>
+<time>23:22</time>
+<p>So Yeah. That's correct. If you have a class or a protocol or something like that that is marked at main actor, then any subclass of that class is going to be main actor. But more importantly, all of its members by default are going to be main actor. So for example, UIViewController is marked as main actor.</p>
+<cite>Geoff:</cite>
+<time>23:42</time>
+<p>If I subclass UIViewController into my view controller, that is also going to inherit that. It's going to be main actor isolated as well. But more importantly, every function that I have inside of that view I've in inside of my view controller is also going to be a main actor function, that this function itself has to be called on, main actor.</p>
+<cite>Peter:</cite>
+<time>24:05</time>
+<p>Now I do notice that in the documentation here, though, it does say if you want to, you can mark something as non isolated. For example, they give a function here, but I think it's functions and variables, if I remember rightly.</p>
+<cite>Geoff:</cite>
+<time>24:20</time>
+<p>That's correct. Any member of a type that is already itself isolated to a global actor, you can opt back out of that with non isolated. So, yeah, any any member so properties, variables, functions, all of that, they can be opted back out into being non isolated instead of being isolated to the global actor.</p>
+<cite>Peter:</cite>
+<time>24:40</time>
+<p>But but use it wisely, I think. Right? Because Yeah. It's kind of like that. You know, don't don't be one of those people where it's like, well, if I mark everything public Time for a break.</p>
+<cite>Peter:</cite>
+<time>24:50</time>
+<p>Hey, everybody. It's Peter Whittam here from the Compulsory podcast. I wanna tell you about Setapp. Setapp is a service that provides a subscription fee of just $10 a month and you get access to over 200 Mac applications and it's also available now on iOS as part of that deal. I use the service because it just has a ton of really good first rate apps that I use all the time.</p>
+<cite>Peter:</cite>
+<time>25:17</time>
+<p>And for me, it's invaluable as a developer to have access to tools for things like APIs, for planning projects, writing emails, writing documentation, and you get all of these things including database apps, all of that kind of stuff right there on the set app service for just $10 a month. You can use as many or as few applications as you need. If you're interested in checking this out, go to peterwhitham.compe terwitham.comforward/setapp, s e t a p p. And you can see the details there, and it's got a link that you can go over and start using the service and see how it works out for you. I strongly recommend this to every Mac user.</p>
+<cite>Geoff:</cite>
+<time>26:02</time>
+<p>Break time over. Well, thankfully, non non isolated is one of those things where the compiler is going to basically continue to check you. So you can mark things non isolated, probably overkill for what you wanna do, but it's it's not you're not cheating your way out of data race safety by marking things non isolated. So once once you're at this point, you've got you've got your different isolation domains, but, obviously you can't just have your entire app inside a single isolation domain. I'm I'm maybe you could do an app that's only on the main thread ever, but, I feel like that would you you wouldn't be able to do any networking or anything.</p>
+<cite>Peter:</cite>
+<time>26:42</time>
+<p>Yeah. Good luck with performance. Right?</p>
+<cite>Geoff:</cite>
+<time>26:44</time>
+<p>Exactly. Yeah. So you have to have the ability to jump between different isolation domains. And thankfully, Swift has made this pretty easy to do, and it's simply if you are talking to something in a different isolation domain, that has to be done through an async function. So, for example, you're on the main actor, you have something that's isolated to a different actor, an actor that you've built for, you know, file system access, let's say.</p>
+<cite>Geoff:</cite>
+<time>27:11</time>
+<p>If you were inside that file system actor, you could have functions that are that aren't marked async, functions that look like totally normal functions, and you're just calling them directly, and it's fine, and it looks fine. If you're on the main actor, so you're say you're coming from that UI view controller and calling into this file system actor, even though that function is not marked async, you are going to have to await it in order to get on to that actor. And that's how they're enforcing this this isolated context is you have to wait for that actor to be ready in order to call that function.</p>
+<cite>Peter:</cite>
+<time>27:49</time>
+<p>So I know that you've worked through this a lot more than I have, and and you've worked through this with your code base as well. So, hopefully, you've got a couple of tips for folks to, you know hey. It's a good way to get started, and also watch out for some gotchas that, you know, may come up as, like, hey. This is probably the first thing you're gonna hit. Don't panic.</p>
+<cite>Geoff:</cite>
+<time>28:09</time>
+<p>Yeah. I think the kind of big two tips that are going to be probably the bulk of what most people are gonna run into are gonna be, a, start going through and marking things sendable that should be sendable. I wanna clarify that, you know, in a lot of this, this is your data. This is your bags of data, the things that you're using Structs for or probably should be using Structs for. A lot of them, you're gonna be able to just mark them sendable, and the compiler is gonna go, yep.</p>
+<cite>Geoff:</cite>
+<time>28:40</time>
+<p>Those are definitely sendable, and you're not gonna have to worry about it. If they are something more complicated, there is a great blog post out there by Matt Mazakot. I'll link that in the show notes, called non sendable types are cool too, you know, and it goes over all of the cases where something might not need to be sendable, but how you can handle it that way instead.</p>
+<cite>Peter:</cite>
+<time>29:03</time>
+<p>K.</p>
+<cite>Geoff:</cite>
+<time>29:03</time>
+<p>The other tip that I would say is the compiler is going to find a lot of things where you haven't explicitly said that something should be main actor, but it should be main actor. And you're gonna wanna look into that and go, oh, yeah. Maybe that actually should be main actor. I do need to call this on the UI thread. I do need to do this as part of a UI thing.</p>
+<cite>Geoff:</cite>
+<time>29:23</time>
+<p>And all you're gonna have to do there is if you've got, like, a task, you can do at main actor in. If you're not in a task and you're you're off on some other context, you can do, main actor dot run. And, basically, just tell the system, hey. No. This code that's not currently guaranteed to run on the main thread does need to be guaranteed to be run on the main thread, and I am not gonna enforce that in code.</p>
+<cite>Geoff:</cite>
+<time>29:46</time>
+<p>And I think if you handle those two things, mark what's needs to be sendable as sendable, mark what needs to be on the main actor as main actor, that's gonna be a good 90 to 95% of all of the problems that you're gonna run into. That last 5 to 10%, can be a little hairy. It's something that is a lot more manageable than probably the large number of errors that you're gonna see right off the bat. A lot of those are gonna pass really quickly if you just follow those first two tips.</p>
+<cite>Peter:</cite>
+<time>30:16</time>
+<p>Okay. So hopefully, folks are getting, you know, the right impression here, which is you don't have to dive in at the deep end. But I do want to address this from a slightly different angle. But I wanna look at this from the perspective of making the decision as to, you know, when you should do this. And the the easy answer is, like, if my team was to come to me and say, we wanna migrate to Swift 6 right now.</p>
+<cite>Peter:</cite>
+<time>30:39</time>
+<p>I'm gonna turn in and go, no. You're not. Because not because I don't think it's the right thing to do, but because you are sometimes inviting potential problems that you then have to deal with. Right? Now what I mean by that is, like we were saying about shipping, you always want to be shippable because some massive bug hits overnight and you're like, oh, I gotta do an emergency release.</p>
+<cite>Peter:</cite>
+<time>31:06</time>
+<p>Right. It it happens to of us at some point. So you don't wanna be in a position where you can't turn out and go okay we need to ship. So first of all folks, hopefully you're all making new branches when you do these kind of, you know, moves or experimental work something like that. Don't ever do it on the main branch.</p>
+<cite>Peter:</cite>
+<time>31:25</time>
+<p>And I say that because inevitably there's always people that do or they don't use source control or they don't come you know, they they haven't committed code for 6 months. Right? And and it's like, okay. This is not the time. Right?</p>
+<cite>Peter:</cite>
+<time>31:39</time>
+<p>You know, it goes, you know, clean up before you do this. So from my perspective, I love the idea that you can do this over time. Very much like migrating Swift to Swift from objective c. Break it down into sensible workloads. Maybe turn on the Swift compiler 6, see what your list of issues is, go away and come up with a plan.</p>
+<cite>Peter:</cite>
+<time>32:03</time>
+<p>Right? So I just wanna throw that in there as, you know, my advice to anyone that's perhaps running a team or a team lead and looking at this and saying, how do I go about doing this? And and that's kind of the approach that I plan to take with this.</p>
+<cite>Geoff:</cite>
+<time>32:20</time>
+<p>Yeah. And there's there's not really anything that's requiring this change right now. I already talked about Matt Hasselkad's blog earlier in the stream, but he has another post that I'll also link in the show notes that's kinda talking about this. Like, you don't have to do this right now. There's there's nothing that's requiring you to move to the Swift six language mode.</p>
+<cite>Geoff:</cite>
+<time>32:40</time>
+<p>He points out, in fact, that the Swift six compiler that just came out with Xcode 16 actually still supports the Swift four language mode. So it's gonna be a while, if ever, before Apple really requires you to do this. It is a good idea. It is saving you from a set of bugs, but there's nothing that is saying you've gotta drop everything right now and make this migration. It's it's not one of those things.</p>
+<cite>Geoff:</cite>
+<time>33:06</time>
+<p>Apple has definitely done those in the past, but this is not one of them. You're not gonna be able to suddenly be unable to ship your app in spring because Apple's like, oh, you know, we're requiring Xcode 16. No. You can build with Xcode 16 and not need to worry about the Swift six language mode at all.</p>
+<cite>Peter:</cite>
+<time>33:22</time>
+<p>Alright. So let's you know, we've covered the big topics. Right? Data isolation and domains. There are things that folks are gonna wanna become familiar with.</p>
+<cite>Peter:</cite>
+<time>33:30</time>
+<p>Those are definitely the big hitters, but there is a lot of other stuff in Swift 6. Very much like there is every year. Right? There's sometimes the the smaller things that don't get talked about so much are just as important. So let's dive into a few of those.</p>
+<cite>Geoff:</cite>
+<time>33:46</time>
+<p>So, yeah, I already mentioned the ability to now put access modifiers on imports. So you have your your public imports, your internal imports, your private imports. So that's definitely a big one. I think one of the other big ones that people have been talking about, but I have slightly more mixed feelings on, is the ability to type your throws. So this is a case where you can say, I am going to throw an error.</p>
+<cite>Geoff:</cite>
+<time>34:10</time>
+<p>You've been able to do that for forever. But I'm going to throw an error that is of a specific type and say, like, I'm going to throw a networking error or I'm going to throw a file system error. And the reason I'm a little bit mixed on this is you aren't able to throw multiple types of errors without going back to completely untyped just error. You can say throws. And so I I feel like this is gonna encourage what I think is a bad habit of just continuously wrapping errors inside of other errors, which is a very common thing you see in, like, Java, for example, that you'll see, like, an underlying error.</p>
+<cite>Geoff:</cite>
+<time>34:52</time>
+<p>And I don't know. I feel like I feel like that's not a best practice, but, hey, that's that's that's on me. Type throws is definitely a very cool thing. I just worry that the pattern that it encourages, you know, if you are tempted to wrap a error inside of another error, just just throw an untyped error. It's okay.</p>
+<cite>Geoff:</cite>
+<time>35:14</time>
+<p>You know, nobody's gonna nobody's gonna come after you for not typing your errors.</p>
+<cite>Peter:</cite>
+<time>35:18</time>
+<p>You know, it's it's funny because as you said that, I was thinking to myself, boy, this sounds like the error equivalent of quick casting of something. Right? It's like I couldn't figure it out, so I just casted it to this thing. Right? And and all the badness that comes with that.</p>
+<cite>Peter:</cite>
+<time>35:36</time>
+<p>And funny enough as you were saying it immediately I thought okay if I can only throw one type of error I can see scenarios where my brain goes oh wait okay I got it. Now I need to throw this other one and this other one and this other one, and you get into a whole loop of nastiness right there. Yeah.</p>
+<cite>Geoff:</cite>
+<time>36:00</time>
+<p>I I think this is a case where typed throws make some things more convenient. You know, you get the kind of, you know, how with static functions, you don't necessarily need to you don't need to type the name of the type if the type that you are returning is the type of the type that it's a static function on. That didn't make any sense. Where you say, for example, on a SwiftUI view, you can say tint color dot red, or you can say tint dot red. This allows you to do something similar with the throw statement.</p>
+<cite>Geoff:</cite>
+<time>36:31</time>
+<p>You can say just throw dot my error, instead of saying throw networking error dot my error. It's nice there. On the catch, you have the same thing. You can you can catch and say, you know, I immediately know that this is this type of error. Therefore, I don't need to, cast it, for example, to a different error in order to get, like, some extra data off of it.</p>
+<cite>Geoff:</cite>
+<time>36:53</time>
+<p>You can just say, catch, and it knows, hey, this is this type of error. You can go ahead and treat it as that kind of error. It is some nice syntactic sugar there for you. And if you have cases where you can use just that, sure, go for it. I think it's a a great addition in those cases.</p>
+<cite>Geoff:</cite>
+<time>37:10</time>
+<p>I'm just worried about the case where it's like, oh, well, I need to throw this error plus this other error, so I'm just gonna nest this error inside of this other error so that I can have all of the same type throws, just because typing is better for some reason. I I I don't think that that's I don't think that that's a useful benefit.</p>
+<cite>Peter:</cite>
+<time>37:30</time>
+<p>Okay. So I've got one here. Now, you know, folks know that I'm I like to develop games. And one of the things with games, depending on your style of game, but eventually you hit this problem, is, you know, games or a lot of games are about numbers. Right?</p>
+<cite>Peter:</cite>
+<time>37:47</time>
+<p>And let's even if you're just talking about a score and I've been there and done this, you choose the wrong the wrong type. And later on when you're playing the game, you you hit this problem of essentially, I'm out of numbers. Right? And things get a bit weird when that happens. So we have a 128 bit integer.</p>
+<cite>Peter:</cite>
+<time>38:14</time>
+<p>Right? And, you know, correct me if I'm wrong. You know, it's not like when we're talking like signed unsigned 64 bit. This is an honest to goodness 128 bit integer, which I think I, you know, I can see the advantage for as game development for something like that. I I'm sure there's many uses.</p>
+<cite>Peter:</cite>
+<time>38:33</time>
+<p>But for me, that solves an immediate problem of, okay, I've suddenly got all these these bigger numbers I can play with, which actually, like I say, in game development comes up a lot more than you would think. Might not be a use case for everybody every day. If you've hit this problem, you you're probably sitting there right now going, yay. Right? So I wanna put that one in</p>
+<cite>Geoff:</cite>
+<time>38:56</time>
+<p>there. Yeah. I mean, they do actually have signed and unsigned int 28, 128. Sorry.</p>
+<cite>Peter:</cite>
+<time>39:02</time>
+<p>Okay.</p>
+<cite>Geoff:</cite>
+<time>39:03</time>
+<p>And and so yeah. I mean, int 128 lets you put together a gigantic, just unreasonably large number. And then UN128 lets you have double that. So</p>
+<cite>Peter:</cite>
+<time>39:14</time>
+<p>We you know, it's it is funny, though, because, like I say, especially anyone that's ever made an idol style game, and if you know what that is, you know what that is. I'm I'm I won't dive into the details here. But, details here, but eventually it's a it's a game that goes on for a long time. And that means inevitably you end up with some big numbers. And so you need normally, we have to write some clever logic or, you know, someone's done a library where you can go with these truly massive numbers.</p>
+<cite>Peter:</cite>
+<time>39:42</time>
+<p>So this is gonna help out with a lot of that. So I I may play with that a bit. Yeah.</p>
+<cite>Geoff:</cite>
+<time>39:48</time>
+<p>Yeah. 340 undecillion.</p>
+<cite>Peter:</cite>
+<time>39:52</time>
+<p>See? That's a big number. We're we're making sort of light of it. But, seriously, I have hit these problems. When I originally did my Project Hack game, I hit this problem because it did never occur to me.</p>
+<cite>Peter:</cite>
+<time>40:06</time>
+<p>I'm like, oh, numbers are gonna get really big. It's fine. But, no, within like a day, I hit the number. I was like, oh my gosh. And had to find a library for it.</p>
+<cite>Peter:</cite>
+<time>40:16</time>
+<p>I think I could probably work with that new a 128 bit and be okay. You're certainly never gonna get a score that high and high and endless hurdles. That's clear.</p>
+<cite>Geoff:</cite>
+<time>40:27</time>
+<p>Right? Yeah. 340 undecillion, 282 decillion, 366 nonillion, 920 octillion, 938 septillion, 463, 6,000,000,000, 463 quintillion, 374 quadrillion, 607,000,000,431,000,000,768,000,211,000,456.</p>
+<cite>Peter:</cite>
+<time>40:46</time>
+<p>How do you even get that on the screen? I mean, how big an iPhone do you need to score that bigger number?</p>
+<cite>Geoff:</cite>
+<time>40:54</time>
+<p>Quite a bit.</p>
+<cite>Peter:</cite>
+<time>40:55</time>
+<p>Oh my god. That's nuts, dude.</p>
+<cite>Geoff:</cite>
+<time>40:59</time>
+<p>And so, yeah, there's a bunch of different features that are in Swift 6 that aren't the big heavy headlining feature. I think we'll link to hacking with Swift. Paul Hudson has obviously done, as usual, a great job at listing all of the new features of Swift 6. There's a couple others in there that are a little bit less interesting, but, hey, definitely something that you would love to be able to use at some point. I'm sure.</p>
+<cite>Peter:</cite>
+<time>41:21</time>
+<p>Yeah. Definitely. Links in the show notes, folks. And and, again, you know, want to impress upon everybody. Take your time.</p>
+<cite>Peter:</cite>
+<time>41:27</time>
+<p>Plan this out. Right? There is no urgency here. So, you know, go look at all these links. We go final with Xcode and so on.</p>
+<cite>Peter:</cite>
+<time>41:36</time>
+<p>There's gonna be a lot of folks talking about this. Now, of course, the Swift six language has been under development for quite a while, but it's it's usually traditionally when, you know, new Xcode version comes out, these things start to do the rounds. Right? So, definitely look at all the links we've got in the show notes here and and run with those. So we have covered a lot in this episode and, you know, talking about code is not always the easiest thing.</p>
+<cite>Peter:</cite>
+<time>42:03</time>
+<p>So, again, check everything out, but we have covered a lot here. Hopefully, the big takeaway is there's a lot of things in Swift 6 to help you out. So with that, we're gonna leave it there. Jeff, tell folks where they can find you.</p>
+<cite>Geoff:</cite>
+<time>42:16</time>
+<p>Yep. You can find everything that I do on cocotype.com. It's got links to all my socials, all my apps, all of the things.</p>
+<cite>Peter:</cite>
+<time>42:23</time>
+<p>Hey. And as always, you can find this podcast and other stuff at compileswift.com, and you can find my work at peterwiddam.com. And with that, I think Jeff needs to get back to his his app because the the clock is still ticking.</p>
+<cite>Geoff:</cite>
+<time>42:37</time>
+<p>Back to that, Bill. Yep.</p>
+<cite>Peter:</cite>
+<time>42:39</time>
+<p>That's it.</p>
+<cite>Geoff:</cite>
+<time>42:39</time>
+<p>Can I get back to Bill? Yeah.</p>
+<cite>Peter:</cite>
+<time>42:40</time>
+<p>He's like, oh, my day is not over. Yeah. This is not the indie life I signed up for. Right? Yeah.</p>
+<cite>Peter:</cite>
+<time>42:47</time>
+<p>That's it, folks. That's all we got for you. We will catch you in the next episode. See you later.</p>
+</details>
