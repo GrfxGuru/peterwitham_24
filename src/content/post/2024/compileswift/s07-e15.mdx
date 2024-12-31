@@ -1,0 +1,605 @@
+---
+publishDate: 2024-10-05T00:00:00Z
+title: App Pricing Part 1
+excerpt: App Pricing is a complicated subject, in part 1 we discuss models.
+image: /images/blog-fi/2024/10-05.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e15
+---
+
+import Player from '../../../../components/podcasts/cs-player.mdx';
+import CSLinks from '../../../../components/podcasts/cs-links.astro';
+
+<iframe
+  width="100%"
+  height="180"
+  frameborder="no"
+  scrolling="no"
+  seamless=""
+  src="https://share.transistor.fm/e/45f3ed1c"
+></iframe>
+
+<Player />
+
+Part one of two where we discuss app pricing. The many different models and approaches with our takes and opinions on each. In part 2 we will dive into the numbers!
+
+<CSLinks
+  link1="/2024/compileswift/s07-e16"
+  link1label="Part 2"
+  link2=""
+  link2label=""
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+#### Transcription
+
+<cite>Peter:</cite>
+<time>00:02</time>
+<p>What's up, everybody? Welcome to the episode of the Compile Swift podcast. I'm your host, Peter, and here's the other host, Geoff. How are you doing, Geoff?</p>
+<cite>Geoff:</cite>
+<time>00:09</time>
+<p>Hey. I'm doing pretty good. Awesome.</p>
+<cite>Peter:</cite>
+<time>00:11</time>
+<p>We're doing something a little different this week, folks. We are recording live in front of a text audience. And we all know how opinionated the internet is. So we will see how this goes. But we wanted to bring some folks in because we're gonna talk about something that can be a little controversial sometimes, pricing.</p>
+<cite>Peter:</cite>
+<time>00:30</time>
+<p>And thankfully, neither of us are experts. Let's just put that up front right there. Do not take us for financial advice or any advice for that matter. But, we do have opinions. Oh, how lucky you are.</p>
+<cite>Peter:</cite>
+<time>00:42</time>
+<p>And we're gonna</p>
+<cite>Geoff:</cite>
+<time>00:43</time>
+<p>Another thing the Internet has plenty of.</p>
+<cite>Peter:</cite>
+<time>00:45</time>
+<p>Yeah. Because, you know, we thought 2 more are needed. Clearly, there are 2 missing. Right? So we are as correct as everybody else is what is what we're thinking here.</p>
+<cite>Peter:</cite>
+<time>00:55</time>
+<p>So just to give a a little overview here for folks, we're going to cover this from more directions and take questions from the chat room as they come up. Now, we're going to cover pricing in a very general way here because let's be clear there are no right or wrong answers. There are only the answers that work for you. And so, we're gonna base this on some of our own experiences, folks we know and hopefully some good old common sense. So, let's dive in here and let's start by, you know, how we got here.</p>
+<cite>Peter:</cite>
+<time>01:26</time>
+<p>How did we get here to talk about this? Go for it, Geoff.</p>
+<cite>Geoff:</cite>
+<time>01:30</time>
+<p>Yeah. So there's there's a personal aspect to why we're talking about this this week, and there's also a more public aspect as to why we're talking about this this week. Well, actually, last week, I released my iOS app Bark, my newest iOS app. It is perhaps controversially a subscription only app at this time. I posted a video about this on YouTube and had a lot of comments about that very thing.</p>
+<cite>Geoff:</cite>
+<time>01:53</time>
+<p>A couple days after I released my app, Bark, somebody much more famous and much more popular on YouTube than myself, mister MKBHD, released his app, Panels, also a subscription heavy, although not subscription only app, and we can get into some of the difference there, and was also very heavily excoriated for the pricing around his app. And so there's, blood in the water as it it seems, and so we wanted to, you know, maybe maybe spill a little bit more.</p>
+<cite>Peter:</cite>
+<time>02:26</time>
+<p>To to sort of put a little perspective here. Right? And I I think that it might be healthy to put this at the very beginning so folks know where we're coming from. I have some free apps in the Apple App Store, and I have a paid app in the Apple App Store. So I I haven't tried both ways.</p>
+<cite>Peter:</cite>
+<time>02:43</time>
+<p>Now I don't have subscriptions, but, thankfully, you know, like you say, you do. So I feel like I at least have a valid opinion since I've I've got 2 of the 3 there. Now, we should start by saying, and I think it's fair to say, let's first of all congratulate you because you put a video out there and it went extremely well. I won't use the words that you used. This is a public show, folks, to describe how well it went and you're surprised.</p>
+<cite>Peter:</cite>
+<time>03:14</time>
+<p>But it yes. It generated a hell of a lot of comments. Right?</p>
+<cite>Geoff:</cite>
+<time>03:18</time>
+<p>Yeah.</p>
+<cite>Peter:</cite>
+<time>03:19</time>
+<p>And, I know that at one point, I think you said to me, like, I just can't keep up with responding. Well, first of all, congratulations because that's the kind of thing you want. Right? I mean, it's shocking when it happens. But, yeah, this is where a lot of this comes from.</p>
+<cite>Peter:</cite>
+<time>03:33</time>
+<p>So I think we should start with you.</p>
+<cite>Geoff:</cite>
+<time>03:35</time>
+<p>Let's let's set a level on, how many things you are because you said you have 2 of the 3. I count 4 because you said free app, paid app, which I think this is where the 4th one is coming, subscription app. Paid up front versus in app purchase.</p>
+<cite>Peter:</cite>
+<time>03:53</time>
+<p>Good point.</p>
+<cite>Geoff:</cite>
+<time>03:53</time>
+<p>Yes. And And and I don't even you know, Is yours paid up front? I don't I'm I'm</p>
+<cite>Peter:</cite>
+<time>03:59</time>
+<p>missing paid up front.</p>
+<cite>Geoff:</cite>
+<time>04:00</time>
+<p>Okay.</p>
+<cite>Peter:</cite>
+<time>04:01</time>
+<p>Yes.</p>
+<cite>Geoff:</cite>
+<time>04:01</time>
+<p>So I you have</p>
+<cite>Peter:</cite>
+<time>04:03</time>
+<p>Well, it will be when somebody does.</p>
+<cite>Geoff:</cite>
+<time>04:05</time>
+<p>There you go. You have free and paid up front. I have free Yes. In app purchase and subscriptions. I have no paid up front ones.</p>
+<cite>Peter:</cite>
+<time>04:13</time>
+<p>Okay. Alright. Yeah. You caught me. I've been secretly hoarding my 1,000,000 from the App Store.</p>
+<cite>Peter:</cite>
+<time>04:19</time>
+<p>Yep. Yeah.</p>
+<cite>Geoff:</cite>
+<time>04:20</time>
+<p>No. But I I I think that it that that is, I I I think that that's a, distinction worth making. Like, is is there a difference between paid upfront and one time purchase, one time in app purchase?</p>
+<cite>Peter:</cite>
+<time>04:34</time>
+<p>Yes. You're you're quite right. Because, you know, arguably, some folks would say and and I'm not saying it's right or wrong. But, you know, paid upfront to me, you know, yeah, you don't get nothing until you've you've paid for it, then you get the app. And, hey, if it works out, great.</p>
+<cite>Peter:</cite>
+<time>04:50</time>
+<p>And and if it doesn't work out, well, you know, there is the you you have a course there in the App Store. As opposed to the other method, which I often think of as we don't use the word trial in in the App Store. Right? We have a evaluate it for a little while and then either pay to expand it in some way or perhaps more controversially paid to continue using it without actually using the word trial. Right?</p>
+<cite>Peter:</cite>
+<time>05:21</time>
+<p>Now, so I tell you what, let let me talk about my my thoughts on that for a second then.</p>
+<cite>Geoff:</cite>
+<time>05:26</time>
+<p>Okay.</p>
+<cite>Peter:</cite>
+<time>05:27</time>
+<p>Right? Because I feel like in some ways, it's Apple that has forced that situation with their policies, and I'm not saying whether I agree or disagree with them. I'm just saying that I think that it's, you know, it's the only way for people to try out software on an iPhone, on an iPad, on a watch, I I guess vision OS at this point. I don't know. I don't have one without having the ability to try it in some other way.</p>
+<cite>Peter:</cite>
+<time>05:58</time>
+<p>Okay. Yes. The European App Store is changing that, but let's not bring that in and and make it, you know, harder to get through than it is. So because of the way that it works with their policies, right, there's no other way for me to evaluate software beforehand other than some, you know, in air quotes, lite version. Unlike, say, Mac, Windows, Linux, where it's like, hey, go, you know, go download it, try it, if you like it, great, go buy it from the App Store.</p>
+<cite>Peter:</cite>
+<time>06:30</time>
+<p>Right? And I I think at some point something like that does need to happen for, you know, iPhone, iPad, but I would imagine that's incredibly complicated to</p>
+<cite>Geoff:</cite>
+<time>06:42</time>
+<p>It's been 2 years. I don't think they're gonna change anything.</p>
+<cite>Peter:</cite>
+<time>06:46</time>
+<p>Right. And, you know, I I I think there's value in Apple saying, well, it's working out great for us. Okay. You know, leave it at that. Now, okay.</p>
+<cite>Peter:</cite>
+<time>06:55</time>
+<p>The the way this might change with these 3rd party app stores, you know, anyone that's got Android would will be familiar with the phrase side loading. It's kind of like that a little bit, I guess. But hey, I'm not in the European app stores. I've not looked into it, so I don't don't wanna, you know, comment on that. But that's how I see those 2 different payment mechanisms.</p>
+<cite>Peter:</cite>
+<time>07:20</time>
+<p>Right? 1, pay it on good faith and then the other one, try it out to some degree and then pay to continue using it or or expand the features that you want.</p>
+<cite>Geoff:</cite>
+<time>07:32</time>
+<p>Yep.</p>
+<cite>Peter:</cite>
+<time>07:33</time>
+<p>So that that's my take on that. What what do you think of</p>
+<cite>Geoff:</cite>
+<time>07:37</time>
+<p>I I I think that's that's correct. Like, you the problem with paid upfront is exactly what you say, is that you are asking people to take it on faith, that you are saying, hey, here is my app. I've told you what I can through 3,000 characters or whatever the description is and 5 screenshots and maybe a 32nd video. If you are I was gonna say if you're a large company, maybe you can get away with that. But even a lot of the large companies today, you think you're Adobe's, you're Microsoft's, you're whatevers, they are also moving towards the subscription status.</p>
+<cite>Geoff:</cite>
+<time>08:12</time>
+<p>And I think that that is very much part of why they are doing this is that even they cannot trade entirely on their brand name anymore, that they have to say, like, you know, there have been enough companies, you know, themselves included, who have said, hey, we've got this software. We think you're really gonna like it. You're gonna have to pay up for it upfront, and it turns out the software is garbage. And I I think that, unfortunately, it is a reality that you have to give people a chance to try before they buy.</p>
+<cite>Peter:</cite>
+<time>08:50</time>
+<p>Hey, folks. If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter. You can go to patreon.comforward/compileswift where you will get ad free versions of the podcast along with other content. There's a certain amount where you say I'll just pay that we'll see what happens. Right?</p>
+<cite>Peter:</cite>
+<time>09:17</time>
+<p>And and it's acceptable is what I'm gonna call it. And then there are pricing structures and break points where you say, to pay that, I expect a certain level of I hate to use the word professional software, but I hopefully, everyone knows what I mean. Right? There's a certain expectancy. And, you know, I'm glad that we see that now because, you know, that first category, what I call sort of the 99¢ thing.</p>
+<cite>Peter:</cite>
+<time>09:48</time>
+<p>Right? If you pay that, it it's throw away in many ways. Right? You you know, especially if you equate it to, like, you know, everyone does cup of coffee, something like that. Right?</p>
+<cite>Peter:</cite>
+<time>10:00</time>
+<p>You don't buy a cup of coffee and then expect to have another one given to you free because you paid for that one. Right? So for 99¢, hey. I get what I get. And if it's terrible, okay.</p>
+<cite>Peter:</cite>
+<time>10:12</time>
+<p>I I'm gonna be cautious next time on that developer. Right? But then there you know, and I wanna say for me, it was things like when OmniFocus and that came to the iPhone, there was this next tier of what I call the, oh, we are finally reaching desktop quality software with the appropriate price. Right? Because, you know, some apps, whatever you wanna you know, I'm using Omnifocus because that was the first one I remember paying over I was gonna say over the odds, appropriate pricing for.</p>
+<cite>Peter:</cite>
+<time>10:49</time>
+<p>But I knew that I was getting an app of that quality, right, based on history. Now that's how I see it. Other folks may disagree and and, you know, let's let's be clear. Right? If something's free, I think you absolutely get what you get.</p>
+<cite>Peter:</cite>
+<time>11:07</time>
+<p>And it's, you know, it's one of those that it's like, hey. You're walking into this. It's of no cost to you. If it sucks, it sucks. If it's great, it's great.</p>
+<cite>Peter:</cite>
+<time>11:20</time>
+<p>By all means give it a review. But you're not, I'm gonna use the word entitled in any way because you haven't paid for anything. Does that make sense?</p>
+<cite>Geoff:</cite>
+<time>11:31</time>
+<p>That makes sense. I would not agree that people feel that way, but that makes sense.</p>
+<cite>Peter:</cite>
+<time>11:36</time>
+<p>Well, I I'm not saying they do. I'm just saying that I think from a perspective, you know, it's hey. You get something for free. You you don't have to take it. Right?</p>
+<cite>Peter:</cite>
+<time>11:45</time>
+<p>But if you're paying something, you are choosing to take it for some cost at that point. Yeah. Nobody's made you do it, I guess, is what I'm saying.</p>
+<cite>Geoff:</cite>
+<time>11:54</time>
+<p>Yep. Correct. Yeah. I I I I think that that is that is there is an expectation of a higher deliverable if you are asking for money for something that, if you have asked people to fork over the bucks as it were, they are expecting a return on that investment. And I think that that does ultimately get into where we start seeing the split between one time payments, whether upfront or in app purchase, and subscriptions.</p>
+<cite>Geoff:</cite>
+<time>12:31</time>
+<p>Because what is the level of what people expect over time and what they expected for that money? And this is where we get into where my feelings have been a little bit mixed recently. So, historically, my apps have always been either free or one time purchases. I've had a couple apps that have been completely free for a long time, and I've had my main two apps, Black Highlighter and Kineo, that are one time permanent unlock features. And Kineo, it's been in the App Store for depending on how you count, 16 or 5, 6, 7 years.</p>
+<cite>Geoff:</cite>
+<time>13:12</time>
+<p>I don't I would act actually double check that. And it has gotten consistent free updates over that time. You know? Heck, I released the entirely brand new re written version of it for VisionPRO. Black highlighter has also been on the app store for 7 years and has had a single price that entire time, and, you know, has also continued to get decent updates, every couple months for those 7 years.</p>
+<cite>Geoff:</cite>
+<time>13:40</time>
+<p>And the problem, I think, comes when people continue to expect that your app continues to work, continues to have new features, continues to get bug fixes, all of that, and they may have paid for it once in 7 years. And as a developer, that stops becoming sustainable over time. There is only so much that I can continue to provide having gotten 2, $3 from you one time in 7 years. And I I think that there's there's there's a level at which you saturate your market, for example. And you say, I've reached probably as many people as I can with black highlighter without going into being able to, like, spend money on Apple search ads or anything like that, where I have my market.</p>
+<cite>Geoff:</cite>
+<time>14:31</time>
+<p>I have my market of people who do really like this app, but have supported it once in a long time. And and I I I feel like I'm trying to to walk this thin line here, where, like, yeah, I absolutely love that people have supported it as they have. And I I don't wanna sound ungrateful for that support, but at the same time, I know that I have people who do respond to me to email me a number of times, and I I go, like, man, I am not there's a level at which, you know, the amount of time that I am putting into black highlighter is not being made up for the amount of work that is being seen from it. And sometimes that's things that are you never knew. I mean, that was Kenny O with VisionPRO.</p>
+<cite>Geoff:</cite>
+<time>15:19</time>
+<p>Like, that was absolutely a waste of my time. The other side of it is an app like Blackhighlighter, where people are continuing to enjoy this over time and continue to request updates, continue to request, you know, new features, that kind of thing. And it's just the time that I spend into it versus the amount that I get back is out of whack. And so that's why with Bark, I went the subscription route where I was saying, you know what? I know that some of my apps get these quote unquote 1,000 true fans, and they get to a point where there are people who continue to use this app for years years years.</p>
+<cite>Geoff:</cite>
+<time>15:59</time>
+<p>And what I want to do is I want to try and better align what I get out of that with what they get out of that. And that was my goal with moving to a subscription model was saying, one time payment doesn't work for me, has not worked for me for apps that I sustain for multiple years for for in both cases. Like, I I think in both cases, each of those apps has had over 7 years of development done on them. And for some of my other apps, it's been a case where I've had to drop that app because it is just no longer financially viable for me to spend time on it. And to say, like, I am continuing to work on this app because I know what this is is getting me.</p>
+<cite>Geoff:</cite>
+<time>16:44</time>
+<p>You know, I I I the the problem that I see is that, like, the the ultimate inciting event here is, like, Kineo is getting to that point, where Kineo is not worth the amount of time that I put into it. And I don't want to drop Kineo. I don't wanna stop making Kineo. I don't wanna stop continuing to build Kineo. But I spent 6 months making that Vision OS happen.</p>
+<cite>Geoff:</cite>
+<time>17:02</time>
+<p>It went nowhere. I I've had the iPad app for years, and I know that people love that iPad app, but it's not very it's not something that I can continue to work on for the amount of people and the amount of value that I see back out of that.</p>
+<cite>Peter:</cite>
+<time>17:17</time>
+<p>So I think I think I can help you out here. I think I think I can spin this so that I end up sounding like the bad guy. How does that help? Right. Let me let me start with I I hope the consumers somehow decide to listen to this episode because I'm gonna use a couple of analogies here.</p>
+<cite>Peter:</cite>
+<time>17:34</time>
+<p>Right. I feel like it's only recently over the past few years with smartphones and everything that consumers have started to understand software has value and requires maintenance and and a certain level of expectation from from the consumer. For many of them, this is kind of an unusual concept. Right? Those that never, you know, grew up perhaps heavily using computers in the conventional sense.</p>
+<cite>Peter:</cite>
+<time>18:03</time>
+<p>Right? So they've never really had to pay for software. Right? Like like we used to, you know, box off the shelf kind of thing. Right?</p>
+<cite>Peter:</cite>
+<time>18:14</time>
+<p>And now that everyone's got one in their pocket or most people have one in their pocket, they're starting to realize that, hey. Guess what? There are running expenses to that 1,000 dollar device you just bought. And by that, you know, to to give you an example here, kind of an equivalent. Right?</p>
+<cite>Peter:</cite>
+<time>18:33</time>
+<p>If you go buy a car, you've got the initial outlay for the car. Regardless of whether you're paying for it over time or whatever, the car costs x amount of money. Now when you buy that car for x amount of money, you don't expect to get lifelong maintenance for free. Right? You don't expect to get free wheels, free brakes, free services and all these kind of things.</p>
+<cite>Peter:</cite>
+<time>18:58</time>
+<p>You go into that knowing there's gonna be some costs for me at some point down the road. Right? You just don't get all that for free. And I think people need to think about software in that way now that they are using it every day for for whatever reason. Right?</p>
+<cite>Peter:</cite>
+<time>19:20</time>
+<p>Just because it's not a physical thing that you can point at or pick up or something like that, it doesn't mean the value of it is any different. Right? Does that am I making sense? Right? You there's a you know, you're getting something, initial cost, and along the way, it's gonna cost you something.</p>
+<cite>Peter:</cite>
+<time>19:39</time>
+<p>Right? You buy the phone for that matter. You're still gonna pay a monthly phone bill to have a phone line. Right? You you know, and those well, okay.</p>
+<cite>Peter:</cite>
+<time>19:47</time>
+<p>I'm sure there are some exceptions, but for the most part. Right? All these kind of things. You know? You have cable.</p>
+<cite>Peter:</cite>
+<time>19:53</time>
+<p>You get you got whatever electricity go into your house. And we are now moving into the kind of world where software is the same thing. Right? You know, software as a service. Right?</p>
+<cite>Peter:</cite>
+<time>20:06</time>
+<p>Right? I mean, it is something that has an ongoing cost. And so to then turn around as a consumer and say, I don't agree with these ongoing costs. Well, why is it perfectly okay to do that for your house, your car, your your gas, your electricity, your phone? Why is it acceptable for all of those things yet not acceptable for others?</p>
+<cite>Peter:</cite>
+<time>20:26</time>
+<p>Right? You know? And and that's kind of how I look at the services, right, and and subscriptions over time. I've never had a problem with companies that charge subscriptions. You know, think you know, if you look back okay.</p>
+<cite>Peter:</cite>
+<time>20:43</time>
+<p>Adobe was the first arguably very well known one. If you step outside of huge professional software houses for whatever, TV industry, whatever, who have been doing this for a very long time. If you stop and you think about it, right, let let's take Adobe here for a second. Right? Not gonna go on a side track here or anything.</p>
+<cite>Peter:</cite>
+<time>21:06</time>
+<p>But we started off every year. We go out. We would buy the creative suite upgrade for whatever, a $150, something like that. Right? Now</p>
+<cite>Geoff:</cite>
+<time>21:16</time>
+<p>600.</p>
+<cite>Peter:</cite>
+<time>21:17</time>
+<p>It was way more than a 150. Well, okay. The, for the initial purchase, yes. But but the upgrade every year was, like, a 150 for me. So I don't know.</p>
+<cite>Peter:</cite>
+<time>21:29</time>
+<p>You know, my point is I was paying it out in one lump sum that could just as easily have been spread over 12 months. And ultimately, you know, I'm not saying it is the same, but you're really talking about the same kind of figures. Right? And I think that just because people see it as an ongoing cost as opposed to a huge outlay at some point. They perceive that as being different in some way.</p>
+<cite>Peter:</cite>
+<time>21:54</time>
+<p>So, you know, just kind of put in that. Alright. Here it is. The one thing that I cannot do without every day and that is my coffee. Anyone that knows me or anyone that's listened to any of my podcasts or anything else knows that I absolutely cannot operate without my coffee and I love good coffee.</p>
+<cite>Peter:</cite>
+<time>22:13</time>
+<p>So here's the deal. I'm gonna give you one free bag of coffee by going to peterwidham.com forward slash coffee. There is a wonderful company out there that follows the fair trade practices, helps out a lot of independent roasters of all sizes, and the operation is simple. What you do is you're gonna go to to peterwidham.com forward slash coffee. You sign up there.</p>
+<cite>Peter:</cite>
+<time>22:37</time>
+<p>You get a free bag of coffee sent to you. Yes. In return, they say thank you to me by giving me some coffee, but that's not the reason I'm doing this. The reason I'm doing this is because I have found so many good coffees that I just would never have come across, heard about or experienced without this service. Trade coffee is just fantastic.</p>
+<cite>Peter:</cite>
+<time>23:02</time>
+<p>You know, there are plenty of places out there. We all know them that supply coffee, good coffee. You can go to the store, get the coffee, but there is nothing better than discovering new independent roasters and supporting them, discovering new flavors of coffee, new grinds for you can set it up. It's very smart. You tell it the kind of coffee you like and over time it gets better and better as it trains in on your selections and your choices and gives you exactly the coffee you're looking for and recommending new ones that that will be very similar.</p>
+<cite>Peter:</cite>
+<time>23:36</time>
+<p>Every time I get a new packet of coffee, I go through and afterwards I try the coffee, I go through the service and I say, look, I loved this coffee. I thought this coffee was okay or I say, look, I've this was really not for me. And every time I do that, it makes the service a little more accurate on the next selection for me. So again, just go to peterwhidham.comforward/coffee. Get your free bag of coffee today.</p>
+<cite>Peter:</cite>
+<time>24:00</time>
+<p>If you're a coffee lover, you're gonna really appreciate this service. I have been using it for years at this point and thoroughly recommend it. Perspective there.</p>
+<cite>Geoff:</cite>
+<time>24:10</time>
+<p>Yeah. So I I have three responses, and and I I realize that I'm immediately gonna be basically turning around and arguing against my own points here. But I I this is kind of the the thoughts that I've been having over the past week, week and a half of where I am kind of constantly arguing against myself in the same way. 1, we have a response from somebody in the chat who points out and says, that they see fewer complaints about subscriptions if there's an obvious ongoing server cost. And I I I see that, and I agree with that.</p>
+<cite>Geoff:</cite>
+<time>24:43</time>
+<p>I I do see that there are people who are saying that, you know, hey, they're looking at my app, for example, and saying, well, there's no obvious ongoing cost to me. And and they're they're they're wanting to see where kind of this money is going, and they don't really see where this money is going in the sense of ongoing maintenance. So that's point 1. Point 2 is I agree with the idea of and I've seen a lot of people say the same sort of thing as well of, you know, why don't you just bundle up an update, and then, you know, there'll be a big update, and you release this big update, and people will buy that. A, that is not really a thing that Apple allows, and this is a case where Apple's their stranglehold over the App Store is, kind of cutting off certain business models, and that is one of them where they are saying that, you know, you can't really do paid upgrades very well in the App Store.</p>
+<cite>Geoff:</cite>
+<time>25:47</time>
+<p>But b, and this is where I'm coming with this argument from a consumer perspective, is if I am making an app that I need to have a major update that you really want to go and buy, what does that mean? That means I've built features, I've made bug fixes, I've done whatever, and I'm telling you, no, you can't have it for 12 months because I need to hold this back for a big update that is gonna get a bunch of news and that people will see and they'll go, oh, it's worth it for me to put that bucks out again and pull out my wallet again.</p>
+<cite>Geoff:</cite>
+<time>26:22</time>
+<p>And that is not really beneficial to you as a consumer. It's not even really beneficial to me as a developer,</p>
+<cite>Geoff:</cite>
+<time>26:26</time>
+<p>tick everybody off for 12 months because I'm just saying, you know, here, I don't want to release this app because I'm holding this back for my own greed to say, here's a big update later. I would rather be shipping improvements constantly. C oh, sorry. 3, I guess, no. This this is going back up in a bullet.</p>
+<cite>Geoff:</cite>
+<time>26:55</time>
+<p>3, I think we as developers have to realize that no matter what these arguments we want to make to consumers and say, like, oh, consumers have to think of this this way. They're not. And we kind of have to react to that regardless of, do we wish that consumers would really see this our way and that we really think that, you know, they should be understanding these arguments that we're making. And the fact of the matter is, like, no, people have their own reasons for doing what they want. They have their own understandings of the value that they are being provided, etcetera, etcetera.</p>
+<cite>Geoff:</cite>
+<time>27:31</time>
+<p>And, you know, while we might wish that consumers understood this maintenance burden that we have, they don't. And we can't expect them to. And so what are we doing in response to that, and how are we going to react to that is really the question that I feel like I am struggling with on my own.</p>
+<cite>Peter:</cite>
+<time>27:51</time>
+<p>The the right answers for each of us are the ones that each of us feel comfortable with. Right? And I wanna touch on that that point there in a second, but I also wanna respond to a a couple of things here in the chat before they go too far because I think I think they're they deserve answers. So in the chat room here, and I'm just gonna quote this one quickly, following the car ownership analogy, wouldn't this indicate the customers are more likely to understand the cost of software if if significant app updates cost money? And my answer to that is yes.</p>
+<cite>Peter:</cite>
+<time>28:24</time>
+<p>And you do see right? I I can't think of one to name offhand but there are apps where they essentially give you the point updates for free. Meaning that you've paid for the original one and and you get those. And then they say, okay. And they spin up a new well well, I guess it would be app ID.</p>
+<cite>Peter:</cite>
+<time>28:45</time>
+<p>Right? For the next major version that you then pay for and you can choose to get that new version or you can stay with the old one and they make it clear, okay, we're not gonna do any more point updates on this, you know, and so eventually, logically, it'll stop working once whatever OS version stops supporting something in that app. Right? Which is always you know, again, I don't think that's the fault of the developer. That that's an inherent risk of, hey.</p>
+<cite>Peter:</cite>
+<time>29:14</time>
+<p>You know, time goes by. Right? So you can do that. But also as the the as they note here in the chat room, yeah, it's not easy to do either. Right?</p>
+<cite>Peter:</cite>
+<time>29:24</time>
+<p>And it does get complicated because users think wait a minute. I got version 1. Now you want me to pay for version 2 and so on. But I think if you're honest and upfront and explain it as best as you can to the customer, I think that's perfectly acceptable. And I think it's a good way to try and and deal with that.</p>
+<cite>Peter:</cite>
+<time>29:46</time>
+<p>But I do agree with the comments in the chat room that, you know, the the current model of the app store does not make that easy from a publisher's perspective. Not at all. Right? You know, so there is that. But I also wanted to to comment on, I think you were saying about the, you know, some of the risk involved with me as the developer.</p>
+<cite>Peter:</cite>
+<time>30:06</time>
+<p>I put my time in this. I in I've released the initial version, which is always the hardest part, arguably. Right? And then now I'm into the maintenance period of, you know, even if I don't intend to put any new features in anytime soon, I still gotta ship bug fixes that takes time. Potentially could be costs involved.</p>
+<cite>Peter:</cite>
+<time>30:26</time>
+<p>Right? I mean, you know, for example, like like you said, you know, the consumer doesn't see the cost, but yet, you know, they're like, well, I didn't get anything. Well, nobody still gotta pay $99 every year to put it in the App Store. Right? And I know I'm not making a a user pay for that.</p>
+<cite>Peter:</cite>
+<time>30:46</time>
+<p>That that's my expense. Right? You know, and I choose to do that. Those costs that the user never sees, arguably, I would say as a consumer, they should never bother themselves with in in many ways. Right?</p>
+<cite>Peter:</cite>
+<time>30:58</time>
+<p>You don't go to a store and think to yourself, oh, I wonder how much it costs this store to run the electricity every day. It's not something that enters your head. Right? The store just swallows that cost and maybe they offset it in the value of the product. But what I wanna do here is, you know, let's let's sort of like you say, we could go on, you know.</p>
+<cite>Peter:</cite>
+<time>31:19</time>
+<p>So let's sort of reel it in a little bit and let's talk about, you know, some of those feelings that that you have when someone because I've never entertained the idea of a subscription. So it's not even entered my head to have an opinion on it from a a maker's perspective. But as someone that's now done that, inevitably, you know, kind of suffered the pros and cons. Where does that leave you now as far as thinking about it? Because I'm sure.</p>
+<cite>Peter:</cite>
+<time>31:55</time>
+<p>Right? Every time you read, someone says, subscription? What the it hurts. Right? You're like, why are you focusing on this instead of, hey.</p>
+<cite>Peter:</cite>
+<time>32:03</time>
+<p>I made this app for you. I didn't make you use it, but you chose to.</p>
+<cite>Geoff:</cite>
+<time>32:10</time>
+<p>So many.</p>
+<cite>Peter:</cite>
+<time>32:12</time>
+<p>And there's the answer, folks.</p>
+<cite>Geoff:</cite>
+<time>32:14</time>
+<p>Yeah. And and No.</p>
+<cite>Peter:</cite>
+<time>32:16</time>
+<p>I don't wanna put you in a corner, but I wanna</p>
+<cite>Geoff:</cite>
+<time>32:17</time>
+<p>keep you in No. No. No. No. I I mean, yes.</p>
+<cite>Geoff:</cite>
+<time>32:21</time>
+<p>It it it is a bummer. But at the same time, like, I see it. There is a reason why, historically, I have not done subscriptions. Yes. I agree.</p>
+<cite>Geoff:</cite>
+<time>32:29</time>
+<p>Subscriptions suck. And I I there's another response in the chat that, like, yeah, subscriptions are feeling like you're being asked to make a long term commitment to the app. Problem is I'm also kind of feeling like it's also the opposite. And and that's the problem is, like, these two things are so much in conflict of, yes, being a subscription is like this big commitment, but at the same time, is it less of a commitment than just the one time purchase? That's basically a lifetime commitment.</p>
+<cite>Geoff:</cite>
+<time>32:58</time>
+<p>But I I get why customers feel like, oh, I don't wanna make this subscription, and then, like, I I end up having to cut it off, and now I don't have access to the app anymore, and this doesn't work for me. And Yeah. I like, that that is the the problems that I'm feeling is is, I kind of understand the arguments from the consumer side, and I understand the arguments from the developer side, and I understand the arguments from both pros and cons on either side of those things. It's like there are pros and cons to the developer. There are pros and cons to the customer, and I don't really know how to square this circle is is really the the problem that I I'm running into and the the reason why it comes up.</p>
+<cite>Geoff:</cite>
+<time>33:39</time>
+<p>And, yeah, it does suck to see somebody say, you know, hey. I'm not gonna use this app. I'm not even gonna entertain the idea of even beginning to use this app because it's a subscription app, and I I refuse to use it. There are people who have called me criminal for charging a subscription, and I'm just like, this this is ridiculous. And, yeah, it's it's a bummer.</p>
+<cite>Geoff:</cite>
+<time>34:04</time>
+<p>And I I do feel like there is a an impact to that. And and I I think that that's why in a lot of cases, you see developers get defensive. And and that's really what I'm trying to avoid doing on this podcast. I don't know if I'm doing a good job of doing it on this podcast. But what I don't want to do is I don't wanna double down and be, like, these people are stupid.</p>
+<cite>Geoff:</cite>
+<time>34:26</time>
+<p>These people don't understand. These people don't don't know how hard it is to be a developer. What I wanna get across is that, yes, I I understand how much that this is a bummer, but I also understand that, like, if I don't do something with how I'm doing my apps business, those apps aren't gonna continue to exist. And I know that there are people out there who do really enjoy these apps, and who are in constant communication with me and say, like, you know, I really love this app. I really like what it does.</p>
+<cite>Geoff:</cite>
+<time>35:02</time>
+<p>I use this app every day. And I've got to do something in order to continue to provide that to that user. Like, I'm doing something that the user enjoys, and I want to be able to continue to do this thing that the user enjoys. And I just have to reach a balance of, like, I don't wanna shut down this app, but I I I need to be getting some sort of value out of it as opposed to continuing to work on it, continuing to improve it, continuing to build it, and not really seeing anything from my time as well.</p>
+<cite>Peter:</cite>
+<time>35:32</time>
+<p>I think my perspective on a lot of this is that there's not actually any problem with subscription or paid upfront, and it is purely a perception issue. And I say that because, you know, like someone says in the in the chat room and and we've all been there. Right? You look one day and you're like, wow. How many subscriptions do I have?</p>
+<cite>Peter:</cite>
+<time>35:59</time>
+<p>Right? And then suddenly you get the sticker shock of it. But at the same time, if you was to ask yourself, okay. Let's say these weren't subscription and I chose to have them anyway and I pay it upfront. It's the same thing.</p>
+<cite>Peter:</cite>
+<time>36:15</time>
+<p>Right? With with and what I mean by that is, let's assume for a second that the cost, you know, the pricing is relative. Right? So it's a $100 it's a $120 upfront or $10 per month for a year. Ultimately, at the end of the day, it's the same thing.</p>
+<cite>Peter:</cite>
+<time>36:31</time>
+<p>But the perception of paying over time for the year and seeing that hit your credit card every month gives you this false economy in your head that somehow you're paying more because you're continuing to pay over time. But in reality, it's the same thing. Right? And on top of that too, right, you know, people happily pay the rising cost every month Wouldn't say happily. For streaming service x, y, and z.</p>
+<cite>Peter:</cite>
+<time>37:03</time>
+<p>And and and sure yeah. Yeah. And and sure they they they they grumble about it but they keep doing it. Right? And that's what I was saying earlier about, you know, the consumers getting used to the fact that, hey, software is basically going that way and it's the same thing.</p>
+<cite>Peter:</cite>
+<time>37:21</time>
+<p>It's only because you're adapt to thinking about it that way that somehow you think it's an evil thing. Now let me preface that by saying, I can think of plenty subscription based apps that have no business being subscription based whatsoever and very much feel like a money grab. I'm not gonna name any of them but it doesn't take but 5 minutes to look in the store and and see that kind of thing when it's clear that it's not with good intention. Alright? But I also wanna address very quickly one other thing before the chat room scrolls by too quickly.</p>
+<cite>Peter:</cite>
+<time>37:58</time>
+<p>And let me let me find it here. So, yeah. In the chat room, someone mentions about at least giving them the ability to for read only data or a lifetime license. Now I like a lifetime license, and I've done that on a couple of things. Some of them I still use.</p>
+<cite>Peter:</cite>
+<time>38:15</time>
+<p>Some of them I don't. Right? But I did it because I thought I might want to use this over time, and inevitably the price will go up and so on. But here's my concern about a lifetime subscription or or or lifetime payment, whatever you wanna call it. That also has a risk.</p>
+<cite>Peter:</cite>
+<time>38:34</time>
+<p>Because 6 months from now, if you stop supporting that app, someone's gonna say, look. I got a lifetime license here. You need to keep supporting this because I paid for a lifetime license. Any thoughts?</p>
+<cite>Geoff:</cite>
+<time>38:49</time>
+<p>Yeah. Yeah. No. No. No.</p>
+<cite>Geoff:</cite>
+<time>38:50</time>
+<p>No. I I do. I do. Yeah.</p>
+<cite>Peter:</cite>
+<time>38:52</time>
+<p>Say no with that.</p>
+<cite>Geoff:</cite>
+<time>38:53</time>
+<p>I I my thoughts on that are, lifetime unlock isn't gonna have that. I it's gonna have the same problem there as a in app purchase, a one time payment thing, whether it's paid upfront or in app purchase. It is I I I do see that there's not much difference between those, like, you know, a lifetime unlock. It's just the the subscription thing. The other thing that this this chatter says is that that cost is going to be 3 to 5 times your annual subscription cost, which is going to be a bit of a sticker shock.</p>
+<cite>Geoff:</cite>
+<time>39:23</time>
+<p>And I've had people bulk at the price of bark as it is. It's $5 a year, and they they've said that, like, oh, you know, I I wouldn't pay more than $3 for this ever. Is it going to just invite more arguments, more, negative comments to say, okay. Well, you can pay $5 a year, or you can pay $20 once, and they're gonna go, oh, my god. Was it $20?</p>
+<cite>Geoff:</cite>
+<time>39:54</time>
+<p>You you're committing highway robbery for charging $20 for this app. It does feel like a a no win situation for that. To your earlier point that you mentioned of, you know, what do you do with this subscription as well is what do you do when the subscription is done and and having a read only thing. And that is also, again, something that I've tried to communicate with my app is yeah. You know, you the subscription is only to add things to this app.</p>
+<cite>Geoff:</cite>
+<time>40:24</time>
+<p>Once you have them in the app, you get to keep them. You in your subscription, you're done. You get to have every other remaining feature of this app as as, you know, for the rest of the app running. But, yeah, it's it's very hard to communicate that. And a lot of people see subscription, and they just shut down.</p>
+<cite>Geoff:</cite>
+<time>40:43</time>
+<p>Like, there there's no more explaining anything to that. And that that's another problem of, like, you also have to get across, here's what the value is, and here is how this ends up when you don't pay this subscription. Like, what what what is the end game of that subscription? And, yeah, getting all of that across in a quick and easy way that people are going to read in just a couple seconds, it's it's difficult to have that kind of pitch.</p>
+<cite>Peter:</cite>
+<time>41:12</time>
+<p>You know, there is another business model here that I just I forgot about. As you was as you was talking there, it reminded me of it, which is this idea of the subscription. You get the new features, and then when you stop paying the subscription, you're cut off at that point and you get everything up to that point, which to me as a developer sounds incredibly hard to maintain. I don't even can't even begin to imagine how you code for something like that. Right?</p>
+<cite>Peter:</cite>
+<time>41:41</time>
+<p>And but but I I appreciate the people are trying it.</p>
+<cite>Geoff:</cite>
+<time>41:45</time>
+<p>I I've seen it work with with some apps. It is one of those things works way better outside of the App Store because, for example, Sketch. It's a big, vector editing, app. They Yep. Have that sort of model, but the way that their model works is you get version updates until you get to, until you stop paying the subscription.</p>
+<cite>Geoff:</cite>
+<time>42:09</time>
+<p>And at that point, you just no longer get updates. That's not something that we can do in the App Store. We can't really say, oh, you're just never getting another software update. I've seen apps do it in the App Store. There's agenda.</p>
+<cite>Geoff:</cite>
+<time>42:23</time>
+<p>It's a note taking app that they do something similar where there's, like, okay, here is your new feature, and you don't get that feature. Yep. I I think it would be difficult to build that. But I I think that if that is what it takes to make this a sustainable business practice, I think that's worth it. However, I think it gets back to the point that we made a while ago, which is that you then are really trying to push these new features as this is why you need to update.</p>
+<cite>Geoff:</cite>
+<time>42:54</time>
+<p>And you get back into the situation of you need to have the big update. And so am I holding back features so that it's something that people have to continue to subscribe to get the update to? We it gets it gets right back into that same problem of what is providing a ongoing amount of value to the user and being able to balance that with providing value to the developer. Time for a break.</p>
+<cite>Peter:</cite>
+<time>43:18</time>
+<p>Hey, everybody. It's Peter Widom here from the Compulsory podcast. I'm gonna tell you about Setapp. Setapp is a service that provides a subscription fee of just $10 a month, and you get access to over 200 Mac applications, and it's also available now on iOS as part of that deal. I use the service because it just has a ton of really good first rate apps that I use all the time.</p>
+<cite>Peter:</cite>
+<time>43:45</time>
+<p>And for me, it's invaluable as a developer to have access to tools for things like APIs, for planning projects, writing emails, writing documentation, and you get all of these things including database apps, all of that kind of stuff right there on the set app service for just $10 a month. You can use as many or as few applications as you need. If you're interested in checking this out, go to peterwitham.competerwitham.comforward/setappsetapp, and you can see the details there. And it's got a link that you can go over and start using the service and see how it works out for you. I strongly recommend this to every Mac user.</p>
+<cite>Geoff:</cite>
+<time>44:30</time>
+<p>Break time over.</p>
+<cite>Peter:</cite>
+<time>44:32</time>
+<p>Whether you are charging for an update or or charging for a subscription, you definitely have taken on a commitment that you have to honor to provide more value over time. And and by that, I don't mean like, oh, I added a new color theme, right? Something like that should be an in app purchase in mind. I'm talking about honest to goodness, incremental features. Now, you know, on that subject because you you mentioned it, I do have a problem.</p>
+<cite>Peter:</cite>
+<time>45:04</time>
+<p>If developers choose to hold back features for some future paid update, you know, or or, you know, subscription to get them into that. Now I get it. That's not clear cut and and certainly something almost impossible to prove unless a developer says, oh, yeah. I'm holding this back for you know, then I I start to take issue with it a bit, but that's really in my mind because I'm now taking issue with the ethical stance of the developer or studio in question as opposed to the paying model. Right?</p>
+<cite>Peter:</cite>
+<time>45:42</time>
+<p>Because if you're gonna do that, that just</p>
+<cite>Geoff:</cite>
+<time>45:44</time>
+<p>But but I I I I wanna step in because I feel like that is kind of the point of that model is you are saying that this is what you're paying for. And if you're not holding it back, then you have to be you're basically releasing an update, and you're saying, please give me more money because I'm not because I provided you something last week. Like, give me money now because I gave you something already. And it's like, but you already gave me that. Why should I give you the money?</p>
+<cite>Geoff:</cite>
+<time>46:10</time>
+<p>So in a case where you're paying for software updates, like, you have to have something in that software update to encourage people to pay for that software update. I I I don't see that as as as an ethical problem per se as just what that business model encourages. You know? If if you are not holding back features, then people are gonna go, well, what am I paying you for?</p>
+<cite>Peter:</cite>
+<time>46:35</time>
+<p>Well, so I'm gonna give you okay. This is a bad example in many ways. But in some ways, the perfect example of what I'm talking about, I I forget someone, Chapman, keep me honest. Was it BMW The</p>
+<cite>Geoff:</cite>
+<time>46:49</time>
+<p>heated seats.</p>
+<cite>Peter:</cite>
+<time>46:50</time>
+<p>Charged an extra fee? Yes. That's what I mean by intentionally holding something back I to grab In</p>
+<cite>Geoff:</cite>
+<time>46:59</time>
+<p>that case, it's</p>
+<cite>Peter:</cite>
+<time>46:59</time>
+<p>a thing that Right. Yeah. And by the way, at this point, I'm never gonna get a</p>
+<cite>Geoff:</cite>
+<time>47:04</time>
+<p>response point. They're charging for something that they already produced. Yeah. This is that's not what I mean by, the encouragement of the system. This is I'm producing something in the future, and I'm not releasing it to until you have that purchase.</p>
+<cite>Geoff:</cite>
+<time>47:19</time>
+<p>That that's what I meant was was that was yeah.</p>
+<cite>Peter:</cite>
+<time>47:23</time>
+<p>Oh, no. I I get I get what you meant. Yeah. It's like this thing does not exist yet. I I want it to exist one day, but it doesn't exist yet.</p>
+<cite>Peter:</cite>
+<time>47:32</time>
+<p>To me, intentionally holding something back is something that is ready to ship. Right? Is done. And you say, oh, this is good. I'm gonna hold it back for the next major release.</p>
+<cite>Peter:</cite>
+<time>47:42</time>
+<p>Yeah. That that is what I'm saying. Gray area. It is a gray area. I I get that.</p>
+<cite>Peter:</cite>
+<time>47:48</time>
+<p>What we knew going into this discussion, this was gonna be a a tough one because we knew we'd come out at the the other end with there there is no right answer here. As simple as that. Right? And it's all opinions. But I think, like with so many episodes I've done in the past, by putting opinions out there, it brings it up for discussion.</p>
+<cite>Peter:</cite>
+<time>48:09</time>
+<p>And and I think that that's what it needs. Right? In in our developer communities, these we we're gonna discuss these things. Right? Because these inevitably are something, especially folks new to the industry, it always inevitably is gonna come up.</p>
+<cite>Peter:</cite>
+<time>48:24</time>
+<p>Right? It is very much like the SwiftUI or UIKit. Well, you know, because inevitably the the question of how do you do your pricing? And the answer is you do what feels right to you or you do it and it's wrong and you do it again. And and there is no correct answer, I think.</p>
+<cite>Peter:</cite>
+<time>48:46</time>
+<p>There is just try and if it works for you and you're comfortable with it, but more importantly your customers are comfortable with it, then go with that. And if if somewhere along the way, the two sides are not meeting, try something different. Right? There's nothing that says the one you go with has to be the one forever. But I do wanna address something that came up in the chat because the chat has been suggesting different business models that, hey, maybe Apple could do this or if they did that.</p>
+<cite>Peter:</cite>
+<time>49:17</time>
+<p>I think that would actually make the situation worse. Right? Because I think that very much like my viewpoint on a lot of the Apple hardware lines. Right? The more options you give, the more complicated it gets, the more pissed off your purchase it gets because I didn't wanna have to make all these decisions.</p>
+<cite>Peter:</cite>
+<time>49:35</time>
+<p>I just wanted to get this thing. Right? So I don't think more business models is the answer. I think having a simple whatever 2 or 3 approaches and those in the App Store is what works, maybe, as opposed to 500 variations. I think we will see some of this already where there are so many hard to understand pricing structures on app.</p>
+<cite>Peter:</cite>
+<time>50:04</time>
+<p>And I've seen ones where they list the same description for each level. And I can't tell what the difference is between the one that cost me 199, 599, and 1099 because they all say the same thing. It's a very definite line between I want to try and cater for as many users as I can with many different options, But the more options I give them and the more confused they get, the less like you know, they're they're more likely to just walk away from all of them because it's they they start to feel like, wait, you're trying to capture me in some way. You're trying to trick me, which is not the intention at all. If you confuse the consumer, you've all you you know, you start to lose them and you're gonna lose them quickly.</p>
+<cite>Peter:</cite>
+<time>50:49</time>
+<p>Whereas, if you can communicate with them as someone said in the chat room in a way that they</p>
+<cite>Geoff:</cite>
+<time>50:55</time>
+<p>yeah. And and I think that this this paradox of choice is is the question there is, like, yeah, you have the confusing thing, but you also have the ability to get exactly what you want. And and well, I mean, yeah, that that is the discussion in in there. And and like with the pricing discussion overall, it's are there is there a right answer?</p>
+<cite>Peter:</cite>
+<time>51:14</time>
+<p>Like Like I say, for me, it comes down on a user developer, figure out what you would like it to be. Try it. See if the customer agrees with you. If you're all happy, fantastic. If you're not, try and figure out what it is the customer actually wants.</p>
+<cite>Peter:</cite>
+<time>51:31</time>
+<p>Now, that said though, like in your case, to go full circle back to the beginning here, you know, we also have to recognize the percentage of possible purchasers, users that you have to ignore because whatever you do will always be wrong for them. For example, there'll always be that one that says, it should absolutely everything should be free. You know, you just have to dismiss that group as good luck. Go find yourself another planet because it ain't gonna be this one. And and so you have to go in saying to yourself as a developer, distributor of software, there's gonna be a certain percentage I'm never gonna win over and I have to accept that.</p>
+<cite>Peter:</cite>
+<time>52:10</time>
+<p>Otherwise, I'm chasing a moving target and I'm still never gonna win. I was gonna say I wanna throw a question to the chat room, the folks in the chat room who have paid apps. What is and you don't have you don't have to answer this question, but I think it will offer a lot of insight. What when you released an app, what did the payment model you wanted to use end up being the one that was successful or you had to go a different route? Alright.</p>
+<cite>Peter:</cite>
+<time>52:37</time>
+<p>So we got one that says it was successful first time. Now they've failed and succeeded with payment strategies. Alright. Okay. And it came down to not understanding the customer.</p>
+<cite>Peter:</cite>
+<time>52:46</time>
+<p>Alright. Which is something you can learn over time.</p>
+<cite>Geoff:</cite>
+<time>52:49</time>
+<p>Alright, Peter. So I think we've been going for quite a while, so we might wanna go ahead and wrap this up here. But I feel like we opened this up saying that this is gonna be a podcast about pricing. And while we've spent the entire time talking about pricing models, we haven't really gotten into talking about pricing value. What is it that you're actually going to charge?</p>
+<cite>Geoff:</cite>
+<time>53:07</time>
+<p>If you've chosen to do a subscription, if you've chosen to do a paid upfront, if you've chosen to do an in app purchase, what do you actually end up charging? And I think that that's also been a lot of what's been discussed lately in public. And so I think maybe we need to come back next week and have this discussion some more.</p>
+<cite>Peter:</cite>
+<time>53:25</time>
+<p>Alright. So we hope that this episode has given you some food for thought as to the complexity involved with pricing and how you should think about this, you know, and take into account these some of these models as you, the developer, the distributor, whatever role you may play in that process. And and I agree with you, Geoff. You know, let let's let's bring them back next week where we can dive in and talk numbers. Please understand, folks.</p>
+<cite>Peter:</cite>
+<time>53:53</time>
+<p>Again, you know, these are our opinions. You should all charge what you feel is appropriate. And if it works for you, great. If it doesn't work, if we don't tell you the number, you can't blame us. Alright?</p>
+<cite>Peter:</cite>
+<time>54:04</time>
+<p>So, Geoff, tell folks where they can find you between now and next week when we come back with more worldly advice.</p>
+<cite>Geoff:</cite>
+<time>54:12</time>
+<p>As always, you can find everything that I do at cocoatype.com. I'm cocoatype on all the socials, YouTube, Twitch, wherever you find me these days.</p>
+<cite>Peter:</cite>
+<time>54:20</time>
+<p>Alright. And you can find me, of course, at compileswift.com with the podcast or all my personal stuff at peterwitham.com. Folks, come back next week for part 2. See you later.</p>
+</details>

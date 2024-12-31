@@ -1,0 +1,672 @@
+---
+publishDate: 2024-10-12T00:00:00Z
+title: App Pricing Part 2
+excerpt: In part 2 of our pricing discussion we talk numbers.
+image: /images/blog-fi/2024/10-12.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e16
+---
+
+import Player from '../../../../components/podcasts/cs-player.mdx';
+import CSLinks from '../../../../components/podcasts/cs-links.astro';
+
+<iframe
+  width="100%"
+  height="180"
+  frameborder="no"
+  scrolling="no"
+  seamless=""
+  src="https://share.transistor.fm/e/7e58fe5c"
+></iframe>
+
+<Player />
+
+Part two of two where we discuss the numbers along with the approach taken by the Panels app.
+
+<a href="https://youtu.be/65ciAONXv0M?si=3VRe3Nf8RjQnJbtl">
+  Link to the video released by Marques Brownlee after our recording
+</a>
+
+<CSLinks
+  link1="/2024/compileswift/s07-e15"
+  link1label="Part 1"
+  link2=""
+  link2label=""
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+#### Transcription
+
+<cite>Peter:</cite>
+<time>00:00</time>
+<p>What's up, everybody? Just a quick note before we get into the episode here. We were about to drop this after editing. In the during the episode, we discussed Marques Brownlee's, panels app, And literally just before we were about to push this out live, he released a video in which he addresses a lot of the issues that we discuss during the episode here. And I will put a link in the show notes because I think it's very important that, you know, you listen to the episode but then also watch the video so that you can see his responses to a lot of the things that we comment on that have taken place in communities, on the Internet.</p>
+<cite>Peter:</cite>
+<time>00:41</time>
+<p>So just want to put that in there. Let's get into the episode. What's up, folks? Welcome back. It is part 2, and I suspect it'll be more popular with the audience than Joker part 2.</p>
+<cite>Peter:</cite>
+<time>00:55</time>
+<p>Oh, I know controversial and timely, but there you go. Yeah. We are back this week. Part 2 for the pricing. We said we'd be back.</p>
+<cite>Peter:</cite>
+<time>01:03</time>
+<p>It's gonna happen. We're gonna talk numbers this week. Gonna say up front here, we are not experts. We weren't experts last week. We're not experts this week.</p>
+<cite>Peter:</cite>
+<time>01:12</time>
+<p>Alright? So we're gonna take it from there. How are you doing,</p>
+<cite>Geoff:</cite>
+<time>01:15</time>
+<p>Geoff? I'm doing just great. I'm ready to finish up the conversation that we started last week and, hopefully answer all of my problems about charging money for apps.</p>
+<cite>Peter:</cite>
+<time>01:26</time>
+<p>How to make you rich and popular. That is the subtitle of the episode. Yes. For sure. Alright.</p>
+<cite>Peter:</cite>
+<time>01:32</time>
+<p>So, we already know that we have some differing opinions on this, which is great. That makes for good episodes. Geoff, you wanna kick this off? I feel like you're gonna take this in a good direction.</p>
+<cite>Geoff:</cite>
+<time>01:44</time>
+<p>Yeah. So last time, we discussed what kinds of business models you have for your apps, whether that's paid upfront, completely free app, paid with in app purchase, or subscription. And what we're talking about this week is once you've made that decision or made multiple of that decision, what is it that you're actually charging to somebody? And actually, kind of how can that, change depending on what business model that you chose. So if you are charging a one time purchase, you know, it might be it might make sense to charge a higher amount than something that you're charging over time.</p>
+<cite>Geoff:</cite>
+<time>02:24</time>
+<p>And so if you are building an app, what is it that you can charge to users that users are going to agree that that is the value that they're getting for your app?</p>
+<cite>Peter:</cite>
+<time>02:35</time>
+<p>Okay. Yeah. So, you know, by that, sort of the way that that I'm I'm breaking that down in my head, right, is, you know, certain apps, styles, types of apps, and the functionality they they provide, I feel have that kind of there's a certain value that goes with that that that a user considers acceptable, you know. And and I think, like I've said before, to me, right, there is that certain price where you're like, hey, you know, whatever. It's 99¢.</p>
+<cite>Peter:</cite>
+<time>03:10</time>
+<p>Fantastic. And then maybe for you know, and this is just my opinion, folks. Right? Any you know, like up to 2.99, let's say, not even gonna think about it. Right?</p>
+<cite>Peter:</cite>
+<time>03:20</time>
+<p>There's a one off price. Now, after that, what the app is drives that price a little bit. And we'll we'll talk about some apps. And, you know, that's kind of my take on the the one off price. When I'm paying for an app, I don't mind paying higher prices for a one off, cost.</p>
+<cite>Peter:</cite>
+<time>03:47</time>
+<p>On the flip side, I think there is what I would say is too much for a subscription, for example. Now that is a bit of a gray area. If you want, I'm I'm happy to give numbers, well, based on my opinion, if that's the route you wanna go. You want me to go there?</p>
+<cite>Geoff:</cite>
+<time>04:06</time>
+<p>No. I I kinda wanna, like, talk about how I think there is a different level at both ends of that though, where I I a 100% agree that there are cases where, yes, there are apps, and I think that you used the term last week, you know, productivity apps, where you are using this as a way to produce something that is a professional level of quality type deal.</p>
+<cite>Peter:</cite>
+<time>04:32</time>
+<p>That is how I think of it. Yes. So Yeah. That's a better word. Sorry.</p>
+<cite>Peter:</cite>
+<time>04:36</time>
+<p>I was gonna say I think that's a better definition. The that breakdown of a professional app, meaning there's a breakdown And and</p>
+<cite>Geoff:</cite>
+<time>04:55</time>
+<p>And and I think that there is a case where those apps can charge more, and it's seen as fairly reasonable. So I'm thinking apps like, for example, Pixelmator. Like, that is a very professional quality photo editing app that you can run on your iPad, and it totally makes sense that that this is a professional tool that you're gonna charge upfront. However, I think at a certain point, you get to professional tools that almost make more sense to charge subscription for just because they are going to be so costly that I don't really feel comfortable giving x amount to something that I'm not a 100% sure that I'm actually going to use. So the example I have in mind here is Apple's Final Cut Pro.</p>
+<cite>Geoff:</cite>
+<time>05:39</time>
+<p>Mhmm. On the Mac, you buy that upfront, and it is $300 upfront. On iPad, it's 4.99 a month or something like that. And I think that there is a level of like, man, I sure would love to use Final Cut Pro. I don't know that I'm ready to drop $300 on it all at once.</p>
+<cite>Geoff:</cite>
+<time>05:58</time>
+<p>Even if I'm willing to pay $300 total, I don't know that I'm willing to pay $300 in one lump sum. And so I think there is this, like, sweet spot of pricing of where paid upfront or, one time payment can work, but at a certain level, it almost gets so expensive that I don't think that it can, I think that it makes sense to have at least the option to pay over time?</p>
+<cite>Peter:</cite>
+<time>06:26</time>
+<p>Okay. So actually, you have come up with, I think, a perfect example for me right there. Because I have Final Cut Pro on the desktop. Yeah. I wouldn't be paying the subscription for the for the Final Yeah.</p>
+<cite>Peter:</cite>
+<time>06:38</time>
+<p>I wouldn't be paying the subscription for the for the Final Cut Pro on the iPad. Not because I don't think I I I'm sure it's as good as everyone says it is. Some folks will disagree. I respect that. But because it just feels wrong, in my case, to be paying that every month for an app that I might use maybe maybe even just once in the month.</p>
+<cite>Peter:</cite>
+<time>07:04</time>
+<p>Right? Especially since, okay, I do have alternatives. Let me be clear. But even if I didn't, I don't think I'd pay a a monthly subscription for that. I would look at it and go, you know what?</p>
+<cite>Peter:</cite>
+<time>07:14</time>
+<p>I feel like Apple should give me that for the iPad since I bought the desktop one. Does that make sense?</p>
+<cite>Geoff:</cite>
+<time>07:20</time>
+<p>Yeah. I mean, you can definitely question that as a business model. Yeah. I I almost see it exactly the opposite where it is, I don't know that I'm gonna use this this often, so I'd rather have the ability to turn it on and off the fact that I'm paying it. And and as opposed to, well, I I'm out $300, so I might as well use it as much as I possibly can.</p>
+<cite>Peter:</cite>
+<time>07:40</time>
+<p>Okay. I've got an example of that too. You know, first of all, let's be clear. Nobody is sponsoring us, unfortunately, to talk about their apps. Let me be clear.</p>
+<cite>Peter:</cite>
+<time>07:51</time>
+<p>You're all more than welcome to. So so we've got no no preference here as far as likes, dislikes, or so on other than our own opinions. But I tried the Canva Pro app. I used that, you know, it's a subscription based. I forget what it is per month.</p>
+<cite>Peter:</cite>
+<time>08:09</time>
+<p>I'm gonna say it was reasonably pricey for for what I'm gonna use it for. But I tried it for 1 month. Because I wanted to see how good the features were, how much time it saved me from making manually making graphics. Right? Turned out during that month, I was like, you know what?</p>
+<cite>Peter:</cite>
+<time>08:27</time>
+<p>I ain't using it like I thought I was gonna. So I canceled it. But I don't feel like I was wrong to try it. I just basically followed exactly the reasoning you just gave. Right?</p>
+<cite>Peter:</cite>
+<time>08:38</time>
+<p>Mhmm. Now if I had have had to have paid 12 months upfront, yeah, I totally wouldn't have done it.</p>
+<cite>Geoff:</cite>
+<time>08:45</time>
+<p>And and so, yeah, I I think that this is a a question of where pricing and business model kind of you have to decide them hand in hand. And, you know, we we kinda started this episode saying that we were going to talk about pricing, and not Yeah. About business models. Let's forget what else. And immediately went off the track, and, have have started discussing business models again.</p>
+<cite>Geoff:</cite>
+<time>09:06</time>
+<p>But it it is kind of the case that, they do very much have to rely on one another. That you can't say, oh, well, I'm gonna have this business model. Now I'm gonna lock down the price on either side. You kind of have to decide what is your business model and what is your price together? Because you're like, oh, I need to charge $12 for this app.</p>
+<cite>Geoff:</cite>
+<time>09:30</time>
+<p>Well, $12 a year, $12 once, $12 a month, those are, in fact, actually different prices. So</p>
+<cite>Peter:</cite>
+<time>09:40</time>
+<p>Right. And and I do have, and funny enough, as you were saying that, I was thinking, there are some apps that that they're like a essentially, they work out about the equivalent of a dollar or less per month that I'm paying for the year. So that falls in my bucket.</p>
+<cite>Geoff:</cite>
+<time>09:58</time>
+<p>Get bark.app?</p>
+<cite>Peter:</cite>
+<time>10:00</time>
+<p>Yeah. Bark.app.</p>
+<cite>Geoff:</cite>
+<time>10:01</time>
+<p>Yeah. Get get bark.app.</p>
+<cite>Peter:</cite>
+<time>10:03</time>
+<p>So I you know, when you when I break it down to a monthly, I'm not even thinking about it. It is so small it doesn't even matter. Right? So, you know, that's kind of where I'm coming from there. The when it comes to a business app, productivity, whatever you want to call it, again, something I'm using to hopefully get some return from, then it becomes a a bit of a broad spectrum of, you know, how much am I gonna use it?</p>
+<cite>Peter:</cite>
+<time>10:32</time>
+<p>Do I do I think it's worth it? For me, not now, but I'm gonna use this as an example because I I believe I mentioned it last week. OmniFocus. Right? It's a fantastic tool on every platform.</p>
+<cite>Peter:</cite>
+<time>10:46</time>
+<p>But I only ever really used it on desktop and iPad because it was just too much real estate fit. I felt on an iPhone screen for me. Right? But I stopped using it. Not because it's terrible or anything.</p>
+<cite>Peter:</cite>
+<time>11:04</time>
+<p>But I just I didn't think it was worth the cost compared to essentially, I can do the same thing with the reminders app from Apple at this point and use, like, a, you know, a Kanban style board in there. Right? Mhmm. And and I found that I've been doing more of that. Hey, folks.</p>
+<cite>Peter:</cite>
+<time>11:25</time>
+<p>If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter. You can go to patreon.comforward/compileswift, where you will get ad free versions of the podcast along with other content.</p>
+<cite>Geoff:</cite>
+<time>11:45</time>
+<p>Yeah. And and I think that that's another aspect of, like, not only are you looking to value to the user and what they're getting out of it, but also you've got the entire market that you're competing against. Like, what are other apps of yours charging? And, yeah, the the honest answer is if you're competing with Apple, then you really can't charge a whole lot. Right.</p>
+<cite>Geoff:</cite>
+<time>12:07</time>
+<p>If you are competing with another competitor, some other third party that is themselves charging more, then you can probably also charge more. You can undercut them. You can do the same price as them. You can do more than them if you can justify why you are charging more than them. But, yeah, your price has to be in line, not only with the value that you're producing to the user, but also the cost of alternatives.</p>
+<cite>Geoff:</cite>
+<time>12:39</time>
+<p>Mhmm. And what what other ways can people get this value? And, I mean, I've seen that a lot with my most recent apps, the kind of app that we've we've brought into this is, you know, hey, I've got this other major competitor that's out there, and they do the app, quote unquote, for free. Why why would I get your app? And so I do have to spend time justifying, like, why is my app better than this alternative?</p>
+<cite>Geoff:</cite>
+<time>13:05</time>
+<p>Why is my app worth the money that this other alternative is is not charging? And and kind of like, why should users pay me as opposed to going and getting this free app? And, you know, I can sit there and say till I'm blue in the face, I'm just a poor indie developer. But, you know, that's that's not really what people are paying money for. Like, people are paying money because they are wanting some sort of value out of that app?</p>
+<cite>Geoff:</cite>
+<time>13:36</time>
+<p>And what is it that I can produce that they are willing to, pay for?</p>
+<cite>Peter:</cite>
+<time>13:43</time>
+<p>Yeah. So I'm gonna jump in there and say, just quickly, my take is if you're doing something and charging for it, doesn't doesn't even matter what the cost is. Right? Let's just pick a number. Let's just say 2.99 a month.</p>
+<cite>Peter:</cite>
+<time>14:00</time>
+<p>This is a subscription. Or $15, buy it outright. Let's just say those are 2 options you you offer. And someone else or a 1,000 other people are doing doing one for free. I I think that you as the person that's charging for it, you shouldn't let it bother you that other people are doing it for free.</p>
+<cite>Peter:</cite>
+<time>14:22</time>
+<p>Because they're not doing it the way you are or or that your take on it. So if you think you've done something that's worth 2.99 a month, $15 paid upfront, so be it. That's completely fine. Right? And I think that's like we were saying last week.</p>
+<cite>Peter:</cite>
+<time>14:41</time>
+<p>That's your choice. Go for it. Don't fall in the trap of other people have done it for free, so I should, or other people have done it for free, so I should lower the price. Right? Never devalue yourself based on your comparison of you and someone else.</p>
+<cite>Peter:</cite>
+<time>14:58</time>
+<p>Does that make sense?</p>
+<cite>Geoff:</cite>
+<time>15:00</time>
+<p>I I I agree, but at the same time, I want to say that you do have to understand what that means for the market as a whole.</p>
+<cite>Peter:</cite>
+<time>15:11</time>
+<p>Oh, absolutely.</p>
+<cite>Geoff:</cite>
+<time>15:13</time>
+<p>If there is a competitor out there that is for free, and you are charging some amount, that's totally fine, but know that that is going to be a marketing headwind, where you have to justify your cost to the user. And make sure that you can, like in a lot of cases, there's going to be some reason that you can use to justify this other app. My app's better. My app has has a better privacy policy, for example. I think that's the main thing that I'm talking about with my competitor, for example, is like, you know, my app is not taking your data, my app is not presenting you with ads, my app is not doing x y z.</p>
+<cite>Geoff:</cite>
+<time>15:55</time>
+<p>I I just know that if you are competing with somebody who is undercutting you in price, whether they're doing it completely for free, whether they're doing it for significantly cheaper, any of that sort of thing, know that you are going to have this marketing headwind of saying, why is your app worth this when another app is not worth this?</p>
+<cite>Peter:</cite>
+<time>16:16</time>
+<p>Oh, yeah. I agree. I'm not saying that you you shouldn't feel compelled to justify it to someone who's buying it. I'm saying that you shouldn't feel compelled to have to justify the decision to yourself. Right?</p>
+<cite>Peter:</cite>
+<time>16:32</time>
+<p>Which I think is 2 different things.</p>
+<cite>Geoff:</cite>
+<time>16:34</time>
+<p>That depends on how much money you want.</p>
+<cite>Peter:</cite>
+<time>16:36</time>
+<p>Well, you know, I I think okay. I mean, fair enough. Right? But if you asked us all, we wanna make as much as possible. Yeah.</p>
+<cite>Peter:</cite>
+<time>16:42</time>
+<p>Right? But we also know going in, you these days, every whatever you charge is probably less than the actual value you should, just like you said earlier, to to be to to even stand a chance of being competitive competitive enough to get some kind of sales. Right?</p>
+<cite>Geoff:</cite>
+<time>17:05</time>
+<p>Yep.</p>
+<cite>Peter:</cite>
+<time>17:06</time>
+<p>Now I do wanna touch on something you mentioned there though because I I wanna I wanna take games out of the equation here, and I'll explain why. I have had games in the past.</p>
+<cite>Geoff:</cite>
+<time>17:20</time>
+<p>Because neither of us know anything about games.</p>
+<cite>Peter:</cite>
+<time>17:22</time>
+<p>Yeah. There's that. Yeah. Download endless hurdles. Because I've been in a situation before where there was a game that I absolutely loved and played it, gosh, for years.</p>
+<cite>Peter:</cite>
+<time>17:37</time>
+<p>Not gonna name it. And so I paid a one time fee to remove the axe. However, it did remove third party ads. What it didn't do was stop the continuous bombardment of make this enact purchase from the person that was selling the game. And so that's why I wanna exclude games because I think that games and we can talk about it if you really want to.</p>
+<cite>Peter:</cite>
+<time>18:11</time>
+<p>But they almost deserve an episode by themselves because I feel a game pricing, I'll just say it, I think is very predatory I I I think in a bad way.</p>
+<cite>Geoff:</cite>
+<time>18:21</time>
+<p>Yeah. I'm not gonna get that far. That said, I do think that, yes, we have kind of said this entire time, you you know, what what are our, business models that we've discussed? We've talked. Free, paid upfront, one time in app purchase and subscription.</p>
+<cite>Geoff:</cite>
+<time>18:37</time>
+<p>And, yeah, we've completely kind of glossed over consumable in app purchase. Mhmm. And I think we should continue to gloss over consumable</p>
+<cite>Peter:</cite>
+<time>18:45</time>
+<p>in app</p>
+<cite>Geoff:</cite>
+<time>18:45</time>
+<p>purchase. And that is really where kinda games are happening, and saying, like, yeah, we're you're buying gems or you're buying coins or you're buying whatever. That yeah. That is a business model that is very much its own thing, and and I do not think that that is a a Yeah. Something that either of us have the expertise to get into.</p>
+<cite>Peter:</cite>
+<time>19:05</time>
+<p>No. However, I'm happy to give opinions on it. Listeners, if you wanna hear an episode of me going on about that, let us know. Reach out. Right?</p>
+<cite>Peter:</cite>
+<time>19:18</time>
+<p>Reach out.</p>
+<cite>Geoff:</cite>
+<time>19:18</time>
+<p>The Patreon only. Just pure rant episode.</p>
+<cite>Peter:</cite>
+<time>19:21</time>
+<p>Yeah. Yeah. If you want that hey. If you just want a rant episode, hey. I got one.</p>
+<cite>Peter:</cite>
+<time>19:25</time>
+<p>I got one for you every time. So let's, okay, let's take it because I I don't think we've quite hit the mark that I think we're both itching to hit. And I think the only way we're gonna get that is to talk about the wallpaper app at this point. You wanna go there now?</p>
+<cite>Geoff:</cite>
+<time>19:45</time>
+<p>I I mean, yeah. That was one of the big, impetuses for this entire discussion is the MKBHD panels wallpaper app, where they were charging a subscription, and plenty of people had the a problem with the idea of a subscription at all. However, there was also a second set of people who go, okay. Subscription seems reasonable. $60 a year subscription maybe pushing it a little bit.</p>
+<cite>Geoff:</cite>
+<time>20:15</time>
+<p>And I think that that is, a totally reasonable stance to have, and to say, you know and I think that this does get into some of the same sorts of things that we've been saying is, you know, why should I pay $60 a year for wallpapers when there are a ton of ways to get really cool wallpapers completely for free? Mhmm. And so, what did Marquez do in order to kind of sell people on why are these wallpapers worth $60 a year? And in my mind, the answer is not enough, which is he put out this video. He's like, hey.</p>
+<cite>Geoff:</cite>
+<time>20:58</time>
+<p>I've got these wallpapers. These are my favorite wallpapers. These are the wallpapers that you see in the backgrounds of all the studio and and yada yada yada. And we're going to do more with the app. And that was kind of what he said.</p>
+<cite>Geoff:</cite>
+<time>21:09</time>
+<p>It was like, this is the just the beginning. We're going to do more. And I think that it's possible that in the future, it does get to a point where it's worth $60 a a year. But at this point, you're kind of just going based on his promise, and they weren't really explaining what is it that is worth it. And I I think that that was kind of what he into is he is charging significantly more than the market, and he's not doing enough to justify why he's charging significantly more than the market.</p>
+<cite>Peter:</cite>
+<time>21:44</time>
+<p>I wanna tell you about DigitalOcean. DigitalOcean is a hosting company that I use for a lot of my projects, and I'm gonna tell you rather than just the usual thing that you hear on AdWords, I'm gonna tell you exactly how I use it. It is so simple to set up. You just log in and I can set up very quickly with a few clicks whatever kind of instance I need on a server with whatever OS or pre installed apps. I'm gonna give you a perfect example here.</p>
+<cite>Peter:</cite>
+<time>22:09</time>
+<p>It is so easy to set up Swift on the server side Vapor, and I did that recently and it it was painless. You know, I went in there and I set it up and before you knew it, my Swift app, I was bouncing off the APIs that I had created on the server side and testing everything that I needed to be tested. But you don't have to use it for projects just like that. You can really use it to host anything you want for any length of time, because you're really only paying for the resources as you use them. You're not paying ahead and they have 14 globally distributed data centers and 99.99 percent uptime.</p>
+<cite>Peter:</cite>
+<time>22:46</time>
+<p>I'll put a link in the show notes, but you can go to peterwhidham.comforward/docean. That's d ocean, and that'll give you some free credits to get started with. Okay. So I I need to be completely honest with the audience here. Until about a month ago, I had no idea who this guy was.</p>
+<cite>Peter:</cite>
+<time>23:12</time>
+<p>I know. I hear you all out there. Right? But, hey, you know, I didn't. Why would I?</p>
+<cite>Peter:</cite>
+<time>23:18</time>
+<p>I'm an old man. No. So so I didn't. So but but I I came across him on YouTube first. Right?</p>
+<cite>Peter:</cite>
+<time>23:28</time>
+<p>So let me let me be clear. And then, of course, when his name</p>
+<cite>Geoff:</cite>
+<time>23:31</time>
+<p>That's where he is. Yeah.</p>
+<cite>Peter:</cite>
+<time>23:32</time>
+<p>Yeah. No. No. But what I meant was then when his name started coming up in various places where we developers hang out, that was what I was based on was what I had known him. So my knowledge was based on what I had learned in that period of time on who he was.</p>
+<cite>Peter:</cite>
+<time>23:48</time>
+<p>Okay? So I'm saying all of that because I could still be wrong in my evaluation here. Now my take on it, first of all, I don't think there's a wallpaper app on the planet that's worth that amount of money. I don't can't envision any kind of features you could add to make it worth it. It's just a picture in the background.</p>
+<cite>Peter:</cite>
+<time>24:12</time>
+<p>It's as simple as that. Now that said</p>
+<cite>Geoff:</cite>
+<time>24:15</time>
+<p>Now you're getting into the entire question of what is it worth to charge for art, and and I do not wanna get there.</p>
+<cite>Peter:</cite>
+<time>24:21</time>
+<p>Oh, no. No. No. No. No.</p>
+<cite>Peter:</cite>
+<time>24:22</time>
+<p>I I you're not wrong. But but I'm not gonna go there because that's too subjective. Right? You know? What I was gonna say was, though,</p>
+<cite>Geoff:</cite>
+<time>24:33</time>
+<p>how I think Artists have to make money too.</p>
+<cite>Peter:</cite>
+<time>24:37</time>
+<p>Artists are just cousins of developers.</p>
+<cite>Geoff:</cite>
+<time>24:41</time>
+<p>Exactly.</p>
+<cite>Peter:</cite>
+<time>24:42</time>
+<p>The, what</p>
+<cite>Geoff:</cite>
+<time>24:43</time>
+<p>I was against the wall against AI. AI is gonna replace us all.</p>
+<cite>Peter:</cite>
+<time>24:48</time>
+<p>So where I was gonna go with this was to say how I think so I don't know how he came up with the pricing, but how I think it works in this case. Right? And and I wanna be clear. I'm I'm not criticizing him here in the in the, you know, trying to put him down or anything like that or say he's wrong. He can do whatever he wants.</p>
+<cite>Peter:</cite>
+<time>25:09</time>
+<p>But I believe in this case, based on who he is and who, as I now learn, his following is and his influence is, I think all of that is why he thinks he can charge that amount of money per month. Knowing there's a core there's enough of a core audience that'll just pay it. Right?</p>
+<cite>Geoff:</cite>
+<time>25:34</time>
+<p>I I think that was his expectation. Yes.</p>
+<cite>Peter:</cite>
+<time>25:37</time>
+<p>Hold on. Let me finish. Sorry. And and the reason I say that is what I'm really saying is, like so many things here, is you are selling you're making money off of your celebrity status. That's how I think he's able to charge that.</p>
+<cite>Peter:</cite>
+<time>25:54</time>
+<p>And a certain percentage of people will pay it just because it's his. Just like whatever. You know, I I I feel like I gotta give another example. I'm trying to think of one. Give me one second.</p>
+<cite>Geoff:</cite>
+<time>26:07</time>
+<p>I mean, there are yeah. There there is definitely a extent of, like I mean, just think of, like, name brand clothing, you</p>
+<cite>Peter:</cite>
+<time>26:14</time>
+<p>know, that Yeah. Yeah. Yeah.</p>
+<cite>Geoff:</cite>
+<time>26:15</time>
+<p>You can charge way more for</p>
+<cite>Peter:</cite>
+<time>26:17</time>
+<p>Oh, I got it.</p>
+<cite>Geoff:</cite>
+<time>26:18</time>
+<p>A t shirt with the word supreme printed over the front of it than you can for a regular t shirt. And I I a 100% agree that that is the case there. I do think that in this case, with Marquez, specifically, like, the wallpapers don't scream Marquez Brownlee. And so if you're gonna sell on your celebrity status, you need to actually have that celebrity status.</p>
+<cite>Peter:</cite>
+<time>26:40</time>
+<p>Well, what I mean by that is I'm not saying he's in you know, his intention was they're gonna buy this just because it's me. I don't I don't mean that that was his main intention. I'm just saying I think that's how you can charge over the reasonable odds for the value of something because it's really saying, you know, this person it belongs to this person.</p>
+<cite>Geoff:</cite>
+<time>27:03</time>
+<p>Yeah. No. And and I agree. And I I I do think that that would have been part of the argument that he would have made for this. And I I honestly, like, it was part of the argument that he did make for it, which is to say, hey, these are the wallpapers that I, Marques Brownlee, use.</p>
+<cite>Geoff:</cite>
+<time>27:20</time>
+<p>And kind of, like, trying to play on, like, you've seen these in the backgrounds of my videos, and they look great. And, like, if you are using these, you can be as stylish as I am well known to be.</p>
+<cite>Peter:</cite>
+<time>27:33</time>
+<p>But then why not sell it as an image and buy that image? Doesn't need an app to be a wallpaper.</p>
+<cite>Geoff:</cite>
+<time>27:39</time>
+<p>Yeah. I I agree.</p>
+<cite>Peter:</cite>
+<time>27:42</time>
+<p>Right? I I</p>
+<cite>Geoff:</cite>
+<time>27:43</time>
+<p>I think that that's that's what it came down to.</p>
+<cite>Peter:</cite>
+<time>27:45</time>
+<p>Yeah. I mean</p>
+<cite>Geoff:</cite>
+<time>27:45</time>
+<p>He did not justify the the price that it was. And and I I I think that to say no. I I agree that that that is part of the argument, is to say, like, yes, this is you are buying, in some sense, the brand Marques Brownlee, but the app did not really scream that. It seemed like a fairly generic app. The market as it exists for other wallpapers is not at that price.</p>
+<cite>Geoff:</cite>
+<time>28:13</time>
+<p>And he promised that part of it was based on additional features, and he has not clarified what those additional features are yet. And so I think that those three things together are kind of why that $60 might be justifiable in some sense at some point, but they aren't yet. And think that that was why he saw that backlash is, hey, you need the more of the branding, you need more of the features, and, honestly, you you need to meet the market where they're at. And and that wasn't something that he managed to accomplish. And so, yeah, I think that was why you saw the backlash that you did.</p>
+<cite>Geoff:</cite>
+<time>28:52</time>
+<p>But the one thing that I want to add kind of here is that one of the things that you won't see being part of the justification for why he needs to charge what he needs to charge is, well, it cost me this much to develop the app, and it cost me this much to get the art that goes in the app. When deciding on the price of something that you give to users, you have to put it in the terms of the value that they're getting, not the terms of the cost to you. Users and really anybody that's paying anything for anything don't really care what it costs you to make it. What you need to do is say, well, the cost that I made result in this value to you. I paid for the artist, they gave me the art.</p>
+<cite>Geoff:</cite>
+<time>29:38</time>
+<p>Now, you are getting this art for this money. Not, I paid the artist whatever, so therefore, you owe me whatever. You need to say, this is the value to you, not this is the cost to me, and justify your price based on that.</p>
+<cite>Peter:</cite>
+<time>29:54</time>
+<p>So I'm gonna I'm gonna sort of I I don't I don't wanna say defend him. I'm gonna take his side a little bit. And I'm not I'm not</p>
+<cite>Geoff:</cite>
+<time>30:02</time>
+<p>sitting here and taking his side.</p>
+<cite>Peter:</cite>
+<time>30:04</time>
+<p>No. I'm I'm by that, what I mean is I'm not I'm not proclaiming that I'm speaking for him in some way. Right? But if if it was me and I was in that situation. Right?</p>
+<cite>Peter:</cite>
+<time>30:16</time>
+<p>As the creator, I would say and I've I've not read everything about this. But as the creator, I would say, okay. Don't buy it then. Right? If if someone doesn't like something about it, don't pay for it.</p>
+<cite>Peter:</cite>
+<time>30:31</time>
+<p>Now on the flip side, me as the consumer, if someone says, and there'll be extra stuff in the future, but I'm not telling you what it is yet because either they don't know or whatever reason, I would I personally would look at it and go, okay. Well, you know what? I won't buy it yet. I'll wait and see. Mhmm.</p>
+<cite>Peter:</cite>
+<time>30:51</time>
+<p>I I will wait until I feel you've done enough to make it worth $60 a month, $50 a month, $10 a month, whatever it is. When you have reached what I consider to be that acceptable line, I'll go buy it. I think it's wrong for me to put a review in now or slam you for it because, you know, hey. If I like we said last week, if I choose to buy it, that's on me. Right?</p>
+<cite>Peter:</cite>
+<time>31:19</time>
+<p>Mhmm. I I I should not. You you shouldn't slam someone saying, I don't think that's worth $60. And and, you know, not pay the 60 dollars. Yeah.</p>
+<cite>Peter:</cite>
+<time>31:31</time>
+<p>No. Let me rephrase this. Hang hang on. Let me let me rephrase this a bit better. I can't think of a way to rephrase it.</p>
+<cite>Peter:</cite>
+<time>31:36</time>
+<p>Go with it.</p>
+<cite>Geoff:</cite>
+<time>31:37</time>
+<p>I I can jump in. Like, yeah. No. I I agree. I I think that there is an extent to which, yeah, there are is a reasonable response and an unreasonable response.</p>
+<cite>Geoff:</cite>
+<time>31:46</time>
+<p>And to say, yeah, no. Even and I would say, you can leave a review and say, I don't think this is worth it. And part of the the delicious irony of this whole thing has been, you know, Marquez did the like launched this in a video where he talks about the iPhone 16, and he's saying, you know, don't buy the iPhone 16 for Apple Intelligence because we haven't really seen what Apple Intelligence is yet. And then pitching an app that he's saying, hey, buy this because of the future promise that we have here on this app. Oh.</p>
+<cite>Geoff:</cite>
+<time>32:22</time>
+<p>And and so I think it is totally reasonable to take the tact that he did and say, I'm not buying this because it is not worth the price point that it is yet, but what is not okay is people like taking personal attacks or being super mean about it, or, you know, like some of the vitriol that we have seen about it in response is, you know, like, oh, Marquez is a terrible person because and I don't Yeah. Obviously, way harsher words than that. Yeah.</p>
+<cite>Peter:</cite>
+<time>32:52</time>
+<p>Yeah.</p>
+<cite>Geoff:</cite>
+<time>32:52</time>
+<p>You know, Marquez is a bad person because he's charging this money. No. I I I think he's, you know, what I'm trying to say is he's made a mistake. I think he has, you know, overestimated the amount to which he can charge for something like this. Oh, for sure.</p>
+<cite>Geoff:</cite>
+<time>33:07</time>
+<p>I'm not saying that, like, you know, he's an idiot. He's a moron. You know, he doesn't know what he's doing. He doesn't know how to run a business. Like, I and I'm certainly not gonna certainly not gonna say anything about him as a person.</p>
+<cite>Geoff:</cite>
+<time>33:14</time>
+<p>Like, I I I I think that that is beyond the pale. And, yeah, you can totally go out there</p>
+<cite>Peter:</cite>
+<time>33:16</time>
+<p>and say, I don't think</p>
+<cite>Geoff:</cite>
+<time>33:17</time>
+<p>this is worth it. I'm not going to, I don't think this is worth it. And you can even publicly say, I don't think this is worth it. Heck, what are we doing right now? We're publicly saying, I don't think this is worth it.</p>
+<cite>Geoff:</cite>
+<time>33:31</time>
+<p>But yeah. No. That doesn't justify personal attacks.</p>
+<cite>Peter:</cite>
+<time>33:34</time>
+<p>No. That so let me let me jump on that because I am very opinionated on that kind of thing. I don't have many opinions. Who knew? Nothing should ever well, no.</p>
+<cite>Peter:</cite>
+<time>33:47</time>
+<p>Let me rephrase. There should never be personal attacks for any product, brand, what whatever you wanna call it. Period. Simple as that. We have seen other things very recently.</p>
+<cite>Peter:</cite>
+<time>34:01</time>
+<p>I'm not gonna touch on, but, where some well known software attack its users and then proclaim that the person that did it is not doing it on their say so. But in reality, all this time they've been happy for this person to speak the rest of the time. Right? You know, personal attacks are never acceptable in either direction, period. Simple as that, in in my opinion.</p>
+<cite>Peter:</cite>
+<time>34:30</time>
+<p>Yes. It's idealistic. But, hey, that's just the way it is. What if it was Apple that bought out this super amazing wallpaper app and charged in $60 for</p>
+<cite>Geoff:</cite>
+<time>34:40</time>
+<p>it? I mean, Apple charges plenty of things that are not necessarily worth it for the price that they charge. I mean</p>
+<cite>Peter:</cite>
+<time>34:45</time>
+<p>But that's exactly my point.</p>
+<cite>Geoff:</cite>
+<time>34:47</time>
+<p>Yeah. No. I'm I'm saying that. Yeah. Just just look at Icloud pricing.</p>
+<cite>Geoff:</cite>
+<time>34:50</time>
+<p>Like, I I I think that that is, additionally a case where, you know, are they able to justify, the price that they're charging? And I think in in Apple's case, the answer is to how do they justify the price they're charging is, like, you don't have any other options. And so they get away with it in a sense that way. Like, what other, automated backup system for your iPhone are you going to buy? You're not gonna buy 1.</p>
+<cite>Geoff:</cite>
+<time>35:24</time>
+<p>I I think you see that with streaming services, you know. I want this content. Well, if you want this content, you're gonna pay the price that we are charging for this content. You don't really have an alternative.</p>
+<cite>Peter:</cite>
+<time>35:37</time>
+<p>Right.</p>
+<cite>Geoff:</cite>
+<time>35:38</time>
+<p>If you can be in that market for you as an app developer, great. Like, that's a great market to be in. I I think the only way for any, developer that would be listening to our show to do that would be, you know, getting into some kind of, required standard, you know. Mhmm. Oh, you have to have</p>
+<cite>Peter:</cite>
+<time>35:59</time>
+<p>Alright. Here it is. The one thing that I cannot do without every day, and that is my coffee. Anyone that knows me or anyone that's listened to any of my podcasts or anything else knows that I absolutely cannot operate without my coffee, and I love good coffee. So here's the deal.</p>
+<cite>Peter:</cite>
+<time>36:16</time>
+<p>I'm gonna give you one free bag of coffee by going to peterwidham.comforward/coffee. There is a wonderful company out there that follows the fair trade practices, helps out a lot of independent roasters of all sizes, and the operation is simple. What you do is you're gonna go to to peterwhidham.comforward/coffee. You sign up there. You get a free bag of coffee sent to you.</p>
+<cite>Peter:</cite>
+<time>36:42</time>
+<p>Yes, in return. They say thank you to me by giving me some coffee, but that's not the reason I'm doing this. The reason I'm doing this is because I have found so many good coffees that I just would never have come across, heard about or experienced without this service. Trade coffee is is just fantastic. You know, there are plenty of places out there.</p>
+<cite>Peter:</cite>
+<time>37:07</time>
+<p>We all know them that supply coffee, good coffee. You can go to the store, get the coffee, but there is nothing better than discovering new independent roasters and supporting them, discovering new flavors of coffee, new grinds for you can set it up. It's very smart. You tell it the kind of coffee you like and over time it gets better and better as it trains in on your selections and your choices and gives you exactly the coffee you're looking for and recommending new ones that that will be very similar. Every time I get a new packet of coffee, I go through and afterwards I try the coffee.</p>
+<cite>Peter:</cite>
+<time>37:43</time>
+<p>I go through the service and I say, look, I loved this coffee. I thought this coffee was okay. Or I say, look, I've This was really not for me. And every time I do that, it makes the service a little more accurate on the next selection for me. So again, just go to peterwhidham.comforward/coffee.</p>
+<cite>Peter:</cite>
+<time>38:01</time>
+<p>Get your free bag of coffee today. If you're a coffee lover, you're gonna really appreciate this service. I have been using it for years at this point and thoroughly recommend it.</p>
+<cite>Geoff:</cite>
+<time>38:14</time>
+<p>The you talk about people attacking their users. You know, being the the required standard for security software, That's that's no longer a timely argument, but, hey, you know.</p>
+<cite>Peter:</cite>
+<time>38:29</time>
+<p>Well, it is it is if you go if you go back in time. Yep. Or you wait. Maybe it's maybe it's ahead of its its time for the next one.</p>
+<cite>Geoff:</cite>
+<time>38:37</time>
+<p>For the next one. Yeah. You know, it yeah. If you are able to kind of be a requirement, then yeah, you can charge whatever price you want to. I don't think that's a reasonable I don't think that that's a state that most of our listeners are gonna ever be in.</p>
+<cite>Peter:</cite>
+<time>38:53</time>
+<p>No. But then we're also I feel like that's very close to sort of saying almost like the government model. Like you say, it's like, hey, what you gonna do? You know? We're gonna massively overcharge you for something because this is the one you're all using, like you say.</p>
+<cite>Peter:</cite>
+<time>39:13</time>
+<p>You know? And and I yeah. I I have strong opinions about that too. But, like you say, that's not something that applies to our audience. Hey.</p>
+<cite>Peter:</cite>
+<time>39:23</time>
+<p>If it does, our audience is, way different than I ever predicted.</p>
+<cite>Geoff:</cite>
+<time>39:28</time>
+<p>If it does, have you heard about our Patreon?</p>
+<cite>Peter:</cite>
+<time>39:31</time>
+<p>Yeah. Why have you why are you not sponsoring us? We'll say nice things if you sponsor us. Folks, okay. Wait.</p>
+<cite>Peter:</cite>
+<time>39:38</time>
+<p>I'm gonna edit that out. That's not true. I will never say nice things just because you pay me. I'm gonna shut off now.</p>
+<cite>Geoff:</cite>
+<time>39:51</time>
+<p>So, yeah, I think that the answer of, like, how to find the right price to be charging is really just to kind of test out various prices and and see where you go. You know, can you charge less? And it turns out that you actually aren't making more revenue. Can you charge more and find out that you're making more revenue, that that price is a little in your case. Just kind of try different prices.</p>
+<cite>Geoff:</cite>
+<time>40:19</time>
+<p>And depending on what business model you've chosen, there are less or more freedom that you have to do this kind of thing. You can with subscriptions, you've got, like, offer codes, 1st time offers, additional promos, that kind of thing. With in app purchases, you really kinda can just change the price and see if the number goes up and down. I believe that's also true with paid upfront, where you really just kinda set your price. If you really have a kind of steady set of free downloads, you can kind of do this with, oh, I'm gonna charge this price in this locale and this price in this locale and see if one of them does better.</p>
+<cite>Geoff:</cite>
+<time>41:05</time>
+<p>That's an option. You know, like, oh, I've got approximately equivalent numbers of downloads in America and in Germany, for example, just to pick a Okay. Relatively first world country. And, you know, like, I'm gonna charge a dollar more or, you know, a euro more in Germany and see if that price is, better and and kind of use it that way. So there's a couple different options for how you can test your price, but really the answer comes down to test your price and find out if I change this one way or another, does my total revenue go up or down?</p>
+<cite>Geoff:</cite>
+<time>41:44</time>
+<p>And use that number to kind of decide where your best price is. If I lower my price, do I actually make less money because I'm making less money per purchase? Or do I make more money because more purchases are happening? Vice versa, if I raise the price, do I make less money because fewer people buy my app overall? Or do I make more money because the same number of people are buying it, and they're buying it for more?</p>
+<cite>Geoff:</cite>
+<time>42:11</time>
+<p>So I think there's a matter of in both directions, you could see both less or more. And so you really just kinda have to try different options and see, does it affect the amount of revenue that I'm making in either direction?</p>
+<cite>Peter:</cite>
+<time>42:27</time>
+<p>And and also be consistent with your testing. Right? So by that, I mean</p>
+<cite>Geoff:</cite>
+<time>42:35</time>
+<p>No. I I wouldn't say be consistent. I would say be scientific about it. Make sure that you are logging and tracking and paying attention to the values that you have. Don't just set the value and kind of feel it based on vibes.</p>
+<cite>Geoff:</cite>
+<time>42:49</time>
+<p>Write down the numbers that you're making per revenue, when you changed your price, and when you are or and what your new average run rate is, for example.</p>
+<cite>Peter:</cite>
+<time>43:00</time>
+<p>Alright. And this is where you will think I shoulda let him finish that statement. So I was gonna say, be consistent in the sense of whatever you do. Let's say you decide to raise the price and you're like, I'm gonna raise the price for 1 month. Okay.</p>
+<cite>Peter:</cite>
+<time>43:19</time>
+<p>Then everything else you do related to that has to be 1 month as well for the data to be meaningful. So lower it for a month. Right? You know, if you raise it and you find in the 1st week massive increase. Right?</p>
+<cite>Peter:</cite>
+<time>43:35</time>
+<p>And then you're like, well, what if I lower it? Well, then you can only you should lower it for 1 week. It's the only you've got to have comparative math to really understand. Right? You can't just go with, well, that one worked really quickly, went up.</p>
+<cite>Peter:</cite>
+<time>43:48</time>
+<p>That's got to be the answer. You you've got to have a a level playing field for the tests. Right?</p>
+<cite>Geoff:</cite>
+<time>43:53</time>
+<p>I don't necessarily agree, but I'm not gonna jump in enough to fight</p>
+<cite>Peter:</cite>
+<time>43:58</time>
+<p>it. You know what I mean. Right? You if if you're gonna compare 1 month's figures, you've got a one if</p>
+<cite>Geoff:</cite>
+<time>44:03</time>
+<p>you're 1 month. Comparing to a total month rather than an average over that time, then yes. But, like, I feel like you can do a 1 month price up test, realize that, you know, like, oh, it it had some minor impact. And then you're like, oh, I'm gonna do a 1 month, you know, lower the price impact. You do that, and your average run rate plummets, then you probably wanna go, never mind.</p>
+<cite>Geoff:</cite>
+<time>44:24</time>
+<p>Let let's back that out</p>
+<cite>Peter:</cite>
+<time>44:25</time>
+<p>real fast. Right. I mean, if the if the answers present themselves quickly in a very conclusive way Yeah. Yeah, you you don't need to run the rest of the day.</p>
+<cite>Geoff:</cite>
+<time>44:33</time>
+<p>You don't you don't you don't need to do that. Yeah. Yeah.</p>
+<cite>Peter:</cite>
+<time>44:35</time>
+<p>You don't need to</p>
+<cite>Geoff:</cite>
+<time>44:36</time>
+<p>And that that was where I disagreed. It was just like, okay. No. Hold on. Like, I don't know that I necessarily say you have to do that.</p>
+<cite>Geoff:</cite>
+<time>44:43</time>
+<p>One thing that you did remind me of, and this kind of falls into both be consistent and be, scientific about it is make sure that that is the only variable you are changing as much as possible. Mhmm. And make sure that you're not doing like, oh, I am raising my price and I'm doing this big marketing push, or I'm raising my price and I've shipped a brand new version. And you go like, oh, well, clearly the higher price made me all that much more money. Well, no, it was probably your big marketing push or your new version, and it wasn't the other thing.</p>
+<cite>Geoff:</cite>
+<time>45:17</time>
+<p>Just like make sure that you can kinda control your variables, just like you would with any scientific process.</p>
+<cite>Peter:</cite>
+<time>45:23</time>
+<p>Oh, absolutely. I agree. Yeah. I, you know, I I have seen endless cases where peep you know, just like you say with with coding. Right?</p>
+<cite>Peter:</cite>
+<time>45:31</time>
+<p>Don't you know, you're trying to fix a bug. Don't don't change 10 things and then it works. And</p>
+<cite>Geoff:</cite>
+<time>45:36</time>
+<p>see if the bugs work. Yeah.</p>
+<cite>Peter:</cite>
+<time>45:37</time>
+<p>Yeah. Because you don't know which one was it. Right? Yes. It could be frustratingly slow, but it's the only way you're gonna conclusively prove the results.</p>
+<cite>Peter:</cite>
+<time>45:47</time>
+<p>Right?</p>
+<cite>Geoff:</cite>
+<time>45:48</time>
+<p>Yep. Oh,</p>
+<cite>Peter:</cite>
+<time>45:48</time>
+<p>sorry. Let me let me rephrase that. It's the only way you're going to have data that is conclusive in one direction or another. Alright, Geoff. So I think we have in this 2 part series here, we have covered a lot of ground, and we have given advice and thoughts and ways to get started and evaluate things.</p>
+<cite>Peter:</cite>
+<time>46:11</time>
+<p>So I think we should wrap it there, really, at least for now until someone calls us out, and then we'll come back and tell them why they're wrong. Right?</p>
+<cite>Geoff:</cite>
+<time>46:20</time>
+<p>Yeah. So we didn't give a exact answer to what it is that you should charge for your app because I don't think that there is a single answer that we can give to every app should charge this amount. Amount. I think we've given people the tools that they can use to figure out what the ideal price is for their specific circumstances and their specific apps. And really the tools to continue to learn that.</p>
+<cite>Geoff:</cite>
+<time>46:44</time>
+<p>Because I think for every app, you're never going to have that one right answer. Everything is the circumstances that you're in, and those circumstances can change. And so what is the price for your app? You're gonna have to learn that yourself.</p>
+<cite>Peter:</cite>
+<time>47:00</time>
+<p>Yeah. And, I was gonna say, you know, I think that that's throughout this whole thing that that's been an underlying tone is, you know, you as the creator, you you have to decide for yourself what you think it's worth. Whatever you decide, you gotta go with with that. Right? Whether you feel you need to justify it or not, that that's your choice.</p>
+<cite>Peter:</cite>
+<time>47:20</time>
+<p>But only you can decide what makes you comfortable. And yeah. Let's let's leave it there. Now that said, folks, you wanna continue this conversation, hey, jump over to our Discord where we talk about this kind of stuff all the time. Right?</p>
+<cite>Peter:</cite>
+<time>47:35</time>
+<p>There's a link in the show notes. Jump in the Discord, get involved. Share your thoughts, you know. Geoff, where can they find you, buddy?</p>
+<cite>Geoff:</cite>
+<time>47:43</time>
+<p>You can find me as always at cocoatype.com, and cocotype on all the social things.</p>
+<cite>Peter:</cite>
+<time>47:49</time>
+<p>And you can find me, compile swift, on all the social things and compile swift.com. That's it, folks. We'll see you in the next episode.</p>
+</details>
