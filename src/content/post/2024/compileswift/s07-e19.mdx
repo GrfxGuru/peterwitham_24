@@ -1,0 +1,698 @@
+---
+publishDate: 2024-11-09T00:00:00Z
+title: AI Tools for app makers
+excerpt: In this episode, we discuss AI tools that can aid developers to get their work done.
+image: /images/blog-fi/2024/11-09.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+  - ai
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e19
+---
+
+import Player from '../../../../components/podcasts/cs-player.mdx';
+import CSLinks from '../../../../components/podcasts/cs-links.astro';
+
+<iframe
+  width="100%"
+  height="180"
+  frameborder="no"
+  scrolling="no"
+  seamless=""
+  src="https://share.transistor.fm/e/0538739d"
+></iframe>
+
+<Player />
+
+This week’s episode discusses AI tools and their applications for developers. The hosts share their experiences using AI chatbots, highlighting their usefulness for code generation, problem-solving guidance, and code explanation.
+
+They also discuss the benefits of AI tools for finding code snippets and remembering API names.
+
+AI tools are useful for developers, especially when dealing with outdated or obscure technologies, as they can provide accurate and relevant information.
+
+While Apple’s predictive code completion in Xcode has its limitations, it is a step towards integrating AI into developer tools.
+
+However, the lack of progress on Apple’s promised chat-based tool, Swift Assist, raises concerns about Apple’s ability to compete in the rapidly evolving AI landscape.
+
+<CSLinks
+  link1="https://developerduck.app/"
+  link1label="Developer Duck"
+  link2="https://cursor.com/"
+  link2label="Cursor"
+  link3="https://github.com/github/CopilotForXcode"
+  link3label="GitHub Copilot for Xcode"
+  link4="https://peterwitham.com/cmm"
+  link4label="Clean My Mac"
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+#### Transcription
+
+<cite>Peter:</cite>
+<time>00:02</time>
+<p>What's up, everybody? Welcome to another episode of the CompileSwift podcast. This week, we are gonna be talking about some AI tools and our experiences with those. But first of all, Geoff, how are you doing, buddy?</p>
+<cite>Geoff:</cite>
+<time>00:14</time>
+<p>I'm doing pretty good. I've, been pretty productive on my apps lately and, you know, hoping to stick around and get another podcast out.</p>
+<cite>Peter:</cite>
+<time>00:24</time>
+<p>Awesome. Yeah. This week, I'm hoping to be productive as well, and and we're gonna get a podcast episode out for sure. We took a break last week, folks. We, we had some things we both needed to take care of.</p>
+<cite>Peter:</cite>
+<time>00:36</time>
+<p>And, hey, that's that's the way it goes. Right? You can't do everything every week even when you try hard. And lord knows as developers, we try hard. I did spend a live stream, in fact, 2 live streams as of this recording with an an AI tool.</p>
+<cite>Peter:</cite>
+<time>00:52</time>
+<p>We're gonna get into it. And it shocked me is is the short version. We're gonna be talking about some AI tools this week that we think are helpful to developers. Some of them are specifically geared toward developers and tuned for that and others are AI tools that you'll be familiar with probably that are just general tools that we also think are useful. So with that, I'm gonna hand it over to Geoff who's gonna go through a couple here and some of his experiences.</p>
+<cite>Geoff:</cite>
+<time>01:18</time>
+<p>Yeah. So I think the most general set of tools that people are gonna be familiar with are just your standard AI chat bots. You've got your chat gpts. You got Claude by Anthropic. I think there's a couple other ones out there that people are using to do development stuff that aren't necessarily geared towards development, but are still very useful for these cases.</p>
+<cite>Geoff:</cite>
+<time>01:43</time>
+<p>You can ask chat gpt or quad or whatever to generate code for you, and it will do it. It will spit out code, and you are kind of responsible for doing everything on your own after that. I find it personally more helpful to kind of have a conversation about code rather than have this stuff generate code for me, where it's more, I'm trying to figure out a problem. I know that I need to do x y z kind of thing, and I'm gonna describe it from a higher level. Now you, chatbot, can you help me accomplish this kind of path?</p>
+<cite>Geoff:</cite>
+<time>02:21</time>
+<p>Can you walk me down this path? Can you be my guide rather than doing it for me? And I think that is a a goal that some of these tools have is to just replace it outright. But for a lot of these more chat based tools, I think that they are geared towards, you know, chat, having a conversation, and having a back and forth with these kinds of things. And to that end, you have tools that kind of put a nice front end on some of these kinds of things and make it more useful for developer stuff.</p>
+<cite>Geoff:</cite>
+<time>02:53</time>
+<p>We have a friend of the show and former guest, Adam Wolf, made a very cool app for this called DeveloperDoc. We'll link that in the show notes. And that was just a front end to all of OpenAI's models that kind of puts a nice developer friendly front end on some of these tools, but still is very much geared towards being a chat tool rather than being a integrated AI IDE, like some of the tools that we might talk about later. So I've used these tools minimally. I I I've definitely used them a little bit.</p>
+<cite>Geoff:</cite>
+<time>03:25</time>
+<p>And like I said, I use it a lot for the kinds of things where I know what I need to do, but I don't know exactly how I'm going to do that. For example, I recently had to do a lot of math stuff for one of the things that I'm implementing in bark, one of the new barcode formats that I'm working on. And I am not a math expert in any way shape or form. And what I did was I kinda basically said, hey, I know I need to do this. I need to solve this kind of problem.</p>
+<cite>Geoff:</cite>
+<time>03:59</time>
+<p>How am I going to represent this in code? And I didn't want it to automatically just go, like, oh, here. Here's the solution, because I can't check that. I my skills at math are not well enough that I can look at the code and go, oh, yeah. That's absolutely correct.</p>
+<cite>Geoff:</cite>
+<time>04:18</time>
+<p>I want it to walk me through step by step and say, you need to solve this. This is how you're gonna solve this part of the problem. Then you need to solve this. Here's how you're gonna solve this part of the problem, and kinda build it up from steps like that. Does that make sense?</p>
+<cite>Peter:</cite>
+<time>04:31</time>
+<p>It does because that is sort of one of the two ways that I use these tools. I'll quickly describe how I use them before we we dive into sort of tool specific discussions. So I do like the idea of this chat tool that I can have a discussion with in a sense, kind of pair programming the problem without being specific. Just to say to it sort of, hey. Here's the problem.</p>
+<cite>Peter:</cite>
+<time>05:00</time>
+<p>You know, am I on the right track? And see what it says. Because I agree with you. Things like, you know, math and those kind of things, by no means am I an expert. So if I need a math formula or I just thought of another another good one maybe a reg x something like that, I'd love for it to generate that part then I can take that part and apply it to my code.</p>
+<cite>Peter:</cite>
+<time>05:24</time>
+<p>Right? Now that's sort of my my first way of doing things. The second way that I use these tools and and this is one that I'll talk about when we we dive into the tools here in a moment is letting it generate code for something that maybe I'm not familiar with that I can learn from. But the important focus there is to learn from it and not just okay. The code must be good because the machine said it was.</p>
+<cite>Peter:</cite>
+<time>05:52</time>
+<p>Does that make sense?</p>
+<cite>Geoff:</cite>
+<time>05:53</time>
+<p>Yeah. Absolutely. That makes sense. That actually, ties almost in reverse into another way that I use one of these tools that actually I forgot about until just now, which is finding code on the Internet that does something, and then you're not understanding what that code is doing in the first place. You can then take that code, send it to these chatbots, and go, can you explain to me what is happening here?</p>
+<cite>Geoff:</cite>
+<time>06:19</time>
+<p>And so last year, this was jeez. Oh, yeah. Over a year ago at this point, I was working on some machine learning stuff. It's it's ironic that this is all kinda just layered in on top of each other. I was working on some machine learning stuff, and I didn't really understand what was going on.</p>
+<cite>Geoff:</cite>
+<time>06:38</time>
+<p>And being machine learning stuff, all of the sample code that's out there is in Python. Using, libraries like Python's NumPy, I all of the Python people are gonna be yelling at me that that's not how it's pronounced. I have no idea how it's pronounced. Using NumPy, using some of that the specialty math stuff that that does. And so there was a lot of I was taking that Python code that I was finding on the Internet and going, please explain to me in English and or in Swift what the heck this code is doing.</p>
+<cite>Geoff:</cite>
+<time>07:09</time>
+<p>And finding it very useful to understand that where if I'm looking at some Python code, and I have a base level of familiarity with Python, but I definitely don't have any familiarity with some of these more esoteric libraries like NumPy, that I could take that code and I could send it to, an LLM like this and go, walk me through what this is actually doing. And it would do that, and that was a way that I could then understand what it's doing and then reimplement it myself in Swift or reimplement it in my own code base and tweak it the way that I needed to in order to make it fit. And that was very helpful. That was something where it's like, I found this code that does what I wanna do, but I don't wanna just copy and paste it because, a, it may not fit my use case 1 to 1 exactly, but also I just don't like having code in my code base that I don't understand. And so very much just like, I found this code.</p>
+<cite>Geoff:</cite>
+<time>08:06</time>
+<p>I wanna take it off the Internet. I wanna use it, but I don't understand it. Can you help walk me through it? And so I think that's another place where this these kinds of tools are are very useful. You can have it talk to you about a piece of code, whether it's your code or somebody else's code.</p>
+<cite>Peter:</cite>
+<time>08:24</time>
+<p>No. Right. It's an like you say, it's, you know, it's it's a pair programming, technique, I think, in many ways. And also useful, as you say, hadn't occurred to me until so you mentioned it, but it is a great way to get started saying, hey, here's this thing in this language. I need it to be in this language.</p>
+<cite>Peter:</cite>
+<time>08:45</time>
+<p>Figure that out for me and then, like you say, take that put it in the context of what you need and also learn from it from there because that, for me, actually would be a great way to learn something like Python where I really don't know hardly anything at all. But I know the I know the concept of what I need.</p>
+<cite>Geoff:</cite>
+<time>09:06</time>
+<p>And then I think the one remaining use case that I've used this for, this is a way dumber use case than any of the rest of them, is simply, I know that this API exists, but I can't remember what it's called. And Apple's documentation is we're all familiar with Apple's documentation. And I I just search is not working. I can't find what I need. My Google fu is is bad.</p>
+<cite>Geoff:</cite>
+<time>09:27</time>
+<p>I can't find this or or it's something obscure, but I know it exists. And just being able to go in and ask the LLM, hey. I'm trying to do this thing, and I know that it exists. Like but what what is the API I'm looking for? And it's really good at being a kind of, like, nice, fancy search tool, and it'll go like, oh, yeah.</p>
+<cite>Geoff:</cite>
+<time>09:47</time>
+<p>You just need to call this method. And it's not writing the code for me. It's not generating big giant chunk of code. It's going like, hey. Here's the one line you need, and you can kind of solve the rest of the problem from there.</p>
+<cite>Geoff:</cite>
+<time>10:00</time>
+<p>And so that's another thing that I I find really useful where it's like, I know that I can do this, and I'm just I'm just blanking on how to do it. And Google search isn't helping me. Apple's documentation isn't helping me. What is it that I need to do to get there? These tools have been super good.</p>
+<cite>Geoff:</cite>
+<time>10:18</time>
+<p>This is especially true in cases where you're talking about something old or obscure. The big one that this helped me with recently was AppleScript. I was implementing AppleScript in an app in a Mac app that I was working on, and all of the AppleScript documentation was written 20 years ago. Apple's documentation search likes to hide it. Google, if you ask it about something that's happened 20 years ago, it's like 20 years ago that didn't happen.</p>
+<cite>Geoff:</cite>
+<time>10:46</time>
+<p>That's not an enthusiast. What are you talking about? Google is, like, you know, super against showing you anything older than a couple years. So, yeah, it's impossible to find anything. You go to the LLM, you're like, hey.</p>
+<cite>Geoff:</cite>
+<time>10:59</time>
+<p>I have this question about how I implement an Apple Script, function in my app, and it goes, oh, yeah. You just do this. And and it it doesn't complain about the fact that, oh, who's writing Apple Script in 2024? I am. Deal it.</p>
+<cite>Geoff:</cite>
+<time>11:13</time>
+<p>It just gives you, it just gives you exactly what you need.</p>
+<cite>Peter:</cite>
+<time>11:17</time>
+<p>Yeah. And I think that it raises what you say there raises, a very important point here, which is regardless of the tool that you use, and by that I mean whether it's a AI chatbot, Google search or whatever it may be. At the end of the day, you still need to know what the question is that you need to ask and how to ask it. And I think AI does a better job at helping you figure out how to phrase that question. Right?</p>
+<cite>Peter:</cite>
+<time>11:53</time>
+<p>Because, like you say, we've all sat there putting a putting a bunch of stuff in a search engine, and it's just not working. However, you try to phrase the question. But I think with AI, you know, sometimes I found that the experience is it sort of figures out what you mean, but you, you know, it's like I see what you're trying to say, but you don't have the words. Let me help you out. You know, did you mean this?</p>
+<cite>Peter:</cite>
+<time>12:18</time>
+<p>Yes. That's exactly what I meant. And and I do like this idea of I, you know, I have the knowledge. I can't remember the name of this API, And, of course, as soon as it tells you, you're like, oh, yeah. That's it.</p>
+<cite>Peter:</cite>
+<time>12:32</time>
+<p>And then you remember, oh, and I know and now remember how I used it. So that is a good use case as well.</p>
+<cite>Geoff:</cite>
+<time>12:37</time>
+<p>Yep. Or or, you know, it it gives you the jumping off point to go into Apple's documentation and go, okay. Now what's the specifics about this? What what is now that I know what class I'm looking at, what are its functions, what are its whatever, it it gives you another point to kind of jump off and be more learning.</p>
+<cite>Peter:</cite>
+<time>12:55</time>
+<p>And I I guess the takeaway lesson here is, now that we now that you've put it out there is let's hope that they didn't train, the, you know, the AI services they're gonna put in Xcode on the documentation. Otherwise, all hope is lost. Right?</p>
+<cite>Geoff:</cite>
+<time>13:10</time>
+<p>Let's let's hope they do and then that gives them excuse to make better documentation.</p>
+<cite>Peter:</cite>
+<time>13:14</time>
+<p>Or maybe at that point, the machine takes over. It's like, look, I got this. What's up everybody? I wanna tell you about CleanMyMac by Macpoor. Now, I have been using this for years.</p>
+<cite>Peter:</cite>
+<time>13:26</time>
+<p>So many years that I don't even remember at this point. But if you're a Mac user and you don't have this tool, trust me, you need it. So let me tell you what you can do with this. Now, when I open up the application, not only is the UI absolutely gorgeous but I run SmartCare and all I got to do is open the app click on SmartCare and hit the scan button. Now when I do that what's gonna happen it's gonna analyze my system and it's gonna go through and it's gonna look for junk.</p>
+<cite>Peter:</cite>
+<time>13:58</time>
+<p>It's gonna check to make sure that I don't have any malware or anything like that on my Mac. It's gonna run some performance checks. It's gonna go through and check for application updates and then it's also gonna give me the option to look at what I would call the clutter on my machine, kind of my files, right? The stuff that that I put there and I'm not kidding you, every time I run this and I run this at least once a week, it will find at least a couple of gigs worth of junk files to clean out. And all I gotta do is to tell it go ahead and run and it'll clean out the junk files.</p>
+<cite>Peter:</cite>
+<time>14:37</time>
+<p>The other day when I ran it, it found 6 gig of files and believe me when I tell you I am meticulous about keeping junk off of my machine and it will just find this stuff splattered all over different folders and then it'll run the performance checks like I say and it'll just look and see if there's anything that it thinks needs to be done. It'll let me know about any app updates and I can just have it update them for me. Now on top of that, there are other tabs. There's the cleanup tab and it'll go in there and you can tell it to do various cleanup operations for you. Again, it's gonna run an analysis.</p>
+<cite>Peter:</cite>
+<time>15:16</time>
+<p>As developers, we all know about Xcode and how much space it takes up but you will be amazed about the amount of files that can build up and caches over time that you just don't think about and you know, they just don't clean themselves up very well and again, it'll go through there and save me gigabytes of space. It's absolutely unbelievable. The performance tab is fantastic. It'll run things like flushing the DNS for me and it'll run the maintenance scripts, it'll check disk permissions for issues there and all of those things to give you every ounce of performance out of your machine. And if all of this sounds good to you, and it should if you're a Mac user, like I say, I consider this like one of my first installs.</p>
+<cite>Peter:</cite>
+<time>16:02</time>
+<p>You can go to petawhidham.comforward/ cmm and that's gonna jump you to the right spot where you can go in and you can try out Clean My Mac. You'll get a 7 day free trial. Personally, like I say, every time they bring out a new version, it's an instant upgrade for me. So again, go to peterwhidham.comforward/cmm, and get started with CleanMyMac today. So then as kind of like</p>
+<cite>Geoff:</cite>
+<time>16:29</time>
+<p>a half step between purely chat based tools that aren't really meant for developer stuff and full fledged developer IDs that we'll get into later. We have our tried and true, our good friend, Xcode. And with Sequoia and with Xcode 16, you need both. Apple introduced predictive code completion, and that is kind of an expansion of the existing autocomplete that tries to use AI heuristics to give you what you need from a development perspective. And so I think both of us have used this, and I think both of us have kinda come across similar answers, which is that sometimes it's magic.</p>
+<cite>Geoff:</cite>
+<time>17:13</time>
+<p>Sometimes it's great, and it just does everything that you absolutely wanted. And other times, you're sitting there going, what on earth are you thinking Xcode? What where did you get this? Why do you think that this is what I want? And it's never really clear which is which and and what you're gonna get.</p>
+<cite>Geoff:</cite>
+<time>17:32</time>
+<p>So it's kind of a mixed bag, but it is, I think, a step towards Apple realizing that, hey. These tools could be useful, and maybe we should start looking into integrating them with our software. And what can we do Mhmm. From there? So what's what's your experience?</p>
+<cite>Peter:</cite>
+<time>17:51</time>
+<p>Yeah. So so my experience is a mixed bag, and and I did start by using it when it was first available in the I think it was the betas. Right? We had it a little bit before the RCs. And, you know, I wasn't expecting miracles, but what I found was it was good.</p>
+<cite>Peter:</cite>
+<time>18:12</time>
+<p>It it surprised me in a in a way that was like, oh, you know, it would suggest things like variable names based on my code and, you know, things along those lines, which were good for helping me think about, you know, variable naming is hard. Right? And and it did help sort of, like, yeah. That's a good idea. Let's go with that.</p>
+<cite>Peter:</cite>
+<time>18:35</time>
+<p>Right? You know? Now that said, if it in the situations where there was no code, you know, that was definitely one of those, yeah, that's that's not so great. Right? But, once there was a bit of coding there and, you know, it was pretty good for me at things like initializers and and stuff like that.</p>
+<cite>Peter:</cite>
+<time>18:58</time>
+<p>So it was a mixed bag, but for the most part I was impressed with it from a first attempt by Apple. That that's kind of where I'm at. Now would I would I just trust it and go with it? No. Definitely not.</p>
+<cite>Peter:</cite>
+<time>19:14</time>
+<p>But it was it was a good way to fill that blank screen, if that helps. You know what I mean? Yeah.</p>
+<cite>Geoff:</cite>
+<time>19:19</time>
+<p>Definitely. Yeah. I I think that's been my experience as well. It is something that for a lot of the boilerplatey type stuff, like you said, initializers, codable conformance, that kind of thing, it's good. It's it's not perfect, but it it is good, and it certainly deals with it a lot better than some of the refactoring tools that they've had there in the past.</p>
+<cite>Peter:</cite>
+<time>19:45</time>
+<p>Yeah.</p>
+<cite>Geoff:</cite>
+<time>19:45</time>
+<p>But there are some times where it wants to insert something, and I just go, I don't I don't know why you thought that was what I wanted to do.</p>
+<cite>Peter:</cite>
+<time>19:55</time>
+<p>Yeah. It didn't so much wrap itself in circles as just went off on a wild tangent. Yeah. Exactly.</p>
+<cite>Geoff:</cite>
+<time>20:01</time>
+<p>Yeah. Thankfully, the way they've integrated this is pretty easy to ignore, that it just kinda gives you some ghost code, and it shows up, and you can very easily ignore it. But, you know, sometimes it just does something so weird that you're like you just get to stop for a second and go, what?</p>
+<cite>Peter:</cite>
+<time>20:19</time>
+<p>Yeah. Yeah. If you think of it as a smart autocomplete tool, it's not too bad.</p>
+<cite>Geoff:</cite>
+<time>20:25</time>
+<p>Yeah. I I think that's all it's intended to be. And, you know, it it has all of the ups and downs that being a smart autocomplete that that's what we've known about on keyboard autocomplete for forever on iOS.</p>
+<cite>Peter:</cite>
+<time>20:37</time>
+<p>Yeah. Yeah. Right. Yeah. It's as good as that.</p>
+<cite>Peter:</cite>
+<time>20:40</time>
+<p>Let's put it that way, folks. Alright. Good luck with that. Yeah. But that is only step 1 of the plan for Xcode.</p>
+<cite>Peter:</cite>
+<time>20:47</time>
+<p>Right?</p>
+<cite>Geoff:</cite>
+<time>20:48</time>
+<p>Yeah. They announced at WWDC that they would have their own kind of chat adjacent tool called Swift Assist. And I don't know about you, but I haven't seen hide or hair of that since WWDC.</p>
+<cite>Peter:</cite>
+<time>21:03</time>
+<p>Nope. Nothing at all.</p>
+<cite>Geoff:</cite>
+<time>21:05</time>
+<p>Yeah. So I don't know that we we haven't had any announcements about it. We haven't had any you know, here's when you might expect to see it. Even, you know, Apple's talked about a lot of the Apple intelligence features that they've announced. And we start to see some of these coming with image playgrounds in 18.2 and those kinds of things.</p>
+<cite>Geoff:</cite>
+<time>21:23</time>
+<p>This one seems to just, not really be coming. So I I don't know when we expect to see that or if we expect to see it by next year or what. But, yeah, it'd be a nice to have, but as of right now, we're just kinda waiting for it to actually exist.</p>
+<cite>Peter:</cite>
+<time>21:40</time>
+<p>I think that there's there's 2 parts to the problem here, I think, for Apple. You know, firstly okay. Depends on how you look at it. But in my opinion, you know, they were clearly delayed in their AI services in general, be it developer or consumer. Now we are starting to see them as you say and and so far I've been reasonably happy with them.</p>
+<cite>Peter:</cite>
+<time>22:08</time>
+<p>But I think the problem is with the developer one, you know, this is what happens when Apple announces stuff way back in June. And then we sit here on this promise for the rest of the year. And here we are almost getting ready to start talking about the next conference, and we still don't have what was supposed to be here this time around. And in the meantime, everybody else has I I was gonna say caught them up. But I think from the get go, everybody else had already surpassed him.</p>
+<cite>Peter:</cite>
+<time>22:44</time>
+<p>And I I wonder if part of the reason, understandably, is they've not released them because they've looked at it and said, you know, our our stuff's just not good enough. But the problem with that is, well, if you hadn't told us about it in the first place and and it just turned up at some point, we would have been more impressed than the promise the empty promise of a year of waiting. Right?</p>
+<cite>Geoff:</cite>
+<time>23:07</time>
+<p>Yeah. And if they're delaying it because it's not good enough, you know, it's not like everybody else has stopped.</p>
+<cite>Peter:</cite>
+<time>23:14</time>
+<p>Yeah. Exactly. Right? You know? And and it's not like everybody else has got it perfect.</p>
+<cite>Peter:</cite>
+<time>23:19</time>
+<p>So at this point, kind of maybe put it out there and not beg for forgiveness, but just say, hey. Here it is. Just get You know?</p>
+<cite>Geoff:</cite>
+<time>23:27</time>
+<p>Get it out there and iterate.</p>
+<cite>Peter:</cite>
+<time>23:28</time>
+<p>You know? Yeah. At least that's that's how it feels to me. I I've sort of I don't wanna say given up waiting for it. You know, it's like, yeah, I'll try it out when it gets here, if it gets here.</p>
+<cite>Peter:</cite>
+<time>23:40</time>
+<p>But in the meantime, there are other routes that I think are probably working better than this unreleased stuff unless it's truly stunning. I I I can't see how it could be based on the mixed reviews of the services that are out there now for consumers, which arguably are gonna be used a lot more. Right?</p>
+<cite>Geoff:</cite>
+<time>24:01</time>
+<p>Mhmm. Absolutely. So then on the far other end of the spectrum, we have these fully developer centric IDEs. And I haven't really worked with any of those, but I know you have. And I know that the one that you've interacted with the most is called Cursor.</p>
+<cite>Geoff:</cite>
+<time>24:15</time>
+<p>We'll have a link to that in the show notes as well. Why don't you tell me a little bit about your experiences with Cursor, what you've used it for, what you've liked, what you haven't liked? Just tell me, everything about it.</p>
+<cite>Peter:</cite>
+<time>24:27</time>
+<p>Yeah. So I'm gonna go down 2 different tracks here for 2 different tests that I've done. We'll put links in the show notes. I did them on a live stream because I wanted I wanted everybody to see it as it happened and thankfully there was also some folks in the chat room that had used Cursor before that were able to give me some pointers. Now let's start with what is Cursor.</p>
+<cite>Peter:</cite>
+<time>24:51</time>
+<p>So Cursor is essentially Visual Studio Code with some extra smarts on top is is how I would describe it. So if you're familiar with Visual Studio Code, you're already most of the way there. Right? I did a couple of experiments that went along the same lines for 2 different I would say 2 radically different projects. And what I wanted to do was just hand it over to the tool and say, I'm gonna do exactly what you're gonna tell me to do.</p>
+<cite>Peter:</cite>
+<time>25:24</time>
+<p>This seemed like the best way to go about this. So the two examples, one was a web app using React and the other one was to build a iOS SwiftUI app. So let's talk about the the React one. The way it goes is like this. Right?</p>
+<cite>Peter:</cite>
+<time>25:44</time>
+<p>I had an empty IDE, essentially, and a chat window. And in the chat window, you describe what you want. Now you can be as verbose as you wanna be and I do recommend that or you can build it up in sections. The way that I went about this was I'm gonna give it an overview of everything I want this app to do. In the case of the web app.</p>
+<cite>Peter:</cite>
+<time>26:10</time>
+<p>Right? I went along the lines of something like I want to build a web based application using Node, React, Tailwind CSS, MySQL, and TypeScript. I want the application to have a registration screen that uses email and password. I want it to have a profile screen where I can change my password. And I want to have a home screen essentially after I've logged in.</p>
+<cite>Peter:</cite>
+<time>26:43</time>
+<p>Plus the ability to, you know, usual crud. Right? You know, delete the profile and so on. And that was it. And at that point, I just hit return.</p>
+<cite>Peter:</cite>
+<time>26:53</time>
+<p>It goes away and thinks about it for a minute. It was pretty quick, I gotta say. And it comes back and says, okay. Look. Here's a series of tasks I think you need to perform to make this happen.</p>
+<cite>Peter:</cite>
+<time>27:08</time>
+<p>And it's very much working through the tasks and saying, yep. Go ahead and do this one. For example, let's let's take my this my SQL section. It says, okay. You need to create a database and it shows me the SQL and I'm like, yep.</p>
+<cite>Peter:</cite>
+<time>27:26</time>
+<p>Go ahead. Do that. And it creates, you know, along with the table. It runs that for me, creates that, and then it says, okay. You know, now you need to be able to hook up to that database.</p>
+<cite>Peter:</cite>
+<time>27:36</time>
+<p>So it'll show me some connection code and I'll say, yeah. Go ahead. Do that. It'll create a new file with all the connection code and any prompts for things like, you know, passwords and things like that that I got to put in. In this case, it took the sensible approach of environment variables.</p>
+<cite>Peter:</cite>
+<time>27:53</time>
+<p>Right? So there was that. And then you save these files. And you go through this process of creating a series of files based on each of the parts. And it fully explains to you what it's doing.</p>
+<cite>Peter:</cite>
+<time>28:08</time>
+<p>So if you don't know, you know, what what's going on here, you can learn from that. The reason I chose this one was I already knew how to do these things, and I wanted to see how well its suggestions matched up with the way that I would have done this. Now at the end of it, you're gonna go through however many tasks for, you know, what you're trying to create, and at the end it'll say something like, okay, you know, now go ahead and and run the app. Right? In this case, there was a server part for the node and there was a client part for the for the React side.</p>
+<cite>Peter:</cite>
+<time>28:49</time>
+<p>So I just run them both and sure enough, hey, it popped up in the browser and, life was not good. The reason being is it's kind of user error a little bit in that I had not set, a password on my my SQL if I remember rightly. You go back to the chat box. Again, I wanted to hand it all over to the machine. I told it what the problem was and you can tell it, you know, here's the problem and it'll go away and analyze all the files in your project to give itself context, and then suggest a solution.</p>
+<cite>Peter:</cite>
+<time>29:29</time>
+<p>And sure enough it comes back and says, ah, yes. I see the problem. It literally says, ah, yes. I see the problem. It's trying to be friendly.</p>
+<cite>Peter:</cite>
+<time>29:37</time>
+<p>Suggest a solution. Again, you can say go ahead and do that. Run it again. Great. Everything's working now.</p>
+<cite>Peter:</cite>
+<time>29:44</time>
+<p>That was the the basics of the web app. Right? Now the only pre requirements is I did have to have Node installed on my SQL, MySQL. Right? Stands to reason.</p>
+<cite>Peter:</cite>
+<time>29:55</time>
+<p>So that was track number 1. Pretty pretty straightforward stuff there. Right? In the next stream, I wanted to challenge it further because this is, you know, I was like, well, this this thing's not gonna be able to do this. Right?</p>
+<cite>Peter:</cite>
+<time>30:07</time>
+<p>So I opened up an Xcode, new empty Xcode project, went to the app and said, I wanna create a swift UI application that has a list view with an entry form with various fields. I want to be able to edit a record. I want to be able to, you know, display the list of records, see the details when I tap on 1 and that was pretty much it. And the only other thing I said was I wanted to use swift data, which I thought for sure was gonna catch it out. Same process, it goes through and says, okay, Here's what we're gonna do.</p>
+<cite>Peter:</cite>
+<time>30:46</time>
+<p>Series of tasks. Go through and perform those. It creates a series of switch files inside my Xcode project. I screwed up. It was my fault.</p>
+<cite>Peter:</cite>
+<time>30:55</time>
+<p>It was putting me in the long wrong location. I should have set that up beforehand. That's on me. But, sure enough, the files that it created were were fine. Right?</p>
+<cite>Peter:</cite>
+<time>31:07</time>
+<p>The first thing it did was it created the model, a nice model for me. So if you've not done Swift data, this was a great way to see how to create a model in Swift data. And then it created the list view. It created the, you know, the for loop in there to to make the list. It created the tap event for well, actually the navigation, I should say, for the details view.</p>
+<cite>Peter:</cite>
+<time>31:32</time>
+<p>On the details view, I could actually edit in the screen. Go back. It would automatically save because it's swift data And I even as a bonus, it gave me swipe to delete, and it just worked. So, you know, at this point, I was like, well, that was a lot better than I expected. And and I know you were there to see, to see this on the stream, and I, you know, I didn't do anything in between.</p>
+<cite>Peter:</cite>
+<time>32:01</time>
+<p>I literally just let it do its thing. And like I say, the mistakes some of the mistakes there were were human error for sure. I I had, you know, learned, okay, point it to the right folder next time, and so you don't have to move files. That was like the basic experience. And there's a part 2 that I'll I'll get into in a second, but I I wanna pause here for any comments or questions from you since you saw this happen.</p>
+<cite>Geoff:</cite>
+<time>32:25</time>
+<p>No. I mean, I saw the full initial thing, and it was a little weird that it didn't really catch up all of the things that you had already set up with regards to the MTX code project. But once you had that working, it did basically do everything that it said. Just kinda you just copy and pasted 4 different files, and it's like, yep. Here's your entire app.</p>
+<cite>Geoff:</cite>
+<time>32:47</time>
+<p>It's done. Yeah. And, you know, is it exactly the code I would have written? No. Not at all.</p>
+<cite>Geoff:</cite>
+<time>32:53</time>
+<p>But it took the machine 30 seconds when it would have taken me probably close to 30 minutes. So, definitely something that is a huge kick start to a project like this.</p>
+<cite>Peter:</cite>
+<time>33:06</time>
+<p>Yeah. That is a very important point. That was one of my takeaways that I mentioned on the stream was, okay, it's not done anything I couldn't do myself. But it has done it significantly quicker than I would because hey, I gotta type the code out and it didn't. Right?</p>
+<cite>Peter:</cite>
+<time>33:25</time>
+<p>So it is a great time saving tool for the base sort of base plate, you know, mundane code to get you started And and I agree with you, you know, some of it was like, well, I might not have done it that way. But it got me a running app that I can now start working with significantly quicker. That was the good part. Alright? Now this is where things got interesting because I wanted to one of the specific things I wanted to do was to challenge it with adding a new feature.</p>
+<cite>Peter:</cite>
+<time>33:59</time>
+<p>I wanted to add this feature where basically there was a screen with a text field, a rich text editor. And you can put text in, that gets stored with it, and you can have it associated with one of the pre existing records. So I described it again what I wanted it to do. I felt I described it pretty good and sure enough, you know, it analyzed all the files and said, okay, look here's a bunch of changes we need to make. Created a new model, right, for for this new piece of data and then also created a bunch of files and made changes to the existing ones, which is important because on the one hand, you wanted to update the existing ones.</p>
+<cite>Peter:</cite>
+<time>34:47</time>
+<p>Like for example, adding, you know, the models to the container in in the startup of the app and things like that, but it started to generate errors. Now having been there before when I did the web app, I wasn't too concerned because I knew that the best way to go about this is, yes, I could probably solve them myself, but to trust in the system. And so I would tell in the chat box, I'd I would literally say, hey, in this file or when I was building, I got this error or couple of times I got this crash, right, when it was trying to run. It would go through and and almost would you say it almost felt a little bit smug about the way it was like, oh, yeah. I see the problem.</p>
+<cite>Peter:</cite>
+<time>35:34</time>
+<p>Right? And and and I think I was even saying to the screen, no. No. No. No.</p>
+<cite>Peter:</cite>
+<time>35:39</time>
+<p>You created this problem, not me. Yeah. And so it made suggestions to fix the problem. Again, was like, alright. We're gonna go with this.</p>
+<cite>Peter:</cite>
+<time>35:49</time>
+<p>Trust in the system. And I started going down and everything was fine at first. It was building, but there was some issues. So I would read describe again some of the things that weren't quite right. But then at that point, we got so far down a rabbit hole of trying to fix these problems that it felt like I was getting caught in a loop and going around solving one thing that generated something else that then broke the first thing that then fixed the first one, broke the second one.</p>
+<cite>Peter:</cite>
+<time>36:19</time>
+<p>And and it started to feel like that after about 30 minutes. Was that your impression as she was watching it, or do you think it was just me?</p>
+<cite>Geoff:</cite>
+<time>36:27</time>
+<p>I I I I think that that was at the point where I saw that it was going in circles, and I had other things to do, and so I dropped off at that point. So I was like, oh, okay. This doesn't look good. I don't know what I'm gonna be able to do to help. Let me, I I got other things that I have to catch up on.</p>
+<cite>Geoff:</cite>
+<time>36:43</time>
+<p>So, I did unfortunately miss the the resolution of all of this. Okay. But yeah. Yeah. I definitely saw where you started to get into a point where you were editing files, and it was, like, reediting them, and you kinda got into a thing where it's, like, hang on.</p>
+<cite>Geoff:</cite>
+<time>36:59</time>
+<p>We've been here before. Yeah. And, and and so, yeah, I I missed what happened after that. I missed if you ever actually got out of this circle. But, yeah.</p>
+<cite>Geoff:</cite>
+<time>37:08</time>
+<p>I I did catch you getting to, the rut.</p>
+<cite>Peter:</cite>
+<time>37:12</time>
+<p>Alright. So spoiler alert, we did not get out of the circle. If you had come back about, I don't know, 40 minutes later, we were just in a different party. It's like like in England for American drivers when you get on the roundabout and you can't figure out how to get off. You know?</p>
+<cite>Peter:</cite>
+<time>37:31</time>
+<p>It we did not solve the problem. But I think the takeaway lesson there, discussing it with the chat room, was if you start with kind of a monolithic, you know, description to build the app and do that and then try to add features, it's not necessarily gonna go great for you. So that is a that is a mark against, this particular Which is</p>
+<cite>Geoff:</cite>
+<time>37:57</time>
+<p>weird because it seems like that's what these tools are kind of built for. It's needing having the knowledge of your code base as it is.</p>
+<cite>Peter:</cite>
+<time>38:05</time>
+<p>Yes.</p>
+<cite>Geoff:</cite>
+<time>38:06</time>
+<p>So it's so it's surprising to hear that. And I know that I've seen again, we're gonna go back to friend of the show Mhmm. Adam Wolf. I know that I've seen on his streams where he is taking his existing code base, which is huge. He's got a very large code base</p>
+<cite>Peter:</cite>
+<time>38:20</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>38:21</time>
+<p>And been using stuff like Cursor for that and being and using it to add features, and it seems to mostly work fine for him. So I'm I'm a little bit surprised, and I I wonder how representative either of your experiences are, honestly. Like, I'm not gonna just say, like, oh, yeah. Peter's clearly doing it wrong. But Yeah.</p>
+<cite>Geoff:</cite>
+<time>38:42</time>
+<p>I I I also, like you know, is Adam's project as it exists in a setup where it just works better for some reason? Is it the fact that you were, like you say, using the latest and greatest solely to, kind of trip it up? You you said that you were trying to do that with having it use Swift data</p>
+<cite>Peter:</cite>
+<time>39:03</time>
+<p>Yeah.</p>
+<cite>Geoff:</cite>
+<time>39:04</time>
+<p>Versus Adam's code base is several years old, and he may be running into problems that, or sorry. He may not be running into problems that you were running into with trying to have the latest and greatest, that the the LLM just doesn't know enough about, oh, yeah. You can't really do this with Swift data.</p>
+<cite>Peter:</cite>
+<time>39:22</time>
+<p>Yeah. I think it's a bit of both because I my my takeaway after I sort of thought about it the next day was, yeah. You know, okay. First of all, yes, of course, ultimately, the the AI is drawing from his experiences. So he's only gonna know as much as the data is out there.</p>
+<cite>Peter:</cite>
+<time>39:42</time>
+<p>So as far as, like, referring to swift data, that's a possibility. And I also think on the flip side, the more it has to draw from in your code base, the better your chances, which is a bit of a weird situation to be in because here you are with the tool that you're trying to use to build an app to, you know, expand the code base to add the features. Yet at the same time, if it can't help you add the features at the beginning, how much is it gonna help you later on? And I think I think that's the weird position we're in with a lot of this stuff at the moment. And I think that that's why I was sort of, you know, when we were talking about, you know, the stuff that they're going to put in Xcode 16 earlier was, yeah, it's only going to be as good as its input.</p>
+<cite>Peter:</cite>
+<time>40:33</time>
+<p>Right? And so I want to say that I don't think that's the definitive experience that I had. I I think given that this was only the second time I had used it, which is important to point out because that that this is also where I wanted to come from was, hey, I've never used this. If I was, you know, a developer because you let me say this. You should be a developer if you're gonna use, like, this tool.</p>
+<cite>Peter:</cite>
+<time>41:03</time>
+<p>You you gotta know what it's doing. Right? Because you've gotta get yourself out of these holes. Because I was thinking, well, this should be a great tool to take one of my existing apps and say, hey, I want to add this new feature, which was this exact scenario and it it didn't do so well, which does leave you questioning. Okay, how useful is it?</p>
+<cite>Peter:</cite>
+<time>41:25</time>
+<p>Right? But I'm gonna give it give it a passing grade on on both of my tests because it certainly did way better than I thought it was gonna do. That's good.</p>
+<cite>Geoff:</cite>
+<time>41:39</time>
+<p>Yeah. It's definitely good to hear. Yeah.</p>
+<cite>Peter:</cite>
+<time>41:41</time>
+<p>Yeah. Now I do wanna point out, though, there there are some things that some folks in the chat room pointed out. I'm not familiar with them, so I don't wanna dive into them here. I might look into it, but it's not integrated in any way with Xcode. It is literally dumping files in your Xcode project.</p>
+<cite>Peter:</cite>
+<time>41:57</time>
+<p>I bet you'd say that. Yeah. Yeah. And so so for example, as someone said, you know, an Xcode project file, you know, as much as we don't understand them, it knows even less.</p>
+<cite>Geoff:</cite>
+<time>42:08</time>
+<p>I do actually find that surprising because it's not like there's a dearth of Xcode project files out there on GitHub or whatever that I'm I I actually am a little bit surprised that these tools don't understand Xcode project files, maybe even better than Xcode does.</p>
+<cite>Peter:</cite>
+<time>42:25</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>42:26</time>
+<p>And, you know, one of the things that I was hoping that, an LLM could do is, you know, you you're everybody's familiar with this, where, oh, I've done a git merge, and now my Xcode file's broken, and now I've gotta figure out what exactly is wrong with my Xcode project file. Like, I feel like an LLM should be pretty smart at, like, here's my Xcode project file. Find what's wrong and fix it. I mean That seems like the kind of thing that it should know, and to have the experience that, no. Actually, these tools are just as confused by Xcode project files as we are seems counterintuitive to my understanding about how LLMs are</p>
+<cite>Peter:</cite>
+<time>43:03</time>
+<p>designed. I'm sure I do not know what you mean. I have never experienced a merge problem with Xcode project files. Sure. If if that was a problem, there'd be some other tools out there that would generate Xcode project files or some crazy world like that.</p>
+<cite>Peter:</cite>
+<time>43:19</time>
+<p>Exactly. Yeah. No. You're right. Right?</p>
+<cite>Peter:</cite>
+<time>43:23</time>
+<p>I feel like it should at least have a basic understanding. There's there's no serious magic in any of these files. And maybe further down the road it will be interesting to see if the Apple's version of this understands project files. Right? Definitely.</p>
+<cite>Peter:</cite>
+<time>43:41</time>
+<p>That that would probably be their most outstanding feature if it did. But that was basically over 2, streams. So I'm gonna guess about maybe 4 hours. That was my experience with it and and I'm gonna say, in my opinion, this is a tool worth thinking about.</p>
+<cite>Geoff:</cite>
+<time>44:02</time>
+<p>Or at least a category of tools worth thinking</p>
+<cite>Peter:</cite>
+<time>44:04</time>
+<p>about. Sure. Absolutely. Let's be fair. And so yeah.</p>
+<cite>Peter:</cite>
+<time>44:07</time>
+<p>Because I, you know, I I know there's some others that we're gonna sort of touch on. At at the end of the day, yeah, that's a better way to put it. These are tools that if you use them to help you, you're gonna go a long way with it. Hey folks, if you like what you're hearing in this podcast and you want to help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter. You can go to patreon.comforward/compileswift, where you will get ad free versions of the podcast along with other content.</p>
+<cite>Geoff:</cite>
+<time>44:42</time>
+<p>Because I I know definitely I I've looked at it a couple times, and my like, I've never actually used it. I've never even gone as far as downloading it.</p>
+<cite>Peter:</cite>
+<time>44:50</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>44:52</time>
+<p>My concerns about Cursor are not the concerns about what makes Cursor Cursor. My concerns about Cursor are the history that it has with Versus Code and my experiences with Versus Code.</p>
+<cite>Peter:</cite>
+<time>45:04</time>
+<p>Yeah. Oh, sure. So Yeah.</p>
+<cite>Geoff:</cite>
+<time>45:06</time>
+<p>I I know that I've used that in the past, and I used to love it. And now I no longer love it. And so it's it's more like, what if I could have the cursor things in a project or in a in a environment that I actually liked to use?</p>
+<cite>Peter:</cite>
+<time>45:20</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>45:21</time>
+<p>Segway.</p>
+<cite>Peter:</cite>
+<time>45:24</time>
+<p>Beautifully done.</p>
+<cite>Geoff:</cite>
+<time>45:25</time>
+<p>Yeah. Professionally done, Sigmund. Last week, at their annual conference, GitHub announced that they were doing their own version of taking over, I I it's not quite clear to me, the GitHub Copilot for Xcode plug in. Now this existed before, and I hadn't used it at that point. It now is an official GitHub project.</p>
+<cite>Geoff:</cite>
+<time>45:49</time>
+<p>It is now part of the GitHub organization on GitHub. That that's confusing to say. It's at github.com/github. But this is now kind of a official from GitHub's end integration between Xcode and Copilot. Mhmm.</p>
+<cite>Geoff:</cite>
+<time>46:06</time>
+<p>And it uses some questionable hacks to make it work because Xcode doesn't have a great plugin system. So it it is definitely being a little bit, tricky in order to get to do what it does. I haven't used this yet. I'm pretty sure you also have not used this yet.</p>
+<cite>Peter:</cite>
+<time>46:26</time>
+<p>Correct. I haven't used this yet. And you touched on right there the one concern to me is well, many concerns. But the the the most immediate one is because of the restrictions in the Xcode plug in system, how much can this or any tool that tries to integrate with Xcode really do?</p>
+<cite>Geoff:</cite>
+<time>46:47</time>
+<p>Yep. I I do think this is something that I will look into because I think it is interesting, and it kind of gets around the issues that I have with Versus Code as an editor in allowing me to use Xcode instead. So it might be interesting. I kind of prefer the quad ecosystem rather than the OpenAI ecosystem, and obviously, this isn't really integrated with that yet being that it's coming from Microsoft and all of their integration with OpenAI.</p>
+<cite>Peter:</cite>
+<time>47:11</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>47:12</time>
+<p>But, I hope that we will see that eventually. GitHub seems to have been more open to pairing with other model providers. And</p>
+<cite>Peter:</cite>
+<time>47:20</time>
+<p>Yep.</p>
+<cite>Geoff:</cite>
+<time>47:20</time>
+<p>So I I'm I'm hoping that we see something like that in the future where it begins to work with things other than OpenAI's models. And I think that could be another interesting alternative to a tool like Cursor.</p>
+<cite>Peter:</cite>
+<time>47:32</time>
+<p>You know, one go back I I should have added here just as a note for Cursor. You can choose among many different, engines. I was using Claude, which is the one it has by default, but there is, at the very bottom of the screen, a drop down. Well, click it and it's a drop down. So you can choose your engine of choice.</p>
+<cite>Peter:</cite>
+<time>47:54</time>
+<p>Yeah.</p>
+<cite>Geoff:</cite>
+<time>47:55</time>
+<p>Yeah. Yeah. That that is one thing that I think, I like about Cursor more than what we currently have with Copilot for Xcode.</p>
+<cite>Peter:</cite>
+<time>48:02</time>
+<p>Yeah. Yeah. I'm I'm eager to see you try that one out. I think I'm gonna gonna sit and watch watch the train go by on that one and and just ride along with you as opposed to diving in. Yeah.</p>
+<cite>Geoff:</cite>
+<time>48:14</time>
+<p>Yeah. I I I should try that out in the future, and maybe we'll do a quick follow-up on,</p>
+<cite>Peter:</cite>
+<time>48:19</time>
+<p>the</p>
+<cite>Geoff:</cite>
+<time>48:19</time>
+<p>beginning of one of these episodes.</p>
+<cite>Peter:</cite>
+<time>48:21</time>
+<p>Yeah. I I'm sure there are some folks out there that are like, gosh. How many episodes is are they gonna do on CompileSwift on AI? But the the fact is this is a this is a a thing. Right?</p>
+<cite>Peter:</cite>
+<time>48:32</time>
+<p>I mean, it's a it's a big thing. It's only gonna get bigger and and it's important to stay on top and at least be aware even if you have no intention of using any of these things. You should at least be aware of what's happening like I always say on, you know, around you as far as tools, services, and and approaches. And this is this is for sure an important one. So, you know, AI, I'm afraid, it's been around a while.</p>
+<cite>Peter:</cite>
+<time>49:00</time>
+<p>We've all heard about it in many different contexts. It's not just for developer tools and you don't have to use specific developer tools, you know, as far as AI goes. There are other areas where this is important, arguably more important in some ways depending on your perspective than helping you write your code. And you actually have a a couple of really good examples where you did, well, you typed into the machine for me, I guess, is the way to to do it. But it is it's useful for marketing and and other things, but you have a couple of, I think, really good use cases.</p>
+<cite>Peter:</cite>
+<time>49:42</time>
+<p>So you wanna go ahead and dive into those?</p>
+<cite>Geoff:</cite>
+<time>49:44</time>
+<p>I think what you're referring to is the icons for your apps, job finder tracker and endless hurdles. And those were both icons that I did using Midjourney. And kinda starting with a prompt in Midjourney and kinda discussing my way through it and using a lot of midjourney's tools to kinda tweak the way into it looking the way that you want it to. I think Jobfinder Tracker was done kind of early in midjourney's experience, and you can kinda see it if you look at it a little bit. It's like, oh, yeah.</p>
+<cite>Geoff:</cite>
+<time>50:14</time>
+<p>This definitely has some of the weird AI shenanigans around it. Yeah. Whereas endless hurdles, I think, came later, and they had built more of their tools. And so you can kind of, you know, erase parts of it and say, well, hang on. This doesn't look right.</p>
+<cite>Geoff:</cite>
+<time>50:28</time>
+<p>This this is not how a fence looks. This is not how a hurdle looks. And and let's let's build something that looks a little bit better. So that one's a little bit cleaner in terms of what it does. And so this is a case where if you want an app icon and you can't afford a true designer who's gonna build something custom for you, and you don't have the skills to do it yourself, this is something that gets you a, you know, 80% good enough experience with an app icon so that you can actually just have something out there.</p>
+<cite>Geoff:</cite>
+<time>50:58</time>
+<p>You can have an app that looks good on the App Store and get you started on your road to being a developer.</p>
+<cite>Peter:</cite>
+<time>51:05</time>
+<p>Oh, I agree. Like, the endless hurdles one, when you did that one and I saw it, it was an instant, like, oh my god. Yes. Because it's it's not something I would have thought of, and I certainly couldn't have done it anywhere near as well. And and I I just love that one.</p>
+<cite>Peter:</cite>
+<time>51:24</time>
+<p>You know, it's one of those just like, yeah, I just want this to be the icon forever. You know? Yep. Yeah. You you're right about the job finder tracker.</p>
+<cite>Peter:</cite>
+<time>51:32</time>
+<p>It it's appropriate for what it is, but it like you say, it does feel like, you know, maybe revisit this some sometime.</p>
+<cite>Geoff:</cite>
+<time>51:41</time>
+<p>Mhmm.</p>
+<cite>Peter:</cite>
+<time>51:41</time>
+<p>But but either way, I think the important point here is, you know, sometimes we we think, like, oh, the icon or screenshots are gonna be easy, and they end up being the hardest thing. Right?</p>
+<cite>Geoff:</cite>
+<time>51:53</time>
+<p>Oh, yeah. Absolutely.</p>
+<cite>Peter:</cite>
+<time>51:54</time>
+<p>Yeah. Because you had the freedom of choice of doing anything. And I know, you know, having having seen you go through and do screenshots, for example, it's like, yeah. You can take these any direction you want and that's the problem. Mhmm.</p>
+<cite>Peter:</cite>
+<time>52:08</time>
+<p>Right? Yeah.</p>
+<cite>Geoff:</cite>
+<time>52:09</time>
+<p>Yeah. Absolutely. Yeah. And that that kinda go ahead.</p>
+<cite>Peter:</cite>
+<time>52:12</time>
+<p>I was just gonna say, it's also useful, you know, for the marketing material. Right? You can, you know, like, okay. I can describe on a piece of paper or screen what I think it should say, but I can't necessarily make it sound right, and I can use these tools to play with that.</p>
+<cite>Geoff:</cite>
+<time>52:30</time>
+<p>Yeah. Definitely. And that's kinda where I've done with some of the marketing for my most recent app, Bark, is I've definitely I didn't have it generate anything because, oh, man, the stuff it generates on its own is bad. Mhmm. And it was funny because I did have it do that once, and I was like I I literally said to the LLM, like, this seems like one of those really tacky Saturday infomercials where it was like the the the black and white video of you, like, have you ever done this?</p>
+<cite>Geoff:</cite>
+<time>53:00</time>
+<p>Yeah. It was it was it was just super tacky. So, yeah, definitely don't trust them with, yeah, let's just go generate a marketing thing from scratch. But what I did find is, similar to what I was discussing at the very beginning of this episode, is being able to kind of pair market with it and say, I want to do this. Like, what are the kinds of things that I should be thinking about?</p>
+<cite>Geoff:</cite>
+<time>53:24</time>
+<p>What are the aspects of marketing that I need to cover? What are the bare minimum? Here is my budget. Here is my, you know, limited resources. Here is what I've got.</p>
+<cite>Geoff:</cite>
+<time>53:35</time>
+<p>What are my priorities? What should I be focused on? What should I really do with you know, what are the kinds of things that I I should be tackling and in what order. And with that, it does a lot better job. It it's good at kind of coming up with outlines for you to fill in on your own.</p>
+<cite>Geoff:</cite>
+<time>53:53</time>
+<p>If you do something on your own, it is very good at judging you. You can kinda sit here and say, like, oh, here, for example, is the App Store description that I've written. And it'll go, well, hey. You probably wanna mention this. You probably wanna mention that.</p>
+<cite>Geoff:</cite>
+<time>54:11</time>
+<p>Here's what you should do to sell your subscription a little harder. Here's what you should do to do this. And I found it to be a lot better at that. Don't let it go off on its own and generate stuff for you because it it sounds very LLM driven, very, very tacky. And you're you've you've all seen, like, things that are clearly written by chat gbt.</p>
+<cite>Peter:</cite>
+<time>54:31</time>
+<p>I was gonna say</p>
+<cite>Geoff:</cite>
+<time>54:31</time>
+<p>A 100%. Yeah.</p>
+<cite>Peter:</cite>
+<time>54:33</time>
+<p>Yeah. At this point, I think we've all seen enough on on many different things to to you know, it's like, yeah. We can we can spot them now. Right? You</p>
+<cite>Geoff:</cite>
+<time>54:42</time>
+<p>know? Whereas bringing something that you've had and you've created on your own and having it not even have it touch it up, but more have it have it critique you, have it coach you, have it tell you where you need to patch things up. And, of course, you also have the ability to tell it no. Like,</p>
+<cite>Peter:</cite>
+<time>55:00</time>
+<p>you don't</p>
+<cite>Geoff:</cite>
+<time>55:01</time>
+<p>I don't wanna do this. I don't wanna do, say this. I don't wanna become too scammy sounding. I don't wanna become too market y. But having it kind of give you tips and pointers, I found that to be really useful in helping with my app marketing.</p>
+<cite>Peter:</cite>
+<time>55:16</time>
+<p>You know, it's interesting because I have been playing around with the with Apple's AI services, you know, the text services that you can now get in The</p>
+<cite>Geoff:</cite>
+<time>55:25</time>
+<p>writing tools?</p>
+<cite>Peter:</cite>
+<time>55:26</time>
+<p>Yeah. Exactly. And I'm not sure how I feel about them. They sort of walk that line between this sounds unnatural, you know. And and so it's interesting that you mentioned that.</p>
+<cite>Peter:</cite>
+<time>55:40</time>
+<p>Yeah. Yeah. There there is definitely I think the takeaway from this episode is look, folks. There's a lot of tools out there that can help you perform whatever task you need to do, and that's how you should look at this. I do think, in my own opinion, that is how you're gonna get the most out of these.</p>
+<cite>Peter:</cite>
+<time>56:00</time>
+<p>You know, be it code in applications or, like we say, the marketing materials, the designs, all of those kind of things. You know, that is definitely use these as an assistant, like like I said earlier, pair programming, pair whatever, critique, you know, all of those kind of things. That's gonna be the path to to, I think, your greatest success on this. Right?</p>
+<cite>Geoff:</cite>
+<time>56:23</time>
+<p>Absolutely. Alright, Peter. I think that's it for today's episode. Where can everybody find you?</p>
+<cite>Peter:</cite>
+<time>56:29</time>
+<p>You can find me in person, not AI.</p>
+<cite>Geoff:</cite>
+<time>56:32</time>
+<p>Oh my god.</p>
+<cite>Peter:</cite>
+<time>56:33</time>
+<p>Yeah. I know. Terrible. You can find me, at peterwithamm.com, and you can find this podcast and that at compileswift.com.</p>
+<cite>Geoff:</cite>
+<time>56:40</time>
+<p>And I am I at cocoatype.com and cocoatype on every social media that you can think of in the world. There's always new ones.</p>
+<cite>Peter:</cite>
+<time>56:48</time>
+<p>Alright, folks. Rest assured, we won't be replacing ourselves with with AI as hosts anytime soon. The the ridiculous crazy comments that you hear are naturally us and not a mission. Alright? Yep.</p>
+<cite>Peter:</cite>
+<time>57:02</time>
+<p>That's it folks. See you in the next episode.</p>
+</details>
