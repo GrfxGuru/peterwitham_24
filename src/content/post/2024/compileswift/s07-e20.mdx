@@ -1,0 +1,457 @@
+---
+publishDate: 2024-11-24T00:00:00Z
+title: Swift on the Server with Hummingbird
+excerpt: In this episode we sit down and discuss Swift on the server with a focus on Hummingbird.
+image: /images/blog-fi/2024/11-24.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+  - web-development
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e20
+---
+
+import Player from '../../../../components/podcasts/cs-player.mdx';
+import CSLinks from '../../../../components/podcasts/cs-links.astro';
+
+<iframe
+  width="100%"
+  height="180"
+  frameborder="no"
+  scrolling="no"
+  seamless=""
+  src="https://share.transistor.fm/e/93da68b7"
+></iframe>
+
+<Player />
+
+<CSLinks
+  link1="https://www.compileswift.com/podcast/s06e12/"
+  link1label="Interview episode"
+  link2="https://vapor.codes/"
+  link2label="Vapor"
+  link3="https://hummingbird.codes/"
+  link3label="Hummingbird"
+  link4="https://peterwitham.com/cmm"
+  link4label="Clean my Mac"
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+#### Transcription
+
+<cite>Peter:</cite>
+<time>00:02</time>
+<p>What's up everybody? Welcome to the Compile Swift Podcast. We have another special episode here for you. We're gonna focus on some server side rules today, but first of all, Geoff, how are you doing?</p>
+<cite>Geoff:</cite>
+<time>00:14</time>
+<p>Yeah. I got a new release of my app out, actually earlier than I expected it to. I accidentally clicked the checkbox or left the checkbox on that was go ahead and roll out the app as soon as it's available. And it went out, and I didn't expect it to go out. So everybody's gonna get the, like, social media push a couple days late.</p>
+<cite>Geoff:</cite>
+<time>00:34</time>
+<p>But, you know, hey, it's not like anybody reads release notes anyway. Right?</p>
+<cite>Peter:</cite>
+<time>00:40</time>
+<p>Right. Right. And and did you have one of those moments where you're like, oh, wait. Dang. Did I did I publish everything on the back end?</p>
+<cite>Peter:</cite>
+<time>00:47</time>
+<p>Is you know, did I take it all?</p>
+<cite>Geoff:</cite>
+<time>00:49</time>
+<p>Thankfully, there was no back end needed required. But, yeah, I was actually Sweet. At lunch with a friend of mine, and he's like, oh, hey. I saw the new update was out. And I was like, oh, you you I think you're on my test flight.</p>
+<cite>Geoff:</cite>
+<time>00:59</time>
+<p>You asked me in the test flight build. And he's like, no. That's that's not what I mean. And Oh. Yeah.</p>
+<cite>Geoff:</cite>
+<time>01:03</time>
+<p>Sure enough, we looked in the App Store and yeah. No. It was in the App Store. So whoops. But, hey.</p>
+<cite>Geoff:</cite>
+<time>01:10</time>
+<p>You know what? It's not the end of the world. You know, I I didn't didn't get to do my last minute testing that I wanted to do. Didn't get to, have my release notes up and ready to go. Didn't have, you know, social media stuff pushed, but it it you know, people will get that on the day that it's supposed to be released, which is tomorrow as I record.</p>
+<cite>Geoff:</cite>
+<time>01:31</time>
+<p>And, just, you know, I can always follow-up any bugs that I didn't catch later. So I was just gonna say not the ideal way to go, but it it could've been worse.</p>
+<cite>Peter:</cite>
+<time>01:41</time>
+<p>Well, it's funny because, you know, you can't complain about these things. Because if you used to complain, right, quite rightly, Apple folks would be like, look, you folks, you complain when the app review is too long, so we speed things up for you. And now you're complaining that we do it efficiently. Which one do you want? Right?</p>
+<cite>Geoff:</cite>
+<time>01:59</time>
+<p>No. I I the app review, like, that was exactly why I submitted it early. It's like I want the app review out. I want it to be ready to go, and then I take my time after app review to get everything ready to go. And the entire problem was just that Apple has this checkbox there to say, once it's ready, let me click it, or once it's ready, go ahead and put it out on your own.</p>
+<cite>Geoff:</cite>
+<time>02:22</time>
+<p>And I just apparently had it set to go ahead and roll it out automatically, and that was not what I wanted. But, hey. That's I just need to be able to double check that better next time.</p>
+<cite>Peter:</cite>
+<time>02:35</time>
+<p>Totally get it because I never as far as I can recall, which is quite a while now, I have never done an automatic release. I I'm just too afraid of it being at an awkward moment. You know? I think what happened was the last release before that may</p>
+<cite>Geoff:</cite>
+<time>02:52</time>
+<p>have been, like, a big bug fix release, and I wanted that one out as soon as possible. And then I just did not set the, the checkbox back is what happened, I believe. Yeah. Because, the release prior to this 24 dot 5 was, the fix for Apple Watch Sync and for Apple Wallet export not working with a particular set of barcodes. And so I was like, oh, crap.</p>
+<cite>Geoff:</cite>
+<time>03:22</time>
+<p>You know? Apple Wallet was like this big thing, and then I'm gonna ship it, and then everybody's gonna be like, well, it doesn't work with this barcode. Like so I wanted to get a fix out as fast as I possibly could. And so I submitted it to Apple, did the expedited review, and had the checkbox on that go ahead and ship it immediately as soon as it's done because, you know, if I'm submitted this and then I go to bed and Yeah. It's the middle of the night, I don't want people to have to wait an extra 8 hours or whatever.</p>
+<cite>Geoff:</cite>
+<time>03:50</time>
+<p>So, yeah, that one rolled out whenever it was available. And, unfortunately, it remembers what your preferences was, and that was not what I wanted this time.</p>
+<cite>Peter:</cite>
+<time>03:58</time>
+<p>See, it's funny because as you're saying that, I I was just asking myself, you know, am I am I happy that it remembers or not? And, honestly, I don't know. Yeah. Yeah.</p>
+<cite>Geoff:</cite>
+<time>04:10</time>
+<p>I I guess it's one</p>
+<cite>Peter:</cite>
+<time>04:11</time>
+<p>of those times where it's like, no. I think I'd rather be defaulted to the safest option. But then, I bet there's plenty of people out there that are like, just just ship the darn thing. Alright. Okay.</p>
+<cite>Peter:</cite>
+<time>04:24</time>
+<p>Let's get into this. So, we are covering a topic. We've covered this before on the podcast many times, and I wanna give sorry? You've covered it. I'm trying to be inclusive.</p>
+<cite>Geoff:</cite>
+<time>04:38</time>
+<p>Yeah.</p>
+<cite>Peter:</cite>
+<time>04:39</time>
+<p>Yeah. I'm I'm thinking about your feelings, you know.</p>
+<cite>Geoff:</cite>
+<time>04:42</time>
+<p>Perfect.</p>
+<cite>Peter:</cite>
+<time>04:43</time>
+<p>First time ever. Right? It's like, really? Now is the moment you choose to do that? Yeah.</p>
+<cite>Peter:</cite>
+<time>04:48</time>
+<p>Really? Yeah. So we've had, you know, Janis on the show before. We'll put a link in the show notes to this from the Hummingbird, project. And, yes, we are talking about switch on the server.</p>
+<cite>Peter:</cite>
+<time>05:02</time>
+<p>We are gonna primarily focus on Hummingbird, in this episode. However, I'm sure many of you out there will be screaming, what about this? What about vapor? What about that? Yes.</p>
+<cite>Peter:</cite>
+<time>05:14</time>
+<p>And and a lot of those have been covered before and, of course, there are many options, But, we have our reasons for focusing on this one. Primarily, Geoff has been using this. So let's let's dive into this here. But like I say, we'll put a link in the show notes, to where everything like we usually do. But there is this episode with Janis where I'm talking about the Swift server group as well.</p>
+<cite>Peter:</cite>
+<time>05:34</time>
+<p>A lot of push behind that project, but let's dive in here. You know, let's start at the beginning, Geoff. So you are actually using this in production. Right? And I think that's really important to folks because we all do this as developers.</p>
+<cite>Peter:</cite>
+<time>05:47</time>
+<p>We play with things. Right? But you're going up that whole other level when you're like, okay. It's in production now. So, you wanna talk about that?</p>
+<cite>Geoff:</cite>
+<time>05:56</time>
+<p>Yeah. So I'm actually running a couple different services in production right now. I have a mix of both Vapor Services and Hummingbird, and we'll get into the difference between those two projects in a bit. But, yeah, my, by far, most used one is in Hummingbird. That is that is the most recent one that I've done, and it is used by my, most recent app, Bark.</p>
+<cite>Geoff:</cite>
+<time>06:22</time>
+<p>And so it is seeing a lot more use than any of the vapor services are themselves. But, yeah, I've been I've been running both of these in production for a while now, and I think I have some, opinions on how they've worked and how they've been, done and kind of the benefits and drawbacks to each of them. So</p>
+<cite>Peter:</cite>
+<time>06:46</time>
+<p>Well, I think, you know, the first natural question and this always comes up and and to be fair, this is one that that I ask myself quite often too, which is why use Swift on the server at all? Now this is a difficult one to answer, I think, because it it falls in that bucket like why use anything at all on a server. Right? Replace it with language x and I don't mean that social media website. You know, there's yeah.</p>
+<cite>Peter:</cite>
+<time>07:14</time>
+<p>You got a million options available to you on the web. Personally, I have not shipped anything with Swift, not because there's anything against it, but, you know, I'm I'm just so used to all those other web languages having a web background to begin with. So let's dive in and talk about, you know, that that primary question, why use Swift at all on the server?</p>
+<cite>Geoff:</cite>
+<time>07:39</time>
+<p>I mean, I think I'm gonna give the easiest possible answer upfront, and that is it's personal preference. I am the only person who has to work on this, and therefore, what I say goes. And therefore, I'm choosing this particular option over any of the other options that I have.</p>
+<cite>Peter:</cite>
+<time>07:56</time>
+<p>So I'm gonna jump in there because, you know, this is something a lot of folks, you know, we all know this, Internet people. Right? Oh, you should use x. Why are you using y? You've hit on, I think, the key argument for just about everything right there.</p>
+<cite>Peter:</cite>
+<time>08:11</time>
+<p>If you're the one maintaining it and you're the one that's building it and you're the one with the knowledge of Swift in this case, there is no wrong answer for whatever you choose. And I I just want to jump in there and point that out because I'm sure it'll come up. Right? There there there are those people on the Internet. But I think that that is the perfect answer for so many things as to why use this at all for whatever.</p>
+<cite>Peter:</cite>
+<time>08:36</time>
+<p>So thank you for putting that out there folks. Right? You know, you go with what you're comfortable with. Simple as that. Don't listen to other people.</p>
+<cite>Peter:</cite>
+<time>08:44</time>
+<p>Right? What's up everybody? I wanna tell you about clean my Mac by Macport. Now I have been using this for years. So many years that I don't even remember at this point.</p>
+<cite>Peter:</cite>
+<time>08:56</time>
+<p>But if you're a Mac user and you don't have this tool, trust me, you need it. So let me tell you what you can do with this. Now, when I open up the application, not only is the UI absolutely gorgeous, but I run SmartCare and all I got to do is open the app, click on SmartCare and hit the scan button. Now, when I do that, what's gonna happen it's gonna analyze my system and it's gonna go through and it's gonna look for junk. It's gonna check to make sure that I don't have any malware or anything like that on my Mac.</p>
+<cite>Peter:</cite>
+<time>09:30</time>
+<p>It's gonna run some performance checks. It's gonna go through and check for application updates and then it's also gonna give me the option to look at what I would call the clutter on my machine, kind of my files, right? The stuff that that I put there and I'm not kidding you, every time I run this and I run this at least once a week, it will find at least a couple of gigs worth of junk files to clean out. And all I gotta do is to tell it go ahead and run and it'll clean out the junk files. The other day when I ran it, it found 6 gig of files and believe me when I tell you I am meticulous about keeping junk off of my machine and it will just find this stuff splattered all over different folders and then it'll run the performance checks like I say and it'll just look and see if there's anything that it thinks needs to be done.</p>
+<cite>Peter:</cite>
+<time>10:25</time>
+<p>It'll let me know about any app updates and I can just have it update them for me. Now on top of that, there are other tabs. There's the cleanup tab and it'll go in there and you can tell it to do various cleanup operations for you. Again, it's gonna run an analysis. As developers, we all know about Xcode and how much space it takes up, but you will be amazed about the amount of files that can build up and caches over time that you just don't think about and you know, they just don't clean themselves up very well and again, it'll go through there and save me gigabytes of space.</p>
+<cite>Peter:</cite>
+<time>11:04</time>
+<p>It's absolutely unbelievable. The performance tab is fantastic. It'll run things like flushing the DNS for me and it'll run the maintenance scripts. It'll check disk permissions for issues there and all of those things to give you every ounce of performance out of your machine. And if all of this sounds good to you and it should if you're a Mac user, like I say, I consider this like one of my first installs.</p>
+<cite>Peter:</cite>
+<time>11:28</time>
+<p>You can go to petawhidham.comforward/cmm and that's gonna jump you to the right spot where you can go in and you can try out Clean My Mac. You'll get a 7 day free trial. Personally, like I say, every time they bring out a new version, it's an instant upgrade for me. So again, go to peterwedham.comforward/ cmm and get started with Clean My Mac today.</p>
+<cite>Geoff:</cite>
+<time>11:55</time>
+<p>Yep. Yeah. And so what I'll give is the reasons behind some of this personal preference, but again, I am not out here selling that Swift is the one best way to do web back end services because the answer is there is not one best way. It all comes down to benefits and trade offs and and all of that. And you ultimately have to use what you or your team or your company are comfortable with, and what you're doing for that versus the trade offs that you would see versus using a different language.</p>
+<cite>Geoff:</cite>
+<time>12:33</time>
+<p>And so I'm gonna tell you what I like about Swift on the server. But, again, these are there's a lot of different projects out there. There's a lot of different things that you could do out there, and it's ultimately gonna come down to your own calculus as to what you actually use. One of the things that I really like about Swift on the server versus, some of the more popular languages out there for server side back end stuff is the existence of a compiler. We have a lot of the web tools out there are interpreted tools, whether that's JavaScript or Python, and there are some languages out there that are upfront compiled.</p>
+<cite>Geoff:</cite>
+<time>13:12</time>
+<p>So you've got Rust is obviously the big hot new thing these days.</p>
+<cite>Peter:</cite>
+<time>13:16</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>13:16</time>
+<p>And Golang is a little bit, more, it it's not quite as up and coming as Rust is, but it's definitely around there as well. Another project that is very similar to that. And having a compiler allows for better performance overall, because everything's compiled ahead of time. It's not being interpreted, and it allows you to have a bunch of stuff that is caught earlier in the code base. So you don't have to actually run all of your code.</p>
+<cite>Geoff:</cite>
+<time>13:48</time>
+<p>You don't have to write a bunch of tests just to make sure that simple stuff like, oh, this variable doesn't actually exist. You know?</p>
+<cite>Peter:</cite>
+<time>13:56</time>
+<p>You</p>
+<cite>Geoff:</cite>
+<time>13:56</time>
+<p>get a lot of that kind of stuff, quote unquote, for free.</p>
+<cite>Peter:</cite>
+<time>14:00</time>
+<p>And security too.</p>
+<cite>Geoff:</cite>
+<time>14:02</time>
+<p>Yeah. And so I I like the, benefits of compiled languages there. And again, like I said, there's a lot of compiled languages that you can also use. So that's just one thing that I like about Swift, and and obviously with that you get all of the benefits of the Swift compiler with all of the type safety, and all of the new concurrency safety stuff that you have in Swift 6, that kind of thing, that all of the things that the Swift compiler helps you with for your client side code, it can also help you with for your server side code. So compiler, that's the main thing that that I love there.</p>
+<cite>Geoff:</cite>
+<time>14:39</time>
+<p>The other thing I I know a lot of people are gonna think about, and I I have not found this quite as useful as you might think ahead of time, but it's still worth mentioning, is the limited potential to share code across code bases. And I have found a little bit of that possible in my tools. You can make Swift packages that are just regular raw Swift packages and share them between the two services. And I would say that with that, you get kind of this sliding scale of how well you can actually share your code.</p>
+<cite>Peter:</cite>
+<time>15:15</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>15:15</time>
+<p>And so models, if you just have, like, a struct that's got codable conformance, it's pretty easy to share. You just have a whole library that is just your models that all conform to codable. It works exactly the same on server versus on your client. Use that code directly in both places. Your business logic, so this would be your controller in an MVC world or your view model in an MVVM world.</p>
+<cite>Geoff:</cite>
+<time>15:41</time>
+<p>Those are dependent on kinda how tightly you couple with the system, but there is some of that there. I have a SVG. Well, I have an image rendering portion to my server that is run on both the server and the client, and I have it going basically to a intermediate level of saying, like, this is what is represented in this image. And from there, I then split that apart between server and client. But it does get me a decent chunk of the way there, and that is something that I can share across these two libraries.</p>
+<cite>Geoff:</cite>
+<time>16:20</time>
+<p>And then, obviously, the end result of an image rendering, that's your view. That's what's being displayed. That's not happening. There's not a whole lot of sharing of code view wise between SwiftUI and Swift on the server.</p>
+<cite>Peter:</cite>
+<time>16:33</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>16:33</time>
+<p>So, yeah. Like I said, models, super easy. Business logic, meh. And then views, it's just not gonna happen. That's true of a lot of these kinds of shared code things.</p>
+<cite>Geoff:</cite>
+<time>16:46</time>
+<p>So if you're sharing code between a Rust project, for example, I feel like a lot of the same sort of stuff is gonna happen. The one contrast would be JavaScript. You have server side rendering versus client side rendering. You can actually share a lot of those codes depending on the framework that you're using. If you're using something like React, for example, I know that you totally can share Vue code across the 2.</p>
+<cite>Geoff:</cite>
+<time>17:06</time>
+<p>But, a lot of the projects are gonna be more similar to what Swift does, where, yeah, it's it's back end type stuff that is easily shareable between the 2.</p>
+<cite>Peter:</cite>
+<time>17:16</time>
+<p>Yeah. I mean, you're you know, you're in the Swift environment. Right? And so, therefore, naturally, you're gonna be using a lot of the techniques and skills and, you know, different architecture ways that we are used to using in Swift is going to apply here. Right?</p>
+<cite>Peter:</cite>
+<time>17:33</time>
+<p>And so like you say, you know, I think it's fair to say there are some things that don't translate across to the server side quite as well as they would with other languages, but that's kind of by design, I think. Right? For me, when I think about, like, Swift on the server, my brain automatically goes to APIs first, for example.</p>
+<cite>Geoff:</cite>
+<time>17:55</time>
+<p>And yeah. And so I I think you you hit on something there, which is, does using Swift on the server make sense at all if you're not already in the Swift ecosystem? And I would say there's benefits, and they're the same benefits that you get from the Swift compiler as a whole, but ultimately, I don't know that I would choose Swift on the server as my default given I don't use Swift anywhere else. It's more just, hey, I'm familiar with this language. I know the ins and outs of this language.</p>
+<cite>Geoff:</cite>
+<time>18:27</time>
+<p>I know some of the quirks and oddities, and so I'm much more comfortable with that than, say, Rust, which I know very little to nothing about. I'm not gonna pick up that whole language just to use it on my server. I don't think that I would if I were not somebody who is already familiar with Swift, I don't know that I would do the same thing with Swift on the server. I would not pick up Swift just for server type stuff.</p>
+<cite>Peter:</cite>
+<time>18:53</time>
+<p>I do agree with that and I'd throw in there as well if, you know, because we get asked this question a lot. If you're someone who's like, hey, I I don't know anything about Swift and I wanna get into Swift, I wouldn't start with the server side Swift as a way to kind of your gateway into learning Swift. I I would recommend that you go and start building apps client side first. Learn those techniques. And the reason I say that is, yes, whichever one you do, you you are learning Swift.</p>
+<cite>Peter:</cite>
+<time>19:28</time>
+<p>No no question there. But I think that you learn some disciplines and certain ways of doing things from client side, but, I don't know. You may disagree.</p>
+<cite>Geoff:</cite>
+<time>19:39</time>
+<p>You do have one nice benefit with Swift on the server that you don't have with apps per se is that you can start learning Swift on the server without having a Mac, and that is something that that is really a limitation to, being able to build, say, an iOS or a Mac app. That being said, I would still suggest that even if that's part of what you're trying to learn there, I would still start with command line tools, something simple. You know, I'm generating a bunch of text or I'm making an API request, I'm doing something else with that. I would start there rather than hopping straight into Swift on the server even if you are wanting to start building Swift and learning Swift without having a Mac. You can get into doing Swift on Linux for a bunch of other cool stuff and then build on the server on top of that once you're more familiar with the language as a whole.</p>
+<cite>Geoff:</cite>
+<time>20:36</time>
+<p>And then, yeah, if you ultimately obviously wanna get into iOS apps or Mac apps, you're gonna need a Mac in order to do that development on. But, I I think that, yeah, there are ways to get started with Swift on Linux that are not hopping straight to running web servers.</p>
+<cite>Peter:</cite>
+<time>20:52</time>
+<p>Alright. Okay. Fair point. Yeah. Okay.</p>
+<cite>Peter:</cite>
+<time>20:55</time>
+<p>Yeah. Folks, I'm not saying run out and buy a Mac. Just start learning Swift that way. The and and, actually, we'll touch on this more when we get to, you know, setting this thing up. But, since you've raised it there, a key thing to note in in what Geoff said there is yeah.</p>
+<cite>Peter:</cite>
+<time>21:13</time>
+<p>Right? You can run this on Linux. Right? In fact, arguably one of the best ways server side to do this. You know, again, there are folks out there who are always surprised to learn that Swift is not just an Apple, OS based language.</p>
+<cite>Peter:</cite>
+<time>21:31</time>
+<p>Yes. You can run it on Windows and absolutely you can run this on Linux as well. And I do agree with you, for example, Swift scripting. Hey, great way to get into it from the terminal. Right?</p>
+<cite>Peter:</cite>
+<time>21:45</time>
+<p>You you definitely don't have to be on a Mac for that. Yeah.</p>
+<cite>Geoff:</cite>
+<time>21:48</time>
+<p>So yeah. Peter, do you wanna talk a little bit about what the, options are out there as far as Swift on the server projects? I know there are kinda 2 big projects out there. You mentioned them already. Do you wanna kinda go into the differences between them?</p>
+<cite>Peter:</cite>
+<time>22:03</time>
+<p>Yeah. Sure. So, there are the the 2 big ones that I think, you know, certainly the most well known are Vapor and Hummingbird. Again, I think I'm I'm trying to recall. I don't think I've done an episode on Vapor but we have certainly covered Hummingbird with some of the Swift Server group before.</p>
+<cite>Peter:</cite>
+<time>22:24</time>
+<p>Vapor is the one that has been around I'm gonna say the longest of these 2 and I'll explain why in a second. So therefore, you know, both of these have good communities. Arguably, Vapor has a bigger community, which is always important with these things just because it's been around longer and and certainly it's the most well known although I think that's changing now. It is definitely a very opinionated very structured, way of doing things. We I would say, with Vapour, the approach is you are gonna do it the way they want you to.</p>
+<cite>Peter:</cite>
+<time>23:03</time>
+<p>That's it. Right? And I'm not saying that's a bad thing, but you are definitely gonna have to follow the rules.</p>
+<cite>Geoff:</cite>
+<time>23:11</time>
+<p>Right? It definitely gives you more structure to build on. I I think that is the the nice way of putting that, which is Yeah. Yeah. It is very strongly opinionated, as you say, but strong opinions mean constraints, and constraints make it easy to build in some sense.</p>
+<cite>Geoff:</cite>
+<time>23:26</time>
+<p>So, yeah. Both the benefit and the the downside to being much more opinionated.</p>
+<cite>Peter:</cite>
+<time>23:32</time>
+<p>Yeah. Absolutely. Vapor is, I would say, an easier one. Like I say, it's got obviously, because it's been around longer, it's a massive amount of documentation out there. There are examples, I would say, of just about any, style of app that you think you might want to build.</p>
+<cite>Peter:</cite>
+<time>23:52</time>
+<p>I'm I'm willing to bet there's a code example out there. Right? To best of my knowledge as well, you know, Vapor is 1 depending on how how you want to do this, you can just run it natively. You can just install we'll get into the installing process but you can install it on your machine or your server. And other options, of course, you can, you know, there are pre built Docker images, if I remember rightly, that you can just spin up and, hey, away you go.</p>
+<cite>Peter:</cite>
+<time>24:21</time>
+<p>Right? So you've got those as options as well, plus different, you know, custom ways and but you're gonna find a lot out there on that. Now talking about Hummingbird, Hummingbird is on version 2 now. It is Hummingbird, from what I can remember talking with Janis is, you know, Hummingbird is very much inspired by Vapor. And in fact, I know from what he was saying, the 2 groups work closely together.</p>
+<cite>Peter:</cite>
+<time>24:50</time>
+<p>Right? It's not like they're in competition here. They they they they borrow and learn from each other. So, you know, whichever one you go with, you are definitely getting into an ecosystem. And just like so many things, I will mention this quickly, on the Swift side, there's there's no competition here.</p>
+<cite>Peter:</cite>
+<time>25:10</time>
+<p>There's just a willingness on both sides to see both projects succeed because they benefit from each other. Right? But Hummingbird has, in my opinion, really nice documentation, great explanations and walkthroughs for getting started. Now I will say that, you know, you should definitely have at least a basic understanding and of Swift. And what I mean by that is you don't have to have anything fancy.</p>
+<cite>Peter:</cite>
+<time>25:40</time>
+<p>Right? But you're gonna see a lot of code on both of these thrown at you very quickly. Take your time, but Hummingbird has great series of tutorials. There are examples. They do, you know, the classic to do example, which, hey, at least you're doing an app that we're all familiar with.</p>
+<cite>Peter:</cite>
+<time>25:58</time>
+<p>Right? It's like the one up from the the hello world. Hummingbird version 2 supports, and and actually draws from quite heavily. Right? Swift, concurrency.</p>
+<cite>Peter:</cite>
+<time>26:11</time>
+<p>So Swift 6, for example, right, where, you know, concurrency is the word of the day, right? And, yes, I know it's been around for a while in that but they definitely draw heavily from there. So you're getting all of the the nice features from the more recent versions of Swift as well, but that's kind of the primarily, the breakdown of both of them. Now either one is exceptionally good in in my opinion. Like I said, we're gonna talk we've we've discussed Hummingbird in this one because that's what we're focusing on, but you are gonna have a great experience with either of these.</p>
+<cite>Peter:</cite>
+<time>26:47</time>
+<p>But, Geoff is there anything you wanna throw in there?</p>
+<cite>Geoff:</cite>
+<time>26:49</time>
+<p>No. Like you said, this they're both great at their job of being a Swift web server. It really is it it really does come down to whether you like the more structure heavy paradigm of something like Vapor, or whether you prefer the more bring your own architecture style of design that Hummingbird has. And really both have their fan bases, and so they both work great. Another thing that is great about these two tools kinda bill being built on a similar foundation is there's a lot of libraries out there, and they a lot of them really do work with both.</p>
+<cite>Geoff:</cite>
+<time>27:26</time>
+<p>They can both talk to these databases through the same ORM, Fluent, and they just have a very similar way of communicating with those. They both have their own HTML templating library. Vapor has its own kinda more swifty type one. Hummingbird has one that's based on a more open standard called mustache. They both have their own authentication libraries.</p>
+<cite>Geoff:</cite>
+<time>27:49</time>
+<p>There's a wide set of libraries available that you can use with either one of these frameworks that are just built for Swift in general. I know there's some, like, a MongoDB library that you could just straight up use with either one, and it doesn't have a preference to either or the other.</p>
+<cite>Peter:</cite>
+<time>28:07</time>
+<p>So Yeah.</p>
+<cite>Geoff:</cite>
+<time>28:08</time>
+<p>Both of these communities work very well together, and I think that that's a, great for both of them. I I I'm happy to see that there are 2 vibrant ecosystems out there building tools for Swift on the server.</p>
+<cite>Peter:</cite>
+<time>28:21</time>
+<p>Alright. Here it is. The one thing that I cannot do without every day, and that is my coffee. Anyone that knows me or anyone that's listened to any of my podcasts or anything else knows that I absolutely cannot operate without my coffee, and I love good coffee. So here's the deal.</p>
+<cite>Peter:</cite>
+<time>28:38</time>
+<p>I'm gonna give you one free bag of coffee by going to peterwidham.comforward/coffee. There is a wonderful company out there that follows the fair trade practices, helps out a lot of independent roasters of all sizes, and the operation is simple. What you do is you're gonna go to to peterwhidham.comforward/coffee. You sign up there. You get a free bag of coffee sent to you, yes, in return.</p>
+<cite>Peter:</cite>
+<time>29:06</time>
+<p>They say thank you to me by giving me some coffee, but that's not the reason I'm doing this. The reason I'm doing this is because I have found so many good coffees that I just would never have come across, heard about or experienced without this service. Trade coffee is just fantastic. You know, there are plenty of places out there. We all know them that supply coffee, good coffee.</p>
+<cite>Peter:</cite>
+<time>29:32</time>
+<p>You can go to the store, get the coffee. But there is nothing better than discovering new independent roasters and supporting them, discovering new flavors of coffee, new grinds for You can set it up. It's very smart. You tell it the kind of coffee you like and over time it gets better and better as it trains in on your selections and your choices and gives you exactly the coffee you're looking for and recommending new ones that that will be very similar. Every time I get a new packet of coffee, I go through and afterwards I try the coffee, I go through the service and I say, look, I loved this coffee.</p>
+<cite>Peter:</cite>
+<time>30:09</time>
+<p>I thought this coffee was okay or I say, look, I've This was really not for me. And every time I do that, it makes the service a little more accurate on the next selection for me. So again, just go to peterwhidham.comforward/coffee. Get your free bag of coffee today. If you're a coffee lover, you're gonna really appreciate this service.</p>
+<cite>Peter:</cite>
+<time>30:28</time>
+<p>I have been using it for years at this point and thoroughly recommend it. So for example, Hummingbird, if you go to the the website, and of course we'll put links in the show notes, but hummingbird dot codes, there's an ecosystem tab and they list on there a lot of official extensions that they have in there. Just to, you know, give you a couple of examples. Right? Some of these should be familiar, but should also make you feel comfortable.</p>
+<cite>Peter:</cite>
+<time>30:54</time>
+<p>So, WebSockets. Right, Redis, you know, those are in there. Like you mentioned, there's a fluent ORM, covers many databases. I would say arguably, in my opinion, all of the common ones that you're likely to want to use or certainly encounter in production, and there's some others that we'll talk about later but there's plenty of support in there and of course packages as well. Yes, that exists on Vapor.</p>
+<cite>Peter:</cite>
+<time>31:24</time>
+<p>I'm mentioning it in particular on Hummingbird because I think they do a good job at highlighting lots of key areas for anybody with a web developer background. You're gonna feel comfortable pretty quickly. Okay. So let's talk about how you install and get these set up. We're gonna we're gonna jump in here.</p>
+<cite>Peter:</cite>
+<time>31:43</time>
+<p>Again, we're gonna sort of do a comparison between the 2. We're not favoring either one. We just want to give you an experience of, what it's like to set both of these up. So, Geoff, go for it.</p>
+<cite>Geoff:</cite>
+<time>31:53</time>
+<p>Yeah. And I I think both of these, their install process goes very much towards their kind of philosophies as a whole. And so, yeah, we'll we'll see it as as, I describe them. So Vapor has this command line tool. It's literally just called Vapor, and you install that tool on macOS.</p>
+<cite>Geoff:</cite>
+<time>32:11</time>
+<p>People are gonna be well familiar with this. It's just brew install Vapor. On Linux, if you're building from Linux, you actually have to build it from source, but it seems like it's fairly simple. You just git checkout and run make install. And, if you are running on Linux and you don't want to have to deal with the make install stuff, you can also have a Docker image, and that Docker image, you would just pull it down.</p>
+<cite>Geoff:</cite>
+<time>32:35</time>
+<p>You can start building inside the Docker dev container, and it just already has Vapor installed. So that's another option whether you're I'm it is running in Linux, whether you're running Docker, the host on macOS or on Linux, that is another option there to have it all self contained. And from there, you have your tool installed, and you can kinda just run Vapor new, and that walks you through this, like, command line wizard tool, and it says, do you what do you wanna name this? What, are you building? Do you need a database connection?</p>
+<cite>Geoff:</cite>
+<time>33:06</time>
+<p>Do you need HTML templating? Do you need all of these things? And it will generate a project for you, install all the proper libraries, and give you a project folder that you can go ahead and work with. And it's got all of the structure already built in, and it tells you, like, oh, here's where you're gonna add your controllers, here's where you're gonna do whatever, and has a whole project ready for you. With Hummingbird, on the other hand, you have just a simple library, and you are on your own to create your own Swift package project exactly the way that you would create any other Swift project, and then you just add the Hummingbird libraries that you need to that existing project.</p>
+<cite>Geoff:</cite>
+<time>33:48</time>
+<p>Alternatively, they do have a git project template that you can just pull down that project template and start from there. But, really, Hummingbird is simple enough that all you do is you create your Swift package project however you want to any other way, and then you just add the library that you need. And you're off and running with a hummingbird project.</p>
+<cite>Peter:</cite>
+<time>34:08</time>
+<p>Yeah. I I mean, definitely like this, you know, the Swift package manager, hopefully, by now, we're we're all feeling reasonably comfortable with it to a certain degree. And and that, obviously, with newer versions of Xcode, makes it a lot easier to manage as well. I think when I did it, I think I pulled down the template, if I remember rightly.</p>
+<cite>Geoff:</cite>
+<time>34:30</time>
+<p>Yeah. And and I think Vapor may, for one thing, predate Xcode's better handling of Swift package manager. But, additionally, Vapor also has a lot more individual libraries for handling a lot of smaller particular stuff. And so having that tool there is a lot more helpful for making sure that you have all of the libraries that you need. And so that's that's why Vapor has this tool, whereas Hummingbird is more just do whatever you want, fork it, grab it, do your project, project build.</p>
+<cite>Peter:</cite>
+<time>35:01</time>
+<p>Yeah. It really is a case of which whichever way you wanna go. Right? Whichever one you're more comfortable with. Again, as you, the developer, you make the decisions for you or, you know, discuss them with your team if you're a team.</p>
+<cite>Peter:</cite>
+<time>35:13</time>
+<p>For sure. Yeah. I would think though by the time you get to this install stage, you've probably made a pretty good evaluation of which one you wanna go with. However, if you have the time, hey, try them both. Right?</p>
+<cite>Geoff:</cite>
+<time>35:28</time>
+<p>Yeah. Absolutely.</p>
+<cite>Peter:</cite>
+<time>35:29</time>
+<p>I</p>
+<cite>Geoff:</cite>
+<time>35:29</time>
+<p>know. Yeah. I mean, it's it's down to, again, knowing what their philosophies are and knowing which you want between the 2. And then when you're ready to deploy the 2, both of them are really pretty similar. Hit build and run, and you've got a built executable.</p>
+<cite>Geoff:</cite>
+<time>35:46</time>
+<p>And you could literally just run that executable directly on a server if you want to. You're gonna need to install various Swift support things, but there's answers to how to do that out there on the web, how to install Swift. But the version that I find is much more useful is both of them include official Docker files that you can use to build a Docker image and then host that anywhere the Docker is supported, which is basically everywhere these days. So that's what I do with my own deploys is I just literally run a Docker build. The flags that are necessary for building for, Intel based systems, AMD 64 based systems, rather than the ARM systems that, everybody's developing on from the Mac.</p>
+<cite>Geoff:</cite>
+<time>36:35</time>
+<p>But other than that, you know, you build an AMD 64 image. You put that up on your server. You run it the way that you would run any normal Docker image, and, it just works.</p>
+<cite>Peter:</cite>
+<time>36:45</time>
+<p>And I I think that's important right there because for me, you know, my my brain switches modes and I start to become very concerned about security at that point. Right? And so, yeah, I like the Docker idea too in for me. And now okay. I get it folks.</p>
+<cite>Peter:</cite>
+<time>37:05</time>
+<p>You know, we always say understand what your code is doing. Right? But, for me, I feel more comfortable running a Docker image where hopefully, people a lot smarter than me have covered the bases as far as, security and, you know, good safety checks and all of those kind of things. Because for me, I wanna get on with the business of making the app or apps and not become a server admin. Right?</p>
+<cite>Peter:</cite>
+<time>37:35</time>
+<p>And and I'm not suggesting that you need to be a server admin to run either of these. I'm just saying why bring the heartache on yourself and all the pain and trouble. The other advantage with using something like a Docker image is, hey. It's super easy to run that locally before you ship it to production and and have an experience that should be predictable at that point. Right?</p>
+<cite>Geoff:</cite>
+<time>37:57</time>
+<p>And then one other thing worth calling out that I think is is a solid question kind of in the Deploy area is one thing that Hummingbird does have over vapor that may actually, push it for you one way or the other is Hummingbird does support running on AWS Lambda as a serverless system, and it does not appear as of this recording that there is really any even semi official support for doing that with vapor. Hummingbird has kind of, like, a a much quicker startup and and running than Hummingbird or sorry. Hummingbird has kind of a much quicker startup and get running than Vapor does. And so I think it is a little bit more suited to being run-in a serverless system. And so, yeah, they do have an official extension for running Hummingbird on Lambda, which does not exist on Vapor.</p>
+<cite>Geoff:</cite>
+<time>38:52</time>
+<p>So that is another option for having your service deployed.</p>
+<cite>Peter:</cite>
+<time>38:58</time>
+<p>Yeah. And I think that I mean, that pretty much covers it, really. The areas I just wanna sort of note for the listeners here. The areas we've not covered, sort of the middle ground, right, of well, how do I build my app and that, we purposefully decided not to dive too deeply there because at the end of the day, the answer is, well, it's Swift. You build it like you would with Swift.</p>
+<cite>Peter:</cite>
+<time>39:23</time>
+<p>Right? And we didn't want to, like, you know it's kind of like, and this is how you do this thing you already know how to do. Again, if you don't know how to do it, you know, hey, it's it can be a great introduction to Swift. But in between, all the middleware for your app is basically, put your Swift hat on, and away you go. Right?</p>
+<cite>Geoff:</cite>
+<time>39:45</time>
+<p>Absolutely. Yeah. And a lot of what you're doing is you're taking in and returning codable properties. And so if you're running something that's like a API, you're gonna take in a codable model. That's your request.</p>
+<cite>Geoff:</cite>
+<time>39:59</time>
+<p>You're gonna spit out a response. It's probably also a codable model. Each of these has ways of handling things like headers, you you wanna return a different header or you wanna respond differently based on the header, returning different status codes, that kind of thing. Both of them are very straightforward in how you handle that. So no real huge difference between the two there.</p>
+<cite>Peter:</cite>
+<time>40:21</time>
+<p>Okay. So I think we've covered the topic here. Don't know hey. You know, maybe there's gonna be future episodes here where we dive into some particular things, particular aspects or code discussion. But this is how you get up and running with with Swift on the server for sure.</p>
+<cite>Peter:</cite>
+<time>40:38</time>
+<p>Certainly something I think is worth your time looking at. Other than that folks, we've covered this here. Geoff closing thoughts, where can we find you?</p>
+<cite>Geoff:</cite>
+<time>40:48</time>
+<p>You can find me as always at cocoatype.com and cocoatype on all the socials.</p>
+<cite>Peter:</cite>
+<time>40:53</time>
+<p>Alright. And you can find me at peterwitham.com or compileswift.com and and all the socials. That's it folks. Speak to you next episode.</p>
+</details>
