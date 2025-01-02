@@ -1,0 +1,967 @@
+---
+publishDate: 2024-12-30T00:00:00Z
+title: 12 months of Apple
+excerpt: We take a look back at 2024 Apple notable events
+image: /images/blog-fi/2024/12-30.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+  - apple
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e22
+---
+
+import Player from '../../../../components/podcasts/cs-player.mdx';
+import CSLinks from '../../../../components/podcasts/cs-links.astro';
+
+<iframe
+  width="100%"
+  height="180"
+  frameborder="no"
+  scrolling="no"
+  seamless=""
+  src="https://share.transistor.fm/e/5f78e5c1"
+></iframe>
+
+<Player />
+
+Welcome to the Compile Swift Apple calendar. In our end-of-year wrap, we look back at 12 months of Apple.
+
+All the things you may or may not remember from the year, along with some personal milestones.
+
+On a personal note, we want to thank our Patrons and listeners for their support. You have helped keep the Podcast alive this year, and we look forward to sharing even more with you in 2025.
+
+<CSLinks
+  link1=""
+  link1label=""
+  link2=""
+  link2label=""
+  link3=""
+  link3label=""
+  link4=""
+  link4label=""
+  link5=""
+  link5label=""
+  link6=""
+  link6label=""
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+#### Transcription
+
+<cite>Peter:</cite>
+<time>00:02</time>
+<p>What's up, everybody? Welcome to another episode of the CompileSwift Podcast. This is a special one. We have wrapped up a gift for you at the end of the year, which will be some unwrapping. I know.</p>
+<cite>Peter:</cite>
+<time>00:13</time>
+<p>Tell us more about it, Geoff. How are you doing, buddy?</p>
+<cite>Geoff:</cite>
+<time>00:16</time>
+<p>Hey. I'm doing pretty good. Yeah. It's the end of the year. Like everybody else, we thought we'd do a kind of wrap up of the year.</p>
+<cite>Geoff:</cite>
+<time>00:21</time>
+<p>So we're gonna take kind of a developer focused, some personal focused look back at 2024 and see what did Apple do this year, what did the 2 of us do this year, what did we, as the podcast, do this year, and, just cover everything that happened and, you know, go back over some of the things we might have forgotten.</p>
+<cite>Peter:</cite>
+<time>00:42</time>
+<p>Yeah. I mean, clearly, people are tuning in because they care mostly about what we did, but we'll cover some other stuff.</p>
+<cite>Geoff:</cite>
+<time>00:47</time>
+<p>We're we're gonna cover everything in the Apple ecosystem, probably not too many things outside of the Apple ecosystem, but some of how it affected us as well. So</p>
+<cite>Peter:</cite>
+<time>00:56</time>
+<p>Yeah. We won't just Why don't we A spoiler alert, though. We won't be breaking down each of the beta releases this year.</p>
+<cite>Geoff:</cite>
+<time>01:05</time>
+<p>Definitely not. Alright. So let's get started where the year got started in January. We only had one big news story in January, and that was Apple's changes to iOS, Safari, the App Store, all of those things in the European Union. They announced that they were going to have alternative app marketplaces so you could have custom app stores.</p>
+<cite>Geoff:</cite>
+<time>01:25</time>
+<p>In doing that, they were gonna charge the core technology fee that was 50 €0 per install every year, basically, for for your app. They were also adding the Safari choice screen. So when you first launch Safari, it would go, hang on. Are you really sure you wanna use Safari? Would you rather use Chrome or Firefox or some other third party browser out there?</p>
+<cite>Geoff:</cite>
+<time>01:48</time>
+<p>They added a couple things to the OS to support that as well so that different browsers could do things similar to what Safari is able to do. And yeah. So definitely saw a couple of these things hit later in the year. But, really, it seems like the the big changes from that haven't really hit yet. What are your opinions?</p>
+<cite>Peter:</cite>
+<time>02:08</time>
+<p>Yeah. Well, you know, it's funny because, I guess it doesn't seem like it was all the way back in January. The the idea of alternative app stores became a reality to think about. I guess it just didn't seem that long ago. But I think you summed it up at the end there, which is, well, yeah, it's typical Apple thing.</p>
+<cite>Peter:</cite>
+<time>02:29</time>
+<p>Right? Announced in January and and still waiting for some.</p>
+<cite>Geoff:</cite>
+<time>02:33</time>
+<p>Yeah. It it it all came out with 17.4 later in the year. So it did take a while for it to actually happen. But as far as I understand, everything that they announced in January is now available. We just haven't seen a lot of uptick from it.</p>
+<cite>Geoff:</cite>
+<time>02:47</time>
+<p>Mhmm. I know we saw AltStore from the people who do Delta. That did get released eventually. And I believe I would need to go back and double check this. I believe Epic also did launch an alternative app store.</p>
+<cite>Peter:</cite>
+<time>03:02</time>
+<p>Yep. And I wanna say the set app one is in place for Mac, Paul. I think that's</p>
+<cite>Geoff:</cite>
+<time>03:08</time>
+<p>Interesting. Live.</p>
+<cite>Peter:</cite>
+<time>03:09</time>
+<p>Yeah. I'm not sure. Actually, I'll go I'll have to double check real time tracking. But I think I'm looking up.</p>
+<cite>Geoff:</cite>
+<time>03:16</time>
+<p>I think</p>
+<cite>Peter:</cite>
+<time>03:16</time>
+<p>it went live in Europe.</p>
+<cite>Geoff:</cite>
+<time>03:18</time>
+<p>Yeah. No. It did. Yeah. You're right.</p>
+<cite>Geoff:</cite>
+<time>03:19</time>
+<p>Yeah. So a couple different alternative app stores. I know we also saw at the time that there were several browsers that did end up in this browser choice screen. So Apple definitely allowed a lot of people to get into that. And so we have seen them.</p>
+<cite>Geoff:</cite>
+<time>03:33</time>
+<p>You know, neither of us are in the EU, so, no firsthand experience with any of these. But it does seem like it's it's been kind of a slow burn so far.</p>
+<cite>Peter:</cite>
+<time>03:41</time>
+<p>Yeah. Yeah. I think it's one of those that was actually, it's probably going the way Apple hoped it would. Right? A lot of Yeah.</p>
+<cite>Peter:</cite>
+<time>03:49</time>
+<p>Lot of hoorah at the beginning and then, like, oh, let's just let everybody get it off their chest and and then we'll stop talking about it. Yeah. Definitely that kind of thing.</p>
+<cite>Geoff:</cite>
+<time>04:00</time>
+<p>On to the next month of the year, we had February. We had a couple different things. On February 2nd, we had the Apple Vision Pro arriving in the US, the first place that it launched. And, it it definitely had people that bought it. That was about it.</p>
+<cite>Geoff:</cite>
+<time>04:16</time>
+<p>I also, at this point, launched my app, Kineo, for Vision Pro, and definitely was not the success that I was hoping that it was going to be. I enjoyed making it, but it it has definitely not been a big win for people using it. And so I've kind of slowed working on that project because of of how underwhelming of a launch it was. It does seem like the VisionPRO is still kind of waiting for a reason to exist, if it were. What are your thoughts?</p>
+<cite>Peter:</cite>
+<time>04:46</time>
+<p>Yeah. I'm I'm right there with you on this. I, you know, I mean, I was not expecting it to be all of the hoopla that perhaps everybody else thought it was gonna be including Apple. I I thought, oh, well, we'll get it. It'll be a solid piece of engineering that is meant for tomorrow not for today and I still feel that way about it.</p>
+<cite>Peter:</cite>
+<time>05:07</time>
+<p>I would say, though, I am disappointed that it really did. Like, here it is. And then literally, you know,</p>
+<cite>Geoff:</cite>
+<time>05:16</time>
+<p>you know post release support from Apple for it yet, and we're still kind of waiting on that. Vision OS 2 dot o, we'll talk about that later, but it wasn't a big deal, really. We've gotten a couple new things with later versions of that. It definitely seems like a lot of people are really excited about the ultrawide in Vision OS 2 dot 2, but still feels like Apple's a little bit behind even on their own in supporting this.</p>
+<cite>Peter:</cite>
+<time>05:43</time>
+<p>Yeah. You know, it's funny. I was, you know, I obviously, I was watching you, build in public on Kineo for for VisionPro, and I actually found that, fascinating because, you know, we got to discover way more from watching you build that version of the app than arguably just about anything else you could go look at because you hit some interesting issues that you arguably wouldn't have thought were gonna be issues. Right? We'll see.</p>
+<cite>Peter:</cite>
+<time>06:12</time>
+<p>We'll we'll see where it goes. I get it's hard. Right? It's a brand new product category still in the 1st year. Okay.</p>
+<cite>Peter:</cite>
+<time>06:19</time>
+<p>I will say that I think it was less impressive than the 1st year of the watch, which I think is saying something.</p>
+<cite>Geoff:</cite>
+<time>06:28</time>
+<p>I don't know. The watch, there was a lot more developer engagement with that, and I think that's definitely that kinda goes back to the January thing of, like, Apple, not necessarily having the greatest relationship with developers at this point. Mhmm. But how many of those 1st year watch apps are still around? Almost 0 of them.</p>
+<cite>Peter:</cite>
+<time>06:47</time>
+<p>Yeah. Good point.</p>
+<cite>Geoff:</cite>
+<time>06:48</time>
+<p>And so Yeah. I think that, yeah, we had a lot more engagement that 1st year, but they all kinda weren't good. And so Yeah. It definitely took the watch a a little while to to find its footing in the market. And that may be true with the Vision Pro as well, but I think we're still kinda waiting for Apple to decide what it is as well.</p>
+<cite>Peter:</cite>
+<time>07:11</time>
+<p>Yeah. The the Vision Pro needs its magic moment of some yet to be determined probably created app that really makes everybody go, oh, wait. I get it now. Right?</p>
+<cite>Geoff:</cite>
+<time>07:25</time>
+<p>Yeah. Agreed. Alright. And then on February 21st, Apple introduced a brand new app for iPhone, Apple Sports, which lets you, as a sports fan, find upcoming games for your favorite teams, your favorite leagues. Keeps track of scores for the day, allows you to look at that.</p>
+<cite>Geoff:</cite>
+<time>07:43</time>
+<p>I actually use this app a lot for the games that I'm interested in, and I see them, and I enjoy them. Honestly, pretty pretty solid app, I thought. Do you use this app at all?</p>
+<cite>Peter:</cite>
+<time>07:53</time>
+<p>I don't use it much. Not a not a huge sports person, but I have used it. And funny enough, I was gonna say you probably have used it a lot more than I ever will. So I was curious to see what you think of it. But I do I I feel like it was a solid release.</p>
+<cite>Peter:</cite>
+<time>08:08</time>
+<p>Right? It's it was the right thing. If if anything, this is one of those apps that's like, okay. Now I feel like everybody's got a really good reason to go to the App Store on the, Apple TV, you know. Yeah.</p>
+<cite>Geoff:</cite>
+<time>08:24</time>
+<p>No. Really really really solid app, in my mind. You know, it doesn't do a lot, but I kinda think that that's fine. It's really just, hey, when's the next game? What was the score of the last game?</p>
+<cite>Geoff:</cite>
+<time>08:37</time>
+<p>Show me the standings for the league, that kind of thing. Like, it it doesn't need to do a lot, and it does what it does pretty well and for free. So Well,</p>
+<cite>Peter:</cite>
+<time>08:44</time>
+<p>I think that's exactly why it's good, though. Right? It is what the sports fan wants. Give me easy access to find my teams, my sports, and give me a way to find easy data for whatever the conversation is, the argument that I'm having with the person next to me where I can look up</p>
+<cite>Geoff:</cite>
+<time>09:03</time>
+<p>stats. I think I think it's definitely what the casual sports fan wants. And that's Oh, for sure. Honestly, I consider that myself. Like, it it is not super in-depth.</p>
+<cite>Geoff:</cite>
+<time>09:11</time>
+<p>And the other thing that it does not have that I consider it a feature that it does not have this compared to every other sports app out there right now, no gambling statistics. Every other app is just filled with sports betting, and I I don't want that. I I don't want that in my app, and I praise Apple for not having that in their app.</p>
+<cite>Peter:</cite>
+<time>09:32</time>
+<p>Yeah. I I agree. Right? I mean, okay. You know, plenty of people want that.</p>
+<cite>Peter:</cite>
+<time>09:36</time>
+<p>There's plenty of apps out there for it, But I think it's a good example of Apple Apple being what I call the classic Apple and doing something right for I was gonna say for once, but doing something right from beginning to end. Right?</p>
+<cite>Geoff:</cite>
+<time>09:51</time>
+<p>And then on that exact same day, February 21st, we had a release of endless hurdles 1.3, including game center leaderboards. Yeah. How'd that go?</p>
+<cite>Peter:</cite>
+<time>10:01</time>
+<p>Yeah. So no gambling in that app either. But, you know, I felt it was nice that Apple released their sports app to bring attention to my to my game. Thank you Apple for that. That was that was a good release.</p>
+<cite>Peter:</cite>
+<time>10:13</time>
+<p>In fact, I would say for me, that was perhaps even better than the one o release because it had game center integration with leaderboard and that was something I thought was gonna make I don't I don't wanna say make all the difference, but, yeah, it was a key part that I thought would, you know, get that friendly competition in there would would get people playing and it did for a very short while. So I I guess I would call it a success. It was certainly a success from a technical standpoint. For those of you who who make games and you use Apple's technologies and Swift and so on, Game Center is a great very easy way to get a lot of useful services in there. Hey folks, if you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter.</p>
+<cite>Peter:</cite>
+<time>11:09</time>
+<p>You can go to patreon.comforward/compileswift, where you will get ad free versions of the podcast along with other content.</p>
+<cite>Geoff:</cite>
+<time>11:18</time>
+<p>Moving on to March. On March 4th, we had Apple unveiling the new 13 15 inch MacBook Airs using the m 3 chip that they introduced at the end of 20 23. Not a whole lot to say here. Basically, just a nice rev to the MacBook Airs putting the putting the new chip in them. That is still the, chip that they use to this day.</p>
+<cite>Geoff:</cite>
+<time>11:40</time>
+<p>I know we'll get later into them announcing some new chips, but MacBook, Air, they're still using the m threes.</p>
+<cite>Peter:</cite>
+<time>11:47</time>
+<p>Yeah. And, you know, I mean, the the MacBook Air, I think, still continues to be one of their best machines.</p>
+<cite>Geoff:</cite>
+<time>11:56</time>
+<p>Oh, yeah. Absolutely.</p>
+<cite>Peter:</cite>
+<time>11:57</time>
+<p>You know? Yes. The MacBook Pro, of course, is you could argue the, you know, the the the big one for most people. There's just no beating the MacBook Air in in so many ways from portability, usability, being able to carry it around and frankly the way overpowered chip that's in there. And I don't mean that in a negative way.</p>
+<cite>Peter:</cite>
+<time>12:22</time>
+<p>I mean, it's you you could get one of these things now and it'd still be more than most people ever need.</p>
+<cite>Geoff:</cite>
+<time>12:27</time>
+<p>I I I do think it's a bummer that it doesn't have the m 4 chip yet, but it you know, the m three is no slouch. It definitely, of the m series chips, it is kind of the black sheep, but, I do think that, you know, the m three is is a a solid addition. I I hope that they will eventually bump that to the m four, but we'll we'll see what they have in plans for March of next year. The very next day on March 5th, Apple introduced transcripts for Apple Podcasts, which you might be reading right now.</p>
+<cite>Peter:</cite>
+<time>12:56</time>
+<p>Yeah. Please be reading them right now. Right? They put a lot of work to this.</p>
+<cite>Geoff:</cite>
+<time>13:00</time>
+<p>Listen to our actual voice.</p>
+<cite>Peter:</cite>
+<time>13:02</time>
+<p>Well, I think I sound better on paper, you know. Okay. Yeah. No. This actually is perhaps more important than it seems on the surface because there has always been, a lot of criticism from podcast listeners in particular about the quality of Apple's podcast app.</p>
+<cite>Peter:</cite>
+<time>13:24</time>
+<p>Right? And so anytime they give it some attention or an ability to improve podcasting in any way, for us podcasters, it's a big deal. Simple as that.</p>
+<cite>Geoff:</cite>
+<time>13:35</time>
+<p>On April 1st, I celebrated 5 years of live Twitch streaming by building a Playdate version of some silly infinite runner game that I found I don't know. I stole some audio from it and put it on the Playdate in Swift because I could. And I did all that while, I don't know, eating hot chicken and having people scream at me. That was it's always a good time on April 1st.</p>
+<cite>Peter:</cite>
+<time>14:00</time>
+<p>Yeah. So congratulations on the 5 years, but I don't think it's stealing when the author actually gives you the content. But congratulations on 5 years. My goodness.</p>
+<cite>Geoff:</cite>
+<time>14:09</time>
+<p>Moving on to May, we had Apple introducing the m 4 chip that we were just kinda talking about. Oddly enough, I forgot that this was the case. The very first device that they put it in, and for a while, the only device they put it in was the iPad Pro.</p>
+<cite>Peter:</cite>
+<time>14:24</time>
+<p>Yeah.</p>
+<cite>Geoff:</cite>
+<time>14:24</time>
+<p>I know you got an M4 iPad Pro eventually after saying you weren't going to. What what what's your opinion on the M4 there? Yeah. So skipping the the idea that you also have another M4 device that we'll get to later.</p>
+<cite>Peter:</cite>
+<time>14:39</time>
+<p>Right. Right. So, yeah, it is a weird choice. I'd love to know the story one day why the M4 made it to the iPad Pro first. I will say, you know, I I love my my iPad and I don't think that the hardware well, I was gonna say the hardware, but definitely the software.</p>
+<cite>Peter:</cite>
+<time>15:01</time>
+<p>If you're not a big games player, I mean, it's just way too much power for what I think you can do with it. Meaning the, you know, the limitations.</p>
+<cite>Geoff:</cite>
+<time>15:14</time>
+<p>Yeah. Games player or maybe using Final Cut Pro or Logic Yep. The kind of pro pro to, pro apps that they have on there. I I do know I, you know, I hear for a lot from people that are like, oh, the iPad's too powerful for what's out there. I do think that, yeah, there is a software limitation, but I think that in our sphere, especially, there's a lot of people that are like, well, I can't run Xcode on it.</p>
+<cite>Geoff:</cite>
+<time>15:37</time>
+<p>Therefore, there's no professional tools on it.</p>
+<cite>Peter:</cite>
+<time>15:39</time>
+<p>Sure.</p>
+<cite>Geoff:</cite>
+<time>15:40</time>
+<p>And I think people do forget some of the stuff like, logic and and final cut, but, you know, I I I agree in some extent that yeah. I mean, if you're saying these 2 first party apps are the only thing that can really take advantage of this full power, you you are still at least a little bit on point there.</p>
+<cite>Peter:</cite>
+<time>15:57</time>
+<p>Now let me ask you, though, because we we both got the new, Pro Pencil. And and so, you know, how do you feel about that? Do you think that was a great choice?</p>
+<cite>Geoff:</cite>
+<time>16:08</time>
+<p>Let let's let's go back into those announcements. Yeah. Apple also introduced the Apple Pencil Pro at that point, which was compatible not only with the M4 iPad Pro that you got, but also the new M2 iPad Air, which is what I got. Mhmm. And so, yeah, I've definitely been very happy with the the M2 iPad Air.</p>
+<cite>Geoff:</cite>
+<time>16:25</time>
+<p>It was replacing for me a 20 19</p>
+<cite>Peter:</cite>
+<time>16:29</time>
+<p>ish</p>
+<cite>Geoff:</cite>
+<time>16:29</time>
+<p>era Okay. IPad Pro. This was before the M style devices on the iPad Pro. It was the first iPad Pro that was compatible with the keyboard, the magic keyboard with the trackpad. I bought that because the iPad Air was still also compatible with that same keyboard.</p>
+<cite>Geoff:</cite>
+<time>16:47</time>
+<p>Didn't have to buy a new keyboard. Did have to buy the new Pencil Pro, but that was also a major part of what I wanted. And, yeah, I I love that Pencil Pro. I ended up building support for it into black highlighter. Kineo kinda just got it for free because Kineo is using pencil kit.</p>
+<cite>Geoff:</cite>
+<time>17:04</time>
+<p>But yeah. No. Definitely definitely some fun new stuff with the Pencil Pro, and I've been more than happy with the iPad Air m 2 iPad Air. It's a great little machine.</p>
+<cite>Peter:</cite>
+<time>17:14</time>
+<p>I I actually think the the m 2 is probably about the right level of hardware for, where the iPad I was gonna say should be, meaning that the M4, I just don't think it's, again, there to take advantage of it, but I think the M2 sits nicely with it. You know, if you're looking at it from a how much did I pay perspective. Right?</p>
+<cite>Geoff:</cite>
+<time>17:37</time>
+<p>Yeah. Absolutely. Yeah. I the m two, very nicely priced for what it is and and, you know, still compatible with that keyboard and trackpad, still compatible with the Pencil Pro. It it's a it's a very nice iPad if you're into the iPad ecosystem.</p>
+<cite>Geoff:</cite>
+<time>17:53</time>
+<p>So we talked about the fact that the M4 launch with the iPad Pro was a very bizarre kind of unexplainable choice. Later that month, Apple made more bizarre unexplainable choices with their 100 best albums of all time list. And, definitely, yeah, you look at that list of a 100 best albums. I'm not a huge music expert. I don't think you're a huge music expert.</p>
+<cite>Geoff:</cite>
+<time>18:16</time>
+<p>But even us as not the world's strongest music experts went, what are these albums?</p>
+<cite>Peter:</cite>
+<time>18:22</time>
+<p>Why are</p>
+<cite>Geoff:</cite>
+<time>18:22</time>
+<p>they in this order? Well, who picked this?</p>
+<cite>Peter:</cite>
+<time>18:24</time>
+<p>Yeah. Right.</p>
+<cite>Geoff:</cite>
+<time>18:25</time>
+<p>And, yeah. I definitely later in the year, I didn't write this one down for for covering later. Later in the year, they decided to release a coffee table book about this Still alive too. Best albums. And, yeah, got another whole series of people talking about, like, who picked these?</p>
+<cite>Peter:</cite>
+<time>18:44</time>
+<p>Yeah. Yeah. This this very much feels like one of those kind of Apple saying, hey, you don't forget we're we're a music thing too.</p>
+<cite>Geoff:</cite>
+<time>18:55</time>
+<p>Music company as well.</p>
+<cite>Peter:</cite>
+<time>18:56</time>
+<p>Yeah. Right? You know, because it was an odd, like, okay. Yeah. You</p>
+<cite>Geoff:</cite>
+<time>19:03</time>
+<p>know? Okay. What what were you basing this on?</p>
+<cite>Peter:</cite>
+<time>19:06</time>
+<p>Yeah. It's like But anyway I was gonna say it's like, Apple, did you just feel like there was something you had to say in late May and you're like, let's make up a list.</p>
+<cite>Geoff:</cite>
+<time>19:16</time>
+<p>But, congratulations to The Miseducation of Lauryn Hill, the greatest album ever created. Okay. Moving on to June. Yeah. June is, you know, Apple Developers Christmas.</p>
+<cite>Geoff:</cite>
+<time>19:30</time>
+<p>Yeah. And we had Yeah. WWDC on June 10th, kicking off on June 10th. And definitely had a lot of great announcements. We had a lot of announcements for all of the various OSes.</p>
+<cite>Geoff:</cite>
+<time>19:42</time>
+<p>We're gonna skip those for now because we will get back to them when they actually launch later in the year. For now, let's talk about the kind of developer focused announcements. We had Xcode 16 with automated code completion, which we have now. They also announced a upcoming other developer feature called Swift Assist that is not actually out yet, so can't really talk about that much. Right.</p>
+<cite>Geoff:</cite>
+<time>20:04</time>
+<p>We got Swift 6 with strict concurrency, type throws, all of those kinds of things that we have in Swift 6. And we got the 1st release that allowed us to use Swift testing. Thoughts on any of those or anything else that got announced at WWDC that we were super excited about?</p>
+<cite>Peter:</cite>
+<time>20:20</time>
+<p>Yeah. So, you know, the the new releases when they announce them now of Swift, it's kind of a okay thing when we get to June because by the time we get there, we, you know, those paying attention because of the open source nature on that, we already know what's coming. Right? It's more like just a seal of like, okay, and it's out there. So it doesn't feel as special as it used to, and I don't necessarily mean that as a bad thing.</p>
+<cite>Peter:</cite>
+<time>20:48</time>
+<p>I like that it's open for discussion. Right? Yeah.</p>
+<cite>Geoff:</cite>
+<time>20:52</time>
+<p>Definitely. People can be paying attention to it beforehand. Exactly. I do think there are a lot of people who, you know, just I mean, they're probably not the people listening to this podcast, but a lot of a lot of people who do kind of not really follow the day to day of the Swift ecosystem where it is still they get to WWDC and they go, oh, this is a cool new feature.</p>
+<cite>Peter:</cite>
+<time>21:11</time>
+<p>Yeah.</p>
+<cite>Geoff:</cite>
+<time>21:12</time>
+<p>And and so it it is something to them that they're very much like, oh, this this is this is a very cool, very big announcement. You know? Yeah. All, all of those things except for the automated code completion, we all kinda knew about.</p>
+<cite>Peter:</cite>
+<time>21:24</time>
+<p>Yeah. Or sorry. I think</p>
+<cite>Geoff:</cite>
+<time>21:26</time>
+<p>people who've paid attention to the thing knew about, but it is still very much a case where Apple does get to have this announcement to a lot of people who are not, you know, living and breathing Swift announcements.</p>
+<cite>Peter:</cite>
+<time>21:37</time>
+<p>Yeah. I I can identify those people. They're the people that are still arguing about the 100 best albums on the previous item on the list. They were they were too busy arguing about the the list to to notice. But, I will say, so Xcode 16.</p>
+<cite>Peter:</cite>
+<time>21:54</time>
+<p>Right? I mean, hey, we get a new one every year whether we want it or not. Automated code completion is really more automated code, confusion, I think. I said You know? Yeah.</p>
+<cite>Geoff:</cite>
+<time>22:08</time>
+<p>I I have I have had it be amazing, and I have had it be amazingly bad. Yep. And I I'm still on the fence of, should I leave it on or should I not leave it on? Mhmm.</p>
+<cite>Peter:</cite>
+<time>22:19</time>
+<p>I</p>
+<cite>Geoff:</cite>
+<time>22:19</time>
+<p>know a lot of people who have turned it off, but the times that it works, it's flawless. It's fantastic. It's great to just hit tab a bunch of times, and it's like, yep. You did exactly what I wanted. And then there are other times where it's like it can't realize that it needs to name the struct that I just created the same as the file name, and it just makes stuff up.</p>
+<cite>Geoff:</cite>
+<time>22:39</time>
+<p>Yeah. And I'm like, I when it's great, it's great. When it's bad, it's bad. And I I don't understand how to make it lean more towards the former than the latter.</p>
+<cite>Peter:</cite>
+<time>22:48</time>
+<p>Yeah. I agree. Right? When I first started using it, I was like, wow. This is actually really helpful and cool.</p>
+<cite>Peter:</cite>
+<time>22:55</time>
+<p>And then it seemed like the longer I use it, the stupider it got is the only way I can describe it. And that was before I wrote my code, so I know it wasn't me. Right?</p>
+<cite>Geoff:</cite>
+<time>23:07</time>
+<p>Fair enough. Yeah. No. I I'm looking forward to the, the one where the Swift Assist where we can kind of ask it open questions about stuff. But, compared to, you know, stuff that's out there now, like, cursor or whatever, you know, I I'm kinda curious to see if Apple's gonna even be able to compete with things out there that are not first party systems.</p>
+<cite>Peter:</cite>
+<time>23:27</time>
+<p>I I will I'll go on the record now and say, I wonder if they're actually just gonna throw in the towel and not bother.</p>
+<cite>Geoff:</cite>
+<time>23:34</time>
+<p>I don't know. Yeah. Yeah. Who knows?</p>
+<cite>Peter:</cite>
+<time>23:37</time>
+<p>Yeah. I mean</p>
+<cite>Geoff:</cite>
+<time>23:38</time>
+<p>We'll see if and when they announce or they actually release Swift Assist.</p>
+<cite>Peter:</cite>
+<time>23:42</time>
+<p>Well, the part of the reason I'm thinking that too is they're look how much they are talking up chat GPT in Apple Intelligence and so on. I wonder if they might not just hand it off to them and say, can you solve this problem for us?</p>
+<cite>Geoff:</cite>
+<time>23:58</time>
+<p>I mean, they could yeah. I I I don't know. It it it very much could be a case where they do that, but I think they would still want to integrate that with Xcode in some way.</p>
+<cite>Peter:</cite>
+<time>24:08</time>
+<p>Oh, yeah.</p>
+<cite>Geoff:</cite>
+<time>24:08</time>
+<p>And even then, I think that there's going to be that Apple piece that they have to do it. Even if the model on the back end is chat GPT or quad or whatever, I think that you're gonna have to deal with the fact that it has to know things about Xcode.</p>
+<cite>Peter:</cite>
+<time>24:24</time>
+<p>Yeah. Oh, yeah. And</p>
+<cite>Geoff:</cite>
+<time>24:26</time>
+<p>And and so I'm I'm curious to see what Apple does with that even if they aren't the ones running the model themselves.</p>
+<cite>Peter:</cite>
+<time>24:32</time>
+<p>Yeah. Because they are they, at the very least, are gonna have to open up, not necessarily the plug in architecture that I still think is funny.</p>
+<cite>Geoff:</cite>
+<time>24:40</time>
+<p>They'll they'll never do that.</p>
+<cite>Peter:</cite>
+<time>24:41</time>
+<p>Yeah. But what I was gonna say was they they're gonna have to open up something internally, to have anything work with Xcode at this point. You know? Mhmm.</p>
+<cite>Geoff:</cite>
+<time>24:51</time>
+<p>Later in June, on June 27th, we got the Apple Vision Pro in a couple more countries on in China, in Hong Kong, in Japan, in Singapore. I don't know that we have too much to say about this. I didn't see any major spike in users after this happened, but, it it it is now available to more people. I feel like we had kind of a similar reaction to it everywhere else in the world that we did in the US, which everybody kinda win it. And they got it, and they said, well, this is cool.</p>
+<cite>Geoff:</cite>
+<time>25:21</time>
+<p>This is neat. This is great hardware.</p>
+<cite>Peter:</cite>
+<time>25:23</time>
+<p>Yeah.</p>
+<cite>Geoff:</cite>
+<time>25:23</time>
+<p>And then they put it in a drawer.</p>
+<cite>Peter:</cite>
+<time>25:25</time>
+<p>I wonder if internally in Apple somewhere, someone quietly joked, hey, we shipped 4 more units this month, and each of those was the demo one for the shop.</p>
+<cite>Geoff:</cite>
+<time>25:37</time>
+<p>Time for a break.</p>
+<cite>Peter:</cite>
+<time>25:38</time>
+<p>Hey, everybody. It's Peter Whittam here from the Compulsory podcast. I wanna tell you about Setapp. Setapp is a service that provides a subscription fee of just $10 a month and you get access to over 200 Mac applications. And it's also available now on Ios as part of that deal.</p>
+<cite>Peter:</cite>
+<time>25:58</time>
+<p>I use the service because it just has a ton of really good first rate apps that I use all the time. And for me, it's invaluable as a developer to have access to tools for things like APIs, for planning projects, writing emails, writing documentation, and you get all of these things including database apps all of that kind of stuff right there on the set app service for just $10 a month you can use as many or as few applications as you need if you're interested in checking this out go to peterwhitham.competerwith am.comforward/setapp, s e t a p p. And you can see the details there. And it's got a link that you can go over and start using the service and see how it works out for you. I strongly recommend this to every Mac user.</p>
+<cite>Geoff:</cite>
+<time>26:50</time>
+<p>Break time over. Moving on to July. On July 18th, we had another new release of Endless Hurdles that added the new permanent stadium event because, I don't know. There weren't any real, like, world events that were going on at that point that were relevant. Yeah.</p>
+<cite>Geoff:</cite>
+<time>27:07</time>
+<p>Yeah. No. No. Of course, this was a release to coincide with the Olympics going on over in France. And, how did that go for you?</p>
+<cite>Peter:</cite>
+<time>27:16</time>
+<p>Yeah. It's funny. I felt the pressure. Because this was one of those, like, well, if you don't ship this event now, don't bother for 4 years. So it was actually turned out very well and and actually I would say the stadium event in the game is personally my favorite right now, as far as visuals because I went for a slightly kind of like 2.5 d view that I think makes it better.</p>
+<cite>Peter:</cite>
+<time>27:44</time>
+<p>I did see I I it's unfair to call it a spike when the numbers are so low. A pimple. I saw a pimple in the numbers. Yeah. There you go.</p>
+<cite>Peter:</cite>
+<time>27:54</time>
+<p>I know there's at least 2 players.</p>
+<cite>Geoff:</cite>
+<time>27:57</time>
+<p>Yeah. I'm number I I've got the gold medal going right now.</p>
+<cite>Peter:</cite>
+<time>28:00</time>
+<p>Well done. But yes, this did actually have a new mechanic. Yeah. No. There was a new mechanic of obviously a gold, a silver and a bronze medal that just happened to be like a major sports event from that year, with its own board that that reset weekly.</p>
+<cite>Peter:</cite>
+<time>28:17</time>
+<p>It did help push some units, I guess I would say, you know, but it's it is the one that I feel it continued to prove that I planned it right from day 1 as far as adding events easily. Let's put it that way.</p>
+<cite>Geoff:</cite>
+<time>28:29</time>
+<p>Makes sense. Yeah. Definitely having the ability to do, different things based on, you know, outside culture.</p>
+<cite>Peter:</cite>
+<time>28:37</time>
+<p>Yeah. Right. Exactly.</p>
+<cite>Geoff:</cite>
+<time>28:38</time>
+<p>And and being able to respond to things pretty quickly. Yeah. You know, definitely definitely a cool feature.</p>
+<cite>Peter:</cite>
+<time>28:43</time>
+<p>If only I had done more after that one.</p>
+<cite>Geoff:</cite>
+<time>28:46</time>
+<p>Yeah. No. I I I I'm telling you, I still want my Groundhog Day.</p>
+<cite>Peter:</cite>
+<time>28:51</time>
+<p>Yeah. Oh, I know. I know. Maybe in the 3 d version.</p>
+<cite>Geoff:</cite>
+<time>28:53</time>
+<p>Seconds coming up. Come on.</p>
+<cite>Peter:</cite>
+<time>28:55</time>
+<p>Yeah. Yeah. 3 d version is in production. Well, no. No.</p>
+<cite>Peter:</cite>
+<time>28:58</time>
+<p>No. It's in production being made. It's not out in production. Let's be clear. It's not not in production.</p>
+<cite>Geoff:</cite>
+<time>29:03</time>
+<p>No. It is being produced. Yeah.</p>
+<cite>Peter:</cite>
+<time>29:05</time>
+<p>Yeah.</p>
+<cite>Geoff:</cite>
+<time>29:06</time>
+<p>On July 20 4th, we had Apple Maps launching on the web, which was a thing that I completely forgot existed.</p>
+<cite>Peter:</cite>
+<time>29:13</time>
+<p>Yeah. Me too. Didn't even Yeah.</p>
+<cite>Geoff:</cite>
+<time>29:15</time>
+<p>I I looked at it today. Looks great. It's very cool. I'm glad that this exists. Yeah.</p>
+<cite>Geoff:</cite>
+<time>29:21</time>
+<p>But why? Totally forgot that it did.</p>
+<cite>Peter:</cite>
+<time>29:25</time>
+<p>Yeah. I mean, it's like I'm sorry. Are we going back to, like, the MapQuest days? I'm gonna print maps out now from Apple Maps and take them with me, is it?</p>
+<cite>Geoff:</cite>
+<time>29:33</time>
+<p>No. I I mean, I think it's it's useful for people that, you know, if if I'm linking to a map, you know, something like if I'm looking up a thing on maps and I go, I need to go here and then I send it to a friend and they've got an Android phone, then previously they couldn't do anything with it. Bunkers. And now they actually get directed to something that they can look at. Because I know I have I I get annoyed with the the inverse.</p>
+<cite>Geoff:</cite>
+<time>29:59</time>
+<p>It's like, you know, somebody on Android sends me a Google Maps link and it's like, now I got this stupid app that it's not dark mode and it looks awful and it's whatever. And now at least, like, hey. I can annoy them back. Yeah.</p>
+<cite>Peter:</cite>
+<time>30:16</time>
+<p>That's good to say.</p>
+<cite>Geoff:</cite>
+<time>30:17</time>
+<p>They can they can deal with with the the, the thing. And guess what? Apple Maps on the web, you know what it has? Dark mode.</p>
+<cite>Peter:</cite>
+<time>30:25</time>
+<p>I think the easier answer is just not to have Android friends.</p>
+<cite>Geoff:</cite>
+<time>30:28</time>
+<p>Yeah. Yeah. Sometimes you gotta.</p>
+<cite>Peter:</cite>
+<time>30:31</time>
+<p>Yeah. Well, you gotta have that one. Right? Makes you feel better about yourself. Sorry, Android people.</p>
+<cite>Peter:</cite>
+<time>30:36</time>
+<p>Not sorry.</p>
+<cite>Geoff:</cite>
+<time>30:37</time>
+<p>Going on to August, we have kind of a a slowdown in Apple News as we, you know, kinda come out of WWDC. We wait for the announcements that are coming later. So the only news event that I have in August is something called the Compayo Swift podcast added another host. I'm sure that went just fantastic for them.</p>
+<cite>Peter:</cite>
+<time>30:57</time>
+<p>Well, we'll see how it works out. You know? Yeah. I I I appreciate Apple not doing anything that month to help, you know, give me space to to make that announcement. That was very kind of them.</p>
+<cite>Geoff:</cite>
+<time>31:10</time>
+<p>Give you some reason to add a cohost just so that the the podcast had something to talk about.</p>
+<cite>Peter:</cite>
+<time>31:15</time>
+<p>Exactly. Right? So so really the headline is August 30th, compile Swift on topic, first time this year. Yeah.</p>
+<cite>Geoff:</cite>
+<time>31:25</time>
+<p>In September, of course, we have all of the releases of everything that got announced in June. And so that kicked off on September 9th with the release of the Apple Watch Series 10 and the iPhone 16 series of devices. I don't think either of us got anything that was announced that day.</p>
+<cite>Peter:</cite>
+<time>31:41</time>
+<p>No. We didn't. No. We were like, oh, look. You put another button.</p>
+<cite>Geoff:</cite>
+<time>31:44</time>
+<p>We definitely talked about the camera control. Oh, we did. Yes. We definitely discussed it. Yeah.</p>
+<cite>Geoff:</cite>
+<time>31:48</time>
+<p>We had a whole podcast episode about it. But, yeah, neither of us have have used that device. You know, they also had a release. I didn't list this down, but they did release the new AirPods Max, which is the same as the old AirPods Max, but it's got a USB c port now. Yep.</p>
+<cite>Geoff:</cite>
+<time>32:05</time>
+<p>I didn't get that either.</p>
+<cite>Peter:</cite>
+<time>32:06</time>
+<p>No. But,</p>
+<cite>Geoff:</cite>
+<time>32:07</time>
+<p>it's it's a thing that existed. No. I mean, the 16 being very similar to the 16 pro, I think was was the big major news story this year. And so if you are somebody that doesn't use the pro devices and you haven't upgraded for a while, the iPhone 16 is a fantastic update for you. Mhmm.</p>
+<cite>Geoff:</cite>
+<time>32:25</time>
+<p>You just get the base model 16, and it's basically the same as the 16 Pro, but with the slightly worse camera.</p>
+<cite>Peter:</cite>
+<time>32:32</time>
+<p>Yeah. I mean</p>
+<cite>Geoff:</cite>
+<time>32:33</time>
+<p>definitely a nice release.</p>
+<cite>Peter:</cite>
+<time>32:35</time>
+<p>Yeah. That that seemed to be the opinion to most people, which was, hey. This might be the 1st year to actually just get a plus.</p>
+<cite>Geoff:</cite>
+<time>32:40</time>
+<p>Just get a just get a regular. Yeah. Yeah. So or the plus size. Yeah, definitely.</p>
+<cite>Geoff:</cite>
+<time>32:45</time>
+<p>Definitely a nice update. I already had a 15 pro, so I didn't feel the need to update, but, definitely, definitely seemed like a nice update for people that haven't updated in a while.</p>
+<cite>Peter:</cite>
+<time>32:54</time>
+<p>Yep. Yeah. Agreed. Yeah.</p>
+<cite>Geoff:</cite>
+<time>32:56</time>
+<p>Series 10 also seemed pretty cool. I honestly don't know why I didn't go series 10. There was a point where I was like, oh, I should get a series 10, and then I think I just forgot about it.</p>
+<cite>Peter:</cite>
+<time>33:05</time>
+<p>I was the same, actually. I I was thinking about, you know, it's like, oh, you know, I've got the whatever it is. I and it felt like maybe it was time, but then that thing in in my head that said, well, but wait and see what sensors they add next year.</p>
+<cite>Geoff:</cite>
+<time>33:19</time>
+<p>I I mostly wanted it because I spent forever with the, titanium Apple Watch, and I really got used to how lightweight the titanium Apple Watch was. And then the last time that I needed to upgrade, they did not have a titanium option. And so I got the stainless steel version, which feels like I tied a brick around my wrist in comparison. And so when they came out with the series 10 and they had a titanium version again, I was like, oh, man. I need to get that.</p>
+<cite>Geoff:</cite>
+<time>33:45</time>
+<p>And then somehow just never actually did it.</p>
+<cite>Peter:</cite>
+<time>33:48</time>
+<p>I I feel like that's a lot of the watch right there, which is don't really know why I got one, was gonna upgrade, forgot,</p>
+<cite>Geoff:</cite>
+<time>33:56</time>
+<p>didn't notice it. I I love my watch. I think I think it's great. Honestly, I think that the extent to why I forgot about it is just, like, the watch is great at just kinda getting out of your way and not bothering you. And and the version that I have is it just works just great for everything that I need to do.</p>
+<cite>Geoff:</cite>
+<time>34:14</time>
+<p>And, I've I've not it's not fussed me enough to say, oh, man, I definitely need to get rid of this. Yeah.</p>
+<cite>Peter:</cite>
+<time>34:21</time>
+<p>You know,</p>
+<cite>Geoff:</cite>
+<time>34:21</time>
+<p>I made the joke about it feeling like a break around my hand. It's not that heavy. I just man, I I titanium would be nice.</p>
+<cite>Peter:</cite>
+<time>34:28</time>
+<p>See, I mean, mine is literally my notification machine. So</p>
+<cite>Geoff:</cite>
+<time>34:32</time>
+<p>Yeah. That's it. I mean, I I use I use mine for a lot. So Yeah. And then, of course, on September 16th, we had the release of all of Apple's operating systems.</p>
+<cite>Geoff:</cite>
+<time>34:41</time>
+<p>You had iPad OS 18, iOS 18, Watch OS 11, tv OS 18, Vision OS 2. Somebody should make a website that lists all of these numbers. Yeah. And, yeah. No.</p>
+<cite>Geoff:</cite>
+<time>34:52</time>
+<p>I I think that, we definitely had a lot that came out that was kind of mostly overshadowed by a lot of things that did not come out, namely all of the Apple Intelligence stuff that was still coming later. But, we definitely got a a couple nice things out there. With iOS 18, we had the customizable home screens where you could now put your icons anywhere that you wanted. You could have dark mode icons. You could have the tinted icons.</p>
+<cite>Geoff:</cite>
+<time>35:20</time>
+<p>With watchOS 11, you had several new, like, live activity stuff, new widget stuff. I don't remember for the life of me what was new in tvOS 18, but that's tvOS 18 for you. New number. VisionOS 2 didn't have a whole lot of new things, but it definitely felt like it cleaned up a lot of what 1.0 was and and kinda made it, oh, hey. This is the the nice polished version that they probably should have launched with.</p>
+<cite>Geoff:</cite>
+<time>35:45</time>
+<p>But, you know, several solid updates that were kind of, like I said, just overshadowed by the fact that they didn't have the big headline features that were announced at WWDC.</p>
+<cite>Peter:</cite>
+<time>35:55</time>
+<p>Yeah. So it's not been a good year for these releases. Right? It's basically</p>
+<cite>Geoff:</cite>
+<time>36:03</time>
+<p>I don't know. I I thought they were all pretty solid releases. Oh, yeah.</p>
+<cite>Peter:</cite>
+<time>36:06</time>
+<p>No. No. No. I mean, they were solid, but it was like, hey. All that stuff we told you earlier in the year that you're gonna buy this new phone for and stuff.</p>
+<cite>Peter:</cite>
+<time>36:15</time>
+<p>Yeah. About that. Right? You know, coming on the you it's almost like you got this iPhone 16 this year, but when you buy the iPhone 17 next year, you'll get all the software that we said you were gonna get on the 6th.</p>
+<cite>Geoff:</cite>
+<time>36:28</time>
+<p>And then on one day later from that, I released my new app, Bark. Posted a launch video to YouTube because I was doing this all for the RevenueCat Ship A Ton hackathon, trying to enter in and win a prize there, and, posted the video to YouTube because that was a requirement of it. And my launch video got 66,000 views for reasons I still don't quite understand. And, definitely was a nice fun bump to, the the end of September. We had a whole lot of people that were excited about the app, had a whole lot of people that were very not excited about the app and let me know about that as well.</p>
+<cite>Geoff:</cite>
+<time>37:06</time>
+<p>But, you know, overall, I I think, the the the number of people that were, you know, pretty excited about the app, I I I thought it was a a fun experience to to get to see, the reaction to that.</p>
+<cite>Peter:</cite>
+<time>37:18</time>
+<p>Yeah. I thought this was great actually because it seemed like every time I looked at my phone, there was a new note from you that's like, oh my god. It says much. Oh my god. It says much.</p>
+<cite>Peter:</cite>
+<time>37:28</time>
+<p>Oh my god. And it was just great. And, you know so yeah. This was great actually because not only did I watch you sort of, you know, from the beginning create this app in a very short period of time.</p>
+<cite>Geoff:</cite>
+<time>37:41</time>
+<p>3 weeks.</p>
+<cite>Peter:</cite>
+<time>37:42</time>
+<p>Yeah. But it also goes to show Idea</p>
+<cite>Geoff:</cite>
+<time>37:45</time>
+<p>to creation was like 4 years, but starting to work on it to creation was like 3 weeks.</p>
+<cite>Peter:</cite>
+<time>37:50</time>
+<p>Well, but it it goes to show that having that pressure helps she helps you ship. Right?</p>
+<cite>Geoff:</cite>
+<time>37:57</time>
+<p>Absolutely.</p>
+<cite>Peter:</cite>
+<time>37:58</time>
+<p>And then having the payoff of this crazy amount on YouTube and it was great because, you know, we all got to celebrate that with you in the discord and enjoy it. And it's not often that you're in with a group of people like all the fantastic folks on our Discord where you something like this happens and you will get to to share in the fun of seeing it happen to someone. Right? And try also trying to figure out how and and then realizing we never figured it out, but it doesn't matter.</p>
+<cite>Geoff:</cite>
+<time>38:29</time>
+<p>Never figured it out. No. No. Yeah. No.</p>
+<cite>Geoff:</cite>
+<time>38:31</time>
+<p>It was it was definitely a a great, great experience to to have and especially with everybody in the Discord kinda being there and and celebrating alongside it. It it was it was quite a lot of fun. And, especially compared to the the other big launch I had in the year earlier that we discussed. Mhmm. Mhmm.</p>
+<cite>Geoff:</cite>
+<time>38:49</time>
+<p>Yeah. Definitely definitely a significantly, different outcome.</p>
+<cite>Peter:</cite>
+<time>38:55</time>
+<p>Yeah. It it because it does. You know, it leaves you scratching your head, like, but wait. I sweated bullets on every detail of the other one. It's it's that typical</p>
+<cite>Geoff:</cite>
+<time>39:04</time>
+<p>Yeah. I I spent 6 months on Kineo for Vision Pro, and I spent 3 weeks on Bark and the level of outcomes above and beyond just, you know, the the fact that the iPhone is a obviously much more popular platform for VisionPRO. Sorry. A much more popular platform than VisionPRO. You know, above and beyond that, like, the amount of response to Bark versus the amount of response to Kineo was shocking.</p>
+<cite>Peter:</cite>
+<time>39:29</time>
+<p>Yeah. Yeah. But, you know, but it it it's kind of like that it's like that stand up comedian thing, right, where the audience laughs their butt off at the joke that you didn't think was gonna be a big deal. And afterwards, you're like, really? That's the one you laughed at?</p>
+<cite>Peter:</cite>
+<time>39:46</time>
+<p>I wanted this one to be the one that you laughed at. Right? Yeah. You know, but, hey, take what you can get. Right?</p>
+<cite>Peter:</cite>
+<time>39:53</time>
+<p>One is still better than none, you know.</p>
+<cite>Geoff:</cite>
+<time>39:56</time>
+<p>Yeah. Absolutely. In October, we kicked it off with Apple kind of continuing to update as many of their devices as they could to be Apple Intelligence compatible, and they did that by shipping the weirdestly named iPad ever, the iPad Mini, parenthesis, a 17 Pro, close parenthesis. This is just a new iPad Mini. Seemed like a relatively minor upgrade over the last iPad Mini.</p>
+<cite>Geoff:</cite>
+<time>40:23</time>
+<p>Really just kind of getting it up to that bare minimum amount of RAM that they needed for Apple Intelligence. But, it's it's nice to see Apple rev the iPad Mini when they do, because occasionally we go years years years without them doing that.</p>
+<cite>Peter:</cite>
+<time>40:36</time>
+<p>Yeah. You know, the the iPad mini, I think, is still a great great machine, sits in a nice spot, but dang it, Apple. You don't have to, like, make it hard to remember the names and have a iPad for every $50 or whatever at this point. Right? It's okay to just call it the iPad mini.</p>
+<cite>Peter:</cite>
+<time>40:57</time>
+<p>We all know what it is.</p>
+<cite>Geoff:</cite>
+<time>40:59</time>
+<p>On October 28th, we got the first wave of Apple intelligence features that actually got launched on all of the dot one updates to all of Apple's OSes. We got notification summaries. We got writing tools. We got cleanup in photos and call transcription. Couple, you know, mishmash of fairly simple things, but it was the first set of Apple Intelligence features.</p>
+<cite>Geoff:</cite>
+<time>41:25</time>
+<p>Are you, you using any of those particular features that got that came out in 18.1?</p>
+<cite>Peter:</cite>
+<time>41:32</time>
+<p>So, yeah. Interestingly, actually the only Apple intelligence features I've used intentionally at this point, I would say, is, on the Mac and the, you know, the the text features, right? Which are not bad. I mean they're they're as good as anything else I'm going with. However, the most entertaining award definitely goes to summaries on my iPhone because it You never know what you're gonna get.</p>
+<cite>Peter:</cite>
+<time>42:05</time>
+<p>Exactly. And it has made some of my drives home so entertaining to hear some of these summaries and then trying to figure out what the hell it's talking about. What were you</p>
+<cite>Geoff:</cite>
+<time>42:16</time>
+<p>Yeah. My favorite is is all of the, my favorite is all of the messaging apps that don't really break out individual speakers.</p>
+<cite>Peter:</cite>
+<time>42:25</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>42:25</time>
+<p>And then what you get is a notification of, like, one person said all of these things. And it's just like, what?</p>
+<cite>Peter:</cite>
+<time>42:32</time>
+<p>Yeah. I don't get it. Yeah. Exactly. And then you</p>
+<cite>Geoff:</cite>
+<time>42:35</time>
+<p>go back and you look, and it's actually, like, 3 people talking. And and it's been kind of mingled. I hope that this encourages more developers to actually implement that, person by person notification stuff, but I am not holding my breath.</p>
+<cite>Peter:</cite>
+<time>42:50</time>
+<p>Yeah. We use, unfortunately, we use Microsoft Teams at work. And on more than one occasion I've been driving home and I I you know I've got my AirPod Pro 2s and and I will say I you know I like this that it reads the messages to those, as you're going along. But on a couple occasions now, it's come up and it said, you know, I'm not gonna mention names. Person x sounds confused.</p>
+<cite>Peter:</cite>
+<time>43:22</time>
+<p>Like, no. No. I think it might be you, Apple Intelligence.</p>
+<cite>Geoff:</cite>
+<time>43:28</time>
+<p>Personally, yeah, I have not really used the writing tools that you said you do. I do use the notification summaries. They're, yeah, very much a mixed bag. The one that I've used more than anything that I've been surprised by is the photo cleanup feature to just kinda like Oh, really? You know, take a picture, and then there's some bit of trash on the floor or something like that that, you know, I wanna send this picture, and it's like, I don't want, you know, whoever to be like, why why haven't you cleaned up your living room in a week?</p>
+<cite>Geoff:</cite>
+<time>43:57</time>
+<p>Shut up. But yeah. No. Cleanup is is actually pretty good at it. If you are doing something big and complex, you can definitely see, weirdness to it.</p>
+<cite>Geoff:</cite>
+<time>44:07</time>
+<p>But if you're really just like, hey, you know, like, this is just a tiled floor or whatever or wood floor, and I just get rid of this thing. No. It's it's been pretty good at it. And so yeah. No.</p>
+<cite>Geoff:</cite>
+<time>44:17</time>
+<p>I'm I'm actually pretty happy with the the cleanup feature.</p>
+<cite>Peter:</cite>
+<time>44:20</time>
+<p>Interesting.</p>
+<cite>Geoff:</cite>
+<time>44:22</time>
+<p>Yeah. That that's been that's been my main use of this first wave of Apple intelligence feature. The very next day after launching the Apple intelligence features, Apple released a new Imac with the m 4 chip, and a new Mac Mini also with the m 4 chip. I know you got, a Mac Mini, and we did a whole podcast on Patreon about that, and very, excited about that. I have kinda, for a long time, wanted one of the new m series Imacs, but I have no reason to actually get one.</p>
+<cite>Geoff:</cite>
+<time>44:53</time>
+<p>So I haven't, and I'm even more bummed out by the fact that in this case, they, they got rid of the red one and decided to say, no. It actually is pink. Even though the last one, the red one, it was clearly a pink one, but they kept saying it was red. And now this time, they're just like, nah. It's pink.</p>
+<cite>Geoff:</cite>
+<time>45:08</time>
+<p>It's pink.</p>
+<cite>Peter:</cite>
+<time>45:09</time>
+<p>You know, I totally would buy a product red Imac.</p>
+<cite>Geoff:</cite>
+<time>45:13</time>
+<p>Oh, yeah. That'd be sick. Yeah.</p>
+<cite>Peter:</cite>
+<time>45:14</time>
+<p>Yeah. Yeah. No. My my Mac Mini, absolutely zero regrets there. You know, Like you said, we'll put a link in the show notes to the Patreon episode, so I'm not gonna spoil it.</p>
+<cite>Peter:</cite>
+<time>45:25</time>
+<p>But going from an M1 MacBook Pro M1 Pro Max to the M4 Pro, night and day difference, which honestly surprised me just how much better.</p>
+<cite>Geoff:</cite>
+<time>45:39</time>
+<p>It's shocking, yeah, how much that the even the max chips of the early m one series, devices are blown away by the m 4. Yeah. I believe and then the next day after that, so those keeping along, this is 3 days in a row, October 28th, 29th, and now 30th, we got the new MacBook Pro with the m 4 and m Pro Max Chips. This is the first release of the m 4 pro and m 4 max. They came out in a new MacBook Pro, and I kinda feel like these have been completely overshadowed by the Mac Minis.</p>
+<cite>Geoff:</cite>
+<time>46:10</time>
+<p>Everybody's been blown away by the Mac Minis, and nobody that I know has really covered the MacBook Pros at all. Yeah. The the Mac Minis are just such a great machine that nobody's really, like, super focused on the the Pro and Max machines.</p>
+<cite>Peter:</cite>
+<time>46:25</time>
+<p>I I feel like, you know, I feel bad for them because, yeah, I have no doubt that these MacBook Pros are are every bit as good. But the problem is, yeah, when you have a big leap like you did in the Mac Minis, yeah, you totally overshadowed it. It's almost like a wasted announcement from Apple at that point. Right?</p>
+<cite>Geoff:</cite>
+<time>46:43</time>
+<p>Almost. Yeah.</p>
+<cite>Peter:</cite>
+<time>46:44</time>
+<p>Yeah. Hey, folks. If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter. You can go to patreon.comforward/compile swift, where you will get ad free versions of the podcast along with other content.</p>
+<cite>Geoff:</cite>
+<time>47:04</time>
+<p>Month after that, November 19th, Apple shared the most popular podcast of 2024. I don't know why we weren't on that. I we must've just barely missed that cut.</p>
+<cite>Peter:</cite>
+<time>47:13</time>
+<p>You know, we we were probably just outside on the list. Right? Come on, Apple. Show us some love.</p>
+<cite>Geoff:</cite>
+<time>47:20</time>
+<p>We we got a we got a milestone that we're gonna cover in in just a little bit, but, yeah. We we could've we should've been right there.</p>
+<cite>Peter:</cite>
+<time>47:27</time>
+<p>Yeah. Yeah. I feel like next Okay. We we're trying to we're trying to help Apple out here by promoting Swift and Apple Development and everything else. The least they could do is just put us in the top 10.</p>
+<cite>Peter:</cite>
+<time>47:38</time>
+<p>Right?</p>
+<cite>Geoff:</cite>
+<time>47:39</time>
+<p>I figured it out a little bit. You know? A little bit of quid pro quo. Quan. Yeah.</p>
+<cite>Geoff:</cite>
+<time>47:43</time>
+<p>Moving on to the last month of the year, December 3rd, we had a release of Job Finder tracker 1.2 with resume support. Yeah. How's that been going?</p>
+<cite>Peter:</cite>
+<time>47:52</time>
+<p>Talking about overdue releases. Yes. Finally shipped it. So, the bad news, I I have not seen nobody's bought it since the update, but that's okay. That's fine.</p>
+<cite>Peter:</cite>
+<time>48:08</time>
+<p>I the commitment to this feature was a feature that the one and only user, thank you one and only user, who you may know, asked for. So it was important to get it in there and actually it's a very I would say it's an important feature for sparking some ideas for the next series of of things to do. And perhaps more importantly, you know, as a developer, sometimes you need to ship something so badly</p>
+<cite>Geoff:</cite>
+<time>48:39</time>
+<p>Just just to feel better.</p>
+<cite>Peter:</cite>
+<time>48:40</time>
+<p>Exactly. Remind yourself, look, I am a developer and I did ship. Right? And and so, you know, the the the rash of, development and and that and shipping these things at the end of the year and still having a full time day job, and the podcast and the streams was important to me. So I'm actually feel whilst I'd like to have seen some units ship by now, that's okay if they don't, It was an important morale boost for me.</p>
+<cite>Geoff:</cite>
+<time>49:09</time>
+<p>Definitely. Definitely understand that that case where especially when you haven't shipped for a while. Really, just getting that first one out again, it's just like, man, it feels good. Yeah. Yeah.</p>
+<cite>Geoff:</cite>
+<time>49:18</time>
+<p>Speaking of things that feel good, 2 days after that, we had the Compile Swift podcast reaching 100,000 lifetime downloads, which, again, do not understand how we didn't make it into that top podcast of 2024. Yeah. But, yeah. No. Definitely definitely a nice big round number, and don't we love celebrating big round numbers?</p>
+<cite>Peter:</cite>
+<time>49:36</time>
+<p>Oh, yeah. You know, and especially, when you consider well, this would be episode a 177, I think, in total. So, you know, when you break that down, that is, that's a nice ratio right there and, you know, I do want to take a moment to to say thank you. Seriously, thank you to every single listener, all the guests, the co host. I never in a 1000000 years would have dead dream to to have a 100,000 downloads when I started this crazy idea.</p>
+<cite>Peter:</cite>
+<time>50:10</time>
+<p>So, it wouldn't happen. It would not have happened if it wasn't for all of you because just as importantly, the support that I get over the years from emails and messages from folks to say, hey, keep going. It's tough. So, thank you to all of you and, that's gonna help kick us into, you know</p>
+<cite>Geoff:</cite>
+<time>50:31</time>
+<p>Especially the patrons.</p>
+<cite>Peter:</cite>
+<time>50:32</time>
+<p>Especially the patrons. Absolutely. That was, you know, funny enough, that was another thing this year. It's always been there, but, this was the 1st year that they actually saw some traction, which, again, you know, anytime you get, like, that first sale or subscription or whatever, it's a massive morale boost for anybody that makes anything. So</p>
+<cite>Geoff:</cite>
+<time>50:53</time>
+<p>And the first person to subscribe to your Patreon got a special bonus prize of being the co host.</p>
+<cite>Peter:</cite>
+<time>50:57</time>
+<p>Yeah. See? That's what happens, folks. So that one's gone. Sorry.</p>
+<cite>Peter:</cite>
+<time>51:01</time>
+<p>You can't have that one. But, no, seriously, never thought it would happen. This was just a pipe dream of an idea, and and that was total justification for it right there.</p>
+<cite>Geoff:</cite>
+<time>51:15</time>
+<p>On December 11th, we got now we're getting into, like, less than a week ago. We had the 2nd wave of Apple Intelligence features. We had some of the, like, image generation stuff. So you got image playground, Genmoji, image wand, all of the various abilities to kind of create images from either prompts or from other images, that kind of thing. You had the ability to dig into writing tools.</p>
+<cite>Geoff:</cite>
+<time>51:41</time>
+<p>You can now tell it what you want changed rather than just kind of the presets that you had in the the first release of writing tools. And you now have the ability to talk to chat g p t through Siri.</p>
+<cite>Peter:</cite>
+<time>51:54</time>
+<p>Mhmm.</p>
+<cite>Geoff:</cite>
+<time>51:55</time>
+<p>Have you I I actually have not used any of these new features yet. I am pretty sure I upgraded in the last week. I I have I have not used any of these. None of them have, been anything where I've felt the need to check them out. How about, how about you?</p>
+<cite>Peter:</cite>
+<time>52:09</time>
+<p>Yeah. So I did try the Image Playground in the beta. And in fact, if I remember rightly, I did it on at least one stream. And, hey, friend of the show, Adam Wolf, has also been using it as well. Now I'd be curious to see shout out to the audience here.</p>
+<cite>Peter:</cite>
+<time>52:27</time>
+<p>Tell us if you've been using it and what you think because I'll be honest, I've been greatly under impressed. It seems like every description I put in has really not worked and not even been close. And then when I start to redescribe it, and I tried, like, 4 or 5 attempts at a you know, in a in flow conversation, it just seemed like it was doing whatever the hell he wanted, basically. So Fair enough. You know.</p>
+<cite>Peter:</cite>
+<time>52:54</time>
+<p>Yeah. Expect it again, expected more from Apple. Let's put it that way. Now I will say what is nice though, what does work better is when you provided a photo of yourself and ask it to turn it into an illustration or something. That's actually pretty good.</p>
+<cite>Peter:</cite>
+<time>53:09</time>
+<p>But they all do that, you know.</p>
+<cite>Geoff:</cite>
+<time>53:11</time>
+<p>And I mean, it's not like we haven't seen image generation like this from every AI provider for years.</p>
+<cite>Peter:</cite>
+<time>53:18</time>
+<p>Right. Right. I I think for me, same story through and through for this Apple Intelligence stuff. You know, we waited longer than Apple said we would have to. And then when it got here, it was like, oh, really?</p>
+<cite>Peter:</cite>
+<time>53:33</time>
+<p>Okay.</p>
+<cite>Geoff:</cite>
+<time>53:34</time>
+<p>And then lastly, the most important news story of the year. This was definitely in Apple's newsroom press release, and I I knew you would have just the hottest of takes about this. On December 12th, his majesty, king Charles the third visited Apple's UK headquarters.</p>
+<cite>Peter:</cite>
+<time>53:51</time>
+<p>Yeah. I bet whatever he bought, the British taxpayer paid for it. And I'll leave it at that.</p>
+<cite>Geoff:</cite>
+<time>53:58</time>
+<p>It's it says he visited the office, not the Apple store.</p>
+<cite>Peter:</cite>
+<time>54:01</time>
+<p>Ah, well, see, it's even worse.</p>
+<cite>Geoff:</cite>
+<time>54:04</time>
+<p>Oh my god. Alright. So that is our year in oh, god.</p>
+<cite>Peter:</cite>
+<time>54:09</time>
+<p>So I'll put the subtitle on this one. The subtitle on this one for me being an ex UK patriot would be, and nobody cared.</p>
+<cite>Geoff:</cite>
+<time>54:20</time>
+<p>So that is our 2024 year end review. Definitely, a a lot of things happened this year. And then in the same breath, kind of not a lot of things happened this year. So definitely a a a interesting year and kind of feels a little bit like a transitional year for Apple. Yep.</p>
+<cite>Geoff:</cite>
+<time>54:38</time>
+<p>And, definitely excited to see what we get next year. And, stick with us here on the compiled podcast, and we'll be there to talk about it when it happens. Yeah.</p>
+<cite>Peter:</cite>
+<time>54:49</time>
+<p>Peter, how can people find you online? You can find me at peterwhidham.com, and, of course, compilesweep.com for this podcast and all the networks. Yeah.</p>
+<cite>Geoff:</cite>
+<time>55:00</time>
+<p>What about you? I am at cocoatype.com. Cocoatype, basically, everywhere. Yeah. You can find me.</p>
+<cite>Peter:</cite>
+<time>55:06</time>
+<p>There you go.</p>
+<cite>Geoff:</cite>
+<time>55:07</time>
+<p>I'll be around.</p>
+<cite>Peter:</cite>
+<time>55:07</time>
+<p>Yeah. He'll be around. Folks, depending on when you're listening to this, we know when we plan to release it, but depending on when you listen to this, we we hope you are either enjoying your holiday season or did enjoy it. And I</p>
+<cite>Geoff:</cite>
+<time>55:20</time>
+<p>was gonna say this is this is going to be our last podcast of 2024. Yep. So, yeah. We hope you all have a great end of the year. Have a great new year.</p>
+<cite>Geoff:</cite>
+<time>55:30</time>
+<p>And, we'll see you all in the next year.</p>
+<cite>Peter:</cite>
+<time>55:32</time>
+<p>See you later folks.</p>
+</details>
