@@ -1,0 +1,527 @@
+---
+publishDate: 2024-12-15T00:00:00Z
+title: App Store Presence and Optimization
+excerpt: App store presence and optimization can be as simple or complicated as you choose.
+image: /images/blog-fi/2024/12-15.webp
+tags:
+  - podcast
+  - compileswift
+  - swift
+  - marketing
+metadata:
+  canonical: https://peterwitham.com/2024/compileswift/s07-e21
+---
+
+import Player from '../../../../components/podcasts/cs-player.mdx';
+import CSLinks from '../../../../components/podcasts/cs-links.astro';
+
+<iframe
+  width="100%"
+  height="180"
+  frameborder="no"
+  scrolling="no"
+  seamless=""
+  src="https://share.transistor.fm/e/fcea3da7"
+></iframe>
+
+<Player />
+
+App store presence and optimization can be as simple or complicated as you choose. The short advice is that the more you put in, the more you get out.
+
+We dive into details and suggestions in this episode based on our experiences.
+
+<CSLinks
+  link1="https://developer.apple.com/help/app-store-connect/manage-app-information/upload-app-previews-and-screenshots/"
+  link1label="Apple Doc - Screenshots"
+  link2="https://www.youtube.com/@appfigures"
+  link2label="AppFigures on YouTube"
+  link3="https://helm-app.com/"
+  link3label="Helm App"
+  link4="https://rotato.app/"
+  link4label="Rotato.app"
+  link5="https://rotato.app/"
+  link5label="Sketch app"
+  link6="https://peterwitham.com/cmm"
+  link6label="Clean my Mac"
+
+/>
+
+<details>
+  <summary
+    style="
+     margin-top: 20px;
+     margin-bottom: 80px;
+     padding-left: 20px;
+     border-radius: 10px;
+     border-width: 1px;
+     border-color: rgb(255,255,255,0.2);
+     width: 100%;
+     background-color: rgb(0, 0, 128, 0.2);
+"
+  >Click to show transcription</summary>
+
+#### Transcription
+
+<cite>Peter:</cite>
+<time>00:02</time>
+<p>What's up, everybody? Welcome to another episode of The Compile Swift Podcast. I'm your host, Peter Witham, and your other host is</p>
+<cite>Geoff:</cite>
+<time>00:09</time>
+<p>Hi. I'm Geoff Pedo. I don't know.</p>
+<cite>Peter:</cite>
+<time>00:11</time>
+<p>I think we'll just go with</p>
+<cite>Geoff:</cite>
+<time>00:12</time>
+<p>I don't know why this was suddenly like The hardest question. I don't know how to introduce myself on this podcast. Yeah.</p>
+<cite>Peter:</cite>
+<time>00:18</time>
+<p>This week, we are talking about App Store presence, which can be as simple or as complicated, I guess, as you want it to be. But there are some rules that you have to fall in line with and also just some pretty good common sense. So we're gonna dive into it here, but first of all, Geoff, we've gotta do the obligatory thing everyone does. What did you do this week, sir?</p>
+<cite>Geoff:</cite>
+<time>00:42</time>
+<p>I've been finally getting back into developing some of the other apps that I have on the App Store ever since releasing Bark. That's kind of been my main focus. And, I've gotten a little bit back into updating black highlighter. How about you? I know that this is related to our topic.</p>
+<cite>Peter:</cite>
+<time>01:00</time>
+<p>It is. So hold on to your hats, folks. This week, I shipped my update for job finder tracker 1.2. I know I know. It is months months overdue.</p>
+<cite>Peter:</cite>
+<time>01:12</time>
+<p>I finally shipped it. And yes, that is what I've got to contribute to this week's conversation here because it is very very relevant to to some of the topic in which I updated screenshots and all sorts of things and and really tried to do a better job of it this time around. So let's start here. App Store presence. What what does it even mean, Geoff?</p>
+<cite>Peter:</cite>
+<time>01:36</time>
+<p>What what what is App Store presence?</p>
+<cite>Geoff:</cite>
+<time>01:39</time>
+<p>Yeah. So I think what we're calling App Store presence is basically, how does your app appear on the App Store? What are you telling users? What are you showing users to try and get them to download your app? There's some amount of this that falls under the bucket of App Store optimization, but also there's a lot of kind of what is just the bare minimum.</p>
+<cite>Geoff:</cite>
+<time>02:01</time>
+<p>What are you having to or what are you showing to users? What do you have to show to users? What are you choosing to show to users? Kind of all of the the basics that you are to tell them about the app, and then at the next level, try to sell them on the app. And, hey, you should you should check out this app.</p>
+<cite>Geoff:</cite>
+<time>02:17</time>
+<p>Here's why you should do that.</p>
+<cite>Peter:</cite>
+<time>02:18</time>
+<p>Yeah. Now there are certain things, and and this is one of those, you know, again, you can put as little or as much effort into this as you want. However, there are certain requirements you have to fulfill, basically before Apple will even let you submit it for review, right. So, you know, there are some things here and we'll we'll go through them, but I'll just give you a very quick list and then we'll we'll talk about some specific subjects. Some are self explanatory, I think.</p>
+<cite>Peter:</cite>
+<time>02:48</time>
+<p>So for example, right, there's some text elements naturally, right, that you will be expected to provide an app name. Now that app name is a free form text entry field, but you know you really don't want to use a name that somebody already has because it's gonna make it that much harder, and we've all seen in the store as well, right? People try to make twist and make them clever, and and I think my advice, and Geoff you may disagree, but my advice is it's kind of like domain names. Don't try and be clever, right, because if you don't make it obvious, number 1, it's less likely to come up in the search, and number 2, it's less likely for people to remember it. Right?</p>
+<cite>Geoff:</cite>
+<time>03:34</time>
+<p>Make something that you can find. Make something that you can search for. You can definitely add additions to your to your app in the App Store. I mean so for example, Kineo is my app's actual name. It's the name that you'll see on my social media on the website for it and everything.</p>
+<cite>Geoff:</cite>
+<time>03:52</time>
+<p>But in the App Store, it's Kineo flip book animations, because you wanna have a a little bit there even if a user is just picking it out of the list or they're trying to see it in search results that they're going, oh, yes, it's this Kineo versus maybe there's another Kineo out there, or maybe they see it in the list and they're like, well, I I don't know what Kineo is. Why would this be the kind of thing that I would want? So, yeah, I I would still say that your app name doesn't have to just be your name. You do want it to kind of be almost as much a first impression on the user as your app icon is.</p>
+<cite>Peter:</cite>
+<time>04:26</time>
+<p>Yeah. Right. And if I remember rightly, the app name that you have in the store does not have to exactly match the app name that you would see on the icon in the home screen. Right? If I remember rightly.</p>
+<cite>Geoff:</cite>
+<time>04:41</time>
+<p>Yeah. That's correct.</p>
+<cite>Peter:</cite>
+<time>04:43</time>
+<p>Now, you know, don't go making them 2 completely different things because you might get dinged for that. But, so for example, right, your app name might be job finder tracker. Don't bother using it. I've already used it. On the icon, I could just have like job tracker or something like that, right, to give you an example.</p>
+<cite>Peter:</cite>
+<time>05:01</time>
+<p>So the next one, I actually didn't use, previously, but I've used it this time around, which is the subtitle. It is an optional one and I've seen people kind of use it for almost like a short tagline because you're only allowed 30 characters on both of these, by the way. Right? But I this is the first time I bothered to put in a subtitle. What about you?</p>
+<cite>Peter:</cite>
+<time>05:25</time>
+<p>Do you always put a subtitle in?</p>
+<cite>Geoff:</cite>
+<time>05:28</time>
+<p>I I always, 100% of the time, use a subtitle. It is basically just another thing that shows up on almost every case where you're seeing your app's name. And so it's just another way of letting people know, yes. Hey. This is the app that you're looking for.</p>
+<cite>Geoff:</cite>
+<time>05:44</time>
+<p>And we'll get into some of the ASO stuff later, but, your app name and app subtitle are very important for that as well.</p>
+<cite>Peter:</cite>
+<time>05:51</time>
+<p>Yeah. And then the next one, super important, of course, is the description. Now you've got 4,000 characters for that, but my advice would be get in to the description. Everything you feel you need to get in there. Don't do more than you you need to, right.</p>
+<cite>Peter:</cite>
+<time>06:11</time>
+<p>Don't try and fill it with stuff just to make it sound good or, you know, thinking that it's gonna work with ASO and and things like that, right. Because I feel like the the longer the description is, the more likely people might be to move on because, you know, you don't want to sit there and read paragraphs and paragraphs of text, but you should put in there, hey, list all the features, for example, right? But make it complement, I think, things like the the screenshots and or videos, which we'll talk about here briefly in a moment. I don't think you should, you know, don't don't go writing a book on this thing, right?</p>
+<cite>Geoff:</cite>
+<time>06:51</time>
+<p>I I agree, but I disagree. And I'll say that I think that you should aim to fill as much of it as possible. That is I'm being very much a hypocrite in here because, especially some of my apps, like, black highlighter have very little in them. That is something that I want to work on. But I do think the answer is, a, do fill a lot of this out, but, b, make it easily skimmable.</p>
+<cite>Geoff:</cite>
+<time>07:14</time>
+<p>Make it so that users can find the information that they want kind of quickly and easily. But you do wanna put a lot in there because, again, everything that you have on the app store is your chance to tell the user, hey, this is the app that you want. And so you can go in there and you can have, like, a frequently asked questions. You can have all of your list of features, like you said. You can have, you know, your business model, if that's important to to the user.</p>
+<cite>Geoff:</cite>
+<time>07:41</time>
+<p>Like, oh, yeah. No. This is a subscription app. Like, all of that kind of stuff can be in there. Just I would say, you'll see this in a lot of other apps that you have kind of like these big titles or new lines that separate stuff or, you know, just ton of asterisks or something to to kind of call it out.</p>
+<cite>Geoff:</cite>
+<time>08:01</time>
+<p>Have good, easily skimmable headlines. So that yeah. You're you're right in that you don't want to be reading it paragraph by paragraph and and reading a whole book in here. But if you have instead a set of chapter markers, then you can kind of hop directly to the part in the book that you want to.</p>
+<cite>Peter:</cite>
+<time>08:19</time>
+<p>Yeah. Or, you know, another good one is bullet lists. Right? If you can get, you know, maybe at the front, now that I think about it, you know, at the top maybe put a list a bullet list of all the super important key things and then if there are some that you really want to focus on, you know, go into a few some details underneath maybe something like that. But it actually is surprising how quickly you could fill 4,000 characters if you tried.</p>
+<cite>Peter:</cite>
+<time>08:46</time>
+<p>Right?</p>
+<cite>Geoff:</cite>
+<time>08:47</time>
+<p>Yeah. Exactly.</p>
+<cite>Peter:</cite>
+<time>08:48</time>
+<p>Same that there's another one here, what's new. Now the what's new I obviously tend to think of as, hey, what's new in this release, right? So whilst you've got 4</p>
+<cite>Geoff:</cite>
+<time>08:59</time>
+<p>That's what it is.</p>
+<cite>Peter:</cite>
+<time>08:59</time>
+<p>Yeah. Whilst you've got 4,000 characters, you know, unless you've done massively extensive work, I would imagine you're probably not gonna, you know, overfill this thing, right. So by all means highlight the new things. Like, for example, in my job find a tracker app, I've just added an import resume feature, but I would highlight I would use the what's new to highlight, hey, this is a this is a big deal, right, in this release, things like that. You know, what I don't like to see is, and you see this on a lot of apps, not gonna name any, but many of the ones a lot of people use, every time it's like bug fixes.</p>
+<cite>Peter:</cite>
+<time>09:43</time>
+<p>It's nice that you're telling the user, hey, I fixed a bunch of bugs but it's not really making the user go, oh, this is great. I I gotta get this. Right? You know, it's like a wasted opportunity there is what I think. Hey, folks.</p>
+<cite>Peter:</cite>
+<time>09:56</time>
+<p>If you like what you're hearing in this podcast and you wanna help this podcast to continue going forward and having great guests and great conversations, I invite you to become a Patreon supporter. You can go to patreon.comforward/compile swift where you will get ad free versions of the podcast along with other content.</p>
+<cite>Geoff:</cite>
+<time>10:16</time>
+<p>Yep. I I do think that the reason you see that and and kind of, part of this one and and why I'll say this one is less important is this is something that at most is going to be seen by people who already use your app. It's very rare that somebody who has not downloaded your app is going to look at these release notes at all. And even the people who do have your app, in a lot of cases, most people have just automatic updates turned on, and so they won't see these notifications either. Yeah.</p>
+<cite>Geoff:</cite>
+<time>10:47</time>
+<p>I think it's good to write them so that if people are really worried about a specific feature or a specific bug, they can go and look and find that information if they need to. So I think there is a benefit to having something here, for kind of your most dedicated users. But I since this isn't really seen as kind of the main presence of your app, I do think it's it this would be if you have to find somewhere to Slack on a little bit, this might be a place to to</p>
+<cite>Peter:</cite>
+<time>11:19</time>
+<p>Yeah. Now I I I agree that, you know, let's say for example, that you've got some bug, right, your your app has a login system and there was some bug that made it difficult for users to log in in the last version and you fixed it in this one and you've got a lot of reviews or a lot of complaints mentioning it, that is a good place to point out, hey, look, you know, bug fix hugely fixed this login bug, right. So, you know, take advantage of it there, especially, like I say, if you've got a bunch of reviews or something or, you know, requests for features from users, that is a good place to to put them in there and and buy yourself some goodwill. Right?</p>
+<cite>Geoff:</cite>
+<time>12:06</time>
+<p>And and I think that the there is a benefit to writing these even if it's not the app store that you're writing them for. You can also obviously have these notes on your website. You can link to them from your social media. And so it's it's good to have these additional release notes just so that you can tell your users about them, but it may not necessarily be something that you're super gonna be highlighting on your App Store page itself.</p>
+<cite>Peter:</cite>
+<time>12:30</time>
+<p>Like, for example, I'm sure many of us do this. Right? I have a file. I think it's just a text file. I keep the, you know, the what's new and the release notes and all that kind of thing.</p>
+<cite>Peter:</cite>
+<time>12:43</time>
+<p>I keep them all for all the previous versions so that I can reference back to it myself, you know. Sometimes it can be like, oh shoot, when did I fix that? Okay. Yeah, it was version 1.7. The next one is, another, you know, important one with a with I think an interesting character limit.</p>
+<cite>Peter:</cite>
+<time>13:03</time>
+<p>So it's keywords and you've only got a 100 characters. Now you can put in here anything you want as a keyword, but a 100 characters fills up super quick. Now, I do understand this is a good way to prevent keyword spam and trying to hijack other people's apps by copying what they've done or, again, trying to be clever. Right? But I actually find a 100 characters because I went through this yesterday when I was filling in the details for the update for my app.</p>
+<cite>Peter:</cite>
+<time>13:36</time>
+<p>A 100 characters is not a lot of keywords at all. Right?</p>
+<cite>Geoff:</cite>
+<time>13:39</time>
+<p>Yeah. And that's especially so considering that when you're entering in these keywords, they've all gotta be comma separated. And those commas count in characters too.</p>
+<cite>Peter:</cite>
+<time>13:49</time>
+<p>And the space after the camera. The space after the comma.</p>
+<cite>Geoff:</cite>
+<time>13:52</time>
+<p>Well, don't don't don't include the space after the comma. That's that's the answer there. Don't don't include them. There are a lot of ways to kind of optimize this. I think one of the resources that we'll link to later is going to kind of have some of that information for you.</p>
+<cite>Geoff:</cite>
+<time>14:07</time>
+<p>But yeah, there are ways to optimize this keyword list, but at the same time it is very limited by design, and you kinda have to find ways to get around that.</p>
+<cite>Peter:</cite>
+<time>14:17</time>
+<p>Yeah. Yes. So when I was doing mine, I was testing out at all and and we'll get into some of that later, but, it was suggesting keywords based on, you know, essentially what I'd filled in already, the description and everything else. So what its suggestions were really good, but I couldn't use all of the really good ones because they just couldn't get them all in there and at the same time it it had put a space after the comma and then I realized I was like, oh wait, if I take those out they're still perfectly, legitimately work as keywords and I've captured back some characters. You know, whereas the reason I say it like that is, like, in the web world and things like that, I tend to put a space after them because it doesn't matter.</p>
+<cite>Peter:</cite>
+<time>15:06</time>
+<p>Right? So so, yeah, I that one bit me and I got okay. I only got one extra word in, but hell, that could make all the difference. Right?</p>
+<cite>Geoff:</cite>
+<time>15:15</time>
+<p>I I I know another important one that a lot of people overlook is, don't plural ize your keywords. Mhmm. Don't have barcodes in there when barcode would work fine. That's that's an extra s character that you can save for somewhere else.</p>
+<cite>Peter:</cite>
+<time>15:30</time>
+<p>Yeah. And and that's another one where in the web world, it used to train your brain to think the other way. Put barcodes to cover barcodes and barcode. Right? So, again, when I started doing this, I I came in.</p>
+<cite>Peter:</cite>
+<time>15:45</time>
+<p>I'm like, oh, yeah. Keywords, web, da da da, and then very quickly realized, nope. Don't need to do any of that.</p>
+<cite>Geoff:</cite>
+<time>15:51</time>
+<p>So those are some of the the basic fields that you have for your app. And then you gotta get into some of the slightly more complicated, more calculated parts of your app presence. And these two things are kind of like a survey driven feature, and those are the privacy nutrition label and the age rating of your apps. And for both of these, you kinda go into a section in App Store Connect and Apple just asks you a ton of questions. They go, do you share any data with 3rd parties?</p>
+<cite>Geoff:</cite>
+<time>16:21</time>
+<p>Do you collect any data in the first place? What kinds of data do you collect? What do you do with them? Is it shared with other apps? Is it mingled with other apps?</p>
+<cite>Geoff:</cite>
+<time>16:32</time>
+<p>Is it connected in any way to the user's actual identity? We'll ask you a ton of those questions. That's for the privacy nutrition label. For the age rating, they'll do stuff like, does your app have any simulated gambling, simulated violence, that kind of thing? And, basically, you'll answer all of these questions, and then Apple will give you a final result at the end of them, whether that's your age rating, you know, it's, oh, it's a 4 plus app versus a 17 plus app versus whatever.</p>
+<cite>Geoff:</cite>
+<time>16:59</time>
+<p>Your privacy nutrition label, it's a lot more complicated. It'll say, like, here's the individual bits of data that you collect, that kind of thing. But these are very much tools that you only have to go through them once per app, and then if anything major changes, you know, you can't. Oh, yeah. My app is totally innocent, and it's it's 4, and then you turn it into a blackjack app the next update.</p>
+<cite>Geoff:</cite>
+<time>17:19</time>
+<p>Apple will go, hang on a minute. This isn't a 4 plus app anymore. But by and large, you don't have to update, or you don't have to touch this again once you've done it the first time.</p>
+<cite>Peter:</cite>
+<time>17:27</time>
+<p>And I really like the way that they've done that because it takes a lot of the ambiguity out of it, takes a lot of the guesswork for for maybe some people just don't know. Right, these answers. And, by giving you a series of questions and then essentially generating this for you, I think is a really nice way to do it. I'd love to see, you know, other things, come along this route because it just simplifies it and it also gives me, as the potential downloader purchaser in the store, a standard way of reading and seeing these things, you know, across all the apps that I'm comfortable with and certainly gives a great feeling of trust as well, right. Now you're quite right as you point out, you know, hey, just like with anything else, if you intentionally or unintentionally make a mistake or try to scam the system, Apple will more than likely let you know at some point.</p>
+<cite>Peter:</cite>
+<time>18:31</time>
+<p>And you know, like I say, I love the way they do these, especially because a lot of it can sound if you're new to doing these things or maybe not very experienced about publishing apps, a lot of it can sound really intimidating when you read through and you're like, oh, this just sounds pretty heavy duty, right? So just doing these questionnaires, and getting through them very quickly, I find is actually a really good way and in some ways a lot easier to get along with than than say like some of the Google Play Store.</p>
+<cite>Geoff:</cite>
+<time>19:02</time>
+<p>Yeah. And contrary to, some of our other experiences with, developer tools, these are very good at having a lot of nice documentation and really explaining everything that you need to know. You get in there and you're like, okay. Well, what does tracking mean? And they have a ton of documentation of, like, okay.</p>
+<cite>Geoff:</cite>
+<time>19:23</time>
+<p>Well, this is the exact thing by we mean by tracking or by collecting or by whatever. This is what we mean by user data versus identity data, rough location versus precise location, that kind of thing. That they are very good at saying, no. This is exactly what you're collecting or this is exactly what you're not collecting, and helping you to answer these questions. It's not something where they're like, well, I don't know.</p>
+<cite>Geoff:</cite>
+<time>19:45</time>
+<p>Just put in whatever and, well, maybe you got it right, maybe you didn't,</p>
+<cite>Peter:</cite>
+<time>19:48</time>
+<p>and we're only gonna figure</p>
+<cite>Geoff:</cite>
+<time>19:49</time>
+<p>this out at review time. Yeah. Yeah. I think once you've you know, a lot</p>
+<cite>Peter:</cite>
+<time>19:53</time>
+<p>of this, once you've done it a couple of times, you you get the flow and feel pretty pretty confident with it and, you know, you know what's coming. And also once you've done this once and passed app review, you know, from then on out you're, for the most part, probably tweaking. Right? And so you you've only got to do this hard work once, but next time you do some other app or whatever, you you know, this becomes very comfortable very quickly. And there are some third party tools out there, again, we'll talk about them later, that help you work with a lot of this stuff.</p>
+<cite>Peter:</cite>
+<time>20:31</time>
+<p>So you don't have to necessarily do it in App Store Connect, but I think, it is, you know, it's worthwhile doing it in App Store Connect to begin with when you're first starting out and learning learning the portal and learning how this works, but again we'll talk about that a little bit later on. What's up everybody? I want to tell you about CleanMyMac by Macport. Now I have been using this for years, So many years that I don't even remember at this point. But if you're a Mac user and you don't have this tool, trust me, you need it.</p>
+<cite>Peter:</cite>
+<time>21:07</time>
+<p>So let me tell you what you can do with this. Now, when I open up the application, not only is the UI absolutely gorgeous but I've run SmartCare and all I got to do is open the app, click on SmartCare and hit the scan button. Now, when I do that, what's gonna happen it's gonna analyse my system and it's gonna go through and it's gonna look for junk. It's gonna check to make sure that I don't have any malware or anything like that on my Mac. It's gonna run some performance checks.</p>
+<cite>Peter:</cite>
+<time>21:39</time>
+<p>It's gonna go through and check for application updates and then it's also gonna give me the option to look at what I would call the clutter on my machine, kind of my files, right? The stuff that that I put there and I'm not kidding you every time I run this and I run this at least once a week, it will find at least a couple of gigs worth of junk files to clean out. And all I gotta do is to tell it go ahead and run and it'll clean out the junk files. The other day when I ran it, it found 6 gig of files and believe me when I tell you I am meticulous about keeping junk off of my machine and it will just find this stuff splattered all over different folders and then it'll run the performance checks like I say and it'll just look and see if there's anything that it thinks needs to be done. It'll let me know about any app updates and I can just have it update them for me.</p>
+<cite>Peter:</cite>
+<time>22:36</time>
+<p>Now on top of that, there are other tabs. There's the cleanup tab and it'll go in there and you can tell it to do various cleanup operations for you. Again, it's gonna run an analysis. As developers, we all know about Xcode and how much space it takes up, but you will be amazed about the amount of files that can build up and caches over time that you just don't think about and you know, they just don't clean themselves up very well and again, it'll go through there and save me gigabytes of space. It's absolutely unbelievable.</p>
+<cite>Peter:</cite>
+<time>23:12</time>
+<p>The performance tab is fantastic. It'll run things like flushing the DNS for me and it'll run the maintenance scripts. It'll check disk permissions for issues there and all of those things to give you every ounce of performance out of your machine. And if all of this sounds good to you and it should if you're a Mac user, like I say, I consider this like one of my first installs. You can go to petawhidham.comforward/cmm and that's gonna jump you to the right spot where you can go in and you can try out CleanMyMac.</p>
+<cite>Peter:</cite>
+<time>23:45</time>
+<p>You'll get a 7 day free trial. Personally, like I say every time they bring out a new version, it's an instant upgrade for me. So again, go to peterwedham.comforward/ cmm and get started with Clean My Mac today. So let's move on to the visuals and, you know, you've got I think you've got some pretty good options here. So we'll sort of break these down between us.</p>
+<cite>Peter:</cite>
+<time>24:13</time>
+<p>First one, first real obvious one, we'll all have seen them, screenshots. Now, you can do up to 10 screenshots. They have simplified this process over time. It used to be that you had to provide a whole bunch of different sizes for a whole bunch of different devices and, of course, as the iPhone range grew and the iPad range grew, you know, it got to be a real frankly pain in the butt because you're like, oh my god because you have to, you have to very much meet the requirements here even down to the pixel size of the file, which believe me folks, it sounds easy to begin with, but I I don't know about you, Geoff, but I've done this so many times in the past, then you upload them and you're like, ah, crap. I'm I'm like 1 pixel off in in one direction and it won't accept you.</p>
+<cite>Geoff:</cite>
+<time>25:05</time>
+<p>And and and yeah. And it was it wasn't even just pixels. It was like the content of the images as well was always super weird. You know? If you, were doing even entirely custom screenshots that have, you know, the text over them, and they've got the backgrounds to them.</p>
+<cite>Geoff:</cite>
+<time>25:23</time>
+<p>And then you have, like, your app framed inside of a phone on the thing. One of the things that they would ding you for is, oh, well, on your large size images, you have the notch on your iPhone. And then on small size images, you also still have the notch because you just copied and pasted them. And, oh, actually, the small size image, it needs to have the whole, like, little forehead icon. You can't show, a notched iPhone on the smaller screen size.</p>
+<cite>Geoff:</cite>
+<time>25:49</time>
+<p>And it was just like, why do we have to do all of these? And, it was even more hilarious on the iPads where it was, like, okay. Well, the iPad looks almost identical if you, like, simplify it enough. It looks almost identical between the 2, as long as you just, like, don't ever show the bottom of the iPad. And so that was the trick that I got away with for the longest time.</p>
+<cite>Geoff:</cite>
+<time>26:11</time>
+<p>It's just, like, oh, yeah. You're just showing the top part of the iPad, and you cut off the bottom so that they can't see that you don't have a home button. And, it it works it works great for that. I was</p>
+<cite>Peter:</cite>
+<time>26:20</time>
+<p>gonna say yeah. People tend not to notice, like, you know, where the power button is on the side and the volume buttons. But as soon as you start putting in the home button on devices that don't have the home button or the reverse, yeah, suddenly people get real touchy about this.</p>
+<cite>Geoff:</cite>
+<time>26:40</time>
+<p>Yeah. And so yeah. Thankfully, that is now no longer the case per device family, I guess. So you need 1 screenshot size for the iPhone, 1 screenshot size for the iPad, 1 screenshot size for the Apple Watch. Presume the same is true for the Mac and tvOS.</p>
+<cite>Geoff:</cite>
+<time>26:59</time>
+<p>I don't have any tvOS app. I don't know.</p>
+<cite>Peter:</cite>
+<time>27:01</time>
+<p>Yeah. I don't know. Does anyone have any TV?</p>
+<cite>Geoff:</cite>
+<time>27:06</time>
+<p>For those kinds of device families, yeah, you only need 1 screenshot size per device. Yeah.</p>
+<cite>Peter:</cite>
+<time>27:11</time>
+<p>So thank you.</p>
+<cite>Geoff:</cite>
+<time>27:12</time>
+<p>That is significantly nicer in terms of getting that done at the end of the what is often a a long development.</p>
+<cite>Peter:</cite>
+<time>27:19</time>
+<p>Yeah. No. I don't know about you, but I sort of, you know, learned the hard way to be like, okay. What I need to do is just start. In my case, I use Affinity Designer and Sketch.</p>
+<cite>Peter:</cite>
+<time>27:32</time>
+<p>So I made myself the pixel perfect templates and I go to those every time and so it's like here's my space, fit them in there, great, You know, export 1 to 1. I should be good to go. You know?</p>
+<cite>Geoff:</cite>
+<time>27:47</time>
+<p>Yeah. And and, yeah, that that is my tip as well. I I know we're gonna get into tools a little bit later. But, yeah, it's you can, in theory, and what Apple even, like, originally said, like, you should do is just take a screenshot of your app and upload that. It's, a, much harder to do, honestly, and, b, like, it doesn't look as good, as just taking your screenshots at whatever size you want, putting them into a design tool like Sketch or Figma or Affinity Designer or whatever.</p>
+<cite>Geoff:</cite>
+<time>28:21</time>
+<p>And and kind of just, you know, placing them pixel perfect. How you do there? Add whatever text, add whatever backgrounds, add whatever that you want in these, to do it that way rather than just try to, you know, take a bunch of screenshots. It honestly is easier. You're gonna get better results, and I it's gonna be nicer overall to just do screenshots in a design tool than to do them in</p>
+<cite>Peter:</cite>
+<time>28:47</time>
+<p>your app. And also because depending on the app or game or, you know, sort of using app in a very broad sense here, It may not be possible to get screenshots that really tell the story of what the app does and how it does it. Right? I mean, okay, if you've got, you know, like your app has a form, by all means do a screenshot of the form. It's pretty self explanatory.</p>
+<cite>Peter:</cite>
+<time>29:10</time>
+<p>Right? But it doesn't, for example, say, you know, why am I doing this? Right? So, yeah, on the surface, images and and also, videos, you can have 3 of those, sounds very simple to do and and, yeah, in a sense, you you can do it and fail very easily, but to tell a story from those or to to convey whatever you're looking to convey functionality, whatever, it's actually a lot harder than than you think, which is where it circles back to again like I was saying about that description, right. Try to use them together, right, you know, maybe your bullet list in your description is your screenshots with more details underneath.</p>
+<cite>Peter:</cite>
+<time>29:55</time>
+<p>Try to make them work together. Right?</p>
+<cite>Geoff:</cite>
+<time>29:58</time>
+<p>Now you mentioned the app preview videos. These are an additional thing that you can offer in the app, and that's just some quick short same dimensions as your screenshots, but short I think up to a minute videos. I should look that up before I say that. Hold on.</p>
+<cite>Peter:</cite>
+<time>30:14</time>
+<p>I wanna say 30 seconds, but</p>
+<cite>Geoff:</cite>
+<time>30:16</time>
+<p>The videos that you provide, they're the same dimensions as your screenshots, but you have a minimum length of 15 seconds and a maximum length of 30 seconds, and you kind of just have to show your app in use there. Now the difference between these and the screenshots is that they are way more strict with the app previews about what you can actually show in an app preview. So in this case, it is kind of a lot better to really just have a recording of your app rather than try to do anything too super custom in your app preview.</p>
+<cite>Peter:</cite>
+<time>30:50</time>
+<p>Yeah. I mean, don't don't make a Hollywood trailer. Right? Yeah. You know</p>
+<cite>Geoff:</cite>
+<time>30:56</time>
+<p>I I I know that there's there's a ton of stories out there. I have some that are hilarious that I I can't retell, but, also some horror stories of, you know, I think it was the Halide devs that had somebody hold the phone in in, like, a split second of their trailer thing. And it's just like a hand holding the phone, and Apple was just like, nope. We're gonna block your whole release because of this one second thing of somebody holding the phone. And it was just like, no.</p>
+<cite>Geoff:</cite>
+<time>31:23</time>
+<p>They they are way stricter about what you can and cannot show in an app preview than they are in, a Yeah.</p>
+<cite>Peter:</cite>
+<time>31:31</time>
+<p>It's interesting. Right? I think the advice there, yeah, probably would be, you know, show the app. You know, just show the app, show what it does, get out of there before you get in trouble. And then, you know, the the last visual here, it may sound obvious, but, the app icon, right, you know, hey, you've got the app icon in the app, right, in your Xcode project.</p>
+<cite>Peter:</cite>
+<time>31:56</time>
+<p>Make sure you have a really nice good clear quality image for your app icon because, hey, the first thing people are gonna do if they download your app is try and find the icon on their home screen. Right? So make it easy for them.</p>
+<cite>Geoff:</cite>
+<time>32:11</time>
+<p>Okay. So after you have your basic presence, there's kind of this market of app store optimization where you're really saying, okay. I've got what I want to just tell people about the app, but how can I really sell people on the app? How can I promote my app to people who don't even really know what they're looking for? Who know that they want an app that kinda does this thing, but they don't know that they want my app?</p>
+<cite>Geoff:</cite>
+<time>32:37</time>
+<p>How do I really get across to people, or how do I really get my app in front of people?</p>
+<cite>Peter:</cite>
+<time>32:43</time>
+<p>Yes.</p>
+<cite>Geoff:</cite>
+<time>32:44</time>
+<p>And, Peter, do you have any suggestions for where people might learn more about that?</p>
+<cite>Peter:</cite>
+<time>32:49</time>
+<p>I do. Now, upfront, we we will both happily say we are not experts on this. If we were, we probably wouldn't be doing this. We'd be retired and rich somewhere. Right?</p>
+<cite>Peter:</cite>
+<time>32:59</time>
+<p>Yeah. So there is a ton of different resources out there. I'm gonna highlight a few, you know, let's talk about images, first of all, for inspiration. So you can literally dive into search engine of choice, of course, and search for app store screenshots and things like that. However, there are a lot of places dedicated to showing good design, and one of the ones that I like and I'm a member of, although I don't put much on there, is dribble.</p>
+<cite>Peter:</cite>
+<time>33:27</time>
+<p>And, we'll put link in the show notes because it's dribble but with some extra b's in it. It's the best way to to put that. And, you know, there's a lot of really good very talented designers on there and you can draw a lot of inspiration from that. Now, the other thing you can do here is, you know, go look at your competition or what you think your competition may be. So so how do you figure that out?</p>
+<cite>Peter:</cite>
+<time>33:52</time>
+<p>Well, you know, the most obvious way is to say what what is my app? What does my app do? Now go search on the App Store or on the web for those kind of apps and see what they have done. Now don't just flat out copy them. Right?</p>
+<cite>Peter:</cite>
+<time>34:05</time>
+<p>That's not gonna get you anywhere. If anything, it may get you in trouble, but you can certainly draw from what they have done, right. That that is a good resource. Find the ones where, you know, you resonate with it and they've done a good job and it's a very popular app, for example. And then also, you know, finding some of the things that maybe you don't wanna do.</p>
+<cite>Peter:</cite>
+<time>34:28</time>
+<p>Now along with that, while we're talking about the visual side, remember some of the sort of the, you know, you it wouldn't hurt you to learn some basic design rules. Now for example, right, one that I think a lot of folks know but, you know, hey, there's a lot of folks who don't. Don't use a whole bunch of different fonts on your screenshots, right. Limited to Personally, I like to limit it to 1 or 2. I think 3 is is generally the acceptable limit.</p>
+<cite>Peter:</cite>
+<time>34:59</time>
+<p>So, you know, learn some design skills. You don't have to get in-depth, but they're certainly gonna help you on the screenshot. As far as things again like keywords and descriptions, again look at your, you know, what you think is your competition, but also try it. Go to the App Store, search for put a search word in, see what's come comes back. If what comes back is nothing like your app, that's probably not a good search word to use, right?</p>
+<cite>Peter:</cite>
+<time>35:28</time>
+<p>So learn from your own searching experiences.</p>
+<cite>Geoff:</cite>
+<time>35:31</time>
+<p>Time for a break.</p>
+<cite>Peter:</cite>
+<time>35:32</time>
+<p>Hey, everybody. It's Peter Whittam here from the Compulsory podcast. I'm gonna tell you about Setapp. Setapp is a service that provides a subscription fee of just $10 a month, and you get access to over 200 Mac applications and it's also available now on iOS as part of that deal. I use the service because it just has a ton of really good first rate apps that I use all the time.</p>
+<cite>Peter:</cite>
+<time>35:59</time>
+<p>And for me it's invaluable as a developer to have access to tools for things like APIs, for planning projects, writing emails, writing documentation, and you get all of these things including database apps, all of that kind of stuff right there on the set app service for just $10 a month. You can use as many or as few applications as you need. If you're interested in checking this out, go to peterwhitham.competerwith am.comforward/setapp, s e t a p p. And you can see the details there. And it's got a link that you can go over and start using the service and see how it works out for you.</p>
+<cite>Peter:</cite>
+<time>36:40</time>
+<p>I strongly recommend this to every Mac user.</p>
+<cite>Geoff:</cite>
+<time>36:44</time>
+<p>Break time over.</p>
+<cite>Peter:</cite>
+<time>36:46</time>
+<p>Yeah. Along with that, there are a mountain of tools out there. I've just started using 1, you know, I I'm trying a few and and, you know, maybe we'll we'll dive into them and talk about them in a moment. You know, take advantage of those tools. Of course, AI is another thing now that it's getting a lot of use and it can be useful for generating, I'm gonna say keywords.</p>
+<cite>Peter:</cite>
+<time>37:10</time>
+<p>I'm not a big fan of using it just, you know, copy and pasting out of this AI chatbot for your text because as we've mentioned in a previous episode, everybody can spot the text right now that that AI tools has done and you're like, oh, yeah, you know, but you can use it, right, as a as somewhere to start from. So, you know, maybe take a chat tool, pick one of your choice, put in what you think is a good description and then let it work through it, right, and and see what it comes back with and adapt it. Another good one, very popular one, Grammarly, right, to make hey, you know, it's kind of important to get a good grammar. So Grammarly is a good one that I use for just checking the what I meant to say and what it actually says is the same thing, and things like that. So there's a lot to do in app store optimization.</p>
+<cite>Peter:</cite>
+<time>38:06</time>
+<p>You can, you know, it's just like web optimization. You you can specialize on this thing forever, and you can even pay people. Nothing wrong with that, but I think it's a good idea for you to learn to do it yourself, and it's gonna be painful at first, and you probably won't get it right. It'll take a few hits, but that's why you can go back on your next release and tweak these things. So, you know, Geoff what are your your thoughts on this?</p>
+<cite>Geoff:</cite>
+<time>38:33</time>
+<p>Yeah. As you said, neither of us are experts, but, I do know that there are experts out there that can help you with this kind of thing and help you learn this. You know, there are people out there who are sharing these these tips and tricks. I think my big 2 that I will reference is Ariel from Appfigures. He does a lot of both a YouTube channel and a lot of blog posts about, hey, here are some of the tips and tricks to kind of get your app to show up for the keywords that you want to get it to show up for.</p>
+<cite>Geoff:</cite>
+<time>39:04</time>
+<p>Obviously, he has a vested interest in selling his tool, Appfigures, but he also does a lot of this conversation and stuff of, like, here's the things that you can do that are completely free, Don't have you don't have to be an Appfigures subscriber to to use any of this. It's just like, here's some of the basics. You know? A a lot of the things that we've already discussed, like, hey. Don't use plurals in your keywords list, are things that I picked up from his tips and tricks and and guides.</p>
+<cite>Geoff:</cite>
+<time>39:31</time>
+<p>The other one that I'll I'll recommend maybe a little bit less tightly for our audience because it is more geared towards a larger company's type deal, is the RevenueCat Subclub podcast. Definitely, I would say go through there, look up the podcast titles and say which ones sound interesting or sound relevant to you, and go listen to them. Often, they'll have people on that are talking about, like, oh, you know, I'm doing this for my app store optimization, and, you know, I only had a small budget of $30,000. And so maybe that's a little bit less relevant to the people that are listening to this podcast, but there are definitely some out there that they have things that are are relevant to you and that you can definitely learn from for here's the tips and tricks that work for big companies, but they'll also work for small companies as well. But that one, I'll definitely say, like, don't just go listen to every single episode that they've got because a lot of them aren't going to be relevant.</p>
+<cite>Geoff:</cite>
+<time>40:30</time>
+<p>But and and if you if they are relevant to you, patreon.com/ma'am.</p>
+<cite>Peter:</cite>
+<time>40:33</time>
+<p>Yeah. I was because I'd like to have $30,000 budget on just about anything in life. Right? Yeah. Now I I do want to throw in one extra word of caution here and as we're recording this, we're just coming off of well, literally just come off of Cyber Monday.</p>
+<cite>Peter:</cite>
+<time>40:52</time>
+<p>Right? It's just just wrapping up here in in the US. Mhmm. It's all too easy to convince yourself, you know, toolxyz is gonna magically solve this problem for you, and I I say that, with all due respect to all of these tools because over the past few days, while there's been deals going on and things like that, I've looked at a fair few of them and many of them are very good and but some of them are expensive. That's not to say that they're no good, you know, they're probably well worth what you're paying for them, but my word of caution here is that no tool will magically solve this problem for you and get it right.</p>
+<cite>Peter:</cite>
+<time>41:32</time>
+<p>Like we have said about so many things in the past in other episodes, only you know what's what's right for your apps and what's gonna work for you and what and perhaps more importantly what you're comfortable with. So there's gonna be a lot of experimentation here. It's probably not gonna go great at first. What I try to go for is every time I do a new release is I just try to improve it in some way, and the best way to start there is, you know, Geoff, you alluded this earlier on, learning from what you did last time and how well that worked for you. Right?</p>
+<cite>Peter:</cite>
+<time>42:09</time>
+<p>And comparing it, you know, maybe you've done this 4 or 5 times and tried a few different things. You know, what are those points that worked? What are the ones that didn't? And and just try to, you know, elaborate on it in, you know, a more successful way next time around. Any thoughts on that?</p>
+<cite>Geoff:</cite>
+<time>42:25</time>
+<p>Yeah. Tools are not going to magically solve anything for you. Having an ASO tool is not going to magically make your app number 1 in all app store search results any more than a kitchen tool is gonna make you a Michelin chef. You have to have your knowledge, your expertise in order to kind of build this out, and then the tools can help you. And, yes, I'm I'm not, like Peter said, I'm not saying that these tools are worthless.</p>
+<cite>Geoff:</cite>
+<time>42:55</time>
+<p>I'm saying don't go into expecting, oh, yeah. If I just sign up for this tool that I'm suddenly going to be making n 1,000 more dollars. It it is very much learn what works for you, what you can do, and then use the tools to help you. Yeah. There's a lot more advanced components inside of App Store Connect, and I've done some of these, and I you may have also done some of these, but, I'm gonna kinda list them, and then we can dig into specifics if we if we wanna talk about specifics.</p>
+<cite>Geoff:</cite>
+<time>43:26</time>
+<p>The big one that I think Apple's really been kind of pushing lately, but it's also kind of one of the most complicated ones to get into, is the idea of having custom app store product pages. And this is having an entirely separate app store presence that users can be driven to through different ways of of, you know, whether it's a different link or a a different direction in the App Store. And this is saying, okay. I'm gonna build my main App Store presence that people, if they're just coming into the App Store without looking at anything, they're gonna see this version. That's what we've been talking about this entire time.</p>
+<cite>Geoff:</cite>
+<time>44:02</time>
+<p>But what I could do is I could say I have a special App Store product page for people that are doing some specific thing. So, I think the kinda big obvious one might be, say you've got an app that has something to do with sports. Well, we're gonna have our main, like, just general sports product page, but then maybe we have a specific page just for baseball fans and our specific page just for soccer fans, that kind of thing, and say, this is the best app for baseball. This is the best app for sport, whatever sport you want to. And so you can kind of drive people to that and say, like, I know that these people are already interested in this sport, so let me show them the version of the app store that really sells them on why they should get this app for this sport.</p>
+<cite>Geoff:</cite>
+<time>44:45</time>
+<p>Something that they added to this this year is now if your user downloads the app from one of those product pages, you'll actually get a link that is opened the first time that you launch the app, and you can change your app around based on what product page they came from. So say you know, hey. This user likes baseball more than anything else. When they launch the app for the first time, you can go ahead and set them up for their specific sport so that they are taken immediately into the part of the app that you know that they're gonna want because that's the version of the app that got them to or now kind of akin to this is what they call product page optimization. I think a lot of people are gonna know this more as just AB tests, where this is going back towards your generic App Store presence.</p>
+<cite>Geoff:</cite>
+<time>45:33</time>
+<p>But what's happening is that you can provide up to 3 different versions of your main App Store page, and Apple will give different ones to different people at random. And what you'll see is you're able to tell, hey. What version of my App Store page is getting more downloads, is getting more views, is getting more people to look at it? And so in that way, you can kind of set up multiple different versions of your page and see which version works best. And that allows you to kind of have more insight into what is or is not working.</p>
+<cite>Geoff:</cite>
+<time>46:07</time>
+<p>And so we talked earlier about, like, making incremental improvements over time to your App Store page. This can be one way of making those incremental improvements without completely ruining every version of your page if you end up doing something that actually doesn't work. Now it's worth noting that as opposed to the custom product pages, there is a little bit more of a limitation with the AB tests. You really only can change in your AB tests the app icon and your app screenshots and previews. You really only get to change a little bit of the visual style of the thing.</p>
+<cite>Geoff:</cite>
+<time>46:39</time>
+<p>You don't get to add new keywords. You don't get to have a completely custom description. You don't get to have any of that kind of thing. It is really just little tiny tweaks in trying to see which version of the app kinda draws people in a little bit more. And then there's 2 somewhat similar features that are about promoting your app outside of your app page entirely, and that is in app events and featured in app purchases, which is providing information about specific parts of your app.</p>
+<cite>Geoff:</cite>
+<time>47:09</time>
+<p>And so in app events are, hey. We've got some special thing going on, whether that's something in the real world or something in the app, and we want to promote our app in relation to that event rather than promoting our app directly. So, for example, maybe you have a sale going on in your app. You know, it's it's like we said earlier, Cyber Monday. Maybe you wanna say, hey, everything in our app is on sale, and we're going to promote this sale rather than specifically our app.</p>
+<cite>Geoff:</cite>
+<time>47:40</time>
+<p>And so this is a way that you can have your individual events show up in the app store separately from your app as a whole. Alongside that same thing, you have additionally featured in app purchases. So you could say, hey, here's this feature that you unlock if you get this in app purchase. You can sell that feature separately from your app as a whole, and if users see that in app purchase in their search results, then they're able to purchase the in app purchase right there from the App Store, and then get the app and the app will already have your purchase made. So for example, you could say, hey, my subscription unlocks feature x.</p>
+<cite>Geoff:</cite>
+<time>48:20</time>
+<p>And if somebody goes and they're searching in the App Store for feature x, they could go, oh, well, I'm clearly gonna want that feature. Why don't I go ahead and subscribe now and then get the app and they're already subscribed in the app?</p>
+<cite>Peter:</cite>
+<time>48:31</time>
+<p>Folks, take advantage of these. Now I do wanna say though, there are requirements for these. Right? Just like with everything else, so go check them out because what I fell foul on, I created everything I thought I needed and everything was great and the one thing that I didn't do that was the reason that Apple wouldn't accept it, I didn't supply a deep link direct to the event in the app that I was talking about.</p>
+<cite>Geoff:</cite>
+<time>49:00</time>
+<p>Yeah. For both for both of these, you do need to supply a couple extra things. You need to supply some new images. You need to supply some new icons. For in app events, you need to supply a deep link for the in app purchases.</p>
+<cite>Geoff:</cite>
+<time>49:11</time>
+<p>You actually have to hook up something differently with StoreKit. There are yeah. So there are these additional requirements, but they are nice. And yeah. Definitely, you should take advantage of these more because it's literally just extra ways your app could show up in the search results.</p>
+<cite>Geoff:</cite>
+<time>49:25</time>
+<p>And you always want more ways to do that. I, myself, I've only done the featured in app purchases. I know I totally should have done more featured in app purchases with Bark for the Apple Wallet thing, because that was something that people really wanted. I should have been like, oh, yeah. Bark unleashed and, like, really sell.</p>
+<cite>Geoff:</cite>
+<time>49:42</time>
+<p>Hey. This has Apple Wallet export and really sell just like if people are looking for Apple Wallet, they're gonna see the Bark Unleashed subscription and then go through that. That would be a good idea. I've done the featured in app purchase for black highlighter. It's it's worked.</p>
+<cite>Geoff:</cite>
+<time>49:58</time>
+<p>I mean, it's it's definitely another way of people getting access to this. So, yeah, that is that is something that I need to continue to do in bark. I think I'm also gonna do a bark in app event for New Year's just to be, like, all of the people whose New Year's resolution is get organized. Maybe they want a thing to organize all their barcodes. Definitely just having these extra ways to kind of get in front of people in the App Store, super useful.</p>
+<cite>Geoff:</cite>
+<time>50:23</time>
+<p>Take advantage of them when you can. It's free. Yeah. Now do it.</p>
+<cite>Peter:</cite>
+<time>50:27</time>
+<p>So this may sound like a lot of work, and it is. And, you know, some of you may be thinking, well, should I bother? And the answer is, yes. Yeah. You absolutely should.</p>
+<cite>Peter:</cite>
+<time>50:37</time>
+<p>Key thing is, you know, do your basic homework first. Right? Go through and do all the stuff we'd spoke about at the beginning that you may not need to touch some of that stuff ever again or rarely. So, you know, it pays off there. Taking it up to this next level and doing these these extra things here that Geoff's talking about, yes, you know, you could say, well, it's a lot of effort and and yes, it could be optional.</p>
+<cite>Peter:</cite>
+<time>51:04</time>
+<p>Yeah. But that's it. That that's what we got for you. I'm hoping folks the the takeaway you get here from the last 2 or 3 episodes where we've covered different parts of this whole app process. Right?</p>
+<cite>Peter:</cite>
+<time>51:17</time>
+<p>You know, again, you know, development's part of it. All this is the other stuff. Right? I hope that, you know, you you listen to all these episodes and take away that you will be rewarded based on on how much of this you, you know, take into account and try to do a good job on. I say try to do a good job, you know, any level of effort is better than doing nothing, Right?</p>
+<cite>Peter:</cite>
+<time>51:40</time>
+<p>Simple as that. But we want you to have a good experience and especially for those folks getting started, maybe people in particular who've never released their first app. We feel like we've given you a good sensible place to, you know, take lots of notes and think about it. Right? Play these episodes a few times maybe.</p>
+<cite>Peter:</cite>
+<time>51:59</time>
+<p>With that, Geoff, I think we've covered this. So, where can folks find you?</p>
+<cite>Geoff:</cite>
+<time>52:04</time>
+<p>You can find everything everything about me that you need to know at cocoatype.com, including the latest demos.</p>
+<cite>Peter:</cite>
+<time>52:11</time>
+<p>And you can find everything me at Peterwitham.com , and you can find this podcast at compileswift.com and compileswift on all the networks. That's it folks.</p>
+</details>
