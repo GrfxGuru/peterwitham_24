@@ -1,0 +1,52 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'App Developer Podcast',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero>
+    <Fragment slot="title">
+      <span class="tracking-wide">App Developer Podcast</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline font-semibold mr-2">
+        <br />
+        <br />
+        The world of software development, hosted by experienced professionals.
+      </span>
+    </Fragment>
+  </Hero>
+  <!-- CallToAction Widget *********** -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Follow',
+        href: 'https://compileswift.transistor.fm/subscribe',
+        target: '_blank',
+      },
+    ]}
+  >
+    <Fragment slot="title">Follow the Podcast</Fragment>
+  </CallToAction>
+  <div class="flex justify-center pb-20">
+    <iframe
+      width="75%"
+      height="800"
+      frameborder="no"
+      scrolling="no"
+      seamless=""
+      src="https://share.transistor.fm/e/compile-swift/playlist"></iframe>
+  </div>
+</Layout>

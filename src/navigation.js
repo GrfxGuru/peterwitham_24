@@ -44,8 +44,8 @@ export const headerData = {
 					href: "/my-podcasting-hardware-and-software-studio",
 				},
 				{
-					text: "Compile Swift - Apple Development",
-					href: "https://compileswift.transistor.fm",
+					text: "App Developer",
+					href: "/podcastcs",
 				},
 				{
 					text: "Compile Swift Guest Form",
@@ -94,7 +94,7 @@ export const footerData = {
 		{
 			title: "Podcasts",
 			links: [
-				{ text: "Compile Swift", href: "https://compileswift.transistor.fm" },
+				{ text: "App Developer", href: "/podcastcs" },
 				{ text: "Compile Swift Guest", href: "/csform" },
 				{ text: "UIBuzz", href: "https://uibuzz.transistor.fm" },
 			],
