@@ -1,13 +1,13 @@
 ---
-import Layout from "~/layouts/PageLayout.astro";
+import Layout from '~/layouts/PageLayout.astro';
 
-import BlogLatestPosts from "~/components/widgets/BlogLatestPosts.astro";
-import CallToAction from "~/components/widgets/CallToAction.astro";
-import Hero from "~/components/widgets/Hero.astro";
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Hero from '~/components/widgets/Hero.astro';
 
 const metadata = {
-	title: "Peter Witham - Developer, Podcaster, Streamer",
-	ignoreTitleTemplate: true,
+  title: 'Peter Witham - Developer, Podcaster, Streamer',
+  ignoreTitleTemplate: true,
 };
 ---
 
@@ -32,29 +32,51 @@ const metadata = {
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-      <br/>
-      <br/>
-        <span class="font-semibold mr-2">Hi there!</span> I am obsessed with making great things</span>
-        <br/>
-        <br/>
-        <br/>
+        <br />
+        <br />
+        <span class="font-semibold mr-2">Hi there!</span> I am obsessed with making great things</span
+      >
+      <br />
+      <br />
+      <br />
     </Fragment>
   </Hero>
   <!-- Highlighted Actions Widgets ******* -->
-  <div class="flex mx-auto max-w-9xl justify-center pt-20">
-  <div class="flex flex-col rounded-2xl w-96 bg-[#a4cde4] shadow-xl">
-  <a href="https://peterwitham.com/gdvideo">
-  <figure class="flex justify-center items-center rounded-2xl">
-      <img src="/images/cards/gdvideo-pr.webp" alt="Card Preview" class="rounded-t-2xl">
-  </figure>
-  </a>
+  <!-- Latest Podcasts -->
+  <div class="flex flex-wrap col-span-2 justify-center pt-10">
+    <div class="flex w-96 px-5">
+      <iframe
+        width="100%"
+        height="190"
+        frameborder="no"
+        scrolling="no"
+        seamless=""
+        class="p-1"
+        src="https://share.transistor.fm/e/compile-swift/latest"></iframe>
+    </div>
+    <div class="flex w-96 px-5">
+      <iframe
+        width="100%"
+        height="180"
+        frameborder="no"
+        scrolling="no"
+        seamless=""
+        class="p-1"
+        src="https://share.transistor.fm/e/pwpodcast/latest"></iframe>
+    </div>
   </div>
+  <div class="flex mx-auto justify-center pt-10">
+    <div class="flex flex-col rounded-1xl w-96 shadow-xl">
+      <a href="https://peterwitham.com/gdvideo">
+        <figure class="flex rounded-2xl">
+          <img src="/images/cards/gdvideo-pr.webp" alt="Card Preview" class="rounded-t-2xl" />
+        </figure>
+      </a>
+    </div>
   </div>
   <!-- HighlightedPosts Widget ******* -->
 
-  <BlogLatestPosts
-    title="Latest Blog Posts" information={``}
-  />
+  <BlogLatestPosts title="Latest Blog Posts" information={``} />
 
   <!-- CallToAction Widget *********** -->
 
@@ -69,12 +91,11 @@ const metadata = {
       },
     ]}
   >
-    <Fragment slot="title">
-      Let's Talk
-    </Fragment>
+    <Fragment slot="title">Let's Talk</Fragment>
 
     <Fragment slot="subtitle">
-      I love to help folks get where they want to be, whether it's an app or spreading some cheer on my Podcasts. So why not reach out and let's start a conversation today.
+      I love to help folks get where they want to be, whether it's an app or spreading some cheer on my Podcasts. So why
+      not reach out and let's start a conversation today.
     </Fragment>
   </CallToAction>
 </Layout>
