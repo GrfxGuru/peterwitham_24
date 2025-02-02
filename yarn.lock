@@ -142,10 +142,10 @@
     is-wsl "^3.1.0"
     which-pm-runs "^1.1.0"
 
-"@astrojs/upgrade@^0.4.2":
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/@astrojs/upgrade/-/upgrade-0.4.2.tgz#3d0b58dfbc209687dd5e7ad36b81a5823c008d11"
-  integrity sha512-J+A/m/N27IOCUU6KytgZozxUlGP8Y7pkNTfwelcRe6QdGzKo6ww8PlX2Q3tnWy7I4o0QFAVgGwJuoyUWujneuw==
+"@astrojs/upgrade@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@astrojs/upgrade/-/upgrade-0.4.3.tgz#cce4f87ff736d7e09532438b73fcec47ea5a21e7"
+  integrity sha512-lHFCo6LYhgsDAqKh3Bt/iLfM27b+pfhrp7RZo9pV/UDqQsuYam+eutY0vaaNAuSFzsu1gYgP10KnB+L6epDAPA==
   dependencies:
     "@astrojs/cli-kit" "^0.4.1"
     preferred-pm "^4.0.0"
