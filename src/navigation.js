@@ -48,8 +48,12 @@ export const headerData = {
 					href: "/podcastcs",
 				},
 				{
-					text: "Compile Swift Guest Form",
-					href: "/csform",
+					text: "PW Podcast",
+					href: "/podcastpw",
+				},
+				{
+					text: "Creating an App Series",
+					href: "/creating-an-app-series",
 				},
 				{
 					text: "UIBuzz - App and game development",

@@ -1,0 +1,110 @@
+---
+import Image from "~/components/common/Image.astro";
+import Button from "~/components/ui/Button.astro";
+import CallToAction from "~/components/widgets/CallToAction.astro";
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from "~/layouts/PageLayout.astro";
+
+const podcastSubscribe =
+	"https://pwpodcast.transistor.fm/subscribe";
+
+const metadata = {
+	title: "Creating an App from start to end",
+};
+---
+<Layout metadata={metadata}>
+<div class="flex justify-center pb-20">
+<div class="flex w-1/2 grid space-y-5">
+<div class="pt-20">
+<!-- Hero Widget ******************* -->
+
+<Hero>
+  <Fragment slot="title">
+    <span class="tracking-wide">Creating an app</span>
+  </Fragment>
+
+  <Fragment slot="subtitle">
+    <span class="hidden sm:inline font-semibold mr-2">
+      <br />
+      <br />
+      A series of Podcast episodes with some advice and workflows for creating an app from start to end.
+    </span>
+  </Fragment>
+</Hero>
+<!-- Episode -->
+<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700   mt-20 mb-20"/>
+<h3 class="font-bold text-xl">Episode 1 - Introduction</h3>
+<div class="pb-3">
+<p class="pt-3">There are many different steps to think about, it is not just "I have an idea, let's start coding".</p>
+<br/>
+<p>In this episode, I discuss having an idea and identifying a user of the app along with a loose timeline for creation.</p>
+</div>
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/22704216?color=F90476&background=132852"></iframe>
+<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700  mt-20 mb-20"/>
+<!-- Episode end -->
+<!-- Episode -->
+<h3 class="font-bold text-xl">Episode 2 - Identifying the right platforms</h3>
+<div class="pb-3">
+<p class="pt-3">In this episode, I discuss identifying the platforms that will work best for your application based on the features and users.</p>
+</div>
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/d08c8892?color=F90476&background=132852"></iframe>
+<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700 mt-20 mb-20"/>
+<!-- Episode end -->
+<!-- Episode -->
+<h3 class="font-bold text-xl">Episode 3 - Designing basic views and flows</h3>
+<div class="pb-3">
+<p class="pt-3">In this episode, I discuss how to start thinking about the app views. Nothing fancy, at this stage we just want to have some basic line drawings of each screen so we can start to get a feel for the application from the users perspective.
+</p>
+<br/>
+<p>
+This also leads into considering the application flow and experience while using the app.</p>
+</div>
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/4c847e93?color=F90476&background=132852"></iframe>
+<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700  mt-20 mb-20"/>
+<!-- Episode end -->
+<!-- Episode -->
+<h3 class="font-bold text-xl">Episode 4 - Choosing build tools</h3>
+<div class="pb-3">
+<p class="pt-3">In this episode, I discuss the choices and decisions you need to make to start building the application. There are many options available today and it can be overwhelming.
+</p>
+<br/>
+<p>
+A couple of questions to ask you self as I discuss the pros and cons of going with native technologies or cross-platform options.</p>
+</div>
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/5c1fd84b?color=F90476&background=132852"></iframe>
+<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700  mt-20 mb-20"/>
+<!-- Episode end -->
+<!-- Episode -->
+<h3 class="font-bold text-xl">Episode 5 - Building the prototypes</h3>
+<div class="pb-3">
+<p class="pt-3">In this episode, it is time to talk about building prototypes and getting them in the hands of users so they can provide invaluable feedback as you build the application.
+</p>
+</div>
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/d99810e1?color=F90476&background=132852"></iframe>
+<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700  mt-20 mb-20"/>
+<!-- Episode end -->
+<!-- Episode -->
+<h3 class="font-bold text-xl">Episode 6 - Design and Accessibility</h3>
+<div class="pb-3">
+<p class="pt-3">In this episode, designs and accessibility are now the last development part of the cycle to talk about as we head to testing and polishing the app.
+</p>
+</div>
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/1f93be08?color=F90476&background=132852"></iframe>
+<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700  mt-20 mb-20"/>
+<!-- Episode end -->
+</div>
+</div>
+</div>
+<!-- CallToAction Widget *********** -->
+  <CallToAction
+    id="download"
+    title="Follow the Podcast"
+    subtitle=""
+  >
+    <div slot="actions" class="flex max-w-sm gap-4 justify-center">
+      <Button variant="link" href={podcastSubscribe}>
+        <Image src="/images/follow-podcast-button.png" alt="PW Podcast Image" width={200} />
+      </Button>
+    </div>
+  </CallToAction>
+</Layout>
