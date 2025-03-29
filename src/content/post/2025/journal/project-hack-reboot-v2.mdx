@@ -1,0 +1,47 @@
+---
+publishDate: 2025-03-29T14:15:00Z
+title: Project Hack Reboot v2
+excerpt: I have been quiet on Project Hack for a while, now is the time to go public with updates
+image: /images/blog-fi/2025/03-29.webp
+tags:
+  - journal
+  - game-development
+  - projecthack
+  - unity
+metadata:
+  canonical: https://peterwitham.com/2025/journal/project-hack-reboot-v2.mdx
+---
+
+Yes, it has been a long time since I published any details on my [ProjectHack game](https://projecthack.net). There are good reasons for that, I wanted to be sure of it's direction before talking about it again.
+
+## How it started
+Since the first single player version I have learned a lot from the folks that kindly played the beta and provided me feedback. I've also learned a lot from my own play testing, evaluating if what I wanted the game to be was the direction it took.
+
+For the most part, I'm happy with how the single player ended up. It had all the features I wanted from resource collection and creation to boss fights and upgrades.
+
+The architecture of the game was not good enough I felt to build in the multiplayer part. So I decided to sit back for a while and think about how I would handle that whilst improving the maintainability and expansion of the game code base and features.
+
+The good news, I now have what I need to go forward with major improvements both technically and feature wise.
+
+## Evaluating engines
+Before starting the second version I wanted to really evaluate what the best route would be as far as game engine to use.
+
+I tried Unreal Engine, which worked great for performance and ability to hook up online services. I opted to try Blueprints which ended up causing more trouble and complexity than I wanted for the game logic and UI updating.
+
+I then tried Godot, which I have been using for my [Endless Hurdles game](https://peterwitham.com/eh) with great success and satisfaction. Again, I felt it didn't get me where I wanted to be going forward for online services and future expansion.
+
+So finally, I went back to Unity. I'm using Unity 6 this time and have found what I feel is the right home for the games development. I'm using C#, which I'm very rusty with, but it's a great learning refresh.
+
+What I like is the ability to take advantage of C# actions to have only the parts of the application I need responding to events they care about without the need to create a hard dependency.
+
+Yes, I could have used signals in Godot and Unreal Engine broadcasting, but it required more code and dependency linkage than I wanted, at least with my limited understanding in those engines.
+
+## So what now
+Coding is well underway and I have basic resources working along with the UI and math. I also have a better way to add resources using a prefab and relying on Unity's ability to find and attach events at runtime for the C# actions.
+
+I have also decided to rollout features over time rather than wait and create the 'final' feature set I have in mind for this 2.0 release. This not only gets the game in the hands of players but also fits the idea of the game of being a hacker that gains different features and unlocks over time.
+
+It also provides a means to keep me motivated and working on the game on a regular schedule without excuses. I'm sure you've been there right?
+
+## One last thing
+I am working to see if I can also make a viable version that runs in a Web browser to make it accessible to as many platforms as possible. There are still going to be installable versions for platforms like mobile and tablet, but I want to try and take this to the next level.
