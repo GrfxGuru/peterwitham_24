@@ -1,0 +1,31 @@
+---
+publishDate: 2025-05-17T14:00:00Z
+title: Upgrading Endless Hurdles to Godot 4.4
+excerpt: I'm happy to report that everything is mostly fine after engine upgrade.
+image: /images/blog-fi/2025/05-17.webp
+tags:
+  - journal
+  - game-development
+  - endless-hurdles
+  - godot
+metadata:
+  canonical: https://peterwitham.com/2025/journal/05-17-25-endless-hurdles-engine-upgrade
+---
+
+When I wrote the new build of Endless Hurdles using Godot. I used version 4.2.
+
+Before I started work on the next series of features and updates to the game I decided it was time to get with the modern times and update to the latest Godot which is version 4.4 as of this post.
+
+Thankfully, there was very little that needed changing.
+
+The biggest change was to variable and function types that needed to go from floats to vector2 for gravity and other physics calculations. I decided this was something AI could help me with, so ChatGPT and I sat down to figure out how we would make changing the types without affecting functionality and having weirdness.
+
+I'm happy to report, we made it through without incident. A few new numbers later and everything appears to be running fine and nobody is flying off in to the sky or crashing to the ground with the weight of a thousand suns.
+
+Now, on to the new features including a new level with new mechanics to offer different ways to have fun.
+
+The take-away here, never wait too long to upgrade that code base. Don't let it get so out of date that you end up with a mess and a headache.
+
+### Endless Hurdles
+
+[Download for iOS](https://apps.apple.com/us/app/endlesshurdles/id6450933481) | [Download for Android](https://play.google.com/store/apps/details?id=com.peterwitham.endlesshurdles&pli=1)
