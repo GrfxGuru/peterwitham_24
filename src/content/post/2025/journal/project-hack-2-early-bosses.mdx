@@ -1,0 +1,37 @@
+---
+publishDate: 2025-07-02T1:45:00Z
+title: Project Hack Early Boss Build
+excerpt: I now have a working model for the boss fights
+image: /images/blog-fi/2025/07-02.webp
+tags:
+  - journal
+  - game-development
+  - projecthack
+  - unity
+metadata:
+  canonical: https://peterwitham.com/2025/journal/project-hack-early-bosses.mdx
+---
+
+I spent some time really trying to think this one through and find a working model I can use that gives me the boss information for the game UI and the fights. Currently the details look like this
+
+### The code
+
+``` c#
+[0] = ("Male_17_0","Colin Optional",
+    "He once opened the terminal and changed directory. Thinks he is a hacker!",
+    new LargeNumber(10, 0),
+    (ResourceTypes.Newbies, new LargeNumber(100, 0)),
+    (ResourceTypes.Desktops, new LargeNumber(5, 0)),
+    (ResourceTypes.Level2Access, new LargeNumber(2, 0))),
+```
+
+### So what is all this?
+
+This gives me all the items I need in one dictionary entry making use of optionals to go beyond a key value pair.
+
+- A reference to the sprite for the avatar
+- A text description for the boss
+- The Hacker Power of the boss (10 in this case)
+- 3 reward items for defeating the boss, each contains the type and the quantity.
+
+When it comes to adding a new boss all I need to do is add a new dictionary item and recompile. Nice and clean with a very quick way to iterate over the game.
