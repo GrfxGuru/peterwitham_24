@@ -25,10 +25,12 @@ const metadata = {
   <!-- this is where we will inject the interface -->
 </div>
 
-<script is:inline>window.SavvyCal=window.SavvyCal||function(){(SavvyCal.q=SavvyCal.q||[]).push(arguments)};</script>
+<script is:inline>window.SavvyCal=window.SavvyCal||function(){(SavvyCal.q=SavvyCal.q||[]).push(arguments)}; // eslint-disable-line no-undef</script>
 <script async src="https://embed.savvycal.com/v1/embed.js"></script>
 <script is:inline>
+  // eslint-disable-next-line no-undef
   SavvyCal('init');
+  // eslint-disable-next-line no-undef
   SavvyCal('inline', { link: 'pwitham/podcast-recording', selector: '#booking-page' });
 </script>
 </div>
