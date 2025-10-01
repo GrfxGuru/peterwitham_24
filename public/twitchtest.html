@@ -1,0 +1,35 @@
+<html>
+    <body>
+<div id="twitch-container" style="width: 100vw; height: 100vh;">
+  <iframe
+    id="twitch-player"
+    src="https://player.twitch.tv/?channel=CompileDev&parent=peterwitham.com&autoplay=true"
+    allowfullscreen
+    allow="autoplay; fullscreen"
+    width="100%"
+    height="100%">
+  </iframe>
+  </div>
+  </body>
+  </html>
+
+
+<script>
+  // Detect mobile device
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    const container = document.getElementById('twitch-container');
+    const iframe = document.getElementById('twitch-player');
+    
+    // Request fullscreen on first user interaction
+    container.addEventListener('click', function() {
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen(); // Safari
+      }
+    }, { once: true }); // Only trigger once
+  }
+</script>
+</html>
