@@ -1,0 +1,67 @@
+---
+publishDate: 2025-10-18T13:30:00Z
+title: Shipping My First Sub Radar Update
+excerpt: In this episode I discuss shipping Sub Radar and the first update.
+image: /images/blog-fi/2025/10-18.webp
+tags:
+  - journal
+  - Pwpodcast
+  - projects
+metadata: canonical: https://peterwitham.com/2025/pwpodcast/e63/
+---
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/31d75687"></iframe>
+
+Last week, I shipped the first update to my new app, SubRadar ([available at subradar.app](https://subradar.app)). I'm not here to promote the app—I want to talk about the process and how this first update validated my entire development approach.
+
+## The Bugs (All Two of Them)
+
+Here's what made me happy: users only found two bugs, and neither was a showstopper. In fact, one actually validated my interface design.
+
+## Bug #1: The Interface Stress Test
+
+I had forgotten to cap the length of tag and platform names. A user decided to test this by entering a couple hundred characters. You know what? The interface handled it beautifully. I've now added a 75-character cap (way more than anyone should need for a tag or platform name), but the fact that it worked without breaking was a huge win.
+
+The same thing happened with the amount entry field—someone entered an absurd number, and while I've now capped it at 20 characters, the interface handled it along with all the charts without issue.
+
+Taking my time during development really paid off.
+
+## Bug #2: The Pro User Problem
+The second bug actually affected my pro subscribers (those paying $4.99/year—less than one month of most streaming services). The free version limits you to three subscriptions, which was working perfectly. Pro users get unlimited subscriptions, and that worked fine too.
+
+The issue was with the two other pro features: search and sorting. My logic was simple—if you only have three subscriptions, you can see them all on even the smallest device, so you don't need search or sort functions. But pro users should have these tools, especially since the app retains all your data even if you drop back to the free tier.
+
+The search box wasn't showing up for pro users due to a navigation glitch, and the sort button had the same issue. Quick fixes, and now they're working as intended.
+
+## The Reality Check
+
+Let me be transparent: aside from a couple of people I gave pro versions to as thanks for testing help (which I think every indie dev should do), nobody has purchased the app yet. But you know what? The App Store conversion rate is sitting at about 14.5%, which is pretty solid. People are finding the page and downloading the free version.
+
+We all dream of instant success and tons of pro conversions right out of the gate, but that rarely happens unless you're lucky or you promote relentlessly.
+
+I only have so much time to promote—I have a day job and the rest of life to manage. I'm not a superstar dev with a million-dollar marketing budget.
+
+I'm just me with my limited free time.
+
+## What's Next
+I've added tutorial videos for all the features to the [SubRadar website](https://subradar.app) and [YouTube](https://www.youtube.com/watch?v=BSoLNpdUoa8&list=PLHBYjLiURDUWCRjV4va79y1NZuiRDbWlR). They're short and straightforward, showing exactly how each feature works.
+
+I'm getting some views, though not many yet. But that's how it goes—no overnight success here.
+
+This first update is out, and I'm relieved it went so smoothly. Now I can focus on my other projects, like updating the interface for Job Finder Tracker and shipping the Halloween event for Endless Hurdles.
+
+## My Advice to You
+
+If you're hesitant about shipping your app, here's what I'll say: if you think it's mostly done (because let's be honest, they're never completely done), and you've covered your bases on bugs and features, ship it.
+
+You'll be surprised how well it can be received. Right now, the only person who knows all the good and bad things about your app is you and maybe your testers.
+
+Real users will reveal what's actually right or wrong, and that's invaluable information.
+
+Nobody likes discovering their shipped product has issues, but you won't know unless you ship. If you live in fear of shipping, you might have a fantastic app that's only great for you. If your goal was always to put it out there for people, you haven't met that goal yet.
+
+Ship it.
+
+Live through the initial growing pains. People will find things you never imagined, and the sooner you can fix them and make them happy, the better you'll feel about the whole process.
+
+Everything's on track, and I'm feeling good about where things are heading.
