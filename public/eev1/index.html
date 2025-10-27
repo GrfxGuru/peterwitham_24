@@ -1,22 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Unity Web Player | EndlessEvolution</title>
-    <link rel="shortcut icon" href="/eev1/TemplateData/favicon.ico">
-    <link rel="stylesheet" href="/eev1/TemplateData/style.css">
+    <link rel="shortcut icon" href="/eev1/TemplateData/favicon.ico" />
+    <link rel="stylesheet" href="/eev1/TemplateData/style.css" />
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <div id="unity-warning"> </div>
+      <div id="unity-warning"></div>
       <div id="unity-footer">
         <div id="unity-logo-title-footer"></div>
         <div id="unity-fullscreen-button"></div>
@@ -24,7 +24,7 @@
       </div>
     </div>
     <script>
-      var canvas = document.querySelector("#unity-canvas");
+      var canvas = document.querySelector('#unity-canvas');
 
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
@@ -33,7 +33,7 @@
       // way that non-critical warnings and error messages are presented to the
       // user.
       function unityShowBanner(msg, type) {
-        var warningBanner = document.querySelector("#unity-warning");
+        var warningBanner = document.querySelector('#unity-warning');
         function updateBannerVisibility() {
           warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
         }
@@ -43,7 +43,7 @@
         if (type == 'error') div.style = 'background: red; padding: 10px;';
         else {
           if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
+          setTimeout(function () {
             warningBanner.removeChild(div);
             updateBannerVisibility();
           }, 5000);
@@ -51,17 +51,17 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/eev1/Web.loader.js";
+      var buildUrl = 'Build';
+      var loaderUrl = buildUrl + '/eev1/Web.loader.js';
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/eev1/Web.data.br",
-        frameworkUrl: buildUrl + "/Web.framework.js.br",
-        codeUrl: buildUrl + "/eev1/Web.wasm.br",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "UIBuzz",
-        productName: "EndlessEvolution",
-        productVersion: "0.1.0",
+        dataUrl: buildUrl + '/eev1/Build/Web.data.br',
+        frameworkUrl: buildUrl + '/Build/Web.framework.js.br',
+        codeUrl: buildUrl + '/eev1/Build/Web.wasm.br',
+        streamingAssetsUrl: 'StreamingAssets',
+        companyName: 'UIBuzz',
+        productName: 'EndlessEvolution',
+        productVersion: '0.1.0',
         showBanner: unityShowBanner,
         // errorHandler: function(err, url, line) {
         //    alert("error " + err + " occurred at line " + line);
@@ -92,42 +92,41 @@
 
         var meta = document.createElement('meta');
         meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        meta.content =
+          'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
         document.getElementsByTagName('head')[0].appendChild(meta);
-        document.querySelector("#unity-container").className = "unity-mobile";
-        canvas.className = "unity-mobile";
+        document.querySelector('#unity-container').className = 'unity-mobile';
+        canvas.className = 'unity-mobile';
 
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
         // config.devicePixelRatio = 1;
-
-
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        canvas.style.width = '960px';
+        canvas.style.height = '600px';
       }
 
-      document.querySelector("#unity-loading-bar").style.display = "block";
+      document.querySelector('#unity-loading-bar').style.display = 'block';
 
-      var script = document.createElement("script");
+      var script = document.createElement('script');
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
-          document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-                document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
-
-              }).catch((message) => {
-                alert(message);
-              });
+          document.querySelector('#unity-progress-bar-full').style.width = 100 * progress + '%';
+        })
+          .then((unityInstance) => {
+            document.querySelector('#unity-loading-bar').style.display = 'none';
+            document.querySelector('#unity-fullscreen-button').onclick = () => {
+              unityInstance.SetFullscreen(1);
             };
+          })
+          .catch((message) => {
+            alert(message);
+          });
+      };
 
       document.body.appendChild(script);
-
     </script>
   </body>
 </html>
