@@ -29,9 +29,10 @@ import "@fontsource-variable/inter";
     --aw-color-secondary: rgb(30 58 138);
     --aw-color-accent: rgb(109 40 217);
 
-    --aw-color-text-heading: rgb(0 0 0); 
+    --aw-color-text-heading: rgb(0 0 0);
     --aw-color-text-default: rgb(16 16 16);
     --aw-color-text-muted: rgb(16 16 16 / 66%);
+    --aw-color-text-page: rgb(16 16 16);
     --aw-color-bg-page: rgb(255 255 255);
 
     --aw-color-bg-page-dark: rgb(3 6 32);
@@ -49,11 +50,97 @@ import "@fontsource-variable/inter";
     --aw-color-secondary: rgb(30 58 138);
     --aw-color-accent: rgb(109 40 217);
 
-    --aw-color-text-heading: rgb(0 0 0); 
+    --aw-color-text-heading: rgb(255 255 255);
     --aw-color-text-default: rgb(229 236 246);
     --aw-color-text-muted: rgb(229 236 246 / 66%);
+    --aw-color-text-page: rgb(229 236 246);
     --aw-color-bg-page: var(--aw-color-bg-page-dark);
 
     ::selection {background-color: black; color: snow}
+  }
+
+  /* Force dark mode text colors */
+  .dark,
+  .dark body,
+  .dark p,
+  .dark div,
+  .dark span {
+    color: rgb(229 236 246);
+  }
+
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    color: rgb(255 255 255);
+  }
+
+  .dark a {
+    color: rgb(147 197 253);
+  }
+
+  .dark a:hover {
+    color: rgb(191 219 254);
+  }
+
+  /* Dark mode dropdown menu */
+  .dark .dropdown-menu {
+    background-color: rgb(15 23 42) !important;
+    color: rgb(229 236 246);
+  }
+
+  .dark .dropdown-menu a {
+    color: rgb(147 197 253);
+  }
+
+  .dark .dropdown-menu a:hover {
+    background-color: rgb(30 41 59) !important;
+    color: rgb(191 219 254);
+  }
+
+  /* Dark mode tags */
+  .dark li.bg-gray-100 {
+    background-color: rgb(51 65 85) !important;
+    border: 1px solid rgb(71 85 105);
+  }
+
+  .dark li.bg-gray-100 a {
+    color: rgb(203 213 225) !important;
+  }
+
+  .dark li.bg-gray-100 a:hover {
+    color: rgb(226 232 240) !important;
+  }
+
+  /* Make blog post links more prominent */
+  .dark article a,
+  .dark .prose a {
+    color: rgb(96 165 250) !important;
+    text-decoration: underline;
+    text-decoration-color: rgb(96 165 250 / 30%);
+    text-underline-offset: 2px;
+  }
+
+  .dark article a:hover,
+  .dark .prose a:hover {
+    color: rgb(147 197 253) !important;
+    text-decoration-color: rgb(147 197 253 / 50%);
+  }
+
+  /* Remove underline from title links in blog lists */
+  .dark article h1 a,
+  .dark article h2 a,
+  .dark article h3 a,
+  .dark article h4 a {
+    text-decoration: none !important;
+  }
+
+  .dark article h1 a:hover,
+  .dark article h2 a:hover,
+  .dark article h3 a:hover,
+  .dark article h4 a:hover {
+    text-decoration: none !important;
   }
 </style>
