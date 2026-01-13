@@ -1,0 +1,69 @@
+---
+publishDate: 2026-01-13T12:10:00Z
+title: My experiences with AI-assisted Android porting of iOS apps
+excerpt: I need to port my apps to Android and AI can help me. Some challenges I faced and how I overcame them.
+image: /images/blog-fi/2026/01-13.webp
+tags:
+  - uibuzz
+  - iOS
+  - android
+  - ai
+metadata:
+  canonical: https://peterwitham.com/2025/uibuzz/e76/
+---
+
+<iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/a6c1a45b"></iframe>
+
+As we kick off 2026, I'm excited to share that I'm already close to achieving one of my biggest goals for the year: converting my iOS apps to Android. For those who've been following my journey, you know that iOS and Swift have been my primary focus for years. But I've been getting constant requests from users asking when my apps would be available on Android, and I finally decided it was time to make it happen.
+
+I have two apps currently on iOS: Job Finder Tracker ([available at PeterWitham.com/jft](https://peterwitham.com/jft)) and Sub Radar ([available at subradar.app](https://subradar.app)). Both use Core Data for storage and iCloud for syncing. The challenge? I didn't want to spend months learning Kotlin from scratch. Between my day job and other commitments, I simply don't have that kind of time.
+
+So I decided to take a different approach: I'd use AI to help me convert the apps.
+
+Working with Claude Code and guidance from an experienced Android developer friend, I fed my iOS source code into the AI and asked it to analyze my architecture, technologies, and features, then create a plan for converting everything to Android.
+
+After some processing time, Claude came back with a comprehensive five-phase plan:
+
+**Phase 1:** Build data structures and database layer, replacing Core Data with Room (recommended by my Android developer friend)
+
+**Phase 2:** Create the UI with basic CRUD operations (create, read, update, delete)
+
+**Phase 3:** Add advanced features like calendar integration and local notifications
+
+**Phase 4:** Implement syncing capabilities (though I decided to start with local storage first to get to market faster)
+
+**Phase 5:** Testing and refined features like PDF import and rich text conversion for resume sharing
+
+The AI had figured out about 90% of what I'd done in my iOS project and created a reasonable conversion plan. Impressive.
+
+I let Claude loose on Phase 1. It didn't build on the first try—partially my fault for not specifying Android API levels and deprecated features upfront. But the fixes were straightforward, and importantly, the AI learned from those manual corrections and updated its documentation accordingly.
+
+Once Phase 1 was working, we moved to Phase 2: building the basic UI structure following Material Design best practices. This phase went smoothly. Within about three to three and a half hours, I had a working application running on both simulators and physical devices.
+
+The local push notifications required significant manual tweaking. I wanted users to be able to set custom reminder intervals for job applications and make those reminders editable and deletable. This took hands-on work to get right.
+
+In less than 12 hours of actual work, I went from nothing to a fully functional Android version of my app—minus a few features like PDF resume handling, but complete enough to hand off to testers for feedback.
+
+Even on my ancient, slow Android test tablet (which makes it perfect for testing), the app runs beautifully.
+
+Let me be clear: **AI alone would not have gotten this right.** The success came from feeding it a well-crafted project I'd built by hand, then using AI to handle the base conversion while I refined the details.
+
+This approach has several benefits:
+
+- I can get my apps on Android without spending months learning a new language
+
+- I'm learning Android development by working with and modifying the converted code
+
+- Going forward, any new apps I build can automatically target both platforms
+
+- I'm becoming more platform-independent with my projects
+
+This is exactly the kind of flexibility developers need. Platforms have their ups and downs, and as people who build and ship products for users, we need to stay adaptable and meet our users where they are, regardless of platform.
+
+I'm now in the testing phase with Job Finder Tracker for Android, and I plan to use the same approach for my Sub Radar app. The plan is to eventually evaluate Kotlin Multiplatform for future projects, giving me even more options.
+
+I'm also continuing work on my game development projects, so expect more content on that front soon.
+
+If you'd like to check out the apps or share your thoughts on this approach, visit [PeterWitham.com/contact](https://peterwitham.com/contact). I'd love to hear from you.
+
+Here's to a productive 2026 and staying flexible as developers.
