@@ -26,17 +26,19 @@ const { Content } = post;
     <header class={post.image ? '' : ''}>
       {
         post.image ? (
-          <Image
-            src={post.image}
-            class="max-w-full lg:max-w-[450px] mx-auto mb-10 sm:rounded-md bg-gray-400 dark:bg-slate-700"
-            widths={[400, 450]}
-            sizes="(max-width: 450px) 400px, 450px"
-            alt={post?.excerpt || ''}
-            width={450}
-            height={253}
-            loading="eager"
-            decoding="async"
-          />
+          <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <Image
+              src={post.image}
+              class="max-w-full lg:max-w-[450px] mx-auto mb-10 sm:rounded-md bg-gray-400 dark:bg-slate-700"
+              widths={[400, 450]}
+              sizes="(max-width: 450px) 400px, 450px"
+              alt={post?.excerpt || ''}
+              width={450}
+              height={253}
+              loading="eager"
+              decoding="async"
+            />
+          </div>
         ) : (
           <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <div class="border-t dark:border-slate-700" />
