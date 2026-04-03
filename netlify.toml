@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "pnpm run build"
+  command = "rm -rf node_modules/.vite && pnpm run build"
 [build.processing.html]
   pretty_urls = false
 [[headers]]
