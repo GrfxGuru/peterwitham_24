@@ -25,3 +25,4 @@ pnpm-lock.yaml
 .astro
 .zed/
 .vscode/*
+.idea/*
