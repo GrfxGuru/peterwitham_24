@@ -1,5 +1,6 @@
 ---
 import appStoreImg from "~/assets/images/app-store.png";
+import appStoreGImage from "~/assets/images/goplay.png";
 import Image from "~/components/common/Image.astro";
 import Button from "~/components/ui/Button.astro";
 import CallToAction from "~/components/widgets/CallToAction.astro";
@@ -10,6 +11,9 @@ import Layout from "~/layouts/PageLayout.astro";
 
 const appStoreDownloadLink =
 	"https://apps.apple.com/us/app/job-finder-tracker/id6446909069";
+
+const appStoreDownloadLinkGoogle =
+	"https://play.google.com/store/apps/details?id=com.jobtracker.android";
 
 const metadata = {
 	title: "Job Finder Tracker",
@@ -39,6 +43,11 @@ const metadata = {
     <div slot="actions" class="flex max-w-sm gap-4  pt-10">
       <Button variant="link" href={appStoreDownloadLink}>
         <Image src={appStoreImg} alt="App Store Image" width={201} height={60}/>
+      </Button>
+    </div>
+    <div slot="actions" class="flex max-w-sm gap-4  pt-10">
+      <Button variant="link" href={appStoreDownloadLinkGoogle}>
+        <Image src={appStoreGImage} alt="Google Play Store Image" width={180} height={45}/>
       </Button>
     </div>
   </Hero2>
@@ -140,6 +149,11 @@ const metadata = {
     <div slot="actions" class="flex max-w-sm gap-4">
       <Button variant="link" href={appStoreDownloadLink}>
         <Image src={appStoreImg} alt="App Store Image" width={201} height={60}/>
+      </Button>
+    </div>
+    <div slot="actions" class="flex max-w-sm gap-4">
+      <Button variant="link" href={appStoreDownloadLinkGoogle}>
+        <Image src={appStoreGImage} alt="Google Play Store Image" width={180} height={45}/>
       </Button>
     </div>
   </CallToAction>
