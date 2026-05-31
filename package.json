@@ -50,13 +50,13 @@
 	},
 	"type": "module",
 	"packageManager": "pnpm@10.29.3",
-	"resolutions": {
-		"@astrojs/internal-helpers": "0.9.1"
-	},
 	"engines": {
 		"node": ">=18.14.1"
 	},
 	"pnpm": {
+		"overrides": {
+			"@astrojs/internal-helpers": "0.8.0"
+		},
 		"onlyBuiltDependencies": ["esbuild", "sharp"]
 	}
 }
