@@ -3,7 +3,7 @@
   command = "rm -rf node_modules/.vite && pnpm run build"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
   
 [build.processing.html]
   pretty_urls = false
