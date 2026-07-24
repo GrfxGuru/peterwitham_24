@@ -54,9 +54,6 @@
 		"node": ">=18.14.1"
 	},
 	"pnpm": {
-		"overrides": {
-			"@astrojs/internal-helpers": "0.8.0"
-		},
 		"onlyBuiltDependencies": [
 			"esbuild",
 			"sharp"
