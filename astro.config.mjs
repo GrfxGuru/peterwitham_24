@@ -60,7 +60,10 @@ export default defineConfig({
     tasks(),
 
     compress({
-      CSS: true,
+      CSS: {
+        csso: false,
+        lightningcss: { minify: true },
+      },
       HTML: {
         removeAttributeQuotes: false,
       },
