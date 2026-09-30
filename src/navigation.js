@@ -23,6 +23,11 @@ export const headerData = {
 			text: "Apps",
 			links: [
 				{
+					text: "SubRadar",
+					href: "https://subradar.app",
+					target: "_blank",
+				},
+				{
 					text: "Endless Hurdles Game",
 					href: "/eh",
 				},

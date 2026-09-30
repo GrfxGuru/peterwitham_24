@@ -14,6 +14,7 @@ interface Link {
 	href?: string;
 	ariaLabel?: string;
 	icon?: string;
+	target?: string;
 }
 
 interface ActionLink extends CallToAction {}
@@ -89,7 +90,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                     {text} <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
                   </button>
                   <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
-                    {links.map(({ text: text2, href: href2 }) => (
+                    {links.map(({ text: text2, href: href2, target: target2 }) => (
                       <li>
                         <a
                           class:list={[
@@ -97,6 +98,8 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                             { "aw-link-active" : href2 === currentPath}
                           ]}
                           href={href2}
+                          target={target2}
+                          rel={target2 === "_blank" ? "noopener noreferrer" : undefined}
                         >
                           {text2}
                         </a>

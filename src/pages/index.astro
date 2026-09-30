@@ -67,7 +67,40 @@ const metadata = {
   </div>
   <!-- HighlightedPosts Widget ******* -->
 
-  <BlogLatestPosts title="Latest Blog Posts" information={``} />
+  <BlogLatestPosts title="Latest Blog Posts" information={``} centered />
+
+  <!-- Latest YouTube Video ******* -->
+  <div class="flex flex-col items-center px-4 py-10 max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none font-heading mb-6">
+      Latest YouTube Video
+    </h2>
+    <div class="w-full aspect-video">
+      <iframe
+        class="w-full h-full"
+        src="https://www.youtube.com/embed/videoseries?list=UU1HugqCLsjVkMzNvADvlBPw"
+        title="Peter Witham - Latest YouTube Video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- Twitch Stream ******* -->
+  <div class="flex flex-col items-center px-4 py-10 max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none font-heading mb-6">
+      Twitch Stream
+    </h2>
+    <div class="w-full aspect-video">
+      <iframe
+        class="w-full h-full"
+        src="https://player.twitch.tv/?channel=compiledev&parent=peterwitham.com&parent=www.peterwitham.com&parent=localhost"
+        title="Peter Witham - Twitch Stream"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
 
   <!-- CallToAction Widget *********** -->
 
