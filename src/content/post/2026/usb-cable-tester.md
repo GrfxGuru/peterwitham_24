@@ -10,7 +10,7 @@ metadata:
   canonical: https://peterwitham.com/2026/usb-cable-tester/
 ---
 
-Why do you a tool that just tests USB cables?
+Why do you need a tool that just tests USB cables?
 
 [Treedix USB tester on Amazon](https://amzn.to/4zOkbGk)
 
@@ -34,7 +34,7 @@ You get three screens of information.
 
 ### Speed and Power
 <image src="/images/post-content/2026/usbtester/usbcable03.jpg"/>
-</br>
+<br/>
 
 You can test the following connectors:
 
